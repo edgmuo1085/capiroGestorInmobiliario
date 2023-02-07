@@ -1,0 +1,252 @@
+/* ********************************************* */
+.principal {
+  display: flex;
+  justify-content: center;
+}
+
+.principal__container {
+  height: 85vh;
+  width: 95%;
+  border-radius: .5rem;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.principal__item {
+  width: 60%;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.135);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.principal__logos {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.principal__logo {
+  max-width: 12rem;
+  filter: drop-shadow(0 2px 5px #ffffff74);
+}
+
+.principal__titulo {
+  color: #ffffff;
+  font-size: 2.3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.principal__subtitulo {
+  color: #ffffff;
+  font-size: .8rem;
+  margin-bottom: 1rem;
+}
+
+.principal__search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .7rem 3.5rem;
+  width: 50%;
+  border-radius: 4rem;
+  margin-top: 1rem;
+}
+
+.principal__search--boton {
+  background-color: var(--color-principal);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 1rem 3rem;
+  border-radius: .7rem;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 5px 5px 15px #464545c2;
+}
+
+.principal__search--boton:hover {
+  background-color: var(--color-hover);
+  box-shadow: 0 2px 5px #464646ad;
+}
+
+
+
+
+/* ********************************************** */
+
+.services {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.services__container {
+  width: 85%;
+  height: 50vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.services__info {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+  cursor: pointer;
+  box-shadow: 5px 5px 15px #88888846;
+  padding: 4rem 2rem;
+  border-radius: 1.5rem;
+  outline: 1px solid var(--color-principal);
+  outline-offset: -.8rem;
+}
+
+.services__info:hover {
+  box-shadow: 5px 5px 15px var(--color-secundario);
+}
+
+.service__icono {
+  width: 5.5rem;
+  height: 5.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  border: 1.5px solid var(--color-principal);
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.service__icono--img {
+  max-width: 100%;
+}
+
+.service__titulo {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #575555;
+  margin-bottom: .6rem;
+}
+
+.service__descripcion {
+  font-size: .9rem;
+  color: #575555;
+  margin-bottom: .6rem;
+  text-align: center;
+}
+
+
+/* ***************destacados********************* */
+
+.destacados {
+  width: 100%;
+}
+
+/* *******************Ubicación************************ */
+
+.ubicacion{
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  margin: 0 0 2rem 0;
+}
+
+.ubicacion__mapa {
+  width: 90%;
+  border-radius: .5rem;
+}
+
+.ubicacion__titulo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--color-principal);
+}
+
+
+@media (max-width: 900px) {
+
+  .principal__container {
+    height: 50vh;
+    width: 100%;
+    border-radius: 0rem;
+    padding: 2rem;
+  }
+
+  .principal__item {
+    width: 95%;
+  }
+
+  .principal__titulo {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .principal__subtitulo {
+    align-self: center;
+    padding: 0 1rem;
+  }
+
+  .principal__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+
+  .principal__logo {
+    max-width: 7rem;
+    filter: drop-shadow(0 2px 5px #ffffff74);
+  }
+
+  .principal__search--boton {
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  /* ************************************************ */
+
+
+  .services__container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .services__info {
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 2rem;
+    margin-bottom: 1rem;
+  }
+
+}

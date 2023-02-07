@@ -1,0 +1,65 @@
+<section class="detalles animate__animated animate__fadeIn">
+    <div class="detalles__container">
+        <div class="detalles__titulo">
+            <p>Titulo de la propiedad</p>
+        </div>
+        <div class="detalles__contenido">
+            <div class="detalles__imagenes">
+                <p-galleria [value]="images">
+                    <ng-template pTemplate="item" let-item>
+                        <img [src]="item.previewImageSrc" [alt]="item.alt" class="detalle__img" />
+                    </ng-template>
+                </p-galleria>
+                <!-- <p-galleria [value]="images" [numVisible]="5">
+                    <ng-template pTemplate="item" let-item>
+                        <img [src]="item.previewImageSrc" [alt]="item.alt" class="detalle__img" />
+                    </ng-template>
+                    <ng-template pTemplate="thumbnail" let-item>
+                        <div class="grid grid-nogutter justify-content-center">
+                            <img [src]="item.thumbnailImageSrc" width="40rem" height="20rem" />
+                        </div>
+                    </ng-template>
+                </p-galleria> -->
+                <!-- <img src="./assets/images/galeria1.jpg" alt="imagen detalles" class="detalle__img"> -->
+            </div>
+            <div class="detalles__info">
+                <div class="info__titulo">
+                    <p>Detalles</p>
+                </div>
+                <div class="info__descripcion">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, provident ipsa? Ipsam, ea maiores aliquid reprehenderit nostrum ullam.
+                </div>
+                <div class="info__propiedad-1">
+                    <div class="info_item">
+                        <img src="./assets/images/icono-galeria1.png" alt="" class="info__item--img">
+                        <p>3 Habitaciones</p>
+                    </div>
+                    <div class="info_item">
+                        <img src="./assets/images/icono-galeria2.png" alt="" class="info__item--img">
+                        <p>2 Baños</p>
+                    </div>
+                    <div class="info_item">
+                        <img src="./assets/images/icono-galeria3.png" alt="" class="info__item--img">
+                        <p>800 metros cuadrados</p>
+                    </div>
+                </div>
+                <div class="info__propiedad-2">
+                    <div class="info__badges">Nuevo</div>
+                    <div class="info__badges">Casa</div>
+                </div>
+                <div class="info__precio">
+                    <p>Precio de venta</p>
+                    <p class="precio">$210.000.000</p>
+                </div>
+                <div class="info__botones">
+                    <button class="info__boton--volver" routerLink="/propiedades">Volver</button>
+                    <button *ngIf="botonArriendo" class="info__boton--contactar" routerLink="/arrendamiento">Arrendar</button>
+                    <button *ngIf="botonVenta" class="info__boton--contactar" routerLink="/arrendamiento">Comprar</button>
+                    <button *ngIf="botonContacto" class="info__boton--contactar" routerLink="/arrendamiento">Contactar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

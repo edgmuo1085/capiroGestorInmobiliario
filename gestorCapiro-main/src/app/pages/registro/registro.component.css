@@ -1,0 +1,139 @@
+.registro {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.container__registro {
+    width: 85%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.registro__imagen {
+    width: 45%;
+    height: 90vh;
+}
+
+.registro__imagen--img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.registro__form {
+    width: 50%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.registro__title {
+    color: var(--color-tercer);
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin: .5rem 0 1rem 0;
+}
+
+.registro__campos {
+    width: 100%;
+    padding: 0 3rem;
+}
+
+.registro__campo--item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 1rem 0;
+}
+
+.registro__label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #575555;
+    padding: .3rem 0;
+}
+
+.registro__input {
+    width: 100%;
+    border:solid 1px var(--color-tercer);
+    height: 2rem;
+    border-radius: .6rem;
+    padding: 0 1.5rem;
+}
+
+.registro__input:focus-visible {
+    outline:solid 1.3px var(--color-tercer);
+}
+
+.registro__campo--botones{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 3rem 3rem;
+}
+
+
+.registrar__boton {
+    background-color: var(--color-principal);
+    border: 0;
+    color: #ffffff;
+    padding: .6rem 3rem .6rem 3rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: .9rem;
+}
+
+.registrar__boton--cancelar{
+    background-color: transparent;
+    border: 0;
+    color: var(--color-principal);
+    padding: .6rem 3rem .6rem 3rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: .5rem;
+    font-size: .9rem;
+}
+
+.registrar__boton:hover {
+    background-color: var(--color-hover);
+    color: #ffffff;
+}
+
+.registrar__boton--cancelar:hover {
+    outline: solid 1px var(--color-principal);
+}
+
+.registro__mensaje {
+    color: var(--color-secundario);
+    margin-bottom: .8rem;
+    padding: 0 3rem;
+}
+
+
+@media (max-width: 900px) {
+
+    .container__registro {
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .registro__form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .registro__imagen {
+        display: none;
+    }
+
+}
+

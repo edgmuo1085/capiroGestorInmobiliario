@@ -1,0 +1,141 @@
+.arrend {
+    display: flex;
+    justify-content: center;
+}
+
+.arrend__container {
+    width: 90%;
+}
+
+.arrend__header {
+    width: 100%;
+    height: 20vh;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.arrend__img {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+}
+
+.arrend__formulario {
+    padding: 2rem 0;
+}
+
+.info__general--items {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.info__general--item{
+    width: 30%;
+}
+
+.text__form {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-principal);
+}
+
+
+
+/* **************************** */
+.formulario__label {
+    font-size: .9rem;
+    font-weight: 400;
+    color: #3f3f3f;
+    padding: 3rem 0;
+}
+
+.formulario__input {
+    width: 100%;
+    border:solid 1px var(--color-tercer);
+    height: 2rem;
+    border-radius: .6rem;
+    padding: 0 1.5rem;
+}
+
+.formulario__input:focus-visible {
+    outline:solid 1.3px var(--color-tercer);
+}
+
+.text__area {
+    border:solid 1px var(--color-principal);
+    border-radius: .6rem;
+    padding: 1rem 1.5rem;
+    resize:none;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif ;
+}
+
+.text__area:focus-visible {
+    outline:solid 1.3px var(--color-hover);
+}
+
+option{
+    font-size: 1rem;
+    margin: 1rem;
+}
+
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+
+  .mat-form-field {
+    margin-top: 16px;
+  }
+
+
+  .form__radios{
+    margin: 3rem;
+  }
+
+  .form__botones{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 1rem 0;
+  }
+
+.btn__arriendo--cancelar {
+    background-color: transparent;
+    border: 0;
+    color: var(--color-principal);
+    padding: .5rem 5rem .5rem 5rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-size: 1rem;
+}
+
+.btn__arriendo--cancelar:hover {
+    outline: solid 1px var(--color-principal);
+}
+
+.btn__arriendo--enviar {
+    background-color: var(--color-principal);
+    border: 0;
+    color: #ffffff;
+    padding: .5rem 5rem .5rem 5rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+
+}
+
+.btn__arriendo--enviar:hover {
+    background-color: var(--color-hover);
+    color: #ffffff;
+}
+

@@ -1,0 +1,175 @@
+
+.nosotros{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.nosotros__container--historia{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 2rem 0;
+}
+
+.nosotros__textos--historia{
+    width: 95%;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nosotros__titulo--historia {
+    color: var(--color-principal);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2rem 0;
+}
+
+.nosotros__parrafo--historia {
+    color: var(--color-secundario);
+}
+
+.nosotros__container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 3rem 0;
+}
+
+.nosotros__img {
+    width: 45%;
+    height: 50vh;
+    position: relative;
+}
+
+.principal__logos {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+}
+
+.principal__logo{
+    max-width: 12rem;
+    filter: drop-shadow(0 2px 5px #ffffff74);
+}
+
+.nosotros__imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+
+}
+
+.nosotros__textos{
+    width: 45%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nosotros__titulo {
+    color: var(--color-principal);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-principal);
+    padding: 1rem 0;
+}
+
+.nosotros__parrafo {
+    font-size: 1rem;
+    color: var(--color-secundario);
+}
+
+.nosotros__parrafo > p {
+    margin-bottom: 2rem;
+}
+
+
+.asesores__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.asesor__item {
+    width: 30%;
+    padding: .5rem;
+    border-radius: .5rem;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 15px #88888846;
+}
+
+.asesor__nombre {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-tercer);
+    margin-bottom: 1rem;
+}
+
+.asesor__info > p > span {
+    color: var(--color-principal);
+    font-weight: 700;
+    margin-right: 1rem;
+}
+
+@media (max-width: 900px) {
+
+    .nosotros__container {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-bottom: 0rem;
+        padding: 1rem 0;
+    }
+
+    .nosotros__img {
+        width: 100%;
+        height:  10rem;
+        position: relative;
+    }
+
+    .nosotros__textos{
+        width: 100%;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .movile {
+        flex-direction: column-reverse;
+    }
+
+    .asesor__movile {
+        width: 90%;
+        height: 40vh;
+    }
+
+    .asesores__container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+
+    .asesor__item {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: .5rem;
+        border-radius: .5rem;
+    }
+}

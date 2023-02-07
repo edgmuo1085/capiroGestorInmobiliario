@@ -1,0 +1,231 @@
+.hipotecas {
+    display: flex;
+    justify-content: center;
+}
+
+.hipotecas__container {
+    width: 90%;
+}
+
+.hipotecas__img {
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+}
+
+
+.hipotecas__inmueble--form {
+  padding: 2rem 0;
+}
+
+.registro__titulo {
+  width: 100%;
+  font-size: 1.4rem;
+  color: var(--color-tercer);
+  font-weight: 900;
+}
+
+.hipoteca__mensaje {
+  font-size: 1rem;
+  color: var(--color-secundario);
+  margin: 1rem 0;
+}
+
+.form__items {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin: 1rem 0
+}
+
+.form__item {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  padding-right: 1rem;
+}
+
+
+/* ************************************* */
+.formulario__label {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #3f3f3f;
+    padding: .5rem 0;
+  }
+  
+  .formulario__input {
+    width: 95%;
+    border:solid 1px var(--color-tercer);
+    height: 2.2rem;
+    border-radius: .6rem;
+    padding: 0 1.5rem;
+  }
+  
+  .form__items--botones{
+    display: flex;
+    justify-content: center; 
+    margin: 5rem 0 2rem 0; 
+  }
+  
+  .formulario__input:focus-visible {
+    outline:solid 1.3px var(--color-tercer);
+  }
+
+ /* ********************input file************************************** */
+
+input[type=file]::file-selector-button {
+  background: var(--color-secundario);
+  color: #ffffff;
+  padding: .5rem 1em;
+  border: 0;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-size: .8rem;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: var(--color-tercer);
+}
+
+ /* ********************************************************** */
+
+  .form__items--botones{
+    display: flex;
+    justify-content: center; 
+    margin: 5rem 0 2rem 0; 
+  }
+
+  .registrar__boton {
+    background-color: var(--color-principal);
+    border: 0;
+    color: #ffffff;
+    padding: .6rem 3rem .6rem 3rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: .8rem;
+  }
+  
+  .registrar__boton--cancelar{
+    background-color: transparent;
+    border: 0;
+    color: var(--color-principal);
+    padding: .6rem 3rem .6rem 3rem;
+    border-radius: .6rem;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: .5rem;
+    font-size: .8rem;
+  }
+
+  .boton__requisitos {
+    border: 1px solid var(--color-principal);
+    color: var(--color-principal);
+    padding: .6rem 3rem .6rem 3rem;
+    border-radius: .6rem;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .boton__requisitos:hover {
+    color: #ffffff;
+    background-color: var(--color-principal);
+  }
+
+
+  /* ************************************************************ */
+
+  .hipotecas__titulo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 100%;
+    color: var(--color-principal);
+    margin: 2rem 0;
+  }
+
+
+  /* ********************************************************** */
+  /* Requisitos */
+
+  .header__requisitos {
+    color: var(--color-principal);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .requisitos__container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1.5rem 0;
+  }
+
+  .requisitos__item {
+    width: 20%;
+    border: 1px solid var(--color-tercer);
+    border-radius: 1rem;
+    padding: .5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px #3f3f3f1c;
+  }
+
+  .requisitos__icono {
+    height: 30%; 
+  }
+
+  .img__requisitos{
+   width: 4rem;
+   height: 4rem;
+  }
+
+  .requisitos__titulo {
+    color: var(--color-tercer);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: .5rem 0;
+  }
+
+  .requisitos__text {
+    color: var(--color-tercer);
+    font-size: .9rem;
+  }
+
+
+  @media (max-width: 900px) {
+
+    .hipotecas__img {
+      height: 10vh;
+  }
+
+    .requisitos__container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+    }
+
+    .requisitos__item {
+      width: 90%;
+      margin: 1rem 0;
+    }
+
+    .form__items {
+      display:flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%;
+      margin: 1rem 0
+    }
+
+    .form__item{
+      display:flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+  }

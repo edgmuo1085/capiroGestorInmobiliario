@@ -1,0 +1,212 @@
+<section class="hipotecas">
+    <div class="hipotecas__container">
+        <div class="hipotecas__header animate__animated animate__fadeInDown">
+            <img src="./assets/images/fondo-hipotecas.jpg" alt="Fondo registro inmueble" class="hipotecas__img">
+        </div>
+
+        <div class="hipotecas__inmueble--form animate__animated animate__fadeIn">
+            <div class="registro__titulo">
+              <p>Hipotecar inmueble</p>
+            </div>
+            <p class="hipoteca__mensaje">Formulario para hipotecar inmuebles, ingrese los siguientes datos</p>
+            <button class="boton__requisitos" (click)="showDialog()">Ver requisitos</button>
+            <form [formGroup]="formHipotecas" (submit)="solicitar()">
+              <div class="hipotecas__form--items">
+                <div class="form__items">
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Tipo Inmueble:</label>
+                    <select name="tipoInm" id="tipoinm" class="formulario__input" formControlName="tipoInmueble">
+                      <option value="casa">Casa</option>
+                      <option value="apartamento">Apartamento</option>
+                      <option value="local">Local</option>
+                      <option value="bodega">Bodega</option>
+                      <option value="casa finca">Casa finca</option>
+                  </select>
+                  </div>
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Valor comercial:</label>
+                    <input type="number" name="valor" id="valor" class="formulario__input" formControlName="valor">
+                  </div>
+                </div>
+        
+                <div class="form__items">
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Area de la propiedad:</label>
+                    <input type="number" name="area" id="area" class="formulario__input" formControlName="area">
+                  </div>
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Dirección de la propiedad:</label>
+                    <input type="text" name="direccion" id="direccion" class="formulario__input" formControlName="direccion">
+                  </div>
+                </div>
+        
+        
+                <div class="form__items">
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">¿Que uso le da a la propiedad?</label>
+                    <select name="usoPropiedad" id="usoPropiedad" class="formulario__input" formControlName="usoPropiedad">
+                      <option value="nuevo">Residencial</option>
+                      <option value="usado">Comercial</option>
+                      <option value="mixto">mixto</option>
+                      <option value="otro">otro</option>
+                  </select>
+                  </div>
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">¿Tiene alguna afectación la propiedad?</label>
+                    <select name="afectacion" id="afectacion" class="formulario__input" formControlName="afectacion">
+                        <option value="si">Si</option>
+                        <option value="no">No</option>
+                    </select>
+                  </div>
+                </div>
+        
+                <div class="form__items">
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Estrato:</label>
+                    <select name="estrato" id="estrato" class="formulario__input" formControlName="estrato">
+                        <option value="1">Estrato 1</option>
+                        <option value="2">Estrato 2</option>
+                        <option value="3">Estrato 3</option>
+                        <option value="4">Estrato 4</option>
+                        <option value="5">Estrato 5</option>
+                        <option value="6">Estrato 6</option>
+                    </select>
+                  </div>
+                  <div class="form__item">
+                  </div>
+                </div>
+
+                <div class="hipotecas__titulo">
+                    <p>Datos personales</p>
+                </div>
+
+                <div class="form__items">
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Nombres:</label>
+                    <input type="text" name="nombres" id="nombres" class="formulario__input" formControlName="nombres">
+                  </div>
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Apellidos:</label>
+                    <input type="text" name="apellidos" id="apellidos" class="formulario__input" formControlName="apellidos">
+                  </div>
+                </div>
+
+                <div class="form__items">
+                    <div class="form__item">
+                      <label for="nacionalidad" class="formulario__label">Numero de celular:</label>
+                      <input type="number" name="celular" id="celular" class="formulario__input" formControlName="celular">
+                    </div>
+                    <div class="form__item">
+                      <label for="nacionalidad" class="formulario__label">Correo eletronico:</label>
+                      <input type="text" name="correo" id="correo" class="formulario__input" formControlName="correo">
+                    </div>
+                </div>
+
+
+                <div class="hipotecas__titulo">
+                    <p>Documentos</p>
+                </div>
+
+                <div class="form__items">
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Cédula:</label>
+                    <input type="file" accept=".pdf" name="cedula" formControlName="cedula">
+                  </div>
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Escritura:</label>
+                    <input type="file" accept=".pdf" name="escritura" formControlName="escritura">
+                  </div>
+                </div>
+
+                <div class="form__items">
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Certificado de libertad:</label>
+                    <input type="file" accept=".pdf" name="certificadoLibertad" formControlName="certificadoLibertad">
+                  </div>
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Predial:</label>
+                    <input type="file" accept=".pdf" name="predial" formControlName="predial">
+                  </div>
+                </div>
+
+                <div class="form__items">
+                  <div class="form__item">
+                    <label for="nacionalidad" class="formulario__label">Certificado de catastral:</label>
+                    <input type="file" accept=".pdf" name="certificadoTradicion" formControlName="certificadoCatastral">
+                  </div>
+                  <div class="form__item">
+                  </div>
+                </div>
+
+                
+                <div class="form__items--botones">
+                  <a routerLink="/home" class="registrar__boton--cancelar">Cancelar</a>
+                  <button type="submit" class="registrar__boton">Solicitar</button>
+                </div> 
+
+              </div>
+            </form>
+      
+          </div>
+    </div>
+</section>
+
+
+
+
+
+<p-dialog [(visible)]="display" [style]="{width: '70vw'}">
+    <ng-template pTemplate="header">
+       <p class="header__requisitos">Requisitos</p> 
+    </ng-template>
+    <p>Los documentos que necesitas para realizar la hipoteca de su propiedad son:</p>
+    <div class="requisitos__container">
+        <div class="requisitos__item">
+            <div class="requisitos__icono">
+                <img src="./assets/images/icono7.png" alt="icono requisitos" class="img__requisitos">
+            </div>
+            <div class="requisitos__titulo">
+                <p>Cédula</p>
+            </div>
+            <div class="requisitos__text">
+                <p>Fotocopia de la cédula de ciudadanía del propietario del inmueble.</p>
+            </div>
+        </div>
+
+        <div class="requisitos__item">
+            <div class="requisitos__icono">
+                <img src="./assets/images/icono8.png" alt="icono requisitos" class="img__requisitos">
+            </div>
+            <div class="requisitos__titulo">
+                <p>Certificado</p>
+            </div>
+            <div class="requisitos__text">
+                <p>Certificado de tradición y Libertad Actualizado del inmueble.</p>
+            </div>
+        </div>
+
+        <div class="requisitos__item">
+            <div class="requisitos__icono">
+                <img src="./assets/images/icono9.png" alt="icono requisitos" class="img__requisitos">
+            </div>
+            <div class="requisitos__titulo">
+                <p>Ficha catastral</p>
+            </div>
+            <div class="requisitos__text">
+                <p>Fotocopia del documento de impuesto predial del inmueble.</p>
+            </div>
+        </div>
+
+        <div class="requisitos__item">
+            <div class="requisitos__icono">
+                <img src="./assets/images/icono10.png" alt="icono requisitos" class="img__requisitos">
+            </div>
+            <div class="requisitos__titulo">
+                <p>Escritura</p>
+            </div>
+            <div class="requisitos__text">
+                <p>Una fotocopia de la escritura que demuestre que el inmueble esta a su nombre.</p>
+            </div>
+        </div>
+    </div>
+</p-dialog>

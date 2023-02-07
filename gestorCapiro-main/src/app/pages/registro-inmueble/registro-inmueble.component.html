@@ -1,0 +1,115 @@
+<section class="registro__inmueble">
+  <div class="registro__inmueble--container">
+    <div class="registro__header animate__animated animate__fadeInDown">
+      <img src="./assets/images/fondo-registrarInmueble.jpg" alt="Fondo registro inmueble" class="registro__img">
+    </div>
+    <div class="registro__inmueble--form animate__animated animate__fadeIn">
+      <div class="registro__titulo">
+        <p>Registrar inmueble</p>
+      </div>
+      <p class="registro__mensaje">Formulario de registro de inmuebles, ingrese los siguientes datos</p>
+      <form [formGroup]="formRegistroInmueble">
+        <div class="registro__form--items">
+          <div class="form__items">
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Tipo Inmueble:</label>
+              <select name="tipoInm" id="tipoinm" class="formulario__input" formControlName="tipoInmueble">
+                <option value="casa">Casa</option>
+                <option value="apartamento">Apartamento</option>
+                <option value="local">Local</option>
+                <option value="bodega">Bodega</option>
+                <option value="casa finca">Casa finca</option>
+            </select>
+            </div>
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Area del predio:</label>
+              <input type="number" name="areaPredio" id="areaPredio" class="formulario__input" formControlName="area">
+            </div>
+          </div>
+  
+          <div class="form__items">
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Número de Habitaciones:</label>
+              <input type="number" name="habitaciones" id="habitaciones" class="formulario__input" formControlName="habitacion">
+            </div>
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Estrato:</label>
+              <input type="number" name="estrato" id="estrato" class="formulario__input" formControlName="estrato">
+            </div>
+          </div>
+  
+          <div class="form__items">
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Número de baños:</label>
+              <input type="number" name="numeroBanos" id="numeroBanos" class="formulario__input" formControlName="banos">
+            </div>
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Garaje:</label>
+              <select name="garaje" id="garaje" class="formulario__input" formControlName="garage">
+                <option value="Si">Si</option>
+                <option value="No">No</option>
+            </select>
+            </div>
+          </div>
+  
+          <div class="form__items">
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Estado Inmueble:</label>
+              <select name="estadoInm" id="estadoinm" class="formulario__input" formControlName="estado">
+                <option value="nuevo">Nuevo</option>
+                <option value="usado">Usado</option>
+            </select>
+            </div>
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Tiempo de construido:</label>
+              <input type="text" name="tiempo" id="tiempo" class="formulario__input" placeholder="Ej. 4 años" formControlName="tiempo">
+            </div>
+          </div>
+  
+          <div class="form__items">
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Precio:</label>
+              <input type="number" name="precio" id="precio" class="formulario__input" formControlName="precio">
+            </div>
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Tipo de publicación:</label>
+              <select name="tipoInm" id="tipoInm" class="formulario__input" formControlName="tipoPublicacion">
+                <option value="Arriendo">Arriendo</option>
+                <option value="Venta">Venta</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="form__items">
+            <div class="form__item">
+              <label for="nacionalidad" class="formulario__label">Tipo construción:</label>
+              <select name="tipoCons" id="tipoCons" class="formulario__input" formControlName="tipoCons">
+                <option value="moderno">Moderno</option>
+                <option value="antiguo">Antiguo</option>
+            </select>
+            </div>
+            <div class="form__item--continuar">
+              <button class="registrar__boton--continuar" (click)="registrarInmueble()">Continuar</button>
+            </div>
+          </div>
+  
+          <!-- <div class="form__items--botones">
+            <a routerLink="/home" class="registrar__boton--cancelar">Cancelar</a>
+            <a class="registrar__boton">Registrar</a>
+          </div> -->
+        </div>
+      </form>
+
+      <div class="registro__form--items animate__animated animate__fadeInDown" *ngIf="cargarImagenes">
+        <div class="file__texto">
+          <p>Presione el botón de seleccionar para adjuntar las fotos del inmueble.</p>
+          <p>Al terminar presione el botón de subir para terminar el registro</p>
+        </div>
+        <p-fileUpload name="myfile[]" [multiple]="multiple" [customUpload]="true" (uploadHandler)="SubirImagenes($event)"></p-fileUpload>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
