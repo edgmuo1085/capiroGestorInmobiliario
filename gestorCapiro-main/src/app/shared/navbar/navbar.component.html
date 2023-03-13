@@ -6,7 +6,7 @@
     <div class="header__nav--items" *ngFor="let menu of menuItem">
       <a class="header__nav--item" [routerLink]="menu.link" routerLinkActive="active">{{menu.label}}</a>
     </div>
-    <label class="header__nav--item" for="" [matMenuTriggerFor]="menu">Propiedades</label>
+    <label class="header__nav--item" for="" [matMenuTriggerFor]="menu">Inmuebles</label>
     <mat-menu #menu="matMenu">
       <button mat-menu-item routerLink="propiedadVenta">Propiedades en venta</button>
       <button mat-menu-item routerLink="propiedadArrendo">Propiedades en Arriendo</button>
@@ -92,7 +92,7 @@
     </div>
     <div class="header__nav--items">
       <a class="header__nav--item" routerLink="home" routerLinkActive="active" (click)="verMenu = false">Inicio</a>
-      <a class="header__nav--item" routerLink="" routerLinkActive="active" (click)="verMenu = false">Propiedades</a>
+      <a class="header__nav--item" routerLink="" routerLinkActive="active" (click)="verMenu = false">Inmuebles</a>
       <a class="header__nav--item" routerLink="" routerLinkActive="active" (click)="verMenu = false">Nosotros</a>
       <a class="header__nav--item" routerLink="contacto" routerLinkActive="active"
         (click)="verMenu = false">Contacto</a>

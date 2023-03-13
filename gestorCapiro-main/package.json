@@ -25,6 +25,7 @@
     "@ngx-translate/http-loader": "^7.0.0",
     "file-saver": "^2.0.5",
     "image-to-base64": "^2.2.0",
+    "loader-utils": "^3.2.1",
     "primeicons": "^5.0.0",
     "primeng": "^14.0.2",
     "rxjs": "~7.5.0",

@@ -42,7 +42,7 @@ export class RegistroInmuebleComponent implements OnInit {
 
     this.loginService.idUsuario.subscribe(id => {
       this.idUsuario = id
-      localStorage.setItem('id',this.idUsuario)
+      //localStorage.setItem('id',this.idUsuario)
       console.log(id);
     })
 
