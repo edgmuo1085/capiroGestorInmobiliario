@@ -24,7 +24,8 @@ export class LoginService {
     }
 
     login(correo: string, contra: string): Observable<any> {
-        return this.http.post<any>(`${URL_API}login/ingresar/${correo}/${contra}`, null).pipe(
+        let json = {"usuario":correo,"password":contra}
+        return this.http.post<any>(`${URL_API}login/loguear/`, json).pipe(
             tap((resp: any) => {
                 if (resp !== null) {
                     if (resp.token === null) {

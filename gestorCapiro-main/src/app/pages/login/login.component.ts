@@ -64,17 +64,7 @@ export class LoginComponent implements OnInit {
               this.ro.navigateByUrl('registro');
             }
           })
-        } else {
-          if (resp.estado === 'A') {
-            this.ro.navigateByUrl('home');
-          } else if (resp.estado === 'I') {
-            Swal.fire({
-              icon: 'info',
-              title: 'Cuenta inhabilitada',
-              text: 'Por favor comuníquese con el administrador!',
-            })
-          }
-        }
+        } 
       }
     );
   }
