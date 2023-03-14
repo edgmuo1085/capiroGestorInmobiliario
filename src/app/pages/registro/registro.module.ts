@@ -6,17 +6,8 @@ import { CommonModule } from '@angular/common';
 import { RegistroRoutingModule } from './registro-routing.module';
 import { RegistroComponent } from './registro.component';
 
-
 @NgModule({
-  declarations: [
-    RegistroComponent
-  ],
-  imports: [
-    CommonModule,
-    RegistroRoutingModule,
-    CdkModule,
-    FormsModule,
-    ReactiveFormsModule
-  ]
+  declarations: [RegistroComponent],
+  imports: [CommonModule, RegistroRoutingModule, CdkModule, FormsModule, ReactiveFormsModule],
 })
-export class RegistroModule { }
+export class RegistroModule {}

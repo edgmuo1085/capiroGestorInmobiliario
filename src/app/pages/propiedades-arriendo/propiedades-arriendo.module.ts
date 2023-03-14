@@ -6,20 +6,10 @@ import { PropiedadesArriendoRoutingModule } from './propiedades-arriendo-routing
 import { PropiedadesArriendoComponent } from './propiedades-arriendo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {DialogModule} from 'primeng/dialog';
-
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
-  declarations: [
-    PropiedadesArriendoComponent
-  ],
-  imports: [
-    CommonModule,
-    PropiedadesArriendoRoutingModule,
-    PipesModule,
-    FormsModule,
-    ReactiveFormsModule,
-    DialogModule
-  ]
+  declarations: [PropiedadesArriendoComponent],
+  imports: [CommonModule, PropiedadesArriendoRoutingModule, PipesModule, FormsModule, ReactiveFormsModule, DialogModule],
 })
-export class PropiedadesArriendoModule { }
+export class PropiedadesArriendoModule {}

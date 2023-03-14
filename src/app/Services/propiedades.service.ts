@@ -4,55 +4,50 @@ import { tap } from 'rxjs';
 import { URL_API } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PropiedadesService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-
-  crearInmueble(data:any){
-    return this.http.post<any>(`${URL_API}predio/crear/`,data).pipe(
+  crearInmueble(data: any) {
+    return this.http.post<any>(`${URL_API}predio/crear/`, data).pipe(
       tap((resp: any) => {
-        console.log('crear inmueble',resp);
-      }),
-    )
+        console.log('crear inmueble', resp);
+      })
+    );
   }
 
-  guardarFoto(data:any){
-    return this.http.post<any>(`${URL_API}predio/fotos/`,data).pipe(
+  guardarFoto(data: any) {
+    return this.http.post<any>(`${URL_API}predio/fotos/`, data).pipe(
       tap((resp: any) => {
-        console.log('foto',resp);
-      }),
-    )
+        console.log('foto', resp);
+      })
+    );
   }
 
-
-  getPropiedades(){
+  getPropiedades() {
     return this.http.get(`${URL_API}predio/lista`);
   }
 
-  getPropiedadesFiltro(filtro:any){
-    return  this.http.get(`${URL_API}predio/filtros/${filtro}`);
+  getPropiedadesFiltro(filtro: any) {
+    return this.http.get(`${URL_API}predio/filtros/${filtro}`);
   }
-
 
   // ********************************************************++
 
-  todasPropiedades(){
+  todasPropiedades() {
     return this.http.get('./assets/images/propiedades.json');
   }
 
-  arriendoPropiedades(){
+  arriendoPropiedades() {
     return this.http.get('./assets/images/propiedades-arriendo.json');
   }
 
-  ventaPropiedades(){
+  ventaPropiedades() {
     return this.http.get('./assets/images/propiedades-ventas.json');
   }
 
-  getImgenes(){
-    return this.http.get('./assets/images/imagenes.json')
+  getImgenes() {
+    return this.http.get('./assets/images/imagenes.json');
   }
-
 }

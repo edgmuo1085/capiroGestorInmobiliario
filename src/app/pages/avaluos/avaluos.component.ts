@@ -4,14 +4,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-avaluos',
   templateUrl: './avaluos.component.html',
-  styleUrls: ['./avaluos.component.css']
+  styleUrls: ['./avaluos.component.css'],
 })
 export class AvaluosComponent implements OnInit {
-  
-  display:boolean = false;
-  formAvaluos!:FormGroup;
+  display: boolean = false;
+  formAvaluos!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.formAvaluos = this.fb.group({
@@ -35,12 +34,11 @@ export class AvaluosComponent implements OnInit {
       escrituraPublica: ['', Validators.required],
       predial: ['', Validators.required],
       certificadoCatastral: ['', Validators.required],
-
-    })
+    });
   }
 
-  solicitarAvaluo(){
-    if(this.formAvaluos.valid){
+  solicitarAvaluo() {
+    if (this.formAvaluos.valid) {
       console.log(this.formAvaluos.value);
     }
   }
@@ -48,5 +46,4 @@ export class AvaluosComponent implements OnInit {
   showDialog() {
     this.display = true;
   }
-
 }

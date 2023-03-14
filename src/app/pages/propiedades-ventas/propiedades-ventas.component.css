@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 .pro__filtro--titulo {
@@ -41,16 +41,16 @@
 
 .filtro--label {
   color: var(--color-tercer);
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .filtro--input {
   width: 13rem;
   border: solid 1px var(--color-tercer);
   height: 2rem;
-  border-radius: .6rem;
+  border-radius: 0.6rem;
   padding: 0 1.5rem;
   font-weight: 400;
   font-size: 1rem;
@@ -65,7 +65,7 @@ option {
   margin: 1rem;
 }
 
-.filtro-limpiar{
+.filtro-limpiar {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -75,19 +75,15 @@ option {
   background-color: var(--color-secundario);
   border: 0;
   color: #ffffff;
-  padding: .3rem 2rem;
-  border-radius: .5rem;
+  padding: 0.3rem 2rem;
+  border-radius: 0.5rem;
   cursor: pointer;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .limpiar__boton:hover {
   background-color: var(--color-tercer);
 }
-
-
-
-
 
 /* ************************************************* */
 .propiedades__items {
@@ -96,7 +92,7 @@ option {
   grid-template-rows: repeat(1, 60vh);
   grid-row-gap: 2rem;
   grid-auto-rows: 60vh;
-  padding: .5rem 0 2rem 0;
+  padding: 0.5rem 0 2rem 0;
   width: 100%;
 }
 
@@ -125,7 +121,7 @@ option {
   flex-direction: column;
   justify-content: space-evenly;
   background-color: #ffffff;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   /* box-shadow: 5px 5px 15px #88888846; */
 }
 
@@ -136,16 +132,16 @@ option {
 
 .info-badge {
   background: var(--color-secundario);
-  margin-left: .6rem;
-  padding: .2rem .6rem;
+  margin-left: 0.6rem;
+  padding: 0.2rem 0.6rem;
   border-radius: 2rem;
   color: #ffffff;
   font-weight: 400;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .pro__info--titulo {
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--color-principal);
 }
@@ -159,7 +155,7 @@ option {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .datos__info--img {
@@ -176,10 +172,10 @@ option {
   background-color: var(--color-principal);
   border: 0;
   color: #ffffff;
-  padding: .3rem 2rem;
-  border-radius: .5rem;
+  padding: 0.3rem 2rem;
+  border-radius: 0.5rem;
   cursor: pointer;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .pro__boton:hover {
@@ -208,15 +204,15 @@ option {
 .text__sinRegistro {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--color-secundario)
+  color: var(--color-secundario);
 }
 
 /* ***************************** */
-.container__sinRegistro{
+.container__sinRegistro {
   grid-column: 2/3;
   margin: 2rem 0;
 }
-.sinRegistro__item{
+.sinRegistro__item {
   color: var(--color-secundario);
   display: flex;
   flex-direction: column;
@@ -224,11 +220,10 @@ option {
   justify-content: center;
 }
 
-.sinRegistro--img{
+.sinRegistro--img {
   width: 8rem;
   margin-bottom: 1rem;
 }
-
 
 /* ************************************************** */
 /* Requisitos */
@@ -240,7 +235,7 @@ option {
   padding: 1rem 0 0 0;
 }
 
-.container__img--requisitos{
+.container__img--requisitos {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -249,8 +244,8 @@ option {
 .boton__requisitos {
   border: 1px solid var(--color-principal);
   color: var(--color-principal);
-  padding: .6rem 3rem .6rem 3rem;
-  border-radius: .6rem;
+  padding: 0.6rem 3rem 0.6rem 3rem;
+  border-radius: 0.6rem;
   background-color: transparent;
   cursor: pointer;
   font-weight: 700;
@@ -261,10 +256,7 @@ option {
   background-color: var(--color-principal);
 }
 
-
-
 @media (max-width: 900px) {
-
   .propiedades__items {
     display: grid;
     grid-template-columns: repeat(1, 90%);
@@ -291,8 +283,7 @@ option {
     width: 100%;
   }
 
-  .filtro-limpiar{
+  .filtro-limpiar {
     margin: 1rem 0 0 0;
   }
-
 }

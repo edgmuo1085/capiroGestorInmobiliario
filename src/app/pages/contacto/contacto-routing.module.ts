@@ -4,13 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'',
-    component: ContactoComponent
-  }
+    path: '',
+    component: ContactoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ContactoRoutingModule { }
+export class ContactoRoutingModule {}

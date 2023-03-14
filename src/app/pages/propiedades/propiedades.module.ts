@@ -6,18 +6,8 @@ import { PropiedadesComponent } from './propiedades.component';
 import { PipesModule } from 'src/app/core/pipes/pipes.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
-  declarations: [
-    PropiedadesComponent
-  ],
-  imports: [
-    CommonModule,
-    PropiedadesRoutingModule,
-    PipesModule,
-    FormsModule,
-    ReactiveFormsModule,
-    PipesModule
-  ]
+  declarations: [PropiedadesComponent],
+  imports: [CommonModule, PropiedadesRoutingModule, PipesModule, FormsModule, ReactiveFormsModule, PipesModule],
 })
-export class PropiedadesModule { }
+export class PropiedadesModule {}

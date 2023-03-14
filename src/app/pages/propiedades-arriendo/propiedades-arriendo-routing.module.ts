@@ -4,13 +4,13 @@ import { PropiedadesArriendoComponent } from './propiedades-arriendo.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component: PropiedadesArriendoComponent
-  }
+    path: '',
+    component: PropiedadesArriendoComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PropiedadesArriendoRoutingModule { }
+export class PropiedadesArriendoRoutingModule {}

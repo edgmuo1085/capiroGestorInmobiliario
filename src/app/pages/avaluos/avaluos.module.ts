@@ -5,19 +5,10 @@ import { CommonModule } from '@angular/common';
 import { AvaluosRoutingModule } from './avaluos-routing.module';
 import { AvaluosComponent } from './avaluos.component';
 
-import {DialogModule} from 'primeng/dialog';
-
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
-  declarations: [
-    AvaluosComponent
-  ],
-  imports: [
-    CommonModule,
-    AvaluosRoutingModule,
-    DialogModule,
-    FormsModule,
-    ReactiveFormsModule
-  ]
+  declarations: [AvaluosComponent],
+  imports: [CommonModule, AvaluosRoutingModule, DialogModule, FormsModule, ReactiveFormsModule],
 })
-export class AvaluosModule { }
+export class AvaluosModule {}

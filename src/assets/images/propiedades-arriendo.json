@@ -7,7 +7,7 @@
     "metros": 400,
     "tipoInmu": "oficina",
     "precio": 1000000,
-    "img":"./assets/images/galeria4.jpg"
+    "img": "./assets/images/galeria4.jpg"
   },
   {
     "tipo": "arriendo",
@@ -17,7 +17,7 @@
     "metros": 400,
     "tipoInmu": "casa",
     "precio": 300000000,
-    "img":"./assets/images/galeria5.jpg"
+    "img": "./assets/images/galeria5.jpg"
   },
   {
     "tipo": "arriendo",
@@ -27,8 +27,6 @@
     "metros": 400,
     "tipoInmu": "casa",
     "precio": 1500000,
-    "img":"./assets/images/galeria6.jpg"
+    "img": "./assets/images/galeria6.jpg"
   }
-
 ]
-

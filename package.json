@@ -7,7 +7,9 @@
     "build": "ng build",
     "build:prod": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --configuration=production --aot",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "format:write": "prettier --write \"**/src/**/*.{ts,js,json,html,css,scss,md}\"",
+    "format:check": "prettier --check \"**/src/**/*.{ts,js,json,html,css,scss,md}\""
   },
   "private": true,
   "dependencies": {

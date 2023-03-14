@@ -14,28 +14,15 @@ import { DialogModule } from 'primeng/dialog';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import {DropdownModule} from 'primeng/dropdown';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ToastModule} from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ToastModule } from 'primeng/toast';
 
-
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { DestacasosComponent } from './components/destacasos/destacasos.component';
 
-
-
-
-
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    FooterComponent,
-    HomeComponent,
-    NosotrosComponent,
-    DestacasosComponent
-  ],
+  declarations: [AppComponent, NavbarComponent, FooterComponent, HomeComponent, NosotrosComponent, DestacasosComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -46,9 +33,9 @@ import { DestacasosComponent } from './components/destacasos/destacasos.componen
     DropdownModule,
     ConfirmDialogModule,
     ToastModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

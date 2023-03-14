@@ -6,20 +6,10 @@ import { PropiedadesVentasRoutingModule } from './propiedades-ventas-routing.mod
 import { PropiedadesVentasComponent } from './propiedades-ventas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {DialogModule} from 'primeng/dialog';
-
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
-  declarations: [
-    PropiedadesVentasComponent
-  ],
-  imports: [
-    CommonModule,
-    PropiedadesVentasRoutingModule,
-    PipesModule,
-    FormsModule,
-    ReactiveFormsModule,
-    DialogModule
-  ]
+  declarations: [PropiedadesVentasComponent],
+  imports: [CommonModule, PropiedadesVentasRoutingModule, PipesModule, FormsModule, ReactiveFormsModule, DialogModule],
 })
-export class PropiedadesVentasModule { }
+export class PropiedadesVentasModule {}

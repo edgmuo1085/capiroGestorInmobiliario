@@ -1,603 +1,619 @@
 <section class="arrend">
-    <div class="arrend__container">
-        <div class="arrend__header">
-            <img src="./assets/images/fondoArrendamiento.jpg" alt="Fondo Arrendamientos" class="arrend__img">
-        </div>
+  <div class="arrend__container">
+    <div class="arrend__header">
+      <img src="./assets/images/fondoArrendamiento.jpg" alt="Fondo Arrendamientos" class="arrend__img" />
+    </div>
 
-        <div class="arrend__formulario">
-            <!-- <div class="arrend__formulario--titulo">
+    <div class="arrend__formulario">
+      <!-- <div class="arrend__formulario--titulo">
                 <p>Información general</p>
             </div> -->
-            <div class="info__general">
+      <div class="info__general">
+        <form [formGroup]="formArrendamientos" (ngSubmit)="enviar()">
+          <mat-stepper [linear]="isLinear" #stepper>
+            <mat-step label="información general">
+              <div class="info__general--items">
+                <div class="info__general--item">
+                  <label for="direccion" class="formulario__label">Dirección del inmueble a tomar en arriendo:</label>
+                  <input type="text" name="direccion" id="direccion" class="formulario__input" formControlName="direccionPredio" />
+                </div>
+                <div class="info__general--item">
+                  <label for="destinación" class="formulario__label">Destinación que dará al inmueble:</label>
+                  <input type="text" name="destinación" id="destinación" class="formulario__input" formControlName="destinacionPredio" />
+                </div>
+                <div class="info__general--item">
+                  <label for="mensual" class="formulario__label">Arrendamiento mensual:</label>
+                  <input type="text" name="mensual" id="mensual" class="formulario__input" formControlName="arrendamientoMen" />
+                </div>
+              </div>
 
+              <div class="info__general--items">
+                <div class="info__general--item">
+                  <label for="tipoinm" class="formulario__label">Tipo de Inmueble:</label>
+                  <select name="tipoInm" id="tipoinm" class="formulario__input" formControlName="tipoInmueble">
+                    <option value="casa">Casa</option>
+                    <option value="apartamento">Apartamento</option>
+                    <option value="local">Local</option>
+                    <option value="bodega">Bodega</option>
+                    <option value="casa finca">Casa finca</option>
+                  </select>
+                </div>
+              </div>
 
+              <div class="info__general--items">
+                <div class="info__general--item">
+                  <label for="nombres" class="formulario__label">Nombres:</label>
+                  <input type="text" name="nombres" id="nombres" class="formulario__input" formControlName="nombres" />
+                </div>
+                <div class="info__general--item">
+                  <label for="apellidos" class="formulario__label">Apellidos:</label>
+                  <input type="text" name="apellidos" id="apellidos" class="formulario__input" formControlName="apellidos" />
+                </div>
+                <div class="info__general--item">
+                  <label for="nacimiento" class="formulario__label">Fecha de nacimiento:</label>
+                  <input type="date" name="nacimiento" id="nacimiento" class="formulario__input" formControlName="fechaNacimiento" />
+                </div>
+              </div>
 
-                <form [formGroup]="formArrendamientos" (ngSubmit)="enviar()">
+              <div class="info__general--items">
+                <div class="info__general--item">
+                  <label for="tipodoc" class="formulario__label">Tipo de documento:</label>
+                  <select name="tipodoc" id="tipodoc" class="formulario__input" formControlName="tipoDoc">
+                    <option value="cc">Cédula de ciudadania</option>
+                    <option value="ce">Cédula de extranjería</option>
+                    <option value="p">Pasaporte</option>
+                  </select>
+                </div>
+                <div class="info__general--item">
+                  <label for="numerodoc" class="formulario__label">No. de documento:</label>
+                  <input type="number" name="numerodoc" id="numerodoc" class="formulario__input" formControlName="numeroDoc" />
+                </div>
+                <div class="info__general--item">
+                  <label for="fechaexp" class="formulario__label">Fecha de expedición :</label>
+                  <input type="date" name="fechaexp" id="fechaexp" class="formulario__input" formControlName="fechaExpedicion" />
+                </div>
+              </div>
 
-                    <mat-stepper [linear]="isLinear" #stepper>
-                        <mat-step label="información general">
+              <div class="info__general--items">
+                <div class="info__general--item">
+                  <label for="lugarexp" class="formulario__label">Lugar de Expedición:</label>
+                  <input type="text" name="lugarexp" id="lugarexp" class="formulario__input" formControlName="lugarExpedicion" />
+                </div>
+                <div class="info__general--item">
+                  <label for="lugarnacimiento" class="formulario__label">Lugar de nacimiento:</label>
+                  <input
+                    type="text"
+                    name="lugarnacimiento"
+                    id="lugarnacimiento"
+                    class="formulario__input"
+                    formControlName="lugarNacimiento"
+                  />
+                </div>
+                <div class="info__general--item">
+                  <label for="sexo" class="formulario__label">sexo:</label>
+                  <select name="sexo" id="sexo" class="formulario__input" formControlName="sexo">
+                    <option selected>Elija el sexo con el cual se identifica</option>
+                    <option value="m">Masculino</option>
+                    <option value="f">Femenino</option>
+                    <option value="x">Otro</option>
+                  </select>
+                </div>
+              </div>
 
-                            <div class="info__general--items">
-                                <div class="info__general--item">
-                                    <label for="direccion" class="formulario__label">Dirección del inmueble a tomar en arriendo:</label>
-                                    <input type="text" name="direccion" id="direccion" class="formulario__input" formControlName="direccionPredio">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="destinación" class="formulario__label">Destinación que dará al inmueble:</label>
-                                    <input type="text" name="destinación" id="destinación" class="formulario__input" formControlName="destinacionPredio">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="mensual" class="formulario__label">Arrendamiento mensual:</label>
-                                    <input type="text" name="mensual" id="mensual" class="formulario__input" formControlName="arrendamientoMen">
-                                </div>
-                            </div>
+              <div class="info__general--items">
+                <div class="info__general--item">
+                  <label for="nacionalidad" class="formulario__label">Nacionalidad:</label>
+                  <input type="text" name="nacionalidad" id="nacionalidad" class="formulario__input" formControlName="nacionalidad" />
+                </div>
+                <div class="info__general--item">
+                  <label for="domicilioactual" class="formulario__label">Dirección domicilio actual:</label>
+                  <input
+                    type="text"
+                    name="domicilioactual"
+                    id="domicilioactual"
+                    class="formulario__input"
+                    formControlName="direccionActual"
+                  />
+                </div>
+                <div class="info__general--item">
+                  <label for="ciudad" class="formulario__label">Ciudad:</label>
+                  <input type="text" name="ciudad" id="ciudad" class="formulario__input" formControlName="ciudad" />
+                </div>
+              </div>
 
-                            <div class="info__general--items">
-                                <div class="info__general--item">
-                                    <label for="tipoinm" class="formulario__label">Tipo de Inmueble:</label>
-                                    <select name="tipoInm" id="tipoinm" class="formulario__input" formControlName="tipoInmueble">
-                                        <option value="casa">Casa</option>
-                                        <option value="apartamento">Apartamento</option>
-                                        <option value="local">Local</option>
-                                        <option value="bodega">Bodega</option>
-                                        <option value="casa finca">Casa finca</option>
-                                    </select>
-                                </div>
-                            </div>
+              <div class="info__general--items">
+                <div class="info__general--item">
+                  <label for="celular" class="formulario__label">Nivel de estudio:</label>
+                  <select name="nivelEstudio" id="nivelEstudio" class="formulario__input" formControlName="nivelEstudio">
+                    <option selected>Elija su grado de escolaridad</option>
+                    <option value="primaria">Primaria</option>
+                    <option value="bachiller">Bachiller</option>
+                    <option value="tecnico">Técnico</option>
+                    <option value="tecnologo">Tecnólogo</option>
+                    <option value="universitario">Universitario</option>
+                    <option value="ninguno">Ninguno</option>
+                  </select>
+                </div>
+                <div class="info__general--item">
+                  <label for="correo" class="formulario__label">Correo Electrónico:</label>
+                  <input type="email" name="correo" id="correo" class="formulario__input" formControlName="correo" />
+                </div>
+                <div class="info__general--item">
+                  <label for="celular" class="formulario__label">Celular:</label>
+                  <input type="number" name="celular" id="celular" class="formulario__input" formControlName="celular" />
+                </div>
+              </div>
 
+              <div class="info__general--items">
+                <div class="info__general--item">
+                  <label for="Ocupacion" class="formulario__label">Profesión / Ocupación actual:</label>
+                  <input type="email" name="Ocupacion" id="Ocupacion" class="formulario__input" formControlName="ocupacion" />
+                </div>
+                <div class="info__general--item">
+                  <label for="correo" class="formulario__label">N° de personas a cargo (incluyéndose):</label>
+                  <input type="number" name="correo" id="correo" class="formulario__input" formControlName="personasAcargo" />
+                </div>
+                <div class="info__general--item">
+                  <label for="nacionalidad" class="formulario__label">Estado civil:</label>
+                  <select
+                    name="estadoCivil"
+                    id="estadoCivil"
+                    class="formulario__input"
+                    (click)="estdoCivil(estado.value)"
+                    #estado
+                    formControlName="estadoCivil"
+                  >
+                    <option selected>Elija su estado civil</option>
+                    <option value="soltero">Soltero</option>
+                    <option value="casado">Casado</option>
+                  </select>
+                </div>
+              </div>
 
+              <div class="estadoCivil" *ngIf="estadoCivil">
+                <div class="info__general--items">
+                  <p class="text__form">Datos del Cónyuge</p>
+                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="nombreC" class="formulario__label">Nombres:</label>
+                    <input type="text" id="nombreC" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="apellidoC" class="formulario__label">Apellidos:</label>
+                    <input type="text" id="apellidoC" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="tipodoc" class="formulario__label">Tipo de documento:</label>
+                    <select name="" id="tipodoc" class="formulario__input">
+                      <option value="">Cédula de ciudadania</option>
+                      <option value="">Cédula de extranjería</option>
+                      <option value="">Pasaporte</option>
+                    </select>
+                  </div>
+                </div>
 
-                            <div class="info__general--items">
-                                <div class="info__general--item">
-                                    <label for="nombres" class="formulario__label">Nombres:</label>
-                                    <input type="text" name="nombres" id="nombres" class="formulario__input" formControlName="nombres">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="apellidos" class="formulario__label">Apellidos:</label>
-                                    <input type="text" name="apellidos" id="apellidos" class="formulario__input" formControlName="apellidos">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="nacimiento" class="formulario__label">Fecha de nacimiento:</label>
-                                    <input type="date" name="nacimiento" id="nacimiento" class="formulario__input" formControlName="fechaNacimiento">
-                                </div>
-                            </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="numeroDocC" class="formulario__label">No. de documento:</label>
+                    <input type="text" id="numeroDocC" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="emailC" class="formulario__label">Correo Electrónico:</label>
+                    <input type="email" id="emailC" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="celularC" class="formulario__label">Celular:</label>
+                    <input type="email" id="celularC" class="formulario__input" />
+                  </div>
+                </div>
 
-                            <div class="info__general--items">
-                                <div class="info__general--item">
-                                    <label for="tipodoc" class="formulario__label">Tipo de documento:</label>
-                                      <select name="tipodoc" id="tipodoc" class="formulario__input" formControlName="tipoDoc">
-                                        <option value="cc">Cédula de ciudadania</option>
-                                        <option value="ce">Cédula de extranjería</option>
-                                        <option value="p">Pasaporte</option>
-                                      </select>
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="numerodoc" class="formulario__label">No. de documento:</label>
-                                    <input type="number" name="numerodoc" id="numerodoc" class="formulario__input" formControlName="numeroDoc">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="fechaexp" class="formulario__label">Fecha de expedición :</label>
-                                    <input type="date" name="fechaexp" id="fechaexp" class="formulario__input" formControlName="fechaExpedicion">
-                                </div>
-                            </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="ocupacionC" class="formulario__label">Ocupación actual:</label>
+                    <input type="text" id="ocupacionC" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="ingresosC" class="formulario__label">Ingresos:</label>
+                    <input type="email" id="ingresosC" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item"></div>
+                </div>
+              </div>
+            </mat-step>
 
-                            <div class="info__general--items">
-                                <div class="info__general--item">
-                                    <label for="lugarexp" class="formulario__label">Lugar de Expedición:</label>
-                                    <input type="text" name="lugarexp" id="lugarexp" class="formulario__input" formControlName="lugarExpedicion">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="lugarnacimiento" class="formulario__label">Lugar de nacimiento:</label>
-                                    <input type="text" name="lugarnacimiento" id="lugarnacimiento" class="formulario__input" formControlName="lugarNacimiento">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="sexo" class="formulario__label">sexo:</label>
-                                    <select name="sexo" id="sexo" class="formulario__input" formControlName="sexo">
-                                        <option selected>Elija el sexo con el cual se identifica</option>
-                                        <option value="m">Masculino</option>
-                                        <option value="f">Femenino</option>
-                                        <option value="x">Otro</option>
-                                    </select>
-                                </div>
-                            </div>
+            <mat-step label="Información ocupación">
+              <div class="info__general--items">
+                <div class="info__general--item">
+                  <select name="nacionalidad" id="sexo" class="formulario__input" (click)="ocupacion(emple.value)" #emple>
+                    <option selected value="0">Elija una opción</option>
+                    <option value="1">Empleado</option>
+                    <option value="2">Independiente</option>
+                    <option value="3">Pensionado</option>
+                  </select>
+                </div>
+              </div>
 
-                            <div class="info__general--items">
-                                <div class="info__general--item">
-                                    <label for="nacionalidad" class="formulario__label">Nacionalidad:</label>
-                                    <input type="text" name="nacionalidad" id="nacionalidad" class="formulario__input" formControlName="nacionalidad">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="domicilioactual" class="formulario__label">Dirección domicilio actual:</label>
-                                    <input type="text" name="domicilioactual" id="domicilioactual" class="formulario__input" formControlName="direccionActual">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="ciudad" class="formulario__label">Ciudad:</label>
-                                    <input type="text" name="ciudad"  id="ciudad" class="formulario__input" formControlName="ciudad">
-                                </div>
-                            </div>
+              <div class="empleado" *ngIf="empleado">
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="nombreempre" class="formulario__label">Empresa donde trabaja:</label>
+                    <input type="text" name="nombreempre" id="nombreempre" class="formulario__input" formControlName="empresa" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="nit" class="formulario__label">NIT de la empresa:</label>
+                    <input type="text" name="nit" id="nit" class="formulario__input" formControlName="nitEmpresa" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="dirempre" class="formulario__label">Dirección:</label>
+                    <input type="text" name="dirempre" id="dirempre" class="formulario__input" formControlName="direccionEmpresa" />
+                  </div>
+                </div>
 
-                            <div class="info__general--items">
-                                <div class="info__general--item">
-                                    <label for="celular" class="formulario__label">Nivel de estudio:</label>
-                                    <select name="nivelEstudio" id="nivelEstudio" class="formulario__input" formControlName="nivelEstudio">
-                                        <option selected>Elija su grado de escolaridad</option>
-                                        <option value="primaria">Primaria</option>
-                                        <option value="bachiller">Bachiller</option>
-                                        <option value="tecnico">Técnico</option>
-                                        <option value="tecnologo">Tecnólogo</option>
-                                        <option value="universitario">Universitario</option>
-                                        <option value="ninguno">Ninguno</option>
-                                    </select>
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="correo" class="formulario__label">Correo Electrónico:</label>
-                                    <input type="email" name="correo" id="correo" class="formulario__input" formControlName="correo">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="celular" class="formulario__label">Celular:</label>
-                                    <input type="number" name="celular" id="celular" class="formulario__input" formControlName="celular">
-                                </div>
-                            </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="ciudadempre" class="formulario__label">Ciudad:</label>
+                    <input type="text" name="ciudadempre" id="ciudadempre" class="formulario__input" formControlName="ciudadEmpresa" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="fechaingreso" class="formulario__label">Fecha de ingreso:</label>
+                    <input type="date" name="fechaingreso" id="fechaingreso" class="formulario__input" formControlName="fechaIngreso" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="cargo" class="formulario__label">Cargo u Oficio :</label>
+                    <input type="text" name="cargo" id="cargo" class="formulario__input" formControlName="cargo" />
+                  </div>
+                </div>
 
-                            <div class="info__general--items">
-                                <div class="info__general--item">
-                                    <label for="Ocupacion" class="formulario__label">Profesión / Ocupación actual:</label>
-                                    <input type="email" name="Ocupacion" id="Ocupacion" class="formulario__input" formControlName="ocupacion">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="correo" class="formulario__label">N° de personas a cargo (incluyéndose):</label>
-                                    <input type="number" name="correo" id="correo" class="formulario__input" formControlName="personasAcargo">
-                                </div>
-                                <div class="info__general--item">
-                                    <label for="nacionalidad" class="formulario__label">Estado civil:</label>
-                                    <select name="estadoCivil" id="estadoCivil" class="formulario__input"
-                                    (click)="estdoCivil(estado.value)" #estado formControlName="estadoCivil">
-                                        <option selected >Elija su estado civil</option>
-                                        <option value="soltero">Soltero</option>
-                                        <option value="casado">Casado</option>
-                                    </select>
-                                </div>
-                            </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="tipocontrato" class="formulario__label">Tipo de contrato:</label>
+                    <input type="text" name="tipocontrato" id="tipocontrato" class="formulario__input" formControlName="tipoContrato" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="contactoempre" class="formulario__label">Contacto de la empresa:</label>
+                    <input
+                      type="number"
+                      name="contactoempre"
+                      id="contactoempre"
+                      class="formulario__input"
+                      formControlName="telefonoEmpresa"
+                    />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="salario" class="formulario__label">Salario:</label>
+                    <input type="number" name="salario" id="salario" class="formulario__input" formControlName="salario" />
+                  </div>
+                </div>
 
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="otroingreso" class="formulario__label">Otros Ingresos :</label>
+                    <input type="text" name="otroingreso" id="otroingreso" class="formulario__input" formControlName="otroIngreso" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="origenotro" class="formulario__label">Origen de otros ingresos:</label>
+                    <input type="date" name="origenotro" id="origenotro" class="formulario__input" formControlName="origenOtrosIngresos" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="egresos" class="formulario__label">Egresos mensuales:</label>
+                    <input type="number" name="egresos" id="egresos" class="formulario__input" formControlName="egresosMensuales" />
+                  </div>
+                </div>
+              </div>
 
-                            <div class="estadoCivil" *ngIf="estadoCivil">
-                                <div class="info__general--items">
-                                    <p class="text__form">Datos del Cónyuge</p>
-                                </div>
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="nombreC" class="formulario__label">Nombres:</label>
-                                        <input type="text" id="nombreC" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="apellidoC" class="formulario__label">Apellidos:</label>
-                                        <input type="text" id="apellidoC" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                      <label for="tipodoc" class="formulario__label">Tipo de documento:</label>
-                                      <select name="" id="tipodoc" class="formulario__input">
-                                        <option value="">Cédula de ciudadania</option>
-                                        <option value="">Cédula de extranjería</option>
-                                        <option value="">Pasaporte</option>
-                                      </select>
-                                    </div>
-                                </div>
+              <div class="independiente" *ngIf="independiente">
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="actividad" class="formulario__label">Actividad profesional:</label>
+                    <input type="text" name="actividad" id="actividad" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="cargo" class="formulario__label">Cargo u Oficio :</label>
+                    <input type="text" name="cargo" id="cargo" class="formulario__input" formControlName="cargo" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="dirempre" class="formulario__label">Dirección:</label>
+                    <input type="text" name="dirempre" id="dirempre" class="formulario__input" formControlName="direccionEmpresa" />
+                  </div>
+                </div>
 
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="numeroDocC" class="formulario__label">No. de documento:</label>
-                                        <input type="text" id="numeroDocC" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="emailC" class="formulario__label">Correo Electrónico:</label>
-                                        <input type="email" id="emailC" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="celularC" class="formulario__label">Celular:</label>
-                                        <input type="email" id="celularC" class="formulario__input">
-                                    </div>
-                                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="ciudadempre" class="formulario__label">Ciudad:</label>
+                    <input type="text" name="ciudadempre" id="ciudadempre" class="formulario__input" formControlName="ciudadEmpresa" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="contactoempre" class="formulario__label">Contacto:</label>
+                    <input
+                      type="number"
+                      name="contactoempre"
+                      id="contactoempre"
+                      class="formulario__input"
+                      formControlName="telefonoEmpresa"
+                    />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="salario" class="formulario__label">Salario:</label>
+                    <input type="number" name="salario" id="salario" class="formulario__input" formControlName="salario" />
+                  </div>
+                </div>
 
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="ocupacionC" class="formulario__label">Ocupación actual:</label>
-                                        <input type="text" id="ocupacionC" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="ingresosC" class="formulario__label">Ingresos:</label>
-                                        <input type="email" id="ingresosC" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item"></div>
-                                </div>
-                            </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="origenotro" class="formulario__label">Otros ingresos/Origen ingresos:</label>
+                    <input type="text" name="origenotro" id="origenotro" class="formulario__input" formControlName="otroIngreso" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="egresos" class="formulario__label">Egresos mensuales:</label>
+                    <input type="number" name="egresos" id="egresos" class="formulario__input" formControlName="egresosMensuales" />
+                  </div>
+                  <div class="info__general--item"></div>
+                </div>
+              </div>
 
+              <div class="pensionado" *ngIf="pensionado">
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="nombreempre" class="formulario__label">Nombre de la empresa:</label>
+                    <input type="text" name="nombreempre" id="nombreempre" class="formulario__input" formControlName="empresa" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="contacto" class="formulario__label">Contacto:</label>
+                    <input type="number" name="contacto" id="contacto" class="formulario__input" formControlName="telefonoEmpresa" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="ingresopension" class="formulario__label">Ingreso mensual de pensión:</label>
+                    <input type="number" name="ingresopension" id="ingresopension" class="formulario__input" formControlName="salario" />
+                  </div>
+                </div>
 
-                        </mat-step>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="deduccion" class="formulario__label">Deducción mensual:</label>
+                    <input type="number" name="deduccion" id="deduccion" class="formulario__input" formControlName="egresosMensuales" />
+                  </div>
+                </div>
+              </div>
+            </mat-step>
 
-                        <mat-step label="Información ocupación">
+            <mat-step label="Referencias">
+              <div class="Referencias">
+                <div class="info__general--items">
+                  <p class="text__form">Referencias Comerciales</p>
+                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="razon" class="formulario__label">Nombre o Razón social:</label>
+                    <input type="text" name="razon" id="razon" class="formulario__input" formControlName="nombreRazon" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="apellidoC" class="formulario__label">Celular:</label>
+                    <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" formControlName="celularRefencia" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="tipodoc" class="formulario__label">Municipio:</label>
+                    <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" formControlName="municipio" />
+                  </div>
+                </div>
+              </div>
 
-                            <div class="info__general--items">
-                                <div class="info__general--item">
-                                    <select name="nacionalidad" id="sexo" class="formulario__input" (click)="ocupacion(emple.value)" #emple>
-                                        <option selected value="0">Elija una opción</option>
-                                        <option value="1">Empleado</option>
-                                        <option value="2">Independiente</option>
-                                        <option value="3">Pensionado</option>
-                                    </select>
-                                </div>
-                            </div>
+              <div class="Referencias">
+                <div class="info__general--items">
+                  <p class="text__form">Referencias Personales</p>
+                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="razon" class="formulario__label">Nombre:</label>
+                    <input type="text" name="razon" id="razon" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="apellidoC" class="formulario__label">Celular:</label>
+                    <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="tipodoc" class="formulario__label">Municipio:</label>
+                    <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" />
+                  </div>
+                </div>
 
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="razon" class="formulario__label">Nombre:</label>
+                    <input type="text" name="razon" id="razon" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="apellidoC" class="formulario__label">Celular:</label>
+                    <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="tipodoc" class="formulario__label">Municipio:</label>
+                    <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" />
+                  </div>
+                </div>
+              </div>
 
-                            <div class="empleado" *ngIf="empleado">
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="nombreempre" class="formulario__label">Empresa donde trabaja:</label>
-                                        <input type="text" name="nombreempre" id="nombreempre" class="formulario__input" formControlName="empresa">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="nit" class="formulario__label">NIT de la empresa:</label>
-                                        <input type="text" name="nit" id="nit" class="formulario__input" formControlName="nitEmpresa">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="dirempre" class="formulario__label">Dirección:</label>
-                                        <input type="text"name="dirempre" id="dirempre" class="formulario__input" formControlName="direccionEmpresa">
-                                    </div>
-                                </div>
+              <div class="Referencias">
+                <div class="info__general--items">
+                  <p class="text__form">Referencias Familiares</p>
+                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="razon" class="formulario__label">Nombre:</label>
+                    <input type="text" id="razon" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="apellidoC" class="formulario__label">Celular:</label>
+                    <input type="text" id="apellidoC" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="tipodoc" class="formulario__label">Municipio:</label>
+                    <input type="text" id="apellidoC" class="formulario__input" />
+                  </div>
+                </div>
 
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="ciudadempre" class="formulario__label">Ciudad:</label>
-                                        <input type="text" name="ciudadempre" id="ciudadempre" class="formulario__input" formControlName="ciudadEmpresa">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="fechaingreso" class="formulario__label">Fecha de ingreso:</label>
-                                        <input type="date" name="fechaingreso" id="fechaingreso" class="formulario__input" formControlName="fechaIngreso">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="cargo" class="formulario__label">Cargo u Oficio :</label>
-                                        <input type="text" name="cargo" id="cargo" class="formulario__input" formControlName="cargo">
-                                    </div>
-                                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="razon" class="formulario__label">Nombre:</label>
+                    <input type="text" id="razon" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="apellidoC" class="formulario__label">Celular:</label>
+                    <input type="text" id="apellidoC" class="formulario__input" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="tipodoc" class="formulario__label">Municipio:</label>
+                    <input type="text" id="apellidoC" class="formulario__input" />
+                  </div>
+                </div>
+              </div>
 
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="tipocontrato" class="formulario__label">Tipo de contrato:</label>
-                                        <input type="text" name="tipocontrato" id="tipocontrato" class="formulario__input" formControlName="tipoContrato">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="contactoempre" class="formulario__label">Contacto de la empresa:</label>
-                                        <input type="number" name="contactoempre" id="contactoempre" class="formulario__input" formControlName="telefonoEmpresa">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="salario" class="formulario__label">Salario:</label>
-                                        <input type="number" name="salario" id="salario" class="formulario__input" formControlName="salario">
-                                    </div>
-                                </div>
+              <div class="Referencias">
+                <div class="info__general--items">
+                  <p class="text__form">Referencias Bancarias</p>
+                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="tipoCuenta" class="formulario__label">Tipo de cuenta:</label>
+                    <select name="tipoCuenta" id="tipoCuenta" class="formulario__input" formControlName="tipoCuenta">
+                      <option selected>Elija una opción</option>
+                      <option value="ahorros">Cuenta de Ahorros</option>
+                      <option value="corriente">Cuenta de Corriente</option>
+                    </select>
+                  </div>
+                  <div class="info__general--item">
+                    <label for="entidad" class="formulario__label">Entidad Financiera:</label>
+                    <input type="text" name="entidad" id="entidad" class="formulario__input" formControlName="entidadFinanciera" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="numeroCuenta" class="formulario__label">Número cuenta:</label>
+                    <input type="text" name="numeroCuenta" id="numeroCuenta" class="formulario__input" formControlName="numeroCuenta" />
+                  </div>
+                </div>
 
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="otroingreso" class="formulario__label">Otros Ingresos :</label>
-                                        <input type="text" name="otroingreso" id="otroingreso" class="formulario__input" formControlName="otroIngreso">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="origenotro" class="formulario__label">Origen de otros ingresos:</label>
-                                        <input type="date" name="origenotro" id="origenotro" class="formulario__input" formControlName="origenOtrosIngresos">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="egresos" class="formulario__label">Egresos mensuales:</label>
-                                        <input type="number" name="egresos" id="egresos" class="formulario__input" formControlName="egresosMensuales">
-                                    </div>
-                                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="tipoCuenta" class="formulario__label">Tipo de cuenta:</label>
+                    <select name="tipoCuenta" id="tipoCuenta" class="formulario__input" formControlName="tipoCuenta">
+                      <option selected>Elija una opción</option>
+                      <option value="ahorros">Cuenta de Ahorros</option>
+                      <option value="corriente">Cuenta de Corriente</option>
+                    </select>
+                  </div>
+                  <div class="info__general--item">
+                    <label for="entidad" class="formulario__label">Entidad Financiera:</label>
+                    <input type="text" name="entidad" id="entidad" class="formulario__input" formControlName="entidadFinanciera" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="numeroCuenta" class="formulario__label">Número cuenta:</label>
+                    <input type="text" name="numeroCuenta" id="numeroCuenta" class="formulario__input" formControlName="numeroCuenta" />
+                  </div>
+                </div>
+              </div>
+            </mat-step>
 
-                            </div>
+            <mat-step label="Bienes">
+              <div class="Bienes">
+                <div class="info__general--items">
+                  <p class="text__form">Bienes inmuebles de su propiedad</p>
+                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="tipoInmueble" class="formulario__label">Tipo de inmueble y dirección:</label>
+                    <input type="text" name="tipoInmueble" id="tipoInmueble" class="formulario__input" formControlName="tipoInmuebleDire" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="numeroMatricula" class="formulario__label">N° de matrícula inmobiliaria:</label>
+                    <input type="text" name="numeroMatricula" id="numeroMatricula" class="formulario__input" formControlName="matricula" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="municp" class="formulario__label">Municipio:</label>
+                    <input type="text" name="municp" id="municp" class="formulario__input" formControlName="municipioInmueble" />
+                  </div>
+                </div>
 
-                            <div class="independiente" *ngIf="independiente">
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="actividad" class="formulario__label">Actividad profesional:</label>
-                                        <input type="text" name="actividad" id="actividad" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="cargo" class="formulario__label">Cargo u Oficio :</label>
-                                        <input type="text" name="cargo" id="cargo" class="formulario__input" formControlName="cargo">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="dirempre" class="formulario__label">Dirección:</label>
-                                        <input type="text" name="dirempre" id="dirempre" class="formulario__input" formControlName="direccionEmpresa">
-                                    </div>
-                                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="tipoInmueble" class="formulario__label">Tipo de inmueble y dirección:</label>
+                    <input type="text" name="tipoInmueble" id="tipoInmueble" class="formulario__input" formControlName="tipoInmuebleDire" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="numeroMatricula" class="formulario__label">N° de matrícula inmobiliaria:</label>
+                    <input type="text" name="numeroMatricula" id="numeroMatricula" class="formulario__input" formControlName="matricula" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="municp" class="formulario__label">Municipio:</label>
+                    <input type="text" name="municp" id="municp" class="formulario__input" formControlName="municipioInmueble" />
+                  </div>
+                </div>
+              </div>
 
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="ciudadempre" class="formulario__label">Ciudad:</label>
-                                        <input type="text" name="ciudadempre" id="ciudadempre" class="formulario__input" formControlName="ciudadEmpresa">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="contactoempre" class="formulario__label">Contacto:</label>
-                                        <input type="number" name="contactoempre" id="contactoempre" class="formulario__input" formControlName="telefonoEmpresa">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="salario" class="formulario__label">Salario:</label>
-                                        <input type="number" name="salario" id="salario" class="formulario__input" formControlName="salario">
-                                    </div>
-                                </div>
+              <div class="Bienes">
+                <div class="info__general--items">
+                  <p class="text__form">Vehículos de su propiedad</p>
+                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="marca" class="formulario__label">Marca:</label>
+                    <input type="text" name="marca" id="marca" class="formulario__input" formControlName="vehiculoMarca" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="modelo" class="formulario__label">Modelo:</label>
+                    <input type="text" name="modelo" id="modelo" class="formulario__input" formControlName="vehiculoPlaca" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="placa" class="formulario__label">Placa:</label>
+                    <input type="text" name="placa" id="placa" class="formulario__input" formControlName="vehiculoModelo" />
+                  </div>
+                </div>
 
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="origenotro" class="formulario__label">Otros ingresos/Origen ingresos:</label>
-                                        <input type="text" name="origenotro" id="origenotro" class="formulario__input" formControlName="otroIngreso">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="egresos" class="formulario__label">Egresos mensuales:</label>
-                                        <input type="number" name="egresos" id="egresos" class="formulario__input" formControlName="egresosMensuales">
-                                    </div>
-                                    <div class="info__general--item"></div>
-                                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <label for="marca" class="formulario__label">Marca:</label>
+                    <input type="text" name="marca" id="marca" class="formulario__input" formControlName="vehiculoMarca" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="modelo" class="formulario__label">Modelo:</label>
+                    <input type="text" name="modelo" id="modelo" class="formulario__input" formControlName="vehiculoPlaca" />
+                  </div>
+                  <div class="info__general--item">
+                    <label for="placa" class="formulario__label">Placa:</label>
+                    <input type="text" name="placa" id="placa" class="formulario__input" formControlName="vehiculoModelo" />
+                  </div>
+                </div>
+              </div>
 
-                            </div>
+              <div class="Bienes">
+                <div class="info__general--items">
+                  <p class="text__form">Observaciones o información adicional que nos permita conocerlo mejor:</p>
+                </div>
+                <div class="info__general--items">
+                  <div class="info__general--item">
+                    <textarea
+                      name="observaciones"
+                      id=""
+                      cols="75"
+                      rows="2"
+                      class="text__area"
+                      resize="none"
+                      formControlName="observaciones"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
 
-                            <div class="pensionado" *ngIf="pensionado">
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="nombreempre" class="formulario__label">Nombre de la empresa:</label>
-                                        <input type="text" name="nombreempre" id="nombreempre" class="formulario__input" formControlName="empresa">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="contacto" class="formulario__label">Contacto:</label>
-                                        <input type="number" name="contacto" id="contacto" class="formulario__input" formControlName="telefonoEmpresa">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="ingresopension" class="formulario__label">Ingreso mensual de pensión:</label>
-                                        <input type="number" name="ingresopension" id="ingresopension" class="formulario__input" formControlName="salario">
-                                    </div>
-                                </div>
+              <div class="form__botones">
+                <div class="form__botones--container">
+                  <button type="button" class="btn__arriendo--cancelar" routerLink="/home">Cancelar</button>
+                  <button type="submit" class="btn__arriendo--enviar">Enviar</button>
+                </div>
+              </div>
+            </mat-step>
+          </mat-stepper>
 
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="deduccion" class="formulario__label">Deducción mensual:</label>
-                                        <input type="number" name="deduccion" id="deduccion" class="formulario__input" formControlName="egresosMensuales">
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </mat-step>
-
-                        <mat-step label="Referencias">
-
-                            <div class="Referencias">
-                                <div class="info__general--items">
-                                    <p class="text__form">Referencias Comerciales</p>
-                                </div>
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="razon" class="formulario__label">Nombre o Razón social:</label>
-                                        <input type="text" name="razon" id="razon" class="formulario__input" formControlName="nombreRazon">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="apellidoC" class="formulario__label">Celular:</label>
-                                        <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" formControlName="celularRefencia">
-                                    </div>
-                                    <div class="info__general--item">
-                                      <label for="tipodoc" class="formulario__label">Municipio:</label>
-                                      <input type="text"name="apellidoC" id="apellidoC" class="formulario__input" formControlName="municipio">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="Referencias">
-                                <div class="info__general--items">
-                                    <p class="text__form">Referencias Personales</p>
-                                </div>
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="razon" class="formulario__label">Nombre:</label>
-                                        <input type="text" name="razon" id="razon" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="apellidoC" class="formulario__label">Celular:</label>
-                                        <input type="text" name="apellidoC" id="apellidoC" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                      <label for="tipodoc" class="formulario__label">Municipio:</label>
-                                      <input type="text" name="apellidoC" id="apellidoC" class="formulario__input">
-                                    </div>
-                                </div>
-
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="razon" class="formulario__label">Nombre:</label>
-                                        <input type="text" name="razon" id="razon" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="apellidoC" class="formulario__label">Celular:</label>
-                                        <input type="text" name="apellidoC" id="apellidoC" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                      <label for="tipodoc" class="formulario__label">Municipio:</label>
-                                      <input type="text" name="apellidoC" id="apellidoC" class="formulario__input">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="Referencias">
-                                <div class="info__general--items">
-                                    <p class="text__form">Referencias Familiares</p>
-                                </div>
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="razon" class="formulario__label">Nombre:</label>
-                                        <input type="text" id="razon" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="apellidoC" class="formulario__label">Celular:</label>
-                                        <input type="text" id="apellidoC" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                      <label for="tipodoc" class="formulario__label">Municipio:</label>
-                                      <input type="text" id="apellidoC" class="formulario__input">
-                                    </div>
-                                </div>
-
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="razon" class="formulario__label">Nombre:</label>
-                                        <input type="text" id="razon" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="apellidoC" class="formulario__label">Celular:</label>
-                                        <input type="text" id="apellidoC" class="formulario__input">
-                                    </div>
-                                    <div class="info__general--item">
-                                      <label for="tipodoc" class="formulario__label">Municipio:</label>
-                                      <input type="text" id="apellidoC" class="formulario__input">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="Referencias">
-                                <div class="info__general--items">
-                                    <p class="text__form">Referencias Bancarias</p>
-                                </div>
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="tipoCuenta" class="formulario__label">Tipo de cuenta:</label>
-                                        <select name="tipoCuenta" id="tipoCuenta" class="formulario__input" formControlName="tipoCuenta">
-                                            <option selected>Elija una opción</option>
-                                            <option value="ahorros">Cuenta de Ahorros</option>
-                                            <option value="corriente">Cuenta de Corriente</option>
-                                        </select>
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="entidad" class="formulario__label">Entidad Financiera:</label>
-                                        <input type="text" name="entidad" id="entidad" class="formulario__input" formControlName="entidadFinanciera">
-                                    </div>
-                                    <div class="info__general--item">
-                                      <label for="numeroCuenta" class="formulario__label">Número cuenta:</label>
-                                      <input type="text" name="numeroCuenta" id="numeroCuenta" class="formulario__input" formControlName="numeroCuenta">
-                                    </div>
-                                </div>
-
-                                <div class="info__general--items">
-                                  <div class="info__general--item">
-                                    <label for="tipoCuenta" class="formulario__label">Tipo de cuenta:</label>
-                                    <select name="tipoCuenta" id="tipoCuenta" class="formulario__input" formControlName="tipoCuenta">
-                                      <option selected>Elija una opción</option>
-                                      <option value="ahorros">Cuenta de Ahorros</option>
-                                      <option value="corriente">Cuenta de Corriente</option>
-                                    </select>
-                                  </div>
-                                  <div class="info__general--item">
-                                    <label for="entidad" class="formulario__label">Entidad Financiera:</label>
-                                    <input type="text" name="entidad" id="entidad" class="formulario__input" formControlName="entidadFinanciera">
-                                  </div>
-                                  <div class="info__general--item">
-                                    <label for="numeroCuenta" class="formulario__label">Número cuenta:</label>
-                                    <input type="text" name="numeroCuenta" id="numeroCuenta" class="formulario__input" formControlName="numeroCuenta">
-                                  </div>
-                                </div>
-                            </div>
-
-                        </mat-step>
-
-                        <mat-step label="Bienes">
-
-                            <div class="Bienes">
-                                <div class="info__general--items">
-                                    <p class="text__form">Bienes inmuebles de su propiedad</p>
-                                </div>
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="tipoInmueble" class="formulario__label">Tipo de inmueble y dirección:</label>
-                                        <input type="text" name="tipoInmueble" id="tipoInmueble" class="formulario__input" formControlName="tipoInmuebleDire">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="numeroMatricula" class="formulario__label">N° de matrícula inmobiliaria:</label>
-                                        <input type="text" name="numeroMatricula" id="numeroMatricula" class="formulario__input" formControlName="matricula">
-                                    </div>
-                                    <div class="info__general--item">
-                                      <label for="municp" class="formulario__label">Municipio:</label>
-                                      <input type="text" name="municp" id="municp" class="formulario__input" formControlName="municipioInmueble">
-                                    </div>
-                                </div>
-
-                                <div class="info__general--items">
-                                  <div class="info__general--item">
-                                      <label for="tipoInmueble" class="formulario__label">Tipo de inmueble y dirección:</label>
-                                      <input type="text" name="tipoInmueble" id="tipoInmueble" class="formulario__input" formControlName="tipoInmuebleDire">
-                                  </div>
-                                  <div class="info__general--item">
-                                      <label for="numeroMatricula" class="formulario__label">N° de matrícula inmobiliaria:</label>
-                                      <input type="text" name="numeroMatricula" id="numeroMatricula" class="formulario__input" formControlName="matricula">
-                                  </div>
-                                  <div class="info__general--item">
-                                    <label for="municp" class="formulario__label">Municipio:</label>
-                                    <input type="text" name="municp" id="municp" class="formulario__input" formControlName="municipioInmueble">
-                                  </div>
-                              </div>
-                            </div>
-
-                            <div class="Bienes">
-                                <div class="info__general--items">
-                                    <p class="text__form">Vehículos de su propiedad</p>
-                                </div>
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <label for="marca" class="formulario__label">Marca:</label>
-                                        <input type="text" name="marca" id="marca" class="formulario__input" formControlName="vehiculoMarca">
-                                    </div>
-                                    <div class="info__general--item">
-                                        <label for="modelo" class="formulario__label">Modelo:</label>
-                                        <input type="text" name="modelo" id="modelo" class="formulario__input" formControlName="vehiculoPlaca">
-                                    </div>
-                                    <div class="info__general--item">
-                                      <label for="placa" class="formulario__label">Placa:</label>
-                                      <input type="text" name="placa" id="placa" class="formulario__input" formControlName="vehiculoModelo">
-                                    </div>
-                                </div>
-
-                                <div class="info__general--items">
-                                  <div class="info__general--item">
-                                      <label for="marca" class="formulario__label">Marca:</label>
-                                      <input type="text" name="marca" id="marca" class="formulario__input" formControlName="vehiculoMarca">
-                                  </div>
-                                  <div class="info__general--item">
-                                      <label for="modelo" class="formulario__label">Modelo:</label>
-                                      <input type="text" name="modelo" id="modelo" class="formulario__input" formControlName="vehiculoPlaca">
-                                  </div>
-                                  <div class="info__general--item">
-                                    <label for="placa" class="formulario__label">Placa:</label>
-                                    <input type="text" name="placa" id="placa" class="formulario__input" formControlName="vehiculoModelo">
-                                  </div>
-                              </div>
-                            </div>
-
-                            <div class="Bienes">
-                                <div class="info__general--items">
-                                    <p class="text__form">Observaciones o información adicional que nos permita conocerlo mejor:</p>
-                                </div>
-                                <div class="info__general--items">
-                                    <div class="info__general--item">
-                                        <textarea name="observaciones" id="" cols="75" rows="2" class="text__area" resize="none" formControlName="observaciones"></textarea>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form__botones">
-                                <div class="form__botones--container">
-                                   <button type="button" class="btn__arriendo--cancelar" routerLink="/home">Cancelar</button>
-                                   <button type="submit" class="btn__arriendo--enviar">Enviar</button>
-                                </div>
-                            </div>
-
-                        </mat-step>
-                      </mat-stepper>
-
-                    <!-- ***************************************************** -->
-
-                </form>
-
-            </div>
-        </div>
+          <!-- ***************************************************** -->
+        </form>
+      </div>
     </div>
+  </div>
 </section>

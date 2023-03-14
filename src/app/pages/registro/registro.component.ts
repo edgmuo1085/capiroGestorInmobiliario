@@ -12,11 +12,7 @@ import Swal from 'sweetalert2';
 export class RegistroComponent implements OnInit {
   formRegistro!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private loginService: LoginService
-  ) {}
+  constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService) {}
 
   ngOnInit(): void {
     this.formRegistro = this.fb.group({
@@ -31,17 +27,15 @@ export class RegistroComponent implements OnInit {
 
   registrar() {
     if (this.formRegistro.valid) {
-      this.loginService
-        .registrarUsuario(this.formRegistro.value)
-        .subscribe((resp) => {
-          console.log(resp);
-        });
+      this.loginService.registrarUsuario(this.formRegistro.value).subscribe(resp => {
+        console.log(resp);
+      });
       Swal.fire({
         icon: 'success',
         title: 'Bienvenido',
         text: 'Su cuenta fue creada de forma exitosa ',
         confirmButtonText: 'Aceptar',
-      }).then((result) => {
+      }).then(result => {
         if (result.isConfirmed) {
           this.router.navigateByUrl('home');
         }

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserData } from '../core/interface/user-data';
 
-
 @Injectable({
   providedIn: 'root',
 })

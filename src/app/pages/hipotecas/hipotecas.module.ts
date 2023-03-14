@@ -5,21 +5,11 @@ import { CommonModule } from '@angular/common';
 import { HipotecasRoutingModule } from './hipotecas-routing.module';
 import { HipotecasComponent } from './hipotecas.component';
 
-import {FileUploadModule} from 'primeng/fileupload';
-import {DialogModule} from 'primeng/dialog';
-
+import { FileUploadModule } from 'primeng/fileupload';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
-  declarations: [
-    HipotecasComponent
-  ],
-  imports: [
-    CommonModule,
-    HipotecasRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FileUploadModule,
-    DialogModule
-  ]
+  declarations: [HipotecasComponent],
+  imports: [CommonModule, HipotecasRoutingModule, FormsModule, ReactiveFormsModule, FileUploadModule, DialogModule],
 })
-export class HipotecasModule { }
+export class HipotecasModule {}

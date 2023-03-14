@@ -7,7 +7,7 @@
 .principal__container {
   height: 85vh;
   width: 95%;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background-size: cover;
   background-attachment: fixed;
   display: flex;
@@ -52,7 +52,7 @@
 
 .principal__subtitulo {
   color: #ffffff;
-  font-size: .8rem;
+  font-size: 0.8rem;
   margin-bottom: 1rem;
 }
 
@@ -60,7 +60,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .7rem 3.5rem;
+  padding: 0.7rem 3.5rem;
   width: 50%;
   border-radius: 4rem;
   margin-top: 1rem;
@@ -71,7 +71,7 @@
   color: #ffffff;
   cursor: pointer;
   padding: 1rem 3rem;
-  border-radius: .7rem;
+  border-radius: 0.7rem;
   font-size: 1rem;
   font-weight: 700;
   box-shadow: 5px 5px 15px #464545c2;
@@ -81,9 +81,6 @@
   background-color: var(--color-hover);
   box-shadow: 0 2px 5px #464646ad;
 }
-
-
-
 
 /* ********************************************** */
 
@@ -112,7 +109,7 @@
   padding: 4rem 2rem;
   border-radius: 1.5rem;
   outline: 1px solid var(--color-principal);
-  outline-offset: -.8rem;
+  outline-offset: -0.8rem;
 }
 
 .services__info:hover {
@@ -139,16 +136,15 @@
   font-size: 1rem;
   font-weight: 700;
   color: #575555;
-  margin-bottom: .6rem;
+  margin-bottom: 0.6rem;
 }
 
 .service__descripcion {
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: #575555;
-  margin-bottom: .6rem;
+  margin-bottom: 0.6rem;
   text-align: center;
 }
-
 
 /* ***************destacados********************* */
 
@@ -158,7 +154,7 @@
 
 /* *******************Ubicación************************ */
 
-.ubicacion{
+.ubicacion {
   width: 100%;
   height: 40vh;
   display: flex;
@@ -168,10 +164,10 @@
 
 .ubicacion__mapa {
   width: 90%;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
-.ubicacion__titulo{
+.ubicacion__titulo {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -181,9 +177,7 @@
   color: var(--color-principal);
 }
 
-
 @media (max-width: 900px) {
-
   .principal__container {
     height: 50vh;
     width: 100%;
@@ -214,7 +208,6 @@
     width: 100%;
   }
 
-
   .principal__logo {
     max-width: 7rem;
     filter: drop-shadow(0 2px 5px #ffffff74);
@@ -230,7 +223,6 @@
   }
 
   /* ************************************************ */
-
 
   .services__container {
     width: 100%;
@@ -248,5 +240,4 @@
     padding: 2rem 2rem;
     margin-bottom: 1rem;
   }
-
 }

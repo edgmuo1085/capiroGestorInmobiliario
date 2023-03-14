@@ -5,12 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    component: AvaluosComponent
-  }
+    component: AvaluosComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AvaluosRoutingModule { }
+export class AvaluosRoutingModule {}

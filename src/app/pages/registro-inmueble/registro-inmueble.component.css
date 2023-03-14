@@ -1,10 +1,10 @@
 .registro__inmueble {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
 
 .registro__inmueble--container {
-  width: 90%
+  width: 90%;
 }
 
 .registro__img {
@@ -31,21 +31,21 @@
 }
 
 .form__items {
-  display:flex;
+  display: flex;
   justify-content: space-around;
   width: 100%;
-  margin: 1rem 0
+  margin: 1rem 0;
 }
 
-.form__item{
-  display:flex;
+.form__item {
+  display: flex;
   flex-direction: column;
   width: 45%;
   padding-right: 1rem;
 }
 
-.form__item--continuar{
-  display:flex;
+.form__item--continuar {
+  display: flex;
   justify-content: center;
   align-items: flex-end;
   width: 45%;
@@ -57,62 +57,62 @@
   font-size: 1rem;
   font-weight: 400;
   color: #3f3f3f;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 .formulario__input {
   width: 95%;
-  border:solid 1px var(--color-tercer);
+  border: solid 1px var(--color-tercer);
   height: 2.2rem;
-  border-radius: .6rem;
+  border-radius: 0.6rem;
   padding: 0 1.5rem;
 }
 
-.form__items--botones{
+.form__items--botones {
   display: flex;
-  justify-content: center; 
-  margin: 5rem 0 2rem 0; 
+  justify-content: center;
+  margin: 5rem 0 2rem 0;
 }
 
 .formulario__input:focus-visible {
-  outline:solid 1.3px var(--color-tercer);
+  outline: solid 1.3px var(--color-tercer);
 }
 
 .registrar__boton {
   background-color: var(--color-principal);
   border: 0;
   color: #ffffff;
-  padding: .6rem 3rem .6rem 3rem;
-  border-radius: .6rem;
+  padding: 0.6rem 3rem 0.6rem 3rem;
+  border-radius: 0.6rem;
   cursor: pointer;
   text-decoration: none;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
-.registrar__boton--cancelar{
+.registrar__boton--cancelar {
   background-color: transparent;
   border: 0;
   color: var(--color-principal);
-  padding: .6rem 3rem .6rem 3rem;
-  border-radius: .6rem;
+  padding: 0.6rem 3rem 0.6rem 3rem;
+  border-radius: 0.6rem;
   cursor: pointer;
   text-decoration: none;
-  margin-right: .5rem;
-  font-size: .8rem;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .registrar__boton--continuar {
   background-color: var(--color-principal);
   border: 0;
   color: #ffffff;
-  padding: .6rem 3rem .6rem 3rem;
-  border-radius: .6rem;
+  padding: 0.6rem 3rem 0.6rem 3rem;
+  border-radius: 0.6rem;
   cursor: pointer;
   text-decoration: none;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
-.registrar__boton--continuar:hover{
+.registrar__boton--continuar:hover {
   background-color: var(--color-hover);
   color: #ffffff;
 }
@@ -127,29 +127,28 @@
 }
 
 .file__texto {
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: var(--color-secundario);
   padding: 1rem 0;
 }
 
 @media (max-width: 900px) {
-
   .form__items {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 100%;
-    margin: 1rem 0
+    margin: 1rem 0;
   }
 
-  .form__item{
-    display:flex;
+  .form__item {
+    display: flex;
     flex-direction: column;
     width: 100%;
   }
 
-  .form__item--continuar{
-    display:flex;
+  .form__item--continuar {
+    display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -159,5 +158,4 @@
   .registro__img {
     height: 10vh;
   }
-
 }

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class VariablesService {
+  textButtom: boolean = false;
 
-  textButtom: boolean = false
-
-  constructor() { }
+  constructor() {}
 }

@@ -5,12 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    component: RegistroInmuebleComponent
-  }
+    component: RegistroInmuebleComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class RegistroInmuebleRoutingModule { }
+export class RegistroInmuebleRoutingModule {}

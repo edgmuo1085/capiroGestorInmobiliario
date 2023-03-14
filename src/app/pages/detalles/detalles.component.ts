@@ -6,53 +6,48 @@ import { PropiedadesService } from 'src/app/Services/propiedades.service';
 @Component({
   selector: 'app-detalles',
   templateUrl: './detalles.component.html',
-  styleUrls: ['./detalles.component.css']
+  styleUrls: ['./detalles.component.css'],
 })
 export class DetallesComponent implements OnInit {
-
-  showBoton:boolean = false;
+  showBoton: boolean = false;
   tipoDetalle!: string;
-  botonVenta!:boolean;
-  botonArriendo!:boolean;
-  botonContacto!:boolean;
+  botonVenta!: boolean;
+  botonArriendo!: boolean;
+  botonContacto!: boolean;
 
   images: any[] = [];
 
-  constructor(private variableService:VariablesService,
-              private routerActive: ActivatedRoute,
-              private propiedadesService: PropiedadesService) { }
+  constructor(
+    private variableService: VariablesService,
+    private routerActive: ActivatedRoute,
+    private propiedadesService: PropiedadesService
+  ) {}
 
   ngOnInit(): void {
-
-    this.routerActive.params.subscribe( (params: Params) => {
+    this.routerActive.params.subscribe((params: Params) => {
       this.tipoDetalle = params['id'];
-      console.log(this.tipoDetalle)
-    })
+      console.log(this.tipoDetalle);
+    });
 
     this.showBotones();
     this.variableService.textButtom = this.showBoton;
-    this.getImagenes()
-    
+    this.getImagenes();
   }
 
-  showBotones(){
-    if(this.tipoDetalle === 'venta'){
-       this.botonVenta = true;
-    } else if(this.tipoDetalle === 'arriendo'){
+  showBotones() {
+    if (this.tipoDetalle === 'venta') {
+      this.botonVenta = true;
+    } else if (this.tipoDetalle === 'arriendo') {
       this.botonArriendo = true;
     } else {
       this.botonContacto = true;
     }
   }
 
-  getImagenes(){
-    this.propiedadesService.getImgenes().subscribe( (resp:any) => {
+  getImagenes() {
+    this.propiedadesService.getImgenes().subscribe((resp: any) => {
       console.log('imagenes', resp.data);
-      this.images = resp.data
-    })
+      this.images = resp.data;
+    });
   }
-
-
-
-
 }
