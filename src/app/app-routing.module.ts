@@ -1,43 +1,65 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { NosotrosComponent } from './components/nosotros/nosotros.component';
-import { AuthGuard } from './core/guard/auth.guard';
+import { LayoutMainComponent } from './components/layout/pages/layout-main/layout-main.component';
+import { Page404Component } from './components/layout/pages/page404/page404.component';
+import { AuthGuard } from './components/shared/shared-modules/guard/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'nosotros', component: NosotrosComponent },
-  { path: 'registro', loadChildren: () => import('./pages/registro/registro.module').then(m => m.RegistroModule) },
   {
-    path: 'registroInmueble',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/registro-inmueble/registro-inmueble.module').then(m => m.RegistroInmuebleModule),
+    path: '',
+    component: LayoutMainComponent,
+    children: [
+      {
+        path: 'page',
+        loadChildren: () => import('./components/auth/auth.module').then(m => m.AuthModule),
+      },
+      /* {
+        path: 'lease',
+        loadChildren: () => import('./components/lease/lease.module').then(m => m.LeaseModule),
+      },
+      {
+        path: 'buy',
+        loadChildren: () => import('./components/buy/buy.module').then(m => m.BuyModule),
+      },
+      {
+        path: 'cities',
+        loadChildren: () => import('./components/cities/cities.module').then(m => m.CitiesModule),
+      },
+      {
+        path: 'owners',
+        loadChildren: () => import('./components/owners/owners.module').then(m => m.OwnersModule),
+      },
+      {
+        path: 'building',
+        loadChildren: () => import('./components/building/building.module').then(m => m.BuildingModule),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'user',
+        loadChildren: () => import('./components/user/user.module').then(m => m.UserModule),
+        canActivate: [AuthGuard],
+      }, */
+      {
+        path: '',
+        redirectTo: 'page',
+        pathMatch: 'full',
+      },
+      {
+        path: '',
+        loadChildren: () => import('./components/layout/layout.module').then(m => m.LayoutModule),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: '**',
+        title: '.::Página no encontrada::.',
+        component: Page404Component,
+      },
+    ],
   },
-  { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
-  { path: 'contacto', loadChildren: () => import('./pages/contacto/contacto.module').then(m => m.ContactoModule) },
-  { path: 'propiedades', loadChildren: () => import('./pages/propiedades/propiedades.module').then(m => m.PropiedadesModule) },
-  { path: 'detalles/:id', loadChildren: () => import('./pages/detalles/detalles.module').then(m => m.DetallesModule) },
-  { path: 'ventas', loadChildren: () => import('./pages/ventas/ventas.module').then(m => m.VentasModule) },
-  {
-    path: 'arrendamiento',
-    canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/arrendamientos/arrendamientos.module').then(m => m.ArrendamientosModule),
-  },
-  {
-    path: 'propiedadArrendo',
-    loadChildren: () => import('./pages/propiedades-arriendo/propiedades-arriendo.module').then(m => m.PropiedadesArriendoModule),
-  },
-  {
-    path: 'propiedadVenta',
-    loadChildren: () => import('./pages/propiedades-ventas/propiedades-ventas.module').then(m => m.PropiedadesVentasModule),
-  },
-  { path: 'hipotecas', loadChildren: () => import('./pages/hipotecas/hipotecas.module').then(m => m.HipotecasModule) },
-  { path: 'avaluos', loadChildren: () => import('./pages/avaluos/avaluos.module').then(m => m.AvaluosModule) },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

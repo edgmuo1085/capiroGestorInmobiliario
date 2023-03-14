@@ -1,0 +1,103 @@
+<header class="header">
+  <nav class="header__nav">
+    <div class="header__nav--logo" routerLink="home">
+      <img src="./assets/images/logo.png" alt="logo" class="logo" />
+    </div>
+    <div class="header__nav--items" *ngFor="let menu of menuItem">
+      <a class="header__nav--item" [routerLink]="menu.link" routerLinkActive="active">{{ menu.label }}</a>
+    </div>
+    <!-- <label class="header__nav--item" for="" [matMenuTriggerFor]="menu">Inmuebles</label>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="propiedadVenta">Propiedades en venta</button>
+      <button mat-menu-item routerLink="propiedadArrendo">Propiedades en Arriendo</button>
+    </mat-menu> -->
+
+    <!-- <div class="header__nav--items">
+          <a class="header__nav--item" routerLink="home" routerLinkActive="active">Inicio</a>
+          <a class="header__nav--item" routerLink="registroInmueble" routerLinkActive="active">Anuncie su inmueble</a>
+          <label class="header__nav--item" for="" [matMenuTriggerFor]="menu">Propiedades</label>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="propiedadVenta">Propiedades en venta</button>
+            <button mat-menu-item routerLink="propiedadArrendo">Propiedades en Arriendo</button>
+          </mat-menu>
+          <a class="header__nav--item" routerLink="ventas" routerLinkActive="active">Avalúos</a>
+          <a class="header__nav--item" routerLink="ventas" routerLinkActive="active">Hipotecas</a>
+          <a class="header__nav--item" routerLink="nosotros" routerLinkActive="active">Nosotros</a>
+        </div> -->
+    <!-- <a class="header__nav--item" routerLink="contacto" routerLinkActive="active">Contacto</a> -->
+
+    <div class="header__nav--boton animate__animated animate__fadeIn" *ngIf="user === 'N'">
+      <a class="header__boton-login" data-bs-toggle="modal" routerLink="login">Ingresar</a>
+      <a class="header__boton" routerLink="registro">Registrarse</a>
+    </div>
+    <div class="header__nav--user animate__animated animate__fadeIn" *ngIf="user === 'A'">
+      <div class="header__nav--text">
+        <p class="header__nombre--login">{{ nombreUsuario || nombreUsuario2 }}</p>
+      </div>
+      <div class="header__icono--login">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+          <path
+            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
+          />
+        </svg>
+      </div>
+      <div class="header__icono--logout">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+          <path
+            fill-rule="evenodd"
+            d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+          />
+        </svg>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<p-dialog [(visible)]="display">
+  <ng-template pTemplate="header"> Header content here </ng-template>
+  Content
+  <ng-template pTemplate="footer"> //buttons </ng-template>
+</p-dialog>
+
+<!-- Header menu movil -->
+<div class="header__movil">
+  <nav class="header__nav--movil">
+    <div class="header__nav--logo--movil" routerLink="home">
+      <img src="./assets/images/icono.png" alt="logo" class="logo--movil" />
+    </div>
+    <div class="header__nav--boton--movil">
+      <svg
+        (click)="verMenu = !verMenu"
+        xmlns="http://www.w3.org/2000/svg"
+        width="35"
+        height="35"
+        fill="currentColor"
+        class="bi bi-list"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+        />
+      </svg>
+    </div>
+  </nav>
+</div>
+
+<header class="header__movil--display" *ngIf="verMenu">
+  <nav class="header__nav">
+    <div class="header__nav--logo" routerLink="home">
+      <img src="./assets/images/icono.png" alt="logo" class="logo" />
+    </div>
+    <div class="header__nav--items">
+      <a class="header__nav--item" routerLink="home" routerLinkActive="active" (click)="verMenu = false">Inicio</a>
+      <a class="header__nav--item" routerLink="" routerLinkActive="active" (click)="verMenu = false">Inmuebles</a>
+      <a class="header__nav--item" routerLink="" routerLinkActive="active" (click)="verMenu = false">Nosotros</a>
+      <a class="header__nav--item" routerLink="contacto" routerLinkActive="active" (click)="verMenu = false">Contacto</a>
+    </div>
+    <div class="header__nav--boton">
+      <a class="header__boton-login" data-bs-toggle="modal" (click)="showDialog()">Ingresar</a>
+      <a class="header__boton" routerLink="registro" (click)="verMenu = false">Registrarse</a>
+    </div>
+  </nav>
+</header>
