@@ -1,41 +1,88 @@
 <section class="registro">
-    <div class="container__registro">
-        <div class="registro__imagen animate__animated animate__fadeIn">
-            <img src="./assets/images/fondo-registro.png" alt="fondo-registro" class="registro__imagen--img">
-        </div>
-        <div class="registro__form animate__animated animate__slideInRight">
-            <div class="registro__title">
-                <p>Formulario de Registro</p>
-            </div>
-            <p class="registro__mensaje">Por favor registrarse para acceder a los servicios de vender, alquilar y comprar.</p>
-            <div class="registro__campos">
-                <form [formGroup]="formRegistro" (submit)="registrar()">
-                    <div class="registro__campo--item">
-                        <label for="nombre" class="registro__label">Nombres y Apellidos:</label>
-                        <input type="text" name="nombre" id="nombre" class="registro__input" formControlName="nombres">
-                    </div>
-                    <div class="registro__campo--item">
-                        <label for="nombre" class="registro__label">Cédula:</label>
-                        <input type="number" name="cedula" id="cedula" class="registro__input" formControlName="cedula">
-                    </div>
-                    <div class="registro__campo--item">
-                        <label for="nombre" class="registro__label">Email:</label>
-                        <input type="text" name="email" id="email" class="registro__input" formControlName="correo">
-                    </div>
-                    <div class="registro__campo--item">
-                        <label for="nombre" class="registro__label">Contraseña:</label>
-                        <input type="password" name="contrasena" id="contrasena" class="registro__input" formControlName="contra">
-                    </div>
-                    <div class="registro__campo--botones">
-                        <button type="button" routerLink="/home" class="registrar__boton--cancelar">Cancelar</button>
-                        <button type="submit"  class="registrar__boton">Registrar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+  <div class="container__registro">
+    <div class="registro__imagen animate__animated animate__fadeIn">
+      <img
+        src="./assets/images/fondo-registro.png"
+        alt="fondo-registro"
+        class="registro__imagen--img"
+      />
     </div>
+    <div class="registro__form animate__animated animate__slideInRight">
+      <div class="registro__title">
+        <p>Formulario de Registro</p>
+      </div>
+      <p class="registro__mensaje">
+        Por favor registrarse para acceder a los servicios de vender, alquilar y
+        comprar.
+      </p>
+      <div class="registro__campos">
+        <form [formGroup]="formRegistro" (submit)="registrar()">
+          <div class="registro__campo--item">
+            <label for="nombres" class="registro__label">Nombres:</label>
+            <input
+              type="text"
+              name="nombres"
+              id="nombres"
+              class="registro__input"
+              formControlName="nombres"
+            />
+          </div>
+          <div class="registro__campo--item">
+            <label for="apellidos" class="registro__label">Apellidos:</label>
+            <input
+              type="text"
+              name="apellidos"
+              id="apellidos"
+              class="registro__input"
+              formControlName="apellidos"
+            />
+          </div>
+          <div class="registro__campo--item">
+            <label for="identificacion" class="registro__label"
+              >Identificación:</label
+            >
+            <input
+              type="number"
+              name="identificacion"
+              id="identificacion"
+              class="registro__input"
+              formControlName="identificacion"
+            />
+          </div>
+          <div class="registro__campo--item">
+            <label for="correo" class="registro__label"
+              >Correo electrónico:</label
+            >
+            <input
+              type="text"
+              name="correo"
+              id="correo"
+              class="registro__input"
+              formControlName="correo"
+            />
+          </div>
+          <div class="registro__campo--item">
+            <label for="password" class="registro__label">Contraseña:</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="registro__input"
+              formControlName="password"
+            />
+          </div>
+          <div class="registro__campo--botones">
+            <button
+              type="button"
+              routerLink="/home"
+              class="registrar__boton--cancelar"
+            >
+              Cancelar
+            </button>
+            <button type="submit" class="registrar__boton">Registrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
-
-
-
-  
