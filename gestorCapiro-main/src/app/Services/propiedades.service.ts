@@ -20,7 +20,7 @@ export class PropiedadesService {
   }
 
   guardarFoto(data:any){
-    return this.http.post<any>(`${URL_API}predio/fotos/`,data).pipe(
+    return this.http.post<any>(`${URL_API}fotos/insertar`,data).pipe(
       tap((resp: any) => {
         console.log('foto',resp);
       }),
