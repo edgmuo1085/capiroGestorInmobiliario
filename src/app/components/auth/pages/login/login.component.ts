@@ -14,16 +14,16 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   msg: boolean = false;
+  loading: boolean = false;
   eye: boolean = true;
   tipoInput: string = 'password';
 
-  constructor(private fb: FormBuilder, private service: LoginService, private ro: Router, private messageService: MessageService) {}
+  constructor(private fb: FormBuilder, private service: LoginService, private router: Router, private messageService: MessageService) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      usuario: ['', Validators.required],
+      correo: ['', [Validators.required, Validators.email]],
       contrasena: ['', Validators.required],
-      // recordar: [false],
     });
   }
 
@@ -38,31 +38,32 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.value);
-    let correo = this.loginForm.value.usuario;
-    let contra = this.loginForm.value.contrasena;
     if (this.loginForm.invalid) {
       Swal.fire({
         icon: 'error',
         text: 'Ingrese por favor ambos campos!',
       });
+      return;
     }
-    this.service.login(correo, contra).subscribe(resp => {
-      console.log(resp);
-      if (resp === null) {
-        Swal.fire({
-          icon: 'info',
-          title: 'Usuario o contraseña incorrectos',
-          text: 'Si no tiene una cuenta por favor regístrese!',
-          showCancelButton: true,
-          cancelButtonText: 'Cancelar',
-          confirmButtonText: 'Registrarse',
-        }).then(result => {
-          if (result.isConfirmed) {
-            this.ro.navigateByUrl('registro');
-          }
-        });
-      }
+    this.loading = true;
+    let correo = this.loginForm.value.correo;
+    let contra = this.loginForm.value.contrasena;
+    let data = { usuario: correo, password: contra };
+    let json = JSON.stringify(data);
+
+    this.service.login(json).subscribe({
+      next: resp => {
+        console.log(resp);
+        this.loading = false;
+      },
+      error: err => {
+        this.loading = false;
+        console.error(err);
+      },
     });
+  }
+
+  get formCtrlC() {
+    return this.loginForm.controls;
   }
 }

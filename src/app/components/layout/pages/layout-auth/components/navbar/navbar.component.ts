@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { LoginService } from 'src/app/components/shared/shared-services/login.service';
 
 @Component({
@@ -39,18 +40,10 @@ export class NavbarComponent implements OnInit {
     },
   ];
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService, private router: Router, private dataUserService: DataUserService) {}
 
   ngOnInit(): void {
-    this.loginService.estado.subscribe(resp => {
-      if (resp !== '') {
-        this.user = resp;
-        this.loginService.nombreUsuario.subscribe(resp => {
-          this.nombreUsuario = resp;
-        });
-      } else {
-        this.user = 'N';
-      }
+    this.dataUserService.getUserData().subscribe(resp => {
       console.log(resp);
     });
 

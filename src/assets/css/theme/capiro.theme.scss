@@ -1,9 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --color-principal: #008a3d;
+  --color-secundario: #8a8b8e;
+  --color-tercer: #434041;
+  --color-hover: #19ab5b;
+  --color-wp: #25d366;
+}
 
 html {
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
-  scroll-behavior: smooth;
 }
 
 *,
@@ -14,31 +19,75 @@ html {
   padding: 0;
 }
 
-:root {
-  --color-principal: #008a3d;
-  --color-secundario: #8a8b8e;
-  --color-tercer: #434041;
-  --color-hover: #19ab5b;
+body {
+  font-family: 'Familjen Grotesk', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-secundario);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-principal);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-principal);
+}
+
+.form-control {
+  &:focus-visible {
+    outline: solid 1.3px var(--color-hover);
+  }
+  &:focus {
+    color: #212529;
+    background-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 253, 65, 0.25);
+  }
+}
+
+.form-button {
+  display: flex;
+  justify-content: center;
+
+  .login-btn {
+    background-color: var(--color-principal);
+    border: 0;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all;
+
+    &:hover {
+      background-color: var(--color-hover);
+    }
+  }
 }
 
 .active {
   color: var(--color-principal);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 900;
   padding: 0 2.5rem;
 }
 
-input {
+/* input {
   font-size: 1rem;
   font-weight: 500;
 }
-
-.footer {
-  /* position: absolute;
-  bottom: 0; */
-}
-
+ */
 .badge__arriendo {
   background: #749e41;
   margin-left: 0.6rem;

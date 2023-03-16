@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs';
-import { URL_API } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +10,7 @@ export class PropiedadesService {
   constructor(private http: HttpClient) {}
 
   crearInmueble(data: any) {
-    return this.http.post<any>(`${URL_API}predio/crear/`, data).pipe(
+    return this.http.post<any>(`${environment.URL_API}predio/crear/`, data).pipe(
       tap((resp: any) => {
         console.log('crear inmueble', resp);
       })
@@ -18,7 +18,7 @@ export class PropiedadesService {
   }
 
   guardarFoto(data: any) {
-    return this.http.post<any>(`${URL_API}fotos/insertar`, data).pipe(
+    return this.http.post<any>(`${environment.URL_API}fotos/insertar`, data).pipe(
       tap((resp: any) => {
         console.log('foto', resp);
       })
@@ -26,11 +26,11 @@ export class PropiedadesService {
   }
 
   getPropiedades() {
-    return this.http.get(`${URL_API}predio/lista`);
+    return this.http.get(`${environment.URL_API}predio/lista`);
   }
 
   getPropiedadesFiltro(filtro: any) {
-    return this.http.get(`${URL_API}predio/filtros/${filtro}`);
+    return this.http.get(`${environment.URL_API}predio/filtros/${filtro}`);
   }
 
   // ********************************************************++

@@ -1,27 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { URL_API } from 'src/environments/environment';
-import { tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { ResponseLoginShared } from '../../interfaces/response-login.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  estadoUsuario!: string;
-  estado = new Subject<any>();
-  nombreUsuario = new Subject<any>();
-  idUsuario = new Subject<any>();
-
   constructor(private http: HttpClient) {}
 
-  getMessage(): Observable<any> {
-    return this.estado.asObservable();
-  }
-
-  login(correo: string, contra: string): Observable<any> {
-    let json = { usuario: correo, password: contra };
-    return this.http.post<any>(`${URL_API}login/loguear/`, json).pipe(
+  login(data: string): Observable<ResponseLoginShared> {
+    return this.http.post<ResponseLoginShared>(`${environment.URL_API}login/loguear/`, data);
+    /* return this.http.post<any>(`${URL_API}login/loguear/`, data).pipe(
       tap((resp: any) => {
         if (resp !== null) {
           if (resp.token === null) {
@@ -38,20 +29,10 @@ export class LoginService {
           }
         }
       })
-    );
+    ); */
   }
 
   registrarUsuario(data: any) {
-    return this.http.post<any>(`${URL_API}user/crear/`, data).pipe(
-      tap((resp: any) => {
-        if (resp !== null) {
-          if (resp.token === null) {
-            localStorage.removeItem('token');
-          } else {
-            localStorage.setItem('token', resp.token);
-          }
-        }
-      })
-    );
+    return this.http.post<any>(`${environment.URL_API}user/crear/`, data);
   }
 }
