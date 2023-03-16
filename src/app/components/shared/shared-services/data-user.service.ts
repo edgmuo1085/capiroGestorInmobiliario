@@ -21,10 +21,9 @@ export class DataUserService {
     correo: '',
     identificacion: '',
     tipoIdentificacion: '',
-    password: '',
-    token: '',
     estado: '',
     tipoCuenta: '',
+    token: '',
   };
 
   constructor(private JwtHelper: JwtHelperService, private router: Router, private storageService: StorageLocalService) {

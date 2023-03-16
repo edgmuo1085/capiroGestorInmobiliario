@@ -15,14 +15,14 @@ export class AuthGuard implements CanActivate {
       return true;
     }
 
-    Swal.fire({
+    /* Swal.fire({
       position: 'center',
       icon: 'info',
       text: 'Debe  iniciar sesión',
       showConfirmButton: false,
       timer: 3500,
-    });
-    this.router.navigate(['/login']);
+    }); */
+    this.router.navigate(['/page']);
     return false;
   }
 }

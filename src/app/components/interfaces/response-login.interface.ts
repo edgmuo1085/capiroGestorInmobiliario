@@ -5,10 +5,9 @@ export interface ResponseLoginShared {
   correo: string;
   identificacion: string;
   tipoIdentificacion: string;
-  password: string;
-  token: string;
   estado: string;
   tipoCuenta: string;
+  token: string;
 }
 
 export type UserDataShared = ResponseLoginShared;

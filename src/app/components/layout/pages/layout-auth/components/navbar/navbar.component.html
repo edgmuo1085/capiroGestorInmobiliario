@@ -27,7 +27,7 @@
     <!-- <a class="header__nav--item" routerLink="contacto" routerLinkActive="active">Contacto</a> -->
 
     <div class="header__nav--boton animate__animated animate__fadeIn" *ngIf="user === 'N'">
-      <a class="header__boton-login" data-bs-toggle="modal" routerLink="login">Ingresar</a>
+      <a class="header__boton-login" routerLink="login">Ingresar</a>
       <a class="header__boton" routerLink="registro">Registrarse</a>
     </div>
     <div class="header__nav--user animate__animated animate__fadeIn" *ngIf="user === 'A'">
@@ -96,7 +96,7 @@
       <a class="header__nav--item" routerLink="contacto" routerLinkActive="active" (click)="verMenu = false">Contacto</a>
     </div>
     <div class="header__nav--boton">
-      <a class="header__boton-login" data-bs-toggle="modal" (click)="showDialog()">Ingresar</a>
+      <a class="header__boton-login" (click)="showDialog()">Ingresar</a>
       <a class="header__boton" routerLink="registro" (click)="verMenu = false">Registrarse</a>
     </div>
   </nav>
