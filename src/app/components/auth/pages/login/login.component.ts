@@ -53,7 +53,8 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     let correo = this.loginForm.value.correo;
     let contra = this.loginForm.value.contrasena;
-    let data = { usuario: correo, password: contra };
+    let contraBase64 = window.btoa(contra);
+    let data = { usuario: correo, password: contraBase64 };
     let json = JSON.stringify(data);
 
     this.service.login(json).subscribe({
