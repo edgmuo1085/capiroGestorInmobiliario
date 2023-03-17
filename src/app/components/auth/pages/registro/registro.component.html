@@ -79,14 +79,14 @@
                 <div class="form-floating mb-3">
                   <input
                     class="form-control"
-                    [ngClass]="{ 'is-invalid': formCtrlR['contrasena'].touched && formCtrlR['contrasena'].errors }"
-                    formControlName="contrasena"
-                    id="contrasena"
+                    [ngClass]="{ 'is-invalid': formCtrlR['password'].touched && formCtrlR['password'].errors }"
+                    formControlName="password"
+                    id="password"
                     [type]="tipoInput"
                     placeholder="Contraseña"
                     required=""
                   />
-                  <label for="contrasena">Contraseña</label>
+                  <label for="password">Contraseña</label>
                   <div class="icon-eye-custom" (click)="mostrarPass()" *ngIf="eye === true">
                     <i class="fa-solid fa-eye-slash"></i>
                   </div>

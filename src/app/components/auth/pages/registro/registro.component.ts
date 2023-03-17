@@ -40,7 +40,7 @@ export class RegistroComponent implements OnInit {
       correo: ['', Validators.required],
       identificacion: ['', Validators.required],
       tipoIdentificacion: ['CC', Validators.required],
-      contrasena: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
 
