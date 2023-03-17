@@ -1,0 +1,33 @@
+<p-confirmDialog
+  #confirmModal
+  class="dialog-confirmation"
+  [header]="title"
+  [breakpoints]="{ '960px': '60vw', '640px': '95vw' }"
+  [style]="{ width: '30vw' }"
+  [key]="key"
+  [icon]="'pi ' + icon"
+>
+  <ng-template pTemplate="header">
+    <h3>{{ title }}</h3>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="group-button-form">
+            <div class="d-flex justify-content-center mt-5">
+              <div class="form-button">
+                <button class="form-btn bg-gray" type="button" (click)="confirmModal.reject()">No</button>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center mt-5">
+              <div class="form-button">
+                <button class="form-btn" type="button" (click)="confirmModal.accept()">Sí</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-confirmDialog>

@@ -5,6 +5,22 @@
   --color-tercer: #434041;
   --color-hover: #19ab5b;
   --color-wp: #25d366;
+  --gray-color-1: #808080;
+  --gray-color-2: #e7e8e9;
+  --gray-color-3: #e3e3e3;
+  --gray-color-4: #c9c6c6;
+  --gray-color-5: #f7f7f7;
+  --gray-color-6: #ced4da;
+  --black-color-0: #000000;
+  --black-color-1: #101010;
+  --black-color-2: #585858;
+  --black-color-3: rgba(0, 0, 0, 0.3);
+  --black-color-4: rgba(255, 255, 255, 0.5);
+  --black-color-5: rgba(255, 255, 255, 0.6);
+  --black-color-6: rgba(255, 255, 255, 0.7);
+  --black-color-7: rgba(255, 255, 255, 0.8);
+  --white-color-1: #ffffff;
+  --white-color-2: #e7e7e7;
 }
 
 html {
@@ -73,6 +89,33 @@ body {
       background-color: var(--color-hover);
     }
   }
+
+  .form-btn {
+    background-color: var(--color-principal);
+    border: 0;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: all;
+
+    &.bg-gray {
+      background-color: var(--color-secundario);
+
+      &:hover {
+        background-color: var(--color-tercer);
+      }
+    }
+
+    &:hover {
+      background-color: var(--color-hover);
+    }
+  }
 }
 
 .active {
@@ -83,11 +126,6 @@ body {
   padding: 0 2.5rem;
 }
 
-/* input {
-  font-size: 1rem;
-  font-weight: 500;
-}
- */
 .badge__arriendo {
   background: #749e41;
   margin-left: 0.6rem;

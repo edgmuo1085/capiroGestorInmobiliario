@@ -15,7 +15,6 @@ import { environment } from 'src/environments/environment';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  msg: boolean = false;
   loading: boolean = false;
   eye: boolean = true;
   tipoInput: string = 'password';

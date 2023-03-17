@@ -1,41 +1,152 @@
-<section class="registro">
-  <div class="container__registro">
-    <div class="registro__imagen animate__animated animate__fadeIn">
-      <img src="./assets/images/fondo-registro.png" alt="fondo-registro" class="registro__imagen--img" />
+<div class="container-fluid" id="section-registro">
+  <div class="row justify-content-center my-5">
+    <div class="col-12 col-md-5 col-lg-5 d-none d-md-block d-lg-block">
+      <img src="./assets/images/fondo-registro.png" alt="fondo-registro" class="registro-img" />
     </div>
-    <div class="registro__form animate__animated animate__slideInRight">
-      <div class="registro__title">
-        <p>Formulario de Registro</p>
+    <div class="col-12 col-md-5 col-lg-5">
+      <div class="registro-container animate__animated animate__slideInRight">
+        <div class="container registro-form">
+          <form [formGroup]="formRegistro" (ngSubmit)="registrar()" autocomplete="off">
+            <div class="form-titulo">
+              <h2>Formulario de Registro</h2>
+            </div>
+
+            <div class="row justify-content-center">
+              <div class="col-11 col-md-10">
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlR['nombres'].touched && formCtrlR['nombres'].errors }"
+                    formControlName="nombres"
+                    id="nombres"
+                    type="text"
+                    placeholder="Nombres"
+                    required=""
+                  />
+                  <label for="nombres">Nombres</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlR['apellidos'].touched && formCtrlR['apellidos'].errors }"
+                    formControlName="apellidos"
+                    id="apellidos"
+                    type="text"
+                    placeholder="Apellidos"
+                    required=""
+                  />
+                  <label for="apellidos">Apellidos</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlR['correo'].touched && formCtrlR['correo'].errors }"
+                    formControlName="correo"
+                    id="correo"
+                    type="email"
+                    placeholder="Correo electrónico"
+                    required=""
+                  />
+                  <label for="correo">Correo electrónico</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <select
+                    class="form-select"
+                    id="tipoIdentificacion"
+                    formControlName="tipoIdentificacion"
+                    aria-label="Tipo de identificación"
+                    [ngClass]="{ 'is-invalid': formCtrlR['tipoIdentificacion'].touched && formCtrlR['tipoIdentificacion'].errors }"
+                  >
+                    <ng-container>
+                      <option *ngFor="let tipo of tiposIdentificacion" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                    </ng-container>
+                  </select>
+                  <label for="tipoIdentificacion">Tipo de identificación</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlR['identificacion'].touched && formCtrlR['identificacion'].errors }"
+                    formControlName="identificacion"
+                    id="identificacion"
+                    type="number"
+                    placeholder="Identificación"
+                    required=""
+                  />
+                  <label for="identificacion">Identificación</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlR['contrasena'].touched && formCtrlR['contrasena'].errors }"
+                    formControlName="contrasena"
+                    id="contrasena"
+                    [type]="tipoInput"
+                    placeholder="Contraseña"
+                    required=""
+                  />
+                  <label for="contrasena">Contraseña</label>
+                  <div class="icon-eye-custom" (click)="mostrarPass()" *ngIf="eye === true">
+                    <i class="fa-solid fa-eye-slash"></i>
+                  </div>
+                  <div class="icon-eye-custom" (click)="ocultarPass()" *ngIf="eye === false">
+                    <i class="fa-solid fa-eye"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-evenly mt-5">
+              <div class="form-button">
+                <button class="form-btn bg-gray" type="reset">Cancelar</button>
+              </div>
+              <div class="form-button">
+                <button class="form-btn" type="submit">
+                  Registrar
+                  <div class="spinner-border spinner-border-sm" role="status" *ngIf="loading">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-      <p class="registro__mensaje">Por favor registrarse para acceder a los servicios de vender, alquilar y comprar.</p>
-      <div class="registro__campos">
-        <form [formGroup]="formRegistro" (submit)="registrar()">
-          <div class="registro__campo--item">
-            <label for="nombres" class="registro__label">Nombres:</label>
-            <input type="text" name="nombres" id="nombres" class="registro__input" formControlName="nombres" />
-          </div>
-          <div class="registro__campo--item">
-            <label for="apellidos" class="registro__label">Apellidos:</label>
-            <input type="text" name="apellidos" id="apellidos" class="registro__input" formControlName="apellidos" />
-          </div>
-          <div class="registro__campo--item">
-            <label for="identificacion" class="registro__label">Identificación:</label>
-            <input type="number" name="identificacion" id="identificacion" class="registro__input" formControlName="identificacion" />
-          </div>
-          <div class="registro__campo--item">
-            <label for="correo" class="registro__label">Correo electrónico:</label>
-            <input type="text" name="correo" id="correo" class="registro__input" formControlName="correo" />
-          </div>
-          <div class="registro__campo--item">
-            <label for="password" class="registro__label">Contraseña:</label>
-            <input type="password" name="password" id="password" class="registro__input" formControlName="password" />
-          </div>
-          <div class="registro__campo--botones">
-            <button type="button" routerLink="/home" class="registrar__boton--cancelar">Cancelar</button>
-            <button type="submit" class="registrar__boton">Registrar</button>
-          </div>
-        </form>
-      </div>
+      <!-- <div class="registro__form animate__animated animate__slideInRight">
+        <div class="registro__title">
+          <p>Formulario de Registro</p>
+        </div>
+        <p class="registro__mensaje">Por favor registrarse para acceder a los servicios de vender, alquilar y comprar.</p>
+        <div class="registro__campos">
+          <form [formGroup]="formRegistro" (submit)="registrar()">
+            <div class="registro__campo--item">
+              <label for="nombres" class="registro__label">Nombres:</label>
+              <input type="text" name="nombres" id="nombres" class="registro__input" formControlName="nombres" />
+            </div>
+            <div class="registro__campo--item">
+              <label for="apellidos" class="registro__label">Apellidos:</label>
+              <input type="text" name="apellidos" id="apellidos" class="registro__input" formControlName="apellidos" />
+            </div>
+            <div class="registro__campo--item">
+              <label for="identificacion" class="registro__label">Identificación:</label>
+              <input type="number" name="identificacion" id="identificacion" class="registro__input" formControlName="identificacion" />
+            </div>
+            <div class="registro__campo--item">
+              <label for="correo" class="registro__label">Correo electrónico:</label>
+              <input type="text" name="correo" id="correo" class="registro__input" formControlName="correo" />
+            </div>
+            <div class="registro__campo--item">
+              <label for="password" class="registro__label">Contraseña:</label>
+              <input type="password" name="password" id="password" class="registro__input" formControlName="password" />
+            </div>
+            <div class="registro__campo--botones">
+              <button type="button" routerLink="/home" class="registrar__boton--cancelar">Cancelar</button>
+              <button type="submit" class="registrar__boton">Registrar</button>
+            </div>
+          </form>
+        </div>
+      </div> -->
     </div>
   </div>
-</section>
+</div>

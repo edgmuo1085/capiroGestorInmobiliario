@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutAuthComponent } from '../layout/pages/layout-auth/layout-auth.component';
+import { LayoutPageComponent } from '../layout/pages/layout-page/layout-page.component';
+import { AuthGuard } from '../shared/shared-modules/guard/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
@@ -21,6 +23,28 @@ const routes: Routes = [
         title: '.::Registrarse::.',
         component: RegistroComponent,
       },
+      {
+        path: 'nosotros',
+        title: '.::Nosotros::.',
+        component: NosotrosComponent,
+      },
+      {
+        path: 'home',
+        title: '.::Capiro::.',
+        component: HomeComponent,
+      },
+      {
+        path: '',
+        title: '.::Capiro::.',
+        component: HomeComponent,
+      },
+    ],
+  },
+  {
+    path: 'auth',
+    component: LayoutPageComponent,
+    canActivate: [AuthGuard],
+    children: [
       {
         path: 'nosotros',
         title: '.::Nosotros::.',

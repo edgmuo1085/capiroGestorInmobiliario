@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
 import { LoginService } from 'src/app/components/shared/shared-services/login.service';
+import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
 
 @Component({
   selector: 'app-registro',
@@ -11,8 +11,27 @@ import { LoginService } from 'src/app/components/shared/shared-services/login.se
 })
 export class RegistroComponent implements OnInit {
   formRegistro!: FormGroup;
+  loading: boolean = false;
+  eye: boolean = true;
+  tipoInput: string = 'password';
 
-  constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService) {}
+  tiposIdentificacion: any[] = [
+    {
+      value: 'CC',
+      label: 'Cédula de ciudadanía',
+    },
+    {
+      value: 'CE',
+      label: 'Cédula de extranjería',
+    },
+  ];
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private loginService: LoginService,
+    private toastCustomService: ToastCustomService
+  ) {}
 
   ngOnInit(): void {
     this.formRegistro = this.fb.group({
@@ -21,31 +40,54 @@ export class RegistroComponent implements OnInit {
       correo: ['', Validators.required],
       identificacion: ['', Validators.required],
       tipoIdentificacion: ['CC', Validators.required],
-      password: ['', Validators.required],
+      contrasena: ['', Validators.required],
     });
   }
 
+  mostrarPass() {
+    this.eye = false;
+    this.tipoInput = 'text';
+  }
+
+  ocultarPass() {
+    this.eye = true;
+    this.tipoInput = 'password';
+  }
+
   registrar() {
-    if (this.formRegistro.valid) {
-      this.loginService.registrarUsuario(this.formRegistro.value).subscribe(resp => {
-        console.log(resp);
-      });
-      Swal.fire({
-        icon: 'success',
-        title: 'Bienvenido',
-        text: 'Su cuenta fue creada de forma exitosa ',
-        confirmButtonText: 'Aceptar',
-      }).then(result => {
-        if (result.isConfirmed) {
-          this.router.navigateByUrl('home');
-        }
-      });
-      console.log(this.formRegistro.value);
-    } else {
-      Swal.fire({
-        icon: 'info',
-        text: 'Para realizar el registro es necesario ingresar todos los campos.',
-      });
+    if (this.formRegistro.invalid) {
+      this.toastCustomService.showToas('Advertencia', 'Debe digitar todos los campos', 'error');
+      return;
     }
+    this.loading = true;
+    let usuarioCreacion = this.formRegistro.value;
+    let json = JSON.stringify(usuarioCreacion);
+
+    this.loginService.registrarUsuario(json).subscribe({
+      next: response => {
+        console.log(response);
+        if (!response.idUsuario) {
+          this.loading = false;
+          this.toastCustomService.showToas(
+            'Advertencia',
+            'Ocurrió un error al momento de registrar el usuario, inténtelo más tarde',
+            'warn'
+          );
+          return;
+        }
+        this.loading = false;
+        this.toastCustomService.showToas('Información', 'Usuario registrado con éxito');
+        this.formRegistro.reset();
+        this.router.navigate(['/page/home']);
+      },
+      error: err => {
+        console.error(err);
+        this.loading = false;
+      },
+    });
+  }
+
+  get formCtrlR() {
+    return this.formRegistro.controls;
   }
 }

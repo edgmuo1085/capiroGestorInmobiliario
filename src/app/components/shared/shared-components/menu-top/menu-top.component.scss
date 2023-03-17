@@ -1,0 +1,32 @@
+@import 'layout.functions';
+
+.section-post-button {
+  background-color: var(--color-tercer);
+
+  .information {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding-top: cap-font-size(4px);
+    padding-bottom: cap-font-size(4px);
+
+    span {
+      margin: cap-font-size(8px) cap-font-size(16px);
+      color: #fff;
+
+      a {
+        text-decoration: none;
+        color: #fff;
+        padding-left: cap-font-size(6px);
+      }
+    }
+  }
+
+  @media screen and (max-width: cap-font-size(576px)) {
+    .information {
+      flex-direction: column;
+    }
+  }
+}

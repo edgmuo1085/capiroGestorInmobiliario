@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light navbar-sticky bg-navbar-capiro">
   <div class="container bg-menu-capiro">
-    <a class="navbar-brand" routerLink="/page/home">
+    <a class="navbar-brand" routerLink="/page/auth/home">
       <img src="./assets/images/logo.png" alt="capiro" class="logo-capiro" />
     </a>
     <button
@@ -39,7 +39,11 @@
             <ul class="dropdown-menu">
               <ng-container *ngFor="let children of menu.children">
                 <li>
-                  <a class="dropdown-item" [routerLink]="children.link">
+                  <a
+                    class="dropdown-item"
+                    [routerLink]="children.link === '/signout' ? null : children.link"
+                    (click)="modalCloseSesion(children)"
+                  >
                     <span> {{ children.title }} </span>
                   </a>
                 </li>
@@ -51,3 +55,5 @@
     </div>
   </div>
 </nav>
+
+<app-cap-modal-confirmacion [key]="'signout'" [title]="'Cerrar sesión'"></app-cap-modal-confirmacion>

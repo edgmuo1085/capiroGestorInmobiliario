@@ -32,7 +32,7 @@ export class LoginService {
     ); */
   }
 
-  registrarUsuario(data: any) {
+  registrarUsuario(data: string): Observable<any> {
     return this.http.post<any>(`${environment.URL_API}user/crear/`, data);
   }
 }

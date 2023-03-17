@@ -13,10 +13,11 @@ const routes: Routes = [
         path: 'page',
         loadChildren: () => import('./components/auth/auth.module').then(m => m.AuthModule),
       },
-      /* {
-        path: 'lease',
-        loadChildren: () => import('./components/lease/lease.module').then(m => m.LeaseModule),
+      {
+        path: 'inmuebles',
+        loadChildren: () => import('./components/inmuebles/inmuebles.module').then(m => m.InmueblesModule),
       },
+      /*
       {
         path: 'buy',
         loadChildren: () => import('./components/buy/buy.module').then(m => m.BuyModule),

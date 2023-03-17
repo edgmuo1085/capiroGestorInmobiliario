@@ -82,15 +82,13 @@ const modulePrimeng = [
   StepsModule,
 ];
 
-/** Modules Custom */
-/* import { SharedModulesModule } from '../shared-modules/shared-modules.module'; */
-
 /** Components Custom */
+import { CapModalConfirmacionComponent } from './cap-modal-confirmacion/cap-modal-confirmacion.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [CapModalConfirmacionComponent],
   imports: [TranslateModule.forChild({}), CommonModule, FormsModule, ReactiveFormsModule, ...modulePrimeng],
-  exports: [CommonModule, ...modulePrimeng],
+  exports: [CommonModule, ...modulePrimeng, CapModalConfirmacionComponent],
   providers: [MessageService, ConfirmationService],
 })
 export class SharedPrimengModulesModule {}
