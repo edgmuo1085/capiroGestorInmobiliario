@@ -1,65 +1,19 @@
-<section class="principal">
-  <div
-    class="principal__container"
-    [ngStyle]="{ background: 'linear-gradient(to right, #55627057, #ff6b6b65),url(./assets/images/Foto-laceja2.jpg)' }"
-  >
-    <div class="principal__item">
-      <div class="principal__titulo animate__animated animate__fadeIn">Nuestros Ultimos Lanzamientos</div>
-      <!-- <div class="principal__subtitulo animate__animated animate__fadeIn">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur qui ipsam corrupti.
-            </div> -->
-      <div class="principal__search animate__animated animate__fadeInUp">
-        <a (click)="ir()" class="principal__search--boton">Anuncie su inmueble</a>
-      </div>
+<section class="section-home" [ngStyle]="{ background: 'linear-gradient(to right, #55627057, #ff6b6b65),url(./assets/images/laceja.jpg)' }">
+  <div class="grupo-titulo-enlaces">
+    <div class="titulo animate__animated animate__fadeIn">Nuestros Últimos Lanzamientos</div>
+    <div class="grupo-enlaces animate__animated animate__fadeInUp">
+      <a routerLink="/inmuebles/arriendo" class="btn-inmueble">Arriendo</a>
+      <a routerLink="/inmuebles/venta" class="btn-inmueble">Venta</a>
     </div>
   </div>
 </section>
 
-<section class="services">
-  <div class="services__container">
-    <div class="services__info" routerLink="/propiedadVenta">
-      <div class="service__icono">
-        <img src="./assets/images/icono1.png" alt="" class="service__icono--img" />
-      </div>
-      <div class="service__titulo">Venta</div>
-      <div class="service__descripcion">
-        Asesoramiento y trámite de la documentación relacionado con la venta de su inmueble. Tenemos experiencia en la venta urbana y rural
-        de inmuebles en la zona. Tenemos un amplio portafolio de propiedades para la venta.
-      </div>
-    </div>
-    <div class="services__info" routerLink="/hipotecas">
-      <div class="service__icono">
-        <img src="./assets/images/icono5.png" alt="" class="service__icono--img" />
-      </div>
-      <div class="service__titulo">Hipoteca</div>
-      <div class="service__descripcion">
-        Gestionamos rápido y comercialmente hipotecas sobre su propiedad, con garantía y responsabilidad en caso de requerir económicamente
-        un préstamo.
-      </div>
-    </div>
-    <div class="services__info" routerLink="/propiedadArrendo">
-      <div class="service__icono">
-        <img src="./assets/images/icono3.png" alt="" class="service__icono--img" />
-      </div>
-      <div class="service__titulo">Arrendamientos</div>
-      <div class="service__descripcion">
-        Arrendamiento de casas, apartamentos, fincas, bodegas, y locales, brindando agilidad en el trámite de arrendamiento del inmueble
-        para nuestros clientes.
-      </div>
-    </div>
-    <div class="services__info" routerLink="/ventas">
-      <div class="service__icono">
-        <img src="./assets/images/icono11.png" alt="" class="service__icono--img" />
-      </div>
-      <div class="service__titulo">Trámites ambientales</div>
-      <div class="service__descripcion">Aquí encontrarás tu hogar para arrendar, selecciona la mejor opción.</div>
-    </div>
-  </div>
-</section>
+<app-home-servicios></app-home-servicios>
 
-<section class="destacados">
+<section class="container-fluid">
   <app-destacasos></app-destacasos>
 </section>
+<!-- 
 
 <div class="ubicacion__titulo">
   <p>Nuestra ubicación</p>
@@ -78,3 +32,4 @@
     ></iframe>
   </div>
 </section>
+ -->

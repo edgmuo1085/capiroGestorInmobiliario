@@ -8,9 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { DestacasosComponent } from './pages/home/components/destacasos/destacasos.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { SharedComponentsModule } from '../shared/shared-components/shared-components.module';
+import { SharedPrimengModulesModule } from '../shared/shared-primeng-modules/shared-primeng-modules.module';
 
 @NgModule({
   declarations: [LoginComponent, RegistroComponent, HomeComponent, DestacasosComponent, NosotrosComponent],
-  imports: [CommonModule, AuthRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, AuthRoutingModule, FormsModule, ReactiveFormsModule, SharedComponentsModule, SharedPrimengModulesModule],
 })
 export class AuthModule {}
