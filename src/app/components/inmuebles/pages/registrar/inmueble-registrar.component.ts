@@ -20,12 +20,75 @@ export class InmuebleRegistrarComponent implements OnInit {
   multiple: boolean = true;
 
   datos: any[] = [];
+  tiposInmuebles: any[] = [
+    {
+      value: 'Casa',
+      label: 'Casa',
+    },
+    {
+      value: 'Apartamento',
+      label: 'Apartamento',
+    },
+    {
+      value: 'Local',
+      label: 'Local',
+    },
+    {
+      value: 'Bodega',
+      label: 'Bodega',
+    },
+    {
+      value: 'Casa Finca',
+      label: 'Casa Finca',
+    },
+  ];
+  garageSeleccion: any[] = [
+    {
+      value: 'Si',
+      label: 'Sí',
+    },
+    {
+      value: 'No',
+      label: 'No',
+    },
+  ];
+  estadoInmueble: any[] = [
+    {
+      value: 'Nuevo',
+      label: 'Nuevo',
+    },
+    {
+      value: 'Usado',
+      label: 'Usado',
+    },
+  ];
+  tipoPublicacion: any[] = [
+    {
+      value: 'Arriendo',
+      label: 'Arriendo',
+    },
+    {
+      value: 'Venta',
+      label: 'Venta',
+    },
+  ];
+  tipoConstruccion: any[] = [
+    {
+      value: 'Moderno',
+      label: 'Moderno',
+    },
+    {
+      value: 'Antiguo',
+      label: 'Antiguo',
+    },
+  ];
   base64Output!: string;
   tiposFormatos: any = {
     'image/jpeg': 'jpg',
     'image/jpg': 'jpg',
     'image/png': 'png',
   };
+  loading: boolean = false;
 
   constructor(
     private router: Router,
@@ -46,24 +109,25 @@ export class InmuebleRegistrarComponent implements OnInit {
       estrato: ['', Validators.required],
       banos: ['', Validators.required],
       garage: ['', Validators.required],
-      estado: ['', Validators.required],
+      estadoInmueble: ['', Validators.required],
       tiempo: ['', Validators.required],
       precio: ['', Validators.required],
       tipoPublicacion: ['', Validators.required],
-      tipoCons: ['', Validators.required],
-      idUsuario: [Number(localStorage.getItem('id'))],
+      tipoConstruccion: ['', Validators.required],
+      idUsuario: [''],
     });
   }
 
   registrarInmueble() {
     if (this.formRegistroInmueble.valid) {
-      this.cargarImagenes = true;
+      console.log('creado');
+      /* this.cargarImagenes = true;
       let data = this.formRegistroInmueble.value;
       console.log('datos enviados', data);
       this.propiedadesService.crearInmueble(data).subscribe(resp => {
         console.log('creados', resp);
         this.idInmueble = resp.id;
-      });
+      }); */
     } else {
       Swal.fire({
         icon: 'info',
@@ -122,5 +186,8 @@ export class InmuebleRegistrarComponent implements OnInit {
     reader.onload = (event: any) => result.next(window.btoa(event.target.result.toString()));
     return result;
   }
-  // *************************************************
+
+  get formCtrlI() {
+    return this.formRegistroInmueble.controls;
+  }
 }

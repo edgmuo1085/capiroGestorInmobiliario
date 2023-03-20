@@ -1,3 +1,29 @@
+@import 'layout.functions';
+
+#section-register-inmueble {
+  .header-registro-inmueble {
+    .img-registro-inmueble {
+      width: 100%;
+      height: 100%;
+      max-height: calc(100vh - 80vh);
+      object-fit: cover;
+    }
+  }
+
+  .registro-inmueble-titulo {
+    font-size: cap-font-size(20px);
+    color: var(--color-tercer);
+    font-weight: 900;
+  }
+
+  .registro-inmueble-descripcion {
+    font-size: cap-font-size(16px);
+    color: var(--color-secundario);
+    margin: cap-font-size(16px) 0;
+  }
+}
+
+/* 
 .registro__inmueble {
   display: flex;
   justify-content: center;
@@ -17,18 +43,14 @@
   padding: 2rem 0;
 }
 
-.registro__titulo {
+.registro-inmueble-titulo {
   width: 100%;
   font-size: 1.4rem;
   color: var(--color-tercer);
   font-weight: 900;
 }
 
-.registro__mensaje {
-  font-size: 1rem;
-  color: var(--color-secundario);
-  margin: 1rem 0;
-}
+
 
 .form__items {
   display: flex;
@@ -52,7 +74,7 @@
   padding-right: 1rem;
 }
 
-/* **************************** */
+
 .formulario__label {
   font-size: 1rem;
   font-weight: 400;
@@ -159,3 +181,4 @@
     height: 10vh;
   }
 }
+ */
