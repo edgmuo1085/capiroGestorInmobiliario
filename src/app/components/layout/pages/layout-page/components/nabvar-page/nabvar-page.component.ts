@@ -13,15 +13,15 @@ export class NabvarPageComponent implements OnInit {
   menuItem: MenuNavbar[] = [
     {
       label: 'Anuncie su inmueble',
-      link: '/inmuebles',
+      link: '/inmuebles/sesion/registrar',
     },
     {
       label: 'Avalúos',
-      link: '/page/login',
+      link: '/avaluos/sesion',
     },
     {
       label: 'Hipotecas',
-      link: '/page/login',
+      link: '/hipotecas/sesion',
     },
     {
       label: 'Inmuebles',
@@ -29,17 +29,17 @@ export class NabvarPageComponent implements OnInit {
       children: [
         {
           title: 'Propiedades en arriendo',
-          link: '/inmuebles/auth/arriendo',
+          link: '/inmuebles/sesion/arriendo',
         },
         {
           title: 'Propiedades en venta',
-          link: '/inmuebles/auth/venta',
+          link: '/inmuebles/sesion/venta',
         },
       ],
     },
     {
       label: 'Nosotros',
-      link: '/page/auth/nosotros',
+      link: '/page/sesion/nosotros',
     },
   ];
 

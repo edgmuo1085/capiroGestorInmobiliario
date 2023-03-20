@@ -1,13 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { PropiedadesInmuebles } from '../../interfaces/response-propiedades.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PropiedadesService {
   constructor(private http: HttpClient) {}
+
+  getPropiedadesDestacados(): Observable<PropiedadesInmuebles[]> {
+    return this.http.get<PropiedadesInmuebles[]>('./assets/data/destacados.json');
+    //return this.http.get<any>(`${environment.URL_API}predio/ultimos`);
+  }
 
   crearInmueble(data: any) {
     return this.http.post<any>(`${environment.URL_API}predio/crear/`, data).pipe(
@@ -36,18 +42,18 @@ export class PropiedadesService {
   // ********************************************************++
 
   todasPropiedades() {
-    return this.http.get('./assets/images/propiedades.json');
+    return this.http.get('./assets/data/propiedades.json');
   }
 
   arriendoPropiedades() {
-    return this.http.get('./assets/images/propiedades-arriendo.json');
+    return this.http.get('./assets/data/propiedades-arriendo.json');
   }
 
   ventaPropiedades() {
-    return this.http.get('./assets/images/propiedades-ventas.json');
+    return this.http.get('./assets/data/propiedades-ventas.json');
   }
 
   getImgenes() {
-    return this.http.get('./assets/images/imagenes.json');
+    return this.http.get('./assets/data/imagenes.json');
   }
 }

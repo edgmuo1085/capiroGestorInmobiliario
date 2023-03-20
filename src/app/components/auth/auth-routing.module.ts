@@ -41,7 +41,7 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'auth',
+    path: 'sesion',
     component: LayoutPageComponent,
     canActivate: [AuthGuard],
     children: [

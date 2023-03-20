@@ -1,0 +1,62 @@
+[
+  {
+    "tipo": "venta",
+    "estado": "nuevo",
+    "habi": "5",
+    "banos": "2",
+    "metros": 400,
+    "tipoInmu": "casa",
+    "precio": 300000000,
+    "img": "./assets/images/galeria1.jpg"
+  },
+  {
+    "tipo": "venta",
+    "estado": "nuevo",
+    "habi": "3",
+    "banos": "1",
+    "metros": 300,
+    "tipoInmu": "casa",
+    "precio": 150000000,
+    "img": "./assets/images/galeria2.jpg"
+  },
+  {
+    "tipo": "arriendo",
+    "estado": "usado",
+    "habi": "4",
+    "banos": "3",
+    "metros": 600,
+    "tipoInmu": "casa",
+    "precio": 1000000,
+    "img": "./assets/images/galeria3.jpg"
+  },
+  {
+    "tipo": "arriendo",
+    "estado": "nuevo",
+    "habi": "1",
+    "banos": "2",
+    "metros": 500,
+    "tipoInmu": "oficina",
+    "precio": 1500000,
+    "img": "./assets/images/galeria4.jpg"
+  },
+  {
+    "tipo": "arriendo",
+    "estado": "usado",
+    "habi": "5",
+    "banos": "2",
+    "metros": 500,
+    "tipoInmu": "casa",
+    "precio": 1550000,
+    "img": "./assets/images/galeria5.jpg"
+  },
+  {
+    "tipo": "venta",
+    "estado": "nuevo",
+    "habi": "3",
+    "banos": "3",
+    "metros": 700,
+    "tipoInmu": "casa",
+    "precio": 550000000,
+    "img": "./assets/images/galeria6.jpg"
+  }
+]

@@ -36,7 +36,7 @@ html {
 }
 
 body {
-  font-family: 'Familjen Grotesk', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -115,6 +115,16 @@ body {
     &:hover {
       background-color: var(--color-hover);
     }
+  }
+}
+
+.titulo-section {
+  font-size: cap-font-size(32px);
+  font-weight: 900;
+  margin-bottom: cap-font-size(32px);
+
+  h2 {
+    color: var(--color-principal);
   }
 }
 

@@ -17,6 +17,16 @@ const routes: Routes = [
         path: 'inmuebles',
         loadChildren: () => import('./components/inmuebles/inmuebles.module').then(m => m.InmueblesModule),
       },
+      {
+        path: 'avaluos',
+        loadChildren: () => import('./components/avaluos/avaluos.module').then(m => m.AvaluosModule),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'hipotecas',
+        loadChildren: () => import('./components/hipotecas/hipotecas.module').then(m => m.HipotecasModule),
+        canActivate: [AuthGuard],
+      },
       /*
       {
         path: 'buy',

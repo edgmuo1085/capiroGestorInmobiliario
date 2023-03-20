@@ -11,7 +11,7 @@
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-  min-height: calc(100vh - 15vh);
+  min-height: calc(100vh - 20vh);
 
   .grupo-titulo-enlaces {
     display: flex;
@@ -30,9 +30,9 @@
 
     .titulo {
       color: #ffffff;
-      font-size: 2.3rem;
+      font-size: cap-font-size(40px);
       font-weight: 900;
-      margin-bottom: 1rem;
+      margin-bottom: cap-font-size(16px);
       text-align: center;
     }
 
@@ -54,9 +54,10 @@
         border-radius: cap-font-size(12px);
         padding: cap-font-size(16px) cap-font-size(20px);
         font-size: cap-font-size(16px);
-        font-weight: 700;
+        font-weight: 500;
         box-shadow: 5px 5px 15px #464545c2;
         text-align: center;
+        text-decoration: none;
 
         &:hover {
           background-color: var(--color-hover);

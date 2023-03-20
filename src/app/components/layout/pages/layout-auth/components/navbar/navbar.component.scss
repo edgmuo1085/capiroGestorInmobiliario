@@ -24,17 +24,15 @@
       transition: 0.3s;
       border-radius: cap-font-size(6px);
       border: cap-font-size(1px) solid var(--white-color-1);
+      cursor: pointer;
 
       a {
         color: var(--color-secundario);
-        font-weight: bold;
         position: relative;
         display: block;
         font-weight: 400;
         font-size: cap-font-size(16px);
         padding: cap-font-size(8px) cap-font-size(16px);
-        /* padding-left: cap-font-size(16px);
-        padding-right: cap-font-size(16px); */
 
         &.register-item {
           background-color: var(--color-principal);

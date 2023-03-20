@@ -1,0 +1,32 @@
+[
+  {
+    "tipo": "arriendo",
+    "estado": "nuevo",
+    "habi": "1",
+    "banos": "2",
+    "metros": 400,
+    "tipoInmu": "oficina",
+    "precio": 1000000,
+    "img": "./assets/images/galeria4.jpg"
+  },
+  {
+    "tipo": "arriendo",
+    "estado": "usado",
+    "habi": "5",
+    "banos": "3",
+    "metros": 400,
+    "tipoInmu": "casa",
+    "precio": 300000000,
+    "img": "./assets/images/galeria5.jpg"
+  },
+  {
+    "tipo": "arriendo",
+    "estado": "nuevo",
+    "habi": "3",
+    "banos": "2",
+    "metros": 400,
+    "tipoInmu": "casa",
+    "precio": 1500000,
+    "img": "./assets/images/galeria6.jpg"
+  }
+]

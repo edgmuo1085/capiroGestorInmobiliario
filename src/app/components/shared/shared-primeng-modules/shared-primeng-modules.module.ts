@@ -42,6 +42,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BlockUIModule } from 'primeng/blockui';
 import { StepsModule } from 'primeng/steps';
+import { GalleriaModule } from 'primeng/galleria';
 
 const modulePrimeng = [
   InputTextModule,
@@ -80,6 +81,7 @@ const modulePrimeng = [
   ProgressSpinnerModule,
   BlockUIModule,
   StepsModule,
+  GalleriaModule,
 ];
 
 /** Components Custom */

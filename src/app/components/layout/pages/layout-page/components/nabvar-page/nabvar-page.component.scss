@@ -24,6 +24,7 @@
       transition: 0.3s;
       border-radius: cap-font-size(6px);
       border: cap-font-size(1px) solid var(--white-color-1);
+      cursor: pointer;
 
       a {
         color: var(--color-secundario);

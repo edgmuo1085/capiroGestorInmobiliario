@@ -9,6 +9,7 @@ const routes: Routes = [
     component: LayoutPageComponent,
     children: [
       {
+        title: '.::Inicio - Capiro::.',
         path: 'dashboard',
         component: DashboardComponent,
       },

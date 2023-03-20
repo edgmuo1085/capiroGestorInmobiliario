@@ -1,0 +1,69 @@
+@import 'layout.functions';
+
+#section-destacados {
+  .destado-item {
+    cursor: pointer;
+    position: relative;
+    box-shadow: 6px 10px 5px 0px rgba(0, 0, 0, 0.148);
+
+    .destacado-imagen {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: cap-font-size(8px);
+    }
+
+    .destacado-enlace {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 50%;
+      left: 0%;
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border: cap-font-size(1px) solid rgba(255, 255, 255, 0.18);
+      opacity: 0;
+
+      .btn-mas {
+        width: 100%;
+        max-width: cap-font-size(250px);
+        cursor: pointer;
+        border: 0;
+        background-color: var(--color-principal);
+        color: #ffffff;
+        border-radius: cap-font-size(8px);
+        margin-top: cap-font-size(10px);
+        margin-bottom: cap-font-size(10px);
+        padding-top: cap-font-size(6px);
+        padding-bottom: cap-font-size(6px);
+        text-decoration: none;
+        text-align: center;
+
+        &:hover {
+          background-color: var(--color-hover);
+        }
+      }
+    }
+
+    .tipo-propiedad {
+      background-color: var(--color-principal);
+      width: cap-font-size(100px);
+      height: 1.5rem;
+      display: flex;
+      justify-content: center;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 400;
+      border-radius: 1rem;
+      position: absolute;
+      top: 5%;
+      left: 5%;
+    }
+
+    &:hover .destacado-enlace {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "tipo": "venta",
+    "estado": "nuevo",
+    "habi": "5",
+    "banos": "2",
+    "metros": 400,
+    "tipoInmu": "casa",
+    "precio": 300000000,
+    "img": "./assets/images/galeria1.jpg"
+  },
+  {
+    "id": 2,
+    "tipo": "venta",
+    "estado": "nuevo",
+    "habi": "3",
+    "banos": "1",
+    "metros": 300,
+    "tipoInmu": "casa",
+    "precio": 150000000,
+    "img": "./assets/images/galeria2.jpg"
+  },
+  {
+    "id": 3,
+    "tipo": "arriendo",
+    "estado": "usado",
+    "habi": "4",
+    "banos": "3",
+    "metros": 600,
+    "tipoInmu": "casa",
+    "precio": 1000000,
+    "img": "./assets/images/galeria3.jpg"
+  }
+]
