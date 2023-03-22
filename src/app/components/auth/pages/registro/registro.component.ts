@@ -56,7 +56,7 @@ export class RegistroComponent implements OnInit {
 
   registrar() {
     if (this.formRegistro.invalid) {
-      this.toastCustomService.showToas('Advertencia', 'Debe digitar todos los campos', 'error');
+      this.toastCustomService.showToas('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;
     }
     this.loading = true;

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { InmuebleModel } from '../../interfaces/inmueble.interface';
+import { ResponseInmueble } from '../../interfaces/response-inmueble.interface';
 import { PropiedadesInmuebles } from '../../interfaces/response-propiedades.interface';
 
 @Injectable({
@@ -10,33 +12,39 @@ import { PropiedadesInmuebles } from '../../interfaces/response-propiedades.inte
 export class PropiedadesService {
   constructor(private http: HttpClient) {}
 
-  getPropiedadesDestacados(): Observable<PropiedadesInmuebles[]> {
-    return this.http.get<PropiedadesInmuebles[]>('./assets/data/destacados.json');
-    //return this.http.get<any>(`${environment.URL_API}predio/ultimos`);
+  getInmuebles(): Observable<ResponseInmueble[]> {
+    const url = `${environment.URL_API}predio/lista`;
+    return this.http.get<ResponseInmueble[]>(url);
   }
 
-  crearInmueble(data: any) {
-    return this.http.post<any>(`${environment.URL_API}predio/crear/`, data).pipe(
-      tap((resp: any) => {
-        console.log('crear inmueble', resp);
-      })
-    );
+  getPropiedadesDestacados(): Observable<ResponseInmueble[]> {
+    const url = `${environment.URL_API}predio/ultimos`;
+    //return this.http.get<ResponseInmueble[]>('./assets/data/destacados.json');
+    return this.http.get<ResponseInmueble[]>(url);
+  }
+
+  getArchivosUrlImg(nombre: string): string {
+    return `${environment.URL_API}archivos/getImg/${nombre}`;
+  }
+
+  crearInmueble(inmueble: InmuebleModel): Observable<any> {
+    const url = `${environment.URL_API}predio/crear`;
+    return this.http.post<any>(url, inmueble);
   }
 
   guardarFoto(data: any) {
-    return this.http.post<any>(`${environment.URL_API}fotos/insertar`, data).pipe(
-      tap((resp: any) => {
-        console.log('foto', resp);
-      })
-    );
+    const url = `${environment.URL_API}archivos/insertar/`;
+    return this.http.post<any>(url, data);
   }
 
   getPropiedades() {
-    return this.http.get(`${environment.URL_API}predio/lista`);
+    const url = `${environment.URL_API}predio/lista`;
+    return this.http.get(url);
   }
 
   getPropiedadesFiltro(filtro: any) {
-    return this.http.get(`${environment.URL_API}predio/filtros/${filtro}`);
+    const url = `${environment.URL_API}predio/filtros/${filtro}`;
+    return this.http.get(url);
   }
 
   // ********************************************************++

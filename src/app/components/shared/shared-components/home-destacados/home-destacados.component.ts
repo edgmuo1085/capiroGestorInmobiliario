@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { PropiedadesInmuebles } from 'src/app/components/interfaces/response-propiedades.interface';
+import { Component, Input, OnInit } from '@angular/core';
+import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
+import { environment } from 'src/environments/environment';
 import { PropiedadesService } from '../../shared-services/propiedades.service';
 
 @Component({
@@ -9,14 +10,14 @@ import { PropiedadesService } from '../../shared-services/propiedades.service';
 })
 export class HomeDestacadosComponent implements OnInit {
   @Input() isLogging: string = '';
-  listaDestacados: PropiedadesInmuebles[] = [];
+  listaDestacados: ResponseInmueble[] = [];
 
   constructor(private propiedadesService: PropiedadesService) {}
 
   ngOnInit(): void {
     this.propiedadesService.getPropiedadesDestacados().subscribe({
       next: response => {
-        console.log(response);
+        //console.log(response);
         if (!response.length) {
           return;
         }
@@ -27,5 +28,9 @@ export class HomeDestacadosComponent implements OnInit {
         console.error(err);
       },
     });
+  }
+
+  urlImg(nombre: string): string {
+    return this.propiedadesService.getArchivosUrlImg(nombre);
   }
 }

@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-md-10">
+    <p-table
+      #tableHistorialTramites
+      [value]="listaInmuebles"
+      [(selection)]="selectedListaInmuebles"
+      dataKey="id"
+      styleClass="p-datatable-custom"
+      [rowHover]="true"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[5, 10, 25, 50]"
+      [loading]="loading"
+      [paginator]="true"
+      currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+      [filterDelay]="0"
+      [globalFilterFields]="['tipoInmueble', 'tipoPublicacion', 'area', 'precio']"
+      id="table-inmueble"
+    >
+      <ng-template pTemplate="caption">
+        <div class="table-header">
+          Buscar inmueble
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" (input)="filterGlobalListaInmuebles($event, 'contains')" placeholder="Buscar ..." />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="tipoInmueble">Tipo Inmueble <p-sortIcon field="tipoInmueble"></p-sortIcon></th>
+          <th pSortableColumn="tipoPublicacion">Tipo Publicación <p-sortIcon field="tipoPublicacion"></p-sortIcon></th>
+          <th pSortableColumn="area">Área del predio <p-sortIcon field="area"></p-sortIcon></th>
+          <th pSortableColumn="precio">Precio <p-sortIcon field="precio"></p-sortIcon></th>
+          <th class="text-center">Más detalles</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-inmueble>
+        <tr class="p-selectable-row">
+          <td>
+            <span class="p-column-title fw-bold">Tipo Inmueble</span>
+            <span class="">{{ inmueble.tipoInmueble }}</span>
+          </td>
+          <td>
+            <span class="p-column-title fw-bold">Tipo Publicación</span>
+            <span class="">{{ inmueble.tipoPublicacion }}</span>
+          </td>
+          <td>
+            <span class="p-column-title fw-bold">Área del predio</span>
+            <span class="">{{ inmueble.area + ' m2' }}</span>
+          </td>
+          <td>
+            <span class="p-column-title fw-bold">Precio</span>
+            <span class="text-center">{{ inmueble.precio | currency : 'USD' : 'symbol' : '4.0' }}</span>
+          </td>
+          <td class="text-center">
+            <span class="p-column-title fw-bold">Más detalles</span>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="5" class="text-center">No existen datos para mostrar.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

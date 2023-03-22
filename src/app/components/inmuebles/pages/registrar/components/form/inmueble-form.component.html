@@ -1,0 +1,223 @@
+<section id="section-register-inmueble">
+  <div class="container-fluid">
+    <div class="row justify-content-center mt-4">
+      <div class="col-12 col-md-10">
+        <div class="registro-inmueble-titulo">
+          <p>{{ msgTituloPage }}</p>
+        </div>
+        <p *ngIf="!cargarImagenes" class="registro-inmueble-descripcion">
+          Formulario de registro de inmuebles, ingrese los siguientes datos
+        </p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mb-4" *ngIf="!cargarImagenes">
+      <div class="col-12 col-md-10">
+        <form [formGroup]="formRegistroInmueble" (ngSubmit)="registrarInmueble()">
+          <div class="container-fluid">
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <select
+                    class="form-select"
+                    id="tipoInmueble"
+                    formControlName="tipoInmueble"
+                    aria-label="Tipo de inmueble"
+                    [ngClass]="{ 'is-invalid': formCtrlI['tipoInmueble'].touched && formCtrlI['tipoInmueble'].errors }"
+                  >
+                    <ng-container>
+                      <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                    </ng-container>
+                  </select>
+                  <label for="tipoInmueble">Tipo de inmueble</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlI['area'].touched && formCtrlI['area'].errors }"
+                    formControlName="area"
+                    id="area"
+                    type="number"
+                    placeholder="Área del predio"
+                    required=""
+                  />
+                  <label for="area">Área del predio</label>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlI['habitacion'].touched && formCtrlI['habitacion'].errors }"
+                    formControlName="habitacion"
+                    id="habitacion"
+                    type="number"
+                    placeholder="Número de habitaciones"
+                    required=""
+                  />
+                  <label for="habitacion">Número de habitaciones</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlI['estrato'].touched && formCtrlI['estrato'].errors }"
+                    formControlName="estrato"
+                    id="estrato"
+                    type="number"
+                    placeholder="Estrato"
+                    required=""
+                  />
+                  <label for="estrato">Estrato</label>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlI['banos'].touched && formCtrlI['banos'].errors }"
+                    formControlName="banos"
+                    id="banos"
+                    type="number"
+                    placeholder="Número de baños"
+                    required=""
+                  />
+                  <label for="banos">Número de baños</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <select
+                    class="form-select"
+                    id="garage"
+                    formControlName="garage"
+                    aria-label="Garaje"
+                    [ngClass]="{ 'is-invalid': formCtrlI['garage'].touched && formCtrlI['garage'].errors }"
+                  >
+                    <ng-container>
+                      <option *ngFor="let tipo of garageSeleccion" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                    </ng-container>
+                  </select>
+                  <label for="garage">Garaje</label>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <select
+                    class="form-select"
+                    id="estadoInmueble"
+                    formControlName="estadoInmueble"
+                    aria-label="Estado del inmueble"
+                    [ngClass]="{ 'is-invalid': formCtrlI['estadoInmueble'].touched && formCtrlI['estadoInmueble'].errors }"
+                  >
+                    <ng-container>
+                      <option *ngFor="let tipo of estadoInmueble" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                    </ng-container>
+                  </select>
+                  <label for="estadoInmueble">Estado del inmueble</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlI['tiempo'].touched && formCtrlI['tiempo'].errors }"
+                    formControlName="tiempo"
+                    id="tiempo"
+                    type="number"
+                    placeholder="Tiempo de contruido"
+                    required=""
+                  />
+                  <label for="tiempo">Tiempo de contruido</label>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <input
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': formCtrlI['precio'].touched && formCtrlI['precio'].errors }"
+                    formControlName="precio"
+                    id="precio"
+                    type="number"
+                    placeholder="Precio"
+                    required=""
+                  />
+                  <label for="precio">Precio</label>
+                </div>
+              </div>
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <select
+                    class="form-select"
+                    id="tipoPublicacion"
+                    formControlName="tipoPublicacion"
+                    aria-label="Tipo de publicación"
+                    [ngClass]="{ 'is-invalid': formCtrlI['tipoPublicacion'].touched && formCtrlI['tipoPublicacion'].errors }"
+                  >
+                    <ng-container>
+                      <option *ngFor="let tipo of tipoPublicacion" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                    </ng-container>
+                  </select>
+                  <label for="tipoPublicacion">Tipo de publicación</label>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-5">
+                <div class="form-floating mb-3">
+                  <select
+                    class="form-select"
+                    id="tipoConstruccion"
+                    formControlName="tipoConstruccion"
+                    aria-label="Tipo de contrucción"
+                    [ngClass]="{ 'is-invalid': formCtrlI['tipoConstruccion'].touched && formCtrlI['tipoConstruccion'].errors }"
+                  >
+                    <ng-container>
+                      <option *ngFor="let tipo of tipoConstruccion" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                    </ng-container>
+                  </select>
+                  <label for="tipoConstruccion">Tipo de contrucción</label>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-evenly mt-5">
+              <div class="form-button">
+                <button class="form-btn bg-gray" type="reset">Cancelar</button>
+              </div>
+              <div class="form-button">
+                <button class="form-btn" type="submit">
+                  Registrar
+                  <div class="spinner-border spinner-border-sm" role="status" *ngIf="loading">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3 mb-4" *ngIf="cargarImagenes">
+      <div class="col-12 col-md-10">
+        <div class="blok-upload-files animate__animated animate__fadeInDown">
+          <div class="upload-file-text">
+            <p>Presione el botón de seleccionar para adjuntar las fotos del inmueble.</p>
+            <p>Al terminar presione el botón de subir para terminar el registro</p>
+          </div>
+          <p-fileUpload name="myfile[]" [multiple]="multiple" [customUpload]="true" (uploadHandler)="subirImagenes($event)"></p-fileUpload>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
