@@ -3,7 +3,7 @@
     <div class="col-12">
       <div class="show-images-inmueble">
         <div class="image-inmueble">
-          <p-galleria [value]="images">
+          <p-galleria [value]="images" [circular]="true" [responsiveOptions]="responsiveOptions">
             <ng-template pTemplate="item" let-itemImg>
               <img [src]="itemImg.url" [alt]="itemImg.nombreArchivo" class="img-fluid" />
             </ng-template>
