@@ -210,13 +210,19 @@
     </div>
     <div class="row justify-content-center mt-3 mb-4" *ngIf="cargarImagenes">
       <div class="col-12 col-md-10">
-        <div class="blok-upload-files animate__animated animate__fadeInDown">
+        <!-- <div class="blok-upload-files animate__animated animate__fadeInDown">
           <div class="upload-file-text">
             <p>Presione el botón de seleccionar para adjuntar las fotos del inmueble.</p>
             <p>Al terminar presione el botón de subir para terminar el registro</p>
           </div>
           <p-fileUpload name="myfile[]" [multiple]="multiple" [customUpload]="true" (uploadHandler)="subirImagenes($event)"></p-fileUpload>
-        </div>
+        </div> -->
+        <app-files-inmueble
+          [idInmueble]="idInmueble"
+          [idUsuario]="idUsuario"
+          (actionCargarImg)="cargarImagenes = $event"
+          (actionMsgTituloPage)="msgTituloPage = $event"
+        ></app-files-inmueble>
       </div>
     </div>
   </div>

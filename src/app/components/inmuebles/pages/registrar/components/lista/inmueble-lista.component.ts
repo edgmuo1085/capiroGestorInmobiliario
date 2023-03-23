@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
+import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.interface';
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 
@@ -13,9 +14,20 @@ export class InmuebleListaComponent implements OnInit {
   listaInmuebles: ResponseInmueble[] = [];
   selectedListaInmuebles: ResponseInmueble[] = [];
   loading: boolean = false;
+  visible: boolean = false;
+  showUpload: boolean = false;
+  showImgInmuebles: boolean = false;
+  idUsuario: number = 0;
+  idInmueble: number = 0;
+  sizeFotos: number = 0;
+  listaImages: ResponseArchivo[] = [];
   @ViewChild('tableListaInmuebles') tableListaInmuebles!: Table;
 
-  constructor(private propiedadesService: PropiedadesService, private dataUserService: DataUserService) {}
+  constructor(private propiedadesService: PropiedadesService, private dataUserService: DataUserService) {
+    this.dataUserService.getUserData().subscribe(response => {
+      this.idUsuario = response.idUsuario;
+    });
+  }
 
   ngOnInit(): void {
     this.inmueblesLista();
@@ -29,6 +41,7 @@ export class InmuebleListaComponent implements OnInit {
     this.loading = true;
     this.propiedadesService.getInmuebles().subscribe({
       next: response => {
+        console.log('getInmuebles: ', response);
         if (!response.length) {
           this.loading = false;
           return;
@@ -42,5 +55,29 @@ export class InmuebleListaComponent implements OnInit {
         console.error(err);
       },
     });
+  }
+
+  closeModalUpload(event: any) {
+    this.visible = event;
+    if (this.showUpload) {
+      this.inmueblesLista();
+    }
+    this.showUpload = false;
+    this.showImgInmuebles = false;
+  }
+
+  mostrarImg(event: ResponseArchivo[]) {
+    this.visible = true;
+    this.listaImages = event;
+    this.showUpload = false;
+    this.showImgInmuebles = true;
+  }
+
+  subirImg(inmueble: ResponseInmueble) {
+    this.idInmueble = inmueble.id;
+    this.sizeFotos = 3 - inmueble.fotos.length;
+    this.visible = true;
+    this.showUpload = true;
+    this.showImgInmuebles = false;
   }
 }

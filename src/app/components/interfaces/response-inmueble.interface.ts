@@ -3,4 +3,5 @@ import { ResponseArchivo } from './respose-archivo.interface';
 
 export interface ResponseInmueble extends Inmueble {
   fotos: ResponseArchivo[];
+  url: string;
 }

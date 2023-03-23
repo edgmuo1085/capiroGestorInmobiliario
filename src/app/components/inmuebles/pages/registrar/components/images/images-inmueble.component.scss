@@ -1,0 +1,11 @@
+@import 'layout.functions';
+
+.show-images-inmueble {
+  display: flex;
+  flex-direction: column;
+
+  .image-inmueble {
+    width: 100%;
+    max-width: cap-font-size(500px);
+  }
+}

@@ -1,0 +1,15 @@
+@import 'layout.functions';
+
+.layout-modal-login {
+  .p-dialog-mask {
+    background-color: var(--black-color-5);
+    pointer-events: unset;
+
+    .p-dialog {
+      .p-dialog-header,
+      .p-dialog-content {
+        background-color: var(--gray-color-2);
+      }
+    }
+  }
+}

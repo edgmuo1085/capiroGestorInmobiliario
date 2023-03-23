@@ -10,9 +10,22 @@ import { InmuebleRegistrarComponent } from './pages/registrar/inmueble-registrar
 import { SharedPrimengModulesModule } from '../shared/shared-primeng-modules/shared-primeng-modules.module';
 import { InmuebleFormComponent } from './pages/registrar/components/form/inmueble-form.component';
 import { InmuebleListaComponent } from './pages/registrar/components/lista/inmueble-lista.component';
+import { FilesInmuebleComponent } from './pages/registrar/components/files/files-inmueble.component';
+import { ModalInmuebleComponent } from './pages/registrar/components/modal/modal-inmueble.component';
+import { ImagesInmuebleComponent } from './pages/registrar/components/images/images-inmueble.component';
 
 @NgModule({
-  declarations: [PropiedadesArriendoComponent, PropiedadesVentaComponent, InmuebleDetalleComponent, InmuebleRegistrarComponent, InmuebleFormComponent, InmuebleListaComponent],
+  declarations: [
+    PropiedadesArriendoComponent,
+    PropiedadesVentaComponent,
+    InmuebleDetalleComponent,
+    InmuebleRegistrarComponent,
+    InmuebleFormComponent,
+    InmuebleListaComponent,
+    FilesInmuebleComponent,
+    ModalInmuebleComponent,
+    ImagesInmuebleComponent,
+  ],
   imports: [CommonModule, InmueblesRoutingModule, FormsModule, ReactiveFormsModule, SharedPrimengModulesModule],
 })
 export class InmueblesModule {}

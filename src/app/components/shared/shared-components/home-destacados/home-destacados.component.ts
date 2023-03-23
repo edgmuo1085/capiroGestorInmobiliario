@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
-import { environment } from 'src/environments/environment';
 import { PropiedadesService } from '../../shared-services/propiedades.service';
 
 @Component({
@@ -17,12 +16,12 @@ export class HomeDestacadosComponent implements OnInit {
   ngOnInit(): void {
     this.propiedadesService.getPropiedadesDestacados().subscribe({
       next: response => {
-        //console.log(response);
         if (!response.length) {
           return;
         }
 
-        this.listaDestacados = response;
+        const lista = this.urlImgDestacados(response);
+        this.listaDestacados = lista;
       },
       error: err => {
         console.error(err);
@@ -30,7 +29,12 @@ export class HomeDestacadosComponent implements OnInit {
     });
   }
 
-  urlImg(nombre: string): string {
-    return this.propiedadesService.getArchivosUrlImg(nombre);
+  urlImgDestacados(destacados: ResponseInmueble[]): ResponseInmueble[] {
+    for (const item of destacados) {
+      item.url = item.fotos.length
+        ? this.propiedadesService.getArchivosUrlImg(item.fotos[0].nombreArchivo)
+        : './assets/images/galeria1.jpg';
+    }
+    return destacados;
   }
 }

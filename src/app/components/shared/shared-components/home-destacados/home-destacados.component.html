@@ -9,7 +9,7 @@
   <div class="row justify-content-center" id="section-destacados">
     <div class="col-12 col-md-6 col-lg-4 my-3" *ngFor="let propiedad of listaDestacados">
       <div class="destado-item">
-        <img [src]="urlImg(propiedad.fotos[0].nombreArchivo)" [alt]="propiedad.tipoInmueble" class="destacado-imagen" />
+        <img [src]="propiedad.url" [alt]="propiedad.tipoInmueble" class="destacado-imagen" />
         <div class="destacado-enlace">
           <a class="btn-mas" [routerLink]="'/inmuebles' + isLogging + '/detalle/' + propiedad.id">Ver más</a>
         </div>

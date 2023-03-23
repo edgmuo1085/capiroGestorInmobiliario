@@ -7,4 +7,5 @@ export interface ResponseArchivo {
   idFormulario: null;
   archivo: null;
   id: number;
+  url: string;
 }
