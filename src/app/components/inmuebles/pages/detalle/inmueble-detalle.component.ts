@@ -32,7 +32,6 @@ export class InmuebleDetalleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //this.showBotones();
     this.getImagenes();
   }
 
