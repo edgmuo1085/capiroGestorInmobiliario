@@ -28,6 +28,36 @@ export const parametrosSelect = {
       label: 'Casa Finca',
     },
   ],
+  listaEstados: [
+    {
+      value: '1',
+      label: 'Estrato 1',
+    },
+    {
+      value: '2',
+      label: 'Estrato 2',
+    },
+    {
+      value: '3',
+      label: 'Estrato 3',
+    },
+    {
+      value: '4',
+      label: 'Estrato 4',
+    },
+    {
+      value: '5',
+      label: 'Estrato 5',
+    },
+    {
+      value: '6',
+      label: 'Estrato 6',
+    },
+    {
+      value: '7',
+      label: 'Estrato 7',
+    },
+  ],
   garageSeleccion: [
     {
       value: 'Si',

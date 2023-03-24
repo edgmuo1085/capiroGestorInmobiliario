@@ -1,11 +1,9 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
 import { Observable, ReplaySubject } from 'rxjs';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
-import { Inmueble, InmuebleModel } from 'src/app/components/interfaces/inmueble.interface';
+import { Inmueble, InmuebleModel, InmuebleRegistro, InmuebleRegistroModel } from 'src/app/components/interfaces/inmueble.interface';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
 import { environment } from 'src/environments/environment';
 import { IdGenerateService } from 'src/app/components/shared/shared-services/id-generate.service';
@@ -27,15 +25,16 @@ export class InmuebleFormComponent implements OnInit {
 
   anexoImgInmuebles: ArchivoInmueble[] = [];
   tiposInmuebles: ParametrosShared[] = environment.tiposInmuebles;
+  listaEstratos: ParametrosShared[] = environment.listaEstados;
   garageSeleccion: ParametrosShared[] = environment.garageSeleccion;
   estadoInmueble: ParametrosShared[] = environment.estadoInmueble;
   tipoPublicacion: ParametrosShared[] = environment.tipoPublicacion;
   tipoConstruccion: ParametrosShared[] = environment.tipoConstruccion;
   base64Output!: string;
   loading: boolean = false;
+  onlyNumbers: string = '^([0-9])*$';
 
   constructor(
-    private router: Router,
     private fb: FormBuilder,
     private propiedadesService: PropiedadesService,
     private dataUserService: DataUserService,
@@ -49,17 +48,18 @@ export class InmuebleFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formRegistroInmueble = this.fb.group({
-      tipoInmueble: ['', Validators.required],
-      area: ['', Validators.required],
-      habitacion: ['', Validators.required],
-      estrato: ['', Validators.required],
-      banos: ['', Validators.required],
-      garage: ['', Validators.required],
-      estadoInmueble: ['', Validators.required],
-      tiempo: ['', Validators.required],
-      precio: ['', Validators.required],
-      tipoPublicacion: ['', Validators.required],
-      tipoConstruccion: ['', Validators.required],
+      isInvalidForm: false,
+      tipoInmueble: ['', [Validators.required]],
+      area: ['', [Validators.required, Validators.maxLength(8), Validators.pattern(this.onlyNumbers)]],
+      habitacion: ['', [Validators.required, Validators.maxLength(2), Validators.pattern(this.onlyNumbers)]],
+      estrato: ['', [Validators.required]],
+      banos: ['', [Validators.required, Validators.maxLength(2), Validators.pattern(this.onlyNumbers)]],
+      garage: ['', [Validators.required]],
+      estadoInmueble: ['', [Validators.required]],
+      tiempo: ['', [Validators.required, Validators.pattern(this.onlyNumbers)]],
+      precio: ['', [Validators.required, Validators.pattern(this.onlyNumbers)]],
+      tipoPublicacion: ['', [Validators.required]],
+      tipoConstruccion: ['', [Validators.required]],
     });
   }
 
@@ -69,7 +69,7 @@ export class InmuebleFormComponent implements OnInit {
       return;
     }
 
-    let registroInmueble: Inmueble = new InmuebleModel(
+    let registroInmueble: InmuebleRegistro = new InmuebleRegistroModel(
       this.formRegistroInmueble.get('tipoInmueble')?.value,
       this.formRegistroInmueble.get('area')?.value,
       this.formRegistroInmueble.get('habitacion')?.value,
@@ -81,8 +81,7 @@ export class InmuebleFormComponent implements OnInit {
       this.formRegistroInmueble.get('precio')?.value,
       this.formRegistroInmueble.get('tipoPublicacion')?.value,
       this.formRegistroInmueble.get('tipoConstruccion')?.value,
-      this.idUsuario,
-      0
+      this.idUsuario
     );
     //console.log('registroInmueble: ', registroInmueble);
     this.propiedadesService.crearInmueble(registroInmueble).subscribe({

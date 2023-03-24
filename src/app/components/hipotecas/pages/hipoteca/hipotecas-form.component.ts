@@ -15,24 +15,25 @@ export class HipotecasFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formHipotecas = this.fb.group({
-      tipoInmueble: ['', Validators.required],
-      valor: ['', Validators.required],
-      area: ['', Validators.required],
-      direccion: ['', Validators.required],
-      usoPropiedad: ['', Validators.required],
-      afectacion: ['', Validators.required],
-      estrato: ['', Validators.required],
+      tipoInmueble: ['', [Validators.required]],
+      valor: ['', [Validators.required]],
+      area: ['', [Validators.required]],
+      direccion: ['', [Validators.required]],
+      usoPropiedad: ['', [Validators.required]],
+      afectacion: ['', [Validators.required]],
+      estrato: ['', [Validators.required]],
 
-      nombres: ['', Validators.required],
-      apellidos: ['', Validators.required],
-      celular: ['', Validators.required],
-      correo: ['', Validators.required],
+      nombres: ['', [Validators.required]],
+      apellidos: ['', [Validators.required]],
+      celular: ['', [Validators.required]],
+      correo: ['', [Validators.required]],
 
-      escritura: ['', Validators.required],
-      predial: ['', Validators.required],
-      cedula: ['', Validators.required],
-      certificadoTradicion: ['', Validators.required],
-      certificadoCatastral: ['', Validators.required],
+      escritura: ['', [Validators.required]],
+      predial: ['', [Validators.required]],
+      cedula: ['', [Validators.required]],
+      certificadoLibertad: ['', [Validators.required]],
+      certificadoTradicion: ['', [Validators.required]],
+      certificadoCatastral: ['', [Validators.required]],
     });
   }
 

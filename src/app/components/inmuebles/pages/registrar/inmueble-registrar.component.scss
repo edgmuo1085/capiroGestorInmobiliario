@@ -9,11 +9,16 @@
       object-fit: cover;
     }
   }
-  .tabview-building {
+  .tabview-inmueble {
     width: 100%;
 
     .p-tabview .p-tabview-panels {
       padding: 0;
+    }
+
+    .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+      color: var(--color-principal);
+      border-color: var(--color-principal);
     }
   }
 }

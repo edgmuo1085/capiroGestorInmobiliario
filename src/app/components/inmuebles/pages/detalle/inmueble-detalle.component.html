@@ -1,64 +1,53 @@
-<section class="detalles animate__animated animate__fadeIn">
-  <div class="detalles__container">
-    <div class="detalles__titulo">
-      <p>Titulo de la propiedad</p>
+<div class="container-fluid" id="section-detalle-inmueble">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h1 class="detalle-titulo">{{ infoInmueble.tipoInmueble }}</h1>
     </div>
-    <div class="detalles__contenido">
-      <div class="detalles__imagenes">
-        <p-galleria [value]="images">
-          <ng-template pTemplate="item" let-item>
-            <img [src]="item.previewImageSrc" [alt]="item.alt" class="detalle__img" />
-          </ng-template>
-        </p-galleria>
-        <!-- <p-galleria [value]="images" [numVisible]="5">
-                    <ng-template pTemplate="item" let-item>
-                        <img [src]="item.previewImageSrc" [alt]="item.alt" class="detalle__img" />
-                    </ng-template>
-                    <ng-template pTemplate="thumbnail" let-item>
-                        <div class="grid grid-nogutter justify-content-center">
-                            <img [src]="item.thumbnailImageSrc" width="40rem" height="20rem" />
-                        </div>
-                    </ng-template>
-                </p-galleria> -->
-        <!-- <img src="./assets/images/galeria1.jpg" alt="imagen detalles" class="detalle__img"> -->
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 my-4">
+      <div class="detalle-galeria">
+        <app-galeria-inmueble [fotosInmueble]="fotosInmueble"></app-galeria-inmueble>
       </div>
-      <div class="detalles__info">
-        <div class="info__titulo">
-          <p>Detalles</p>
+    </div>
+    <div class="col-12 col-md-6 my-4">
+      <h3 class="detalle-subtitulo">Detalle</h3>
+      <div class="detalle-caracteristicas-one">
+        <div class="caracteristica-inmueble">
+          <img src="./assets/images/icono-galeria1.png" alt="icon" class="icon-caracteristica" />
+          <p>{{ infoInmueble.habitacion }} Habitaciones</p>
         </div>
-        <div class="info__descripcion">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, provident ipsa? Ipsam, ea maiores aliquid reprehenderit nostrum
-          ullam.
+        <div class="caracteristica-inmueble">
+          <img src="./assets/images/icono-galeria2.png" alt="icon" class="icon-caracteristica" />
+          <p>{{ infoInmueble.banos }} Baños</p>
         </div>
-        <div class="info__propiedad-1">
-          <div class="info_item">
-            <img src="./assets/images/icono-galeria1.png" alt="" class="info__item--img" />
-            <p>3 Habitaciones</p>
-          </div>
-          <div class="info_item">
-            <img src="./assets/images/icono-galeria2.png" alt="" class="info__item--img" />
-            <p>2 Baños</p>
-          </div>
-          <div class="info_item">
-            <img src="./assets/images/icono-galeria3.png" alt="" class="info__item--img" />
-            <p>800 metros cuadrados</p>
-          </div>
+        <div class="caracteristica-inmueble">
+          <img src="./assets/images/icono-galeria3.png" alt="icon" class="icon-caracteristica" />
+          <p>{{ infoInmueble.area }} metros cuadrados</p>
         </div>
-        <div class="info__propiedad-2">
-          <div class="info__badges">Nuevo</div>
-          <div class="info__badges">Casa</div>
+      </div>
+      <div class="detalle-caracteristicas-two">
+        <div class="detalle-badges">{{ infoInmueble.estado }}</div>
+        <div class="detalle-badges">{{ infoInmueble.tipoInmueble }}</div>
+      </div>
+      <div class="detalle-inmueble-precio">
+        <h4>Precio de venta</h4>
+        <p class="precio-inmueble">{{ infoInmueble.precio | currency : 'USD' : 'symbol' : '1.0-0' }}</p>
+      </div>
+      <div class="d-flex justify-content-evenly mt-5">
+        <div class="form-button">
+          <button class="form-btn bg-link" type="button" routerLink="/dashboard">Cancelar</button>
         </div>
-        <div class="info__precio">
-          <p>Precio de venta</p>
-          <p class="precio">$210.000.000</p>
+        <div class="form-button" *ngIf="botonArriendo">
+          <button class="form-btn" type="button" [routerLink]="'/arrendamiento' + isLogging">Arrendar</button>
         </div>
-        <div class="info__botones">
-          <button class="info__boton--volver" routerLink="/propiedades">Volver</button>
-          <button *ngIf="botonArriendo" class="info__boton--contactar" routerLink="/arrendamiento">Arrendar</button>
-          <button *ngIf="botonVenta" class="info__boton--contactar" routerLink="/arrendamiento">Comprar</button>
-          <button *ngIf="botonContacto" class="info__boton--contactar" routerLink="/arrendamiento">Contactar</button>
+        <div class="form-button" *ngIf="botonVenta">
+          <button class="form-btn" type="button" [routerLink]="'/arrendamiento' + isLogging">Comprar</button>
+        </div>
+        <div class="form-button" *ngIf="botonContacto">
+          <button class="form-btn" type="button" [routerLink]="'/arrendamiento' + isLogging">Contactar</button>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>

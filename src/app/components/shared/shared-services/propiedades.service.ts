@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { InmuebleModel } from '../../interfaces/inmueble.interface';
+import { InmuebleModel, InmuebleRegistroModel } from '../../interfaces/inmueble.interface';
 import { ResponseInmueble } from '../../interfaces/response-inmueble.interface';
 import { PropiedadesInmuebles } from '../../interfaces/response-propiedades.interface';
+import { ResponseArchivo } from '../../interfaces/respose-archivo.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,12 @@ export class PropiedadesService {
     return this.http.get<ResponseInmueble[]>(url);
   }
 
+  getInmuebleOne(id: number): Observable<ResponseInmueble> {
+    const url = `${environment.URL_API}predio/buscar/${id}`;
+    //return this.http.get<ResponseArchivo[]>('./assets/data/imagenes.json');
+    return this.http.get<ResponseInmueble>(url);
+  }
+
   getPropiedadesDestacados(): Observable<ResponseInmueble[]> {
     const url = `${environment.URL_API}predio/ultimos`;
     //return this.http.get<ResponseInmueble[]>('./assets/data/destacados.json');
@@ -27,7 +34,7 @@ export class PropiedadesService {
     return `${environment.URL_API}archivos/getImg/${nombre}`;
   }
 
-  crearInmueble(inmueble: InmuebleModel): Observable<any> {
+  crearInmueble(inmueble: InmuebleRegistroModel): Observable<any> {
     const url = `${environment.URL_API}predio/crear`;
     return this.http.post<any>(url, inmueble);
   }

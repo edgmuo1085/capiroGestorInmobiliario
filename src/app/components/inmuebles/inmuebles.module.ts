@@ -12,7 +12,8 @@ import { InmuebleFormComponent } from './pages/registrar/components/form/inmuebl
 import { InmuebleListaComponent } from './pages/registrar/components/lista/inmueble-lista.component';
 import { FilesInmuebleComponent } from './pages/registrar/components/files/files-inmueble.component';
 import { ModalInmuebleComponent } from './pages/registrar/components/modal/modal-inmueble.component';
-import { ImagesInmuebleComponent } from './pages/registrar/components/images/images-inmueble.component';
+import { SharedModulesModule } from '../shared/shared-modules/shared-modules.module';
+import { GaleriaInmuebleComponent } from './pages/detalle/components/galeria/galeria-inmueble.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,8 @@ import { ImagesInmuebleComponent } from './pages/registrar/components/images/ima
     InmuebleListaComponent,
     FilesInmuebleComponent,
     ModalInmuebleComponent,
-    ImagesInmuebleComponent,
+    GaleriaInmuebleComponent,
   ],
-  imports: [CommonModule, InmueblesRoutingModule, FormsModule, ReactiveFormsModule, SharedPrimengModulesModule],
+  imports: [CommonModule, InmueblesRoutingModule, FormsModule, ReactiveFormsModule, SharedPrimengModulesModule, SharedModulesModule],
 })
 export class InmueblesModule {}

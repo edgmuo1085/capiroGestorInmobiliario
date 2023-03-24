@@ -1,158 +1,74 @@
-.detalles {
-  display: flex;
-  justify-content: center;
-  margin: 1rem 0;
-}
+@import 'layout.functions';
 
-.detalles__container {
-  width: 90%;
-  height: 90vh;
-}
-
-.detalles__titulo {
-  width: 100%;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--color-principal);
-  padding: 0.7rem 0 0.5rem 0;
-  border-bottom: 1px solid var(--color-tercer);
-}
-
-.detalles__contenido {
-  display: flex;
-  margin: 2rem 0;
-}
-
-.detalles__imagenes {
-  width: 55%;
-  height: 70%;
-  position: relative;
-}
-
-.detalle__img {
-  width: 100%;
-  min-height: 70%;
-  object-fit: cover;
-}
-
-/* ****************************+ */
-
-.detalles__info {
-  max-width: 40%;
-  height: 100%;
-  padding: 0 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.info__titulo {
-  width: 100%;
-  font-size: 1.3rem;
-  color: var(--color-tercer);
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.info__descripcion {
-  font-size: 1rem;
-}
-
-.info_item {
-  display: flex;
-  align-items: center;
-  margin: 0.5rem 0;
-}
-
-.info__item--img {
-  width: 1.7rem;
-  margin-right: 1rem;
-}
-
-.info__propiedad-2 {
-  display: flex;
-  margin: 1rem 0;
-}
-
-.info__badges {
-  background-color: var(--color-tercer);
-  color: #ffffff;
-  padding: 0.2rem 1rem;
-  margin-right: 1rem;
-  border-radius: 2rem;
-  font-size: 0.8rem;
-}
-
-.info__precio > p {
-  color: var(--color-secundario);
-  font-size: 1rem;
-}
-
-.info__precio > .precio {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-tercer);
-}
-
-.info__botones {
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
-  margin: 2rem 0;
-}
-
-.info__boton--volver {
-  background-color: transparent;
-  border: 0;
-  color: var(--color-principal);
-  padding: 0.6rem 3rem 0.6rem 3rem;
-  border-radius: 0.6rem;
-  cursor: pointer;
-  text-decoration: none;
-  margin-right: 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.info__boton--volver:hover {
-  outline: solid 1px var(--color-principal);
-}
-
-.info__boton--contactar {
-  background-color: var(--color-principal);
-  border: 0;
-  color: #ffffff;
-  padding: 0.6rem 3rem 0.6rem 3rem;
-  border-radius: 0.6rem;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 700;
-}
-
-.info__boton--contactar:hover {
-  background-color: var(--color-hover);
-  color: #ffffff;
-}
-
-@media (max-width: 900px) {
-  .detalles__contenido {
-    display: flex;
-    flex-direction: column;
+#section-detalle-inmueble {
+  .detalle-titulo {
+    font-size: cap-font-size(32px);
+    color: var(--color-principal);
+    font-weight: 700;
+    padding: cap-font-size(12px) 0 cap-font-size(8px) 0;
+    border-bottom: cap-font-size(1px) solid var(--color-tercer);
   }
 
-  .detalles__imagenes {
+  .detalle-galeria {
     width: 100%;
-    height: 70%;
     position: relative;
   }
 
-  .detalles__info {
-    max-width: 100%;
-    height: 100%;
-    padding: 3rem 0;
+  .detalle-subtitulo {
+    font-size: cap-font-size(28px);
+    color: var(--color-tercer);
+    font-weight: 700;
+    margin-bottom: cap-font-size(16px);
+    margin-left: cap-font-size(16px);
+  }
+
+  .detalle-caracteristicas-one {
+    margin-left: cap-font-size(16px);
+
+    .caracteristica-inmueble {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: cap-font-size(16px) 0;
+
+      .icon-caracteristica {
+        width: 100%;
+        max-width: cap-font-size(32px);
+      }
+
+      p {
+        padding: 0;
+        margin: 0 0 0 cap-font-size(4px);
+      }
+    }
+  }
+
+  .detalle-caracteristicas-two {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    margin: cap-font-size(32px) 0 cap-font-size(32px) cap-font-size(16px);
+
+    .detalle-badges {
+      background-color: var(--color-tercer);
+      color: #ffffff;
+      padding: 0.2rem 1rem;
+      margin-right: 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  .detalle-inmueble-precio {
+    margin-left: cap-font-size(16px);
+
+    h4 {
+      color: var(--color-secundario);
+      font-size: cap-font-size(16px);
+    }
+
+    .precio-inmueble {
+      font-size: cap-font-size(24px);
+      font-weight: 700;
+      color: var(--color-tercer);
+    }
   }
 }

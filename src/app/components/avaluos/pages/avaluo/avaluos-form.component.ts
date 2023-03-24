@@ -14,26 +14,24 @@ export class AvaluosFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formAvaluos = this.fb.group({
-      tipoInmueble: ['', Validators.required],
-      estrato: ['', Validators.required],
-      niveles: ['', Validators.required],
-      habitaciones: ['', Validators.required],
-      garaje: ['', Validators.required],
-      banos: ['', Validators.required],
-      tiempoConstruido: ['', Validators.required],
-      tipoConstruccion: ['', Validators.required],
-      ubicacion: ['', Validators.required],
-      direccion: ['', Validators.required],
-
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      email: ['', Validators.required],
-      telefono: ['', Validators.required],
-
-      certificadoLibertad: ['', Validators.required],
-      escrituraPublica: ['', Validators.required],
-      predial: ['', Validators.required],
-      certificadoCatastral: ['', Validators.required],
+      tipoInmueble: ['', [Validators.required]],
+      estrato: ['', [Validators.required]],
+      niveles: ['', [Validators.required]],
+      habitaciones: ['', [Validators.required]],
+      garaje: ['', [Validators.required]],
+      banos: ['', [Validators.required]],
+      tiempoConstruido: ['', [Validators.required]],
+      tipoConstruccion: ['', [Validators.required]],
+      ubicacion: ['', [Validators.required]],
+      direccion: ['', [Validators.required]],
+      nombre: ['', [Validators.required]],
+      apellido: ['', [Validators.required]],
+      email: ['', [Validators.required]],
+      telefono: ['', [Validators.required]],
+      certificadoLibertad: ['', [Validators.required]],
+      escrituraPublica: ['', [Validators.required]],
+      predial: ['', [Validators.required]],
+      certificadoCatastral: ['', [Validators.required]],
     });
   }
 

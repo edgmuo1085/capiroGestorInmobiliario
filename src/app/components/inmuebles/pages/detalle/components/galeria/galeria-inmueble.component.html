@@ -1,0 +1,5 @@
+<p-galleria [value]="fotosInmueble" [circular]="true" [responsiveOptions]="responsiveOptions">
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item.url" [alt]="item.nombreArchivo" class="galeria-img-inmueble" />
+  </ng-template>
+</p-galleria>

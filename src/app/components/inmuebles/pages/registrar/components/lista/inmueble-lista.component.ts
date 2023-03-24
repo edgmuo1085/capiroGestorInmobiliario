@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Table } from 'primeng/table';
 import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
 import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.interface';
@@ -16,14 +17,13 @@ export class InmuebleListaComponent implements OnInit {
   loading: boolean = false;
   visible: boolean = false;
   showUpload: boolean = false;
-  showImgInmuebles: boolean = false;
   idUsuario: number = 0;
   idInmueble: number = 0;
   sizeFotos: number = 0;
   listaImages: ResponseArchivo[] = [];
   @ViewChild('tableListaInmuebles') tableListaInmuebles!: Table;
 
-  constructor(private propiedadesService: PropiedadesService, private dataUserService: DataUserService) {
+  constructor(private propiedadesService: PropiedadesService, private dataUserService: DataUserService, private router: Router) {
     this.dataUserService.getUserData().subscribe(response => {
       this.idUsuario = response.idUsuario;
     });
@@ -63,14 +63,12 @@ export class InmuebleListaComponent implements OnInit {
       this.inmueblesLista();
     }
     this.showUpload = false;
-    this.showImgInmuebles = false;
   }
 
-  mostrarImg(event: ResponseArchivo[]) {
+  mostrarImg(event: ResponseInmueble) {
     this.visible = true;
-    this.listaImages = event;
     this.showUpload = false;
-    this.showImgInmuebles = true;
+    this.router.navigate(['/inmuebles/sesion/detalle/', event.id]);
   }
 
   subirImg(inmueble: ResponseInmueble) {
@@ -78,6 +76,5 @@ export class InmuebleListaComponent implements OnInit {
     this.sizeFotos = 3 - inmueble.fotos.length;
     this.visible = true;
     this.showUpload = true;
-    this.showImgInmuebles = false;
   }
 }

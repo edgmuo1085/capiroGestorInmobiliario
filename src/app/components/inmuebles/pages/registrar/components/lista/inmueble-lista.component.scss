@@ -3,5 +3,7 @@
 .icon-custom {
   font-size: cap-font-size(20px);
   color: var(--color-principal);
+  margin-left: cap-font-size(8px);
+  margin-right: cap-font-size(8px);
   font-weight: 900;
 }

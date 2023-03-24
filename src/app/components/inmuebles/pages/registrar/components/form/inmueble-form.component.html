@@ -13,7 +13,7 @@
 
     <div class="row justify-content-center mb-4" *ngIf="!cargarImagenes">
       <div class="col-12 col-md-10">
-        <form [formGroup]="formRegistroInmueble" (ngSubmit)="registrarInmueble()">
+        <form [formGroup]="formRegistroInmueble" (submit)="registrarInmueble()" appValidator autocomplete="off">
           <div class="container-fluid">
             <div class="row justify-content-center">
               <div class="col-12 col-md-5">
@@ -39,7 +39,7 @@
                     [ngClass]="{ 'is-invalid': formCtrlI['area'].touched && formCtrlI['area'].errors }"
                     formControlName="area"
                     id="area"
-                    type="number"
+                    type="text"
                     placeholder="Área del predio"
                     required=""
                   />
@@ -55,7 +55,7 @@
                     [ngClass]="{ 'is-invalid': formCtrlI['habitacion'].touched && formCtrlI['habitacion'].errors }"
                     formControlName="habitacion"
                     id="habitacion"
-                    type="number"
+                    type="text"
                     placeholder="Número de habitaciones"
                     required=""
                   />
@@ -64,16 +64,18 @@
               </div>
               <div class="col-12 col-md-5">
                 <div class="form-floating mb-3">
-                  <input
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': formCtrlI['estrato'].touched && formCtrlI['estrato'].errors }"
-                    formControlName="estrato"
+                  <select
+                    class="form-select"
                     id="estrato"
-                    type="number"
-                    placeholder="Estrato"
-                    required=""
-                  />
-                  <label for="estrato">Estrato</label>
+                    formControlName="estrato"
+                    aria-label="Estratos"
+                    [ngClass]="{ 'is-invalid': formCtrlI['estrato'].touched && formCtrlI['estrato'].errors }"
+                  >
+                    <ng-container>
+                      <option *ngFor="let tipo of listaEstratos" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                    </ng-container>
+                  </select>
+                  <label for="estrato">Estratos</label>
                 </div>
               </div>
             </div>
@@ -85,7 +87,7 @@
                     [ngClass]="{ 'is-invalid': formCtrlI['banos'].touched && formCtrlI['banos'].errors }"
                     formControlName="banos"
                     id="banos"
-                    type="number"
+                    type="text"
                     placeholder="Número de baños"
                     required=""
                   />
@@ -133,11 +135,11 @@
                     [ngClass]="{ 'is-invalid': formCtrlI['tiempo'].touched && formCtrlI['tiempo'].errors }"
                     formControlName="tiempo"
                     id="tiempo"
-                    type="number"
-                    placeholder="Tiempo de contruido"
+                    type="text"
+                    placeholder="Tiempo de contruido (meses)"
                     required=""
                   />
-                  <label for="tiempo">Tiempo de contruido</label>
+                  <label for="tiempo">Tiempo de contruido (meses)</label>
                 </div>
               </div>
             </div>
@@ -149,7 +151,7 @@
                     [ngClass]="{ 'is-invalid': formCtrlI['precio'].touched && formCtrlI['precio'].errors }"
                     formControlName="precio"
                     id="precio"
-                    type="number"
+                    type="text"
                     placeholder="Precio"
                     required=""
                   />
@@ -210,13 +212,6 @@
     </div>
     <div class="row justify-content-center mt-3 mb-4" *ngIf="cargarImagenes">
       <div class="col-12 col-md-10">
-        <!-- <div class="blok-upload-files animate__animated animate__fadeInDown">
-          <div class="upload-file-text">
-            <p>Presione el botón de seleccionar para adjuntar las fotos del inmueble.</p>
-            <p>Al terminar presione el botón de subir para terminar el registro</p>
-          </div>
-          <p-fileUpload name="myfile[]" [multiple]="multiple" [customUpload]="true" (uploadHandler)="subirImagenes($event)"></p-fileUpload>
-        </div> -->
         <app-files-inmueble
           [idInmueble]="idInmueble"
           [idUsuario]="idUsuario"

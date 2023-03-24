@@ -27,6 +27,10 @@ const routes: Routes = [
         loadChildren: () => import('./components/hipotecas/hipotecas.module').then(m => m.HipotecasModule),
         canActivate: [AuthGuard],
       },
+      {
+        path: 'arrendamiento',
+        loadChildren: () => import('./components/arrendamientos/arrendamientos.module').then(m => m.ArrendamientosModule),
+      },
       /*
       {
         path: 'buy',

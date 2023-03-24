@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
+import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.interface';
+import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 
 @Component({
@@ -9,39 +12,66 @@ import { PropiedadesService } from 'src/app/components/shared/shared-services/pr
 })
 export class InmuebleDetalleComponent implements OnInit {
   showBoton: boolean = false;
-  tipoDetalle!: string;
-  botonVenta!: boolean;
-  botonArriendo!: boolean;
-  botonContacto!: boolean;
+  idInmueble: number = 0;
+  botonVenta: boolean = false;
+  botonArriendo: boolean = false;
+  botonContacto: boolean = false;
+  infoInmueble: ResponseInmueble = {} as ResponseInmueble;
+  fotosInmueble: ResponseArchivo[] = [];
+  isLogging: string = '';
 
-  images: any[] = [];
-
-  constructor(private routerActive: ActivatedRoute, private propiedadesService: PropiedadesService) {}
+  constructor(
+    private routerActive: ActivatedRoute,
+    private propiedadesService: PropiedadesService,
+    private dataUserService: DataUserService
+  ) {
+    this.routerActive.params.subscribe((params: Params) => {
+      this.idInmueble = +params['inmueble'];
+    });
+    this.isLogging = this.dataUserService.enableToken() ? '/sesion' : '';
+  }
 
   ngOnInit(): void {
-    this.routerActive.params.subscribe((params: Params) => {
-      this.tipoDetalle = params['id'];
-      console.log(this.tipoDetalle);
-    });
-
-    this.showBotones();
+    //this.showBotones();
     this.getImagenes();
   }
 
-  showBotones() {
-    if (this.tipoDetalle === 'venta') {
+  getImagenes() {
+    this.propiedadesService.getInmuebleOne(this.idInmueble).subscribe({
+      next: response => {
+        if (!response.id) {
+          return;
+        }
+        this.infoInmueble = response;
+        this.showBotones(response.tipoPublicacion);
+        let inmueblesFotos = this.urlImgInmuebles(response.fotos);
+        this.fotosInmueble = inmueblesFotos;
+      },
+      error: err => {
+        console.error(err);
+      },
+    });
+  }
+
+  urlImgInmuebles(fotoInmueble: ResponseArchivo[]): ResponseArchivo[] {
+    if (!fotoInmueble.length) {
+      return [];
+    }
+
+    for (const item of fotoInmueble) {
+      item.url = this.propiedadesService.getArchivosUrlImg(item.nombreArchivo);
+    }
+
+    return fotoInmueble;
+  }
+
+  showBotones(tipoPublicacion: string) {
+    if (tipoPublicacion === 'Venta') {
       this.botonVenta = true;
-    } else if (this.tipoDetalle === 'arriendo') {
+    } else if (tipoPublicacion === 'Arriendo') {
       this.botonArriendo = true;
     } else {
       this.botonContacto = true;
     }
-  }
-
-  getImagenes() {
-    this.propiedadesService.getImgenes().subscribe((resp: any) => {
-      console.log('imagenes', resp.data);
-      this.images = resp.data;
-    });
   }
 }

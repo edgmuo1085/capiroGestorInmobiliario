@@ -51,18 +51,16 @@
           </td>
           <td>
             <span class="p-column-title fw-bold">Precio</span>
-            <span class="">{{ inmueble.precio | currency : 'USD' : 'symbol' : '4.0' }}</span>
+            <span class="">{{ inmueble.precio | currency : 'USD' : 'symbol' : '1.0-0' }}</span>
           </td>
           <td class="text-center">
             <span class="p-column-title fw-bold">Opciones</span>
             <span class="">
               <ng-container *ngIf="inmueble.fotos.length; else blockUploadImg">
-                <ng-container *ngIf="inmueble.fotos.length < 4; else blockImgShow">
+                <ng-container *ngIf="inmueble.fotos.length < 4">
                   <i class="icon-custom fa-solid fa-upload" (click)="subirImg(inmueble)"></i>
                 </ng-container>
-                <ng-template #blockImgShow>
-                  <i class="icon-custom fa-solid fa-image" (click)="mostrarImg(inmueble.fotos)"></i>
-                </ng-template>
+                <i class="icon-custom fa-solid fa-image" (click)="mostrarImg(inmueble)"></i>
               </ng-container>
               <ng-template #blockUploadImg>
                 <i class="icon-custom fa-solid fa-file-arrow-up" (click)="subirImg(inmueble)"></i>
@@ -82,5 +80,4 @@
 
 <app-modal-inmueble [visible]="visible" (eventCloseDialogModal)="closeModalUpload($event)">
   <app-files-inmueble [idInmueble]="idInmueble" [idUsuario]="idUsuario" [sizeFotos]="sizeFotos" *ngIf="showUpload"></app-files-inmueble>
-  <app-images-inmueble [images]="listaImages" *ngIf="showImgInmuebles"></app-images-inmueble>
 </app-modal-inmueble>
