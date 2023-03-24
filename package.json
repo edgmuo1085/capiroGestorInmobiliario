@@ -6,6 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --configuration=production --aot",
+    "build:dev": "node --max_old_space_size=4096 node_modules/@angular/cli/bin/ng build --configuration=development --aot",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "format:write": "prettier --write \"**/src/**/*.{ts,js,json,html,css,scss,md}\"",
