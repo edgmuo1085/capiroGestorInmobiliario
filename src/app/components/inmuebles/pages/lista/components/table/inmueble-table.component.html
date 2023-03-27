@@ -61,6 +61,7 @@
                   <i class="icon-custom fa-solid fa-upload" (click)="subirImg(inmueble)"></i>
                 </ng-container>
                 <i class="icon-custom fa-solid fa-image" (click)="mostrarImg(inmueble)"></i>
+                <i class="icon-custom fa-solid fa-pen-to-square" (click)="actionEditInmueble(inmueble.id)"></i>
               </ng-container>
               <ng-template #blockUploadImg>
                 <i class="icon-custom fa-solid fa-file-arrow-up" (click)="subirImg(inmueble)"></i>
@@ -78,6 +79,11 @@
   </div>
 </div>
 
-<app-modal-inmueble [visible]="visible" (eventCloseDialogModal)="closeModalUpload($event)">
-  <app-files-inmueble [idInmueble]="idInmueble" [idUsuario]="idUsuario" [sizeFotos]="sizeFotos" *ngIf="showUpload"></app-files-inmueble>
-</app-modal-inmueble>
+<app-inmueble-modal [visible]="visible" (eventCloseDialogModal)="closeModalUpload($event)">
+  <app-inmueble-subir-archivos
+    [idInmueble]="idInmueble"
+    [idUsuario]="idUsuario"
+    [sizeFotos]="sizeFotos"
+    *ngIf="showUpload"
+  ></app-inmueble-subir-archivos>
+</app-inmueble-modal>

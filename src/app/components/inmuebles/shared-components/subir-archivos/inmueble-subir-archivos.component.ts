@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs';
 import { ArchivoInmueble } from 'src/app/components/interfaces/archivo-inmueble.interface';
 import { IdGenerateService } from 'src/app/components/shared/shared-services/id-generate.service';
@@ -6,11 +6,11 @@ import { PropiedadesService } from 'src/app/components/shared/shared-services/pr
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
 
 @Component({
-  selector: 'app-files-inmueble',
-  templateUrl: './files-inmueble.component.html',
-  styleUrls: ['./files-inmueble.component.scss'],
+  selector: 'app-inmueble-subir-archivos',
+  templateUrl: './inmueble-subir-archivos.component.html',
+  styleUrls: ['./inmueble-subir-archivos.component.scss'],
 })
-export class FilesInmuebleComponent implements OnDestroy {
+export class InmuebleSubirArchivosComponent {
   @Input() idUsuario: number = 0;
   @Input() idInmueble: number = 0;
   @Input() sizeFotos: number = 3;
@@ -32,7 +32,6 @@ export class FilesInmuebleComponent implements OnDestroy {
   }
 
   async subirImagenes(data: any) {
-    console.log(data.files.length);
     let conteoSizeFiles: number = 0;
 
     for await (const file of data.files) {
@@ -55,15 +54,12 @@ export class FilesInmuebleComponent implements OnDestroy {
       }
     }
     this.enviarDataImg();
-    console.log('Objeto imagen', this.anexoImgInmuebles);
   }
 
   async enviarDataImg() {
     for await (const item of this.anexoImgInmuebles) {
       this.propiedadesService.guardarFoto(item).subscribe({
-        next: resp => {
-          console.log('respuesta imagenes', resp);
-        },
+        next: response => {},
         error: err => {
           console.error(err);
         },
@@ -96,6 +92,6 @@ export class FilesInmuebleComponent implements OnDestroy {
   }
 
   remover(event: any) {
-    console.log(event);
+    //console.log(event);
   }
 }

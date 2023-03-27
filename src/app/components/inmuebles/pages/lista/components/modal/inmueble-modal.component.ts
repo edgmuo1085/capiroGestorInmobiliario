@@ -1,12 +1,11 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-modal-inmueble',
-  templateUrl: './modal-inmueble.component.html',
-  styleUrls: ['./modal-inmueble.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  selector: 'app-inmueble-modal',
+  templateUrl: './inmueble-modal.component.html',
+  styleUrls: ['./inmueble-modal.component.scss'],
 })
-export class ModalInmuebleComponent {
+export class InmuebleModalComponent {
   @Input() visible: boolean = false;
   @Output() eventCloseDialogModal: EventEmitter<boolean> = new EventEmitter<boolean>();
   showDataLogin: string = 'modal-login';

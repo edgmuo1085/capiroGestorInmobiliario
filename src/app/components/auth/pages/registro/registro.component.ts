@@ -65,7 +65,6 @@ export class RegistroComponent implements OnInit {
 
     this.loginService.registrarUsuario(json).subscribe({
       next: response => {
-        console.log(response);
         if (!response.idUsuario) {
           this.loading = false;
           this.toastCustomService.showToas(

@@ -13,7 +13,7 @@ export class NabvarPageComponent implements OnInit {
   menuItem: MenuNavbar[] = [
     {
       label: 'Anuncie su inmueble',
-      link: '/inmuebles/sesion/registrar',
+      link: '/inmuebles/sesion/listar',
     },
     {
       label: 'Avalúos',

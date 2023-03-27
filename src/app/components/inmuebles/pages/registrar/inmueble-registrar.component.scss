@@ -1,24 +1,13 @@
 @import 'layout.functions';
 
-#section-register-inmueble {
-  .header-registro-inmueble {
-    .img-registro-inmueble {
-      width: 100%;
-      height: 100%;
-      max-height: calc(100vh - 80vh);
-      object-fit: cover;
-    }
-  }
-  .tabview-inmueble {
-    width: 100%;
+.registro-inmueble-titulo {
+  font-size: cap-font-size(20px);
+  color: var(--color-tercer);
+  font-weight: 900;
+}
 
-    .p-tabview .p-tabview-panels {
-      padding: 0;
-    }
-
-    .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
-      color: var(--color-principal);
-      border-color: var(--color-principal);
-    }
-  }
+.registro-inmueble-descripcion {
+  font-size: cap-font-size(16px);
+  color: var(--color-secundario);
+  margin: cap-font-size(16px) 0;
 }

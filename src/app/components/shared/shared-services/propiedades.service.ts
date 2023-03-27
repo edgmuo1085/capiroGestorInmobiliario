@@ -39,6 +39,11 @@ export class PropiedadesService {
     return this.http.post<any>(url, inmueble);
   }
 
+  actualizarInmueble(inmueble: InmuebleModel): Observable<any> {
+    const url = `${environment.URL_API}predio/crear`;
+    return this.http.post<any>(url, inmueble);
+  }
+
   guardarFoto(data: any) {
     const url = `${environment.URL_API}archivos/insertar/`;
     return this.http.post<any>(url, data);

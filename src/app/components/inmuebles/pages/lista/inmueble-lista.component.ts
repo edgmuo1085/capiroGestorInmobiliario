@@ -1,8 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Table } from 'primeng/table';
 import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
-import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.interface';
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 
@@ -15,13 +13,7 @@ export class InmuebleListaComponent implements OnInit {
   listaInmuebles: ResponseInmueble[] = [];
   selectedListaInmuebles: ResponseInmueble[] = [];
   loading: boolean = false;
-  visible: boolean = false;
-  showUpload: boolean = false;
   idUsuario: number = 0;
-  idInmueble: number = 0;
-  sizeFotos: number = 0;
-  listaImages: ResponseArchivo[] = [];
-  @ViewChild('tableListaInmuebles') tableListaInmuebles!: Table;
 
   constructor(private propiedadesService: PropiedadesService, private dataUserService: DataUserService, private router: Router) {
     this.dataUserService.getUserData().subscribe(response => {
@@ -30,18 +22,13 @@ export class InmuebleListaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.inmueblesLista();
+    this.getListaInmuebles();
   }
 
-  filterGlobalListaInmuebles(event: any, param: string) {
-    this.tableListaInmuebles.filterGlobal(event.target.value, param);
-  }
-
-  inmueblesLista() {
+  getListaInmuebles() {
     this.loading = true;
     this.propiedadesService.getInmuebles().subscribe({
       next: response => {
-        console.log('getInmuebles: ', response);
         if (!response.length) {
           this.loading = false;
           return;
@@ -57,24 +44,9 @@ export class InmuebleListaComponent implements OnInit {
     });
   }
 
-  closeModalUpload(event: any) {
-    this.visible = event;
-    if (this.showUpload) {
-      this.inmueblesLista();
+  actualizarListaGeneral(event: boolean) {
+    if (event) {
+      this.getListaInmuebles();
     }
-    this.showUpload = false;
-  }
-
-  mostrarImg(event: ResponseInmueble) {
-    this.visible = true;
-    this.showUpload = false;
-    this.router.navigate(['/inmuebles/sesion/detalle/', event.id]);
-  }
-
-  subirImg(inmueble: ResponseInmueble) {
-    this.idInmueble = inmueble.id;
-    this.sizeFotos = 3 - inmueble.fotos.length;
-    this.visible = true;
-    this.showUpload = true;
   }
 }

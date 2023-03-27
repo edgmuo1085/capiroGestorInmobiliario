@@ -1,35 +1,19 @@
-<section id="section-register-inmueble">
-  <div class="container-fluid">
-    <div class="row justify-contente-center">
-      <div class="col-12 px-0">
-        <div class="header-registro-inmueble animate__animated animate__fadeInDown">
-          <img src="./assets/images/fondo-registrarInmueble.jpg" alt="Fondo registro inmueble" class="img-registro-inmueble" />
-        </div>
-      </div>
-    </div>
-
-    <div class="row justify-content-center">
-      <div class="col-12 my-3">
-        <div class="tabview-inmueble">
-          <p-tabView>
-            <p-tabPanel [header]="'Inmuebles'" leftIcon="pi pi-info-circle">
-              <ng-template pTemplate="content">
-                <div [attr.translate]="'yes'">
-                  <app-inmueble-lista></app-inmueble-lista>
-                </div>
-              </ng-template>
-            </p-tabPanel>
-
-            <p-tabPanel [header]="'Registra inmueble'" leftIcon="pi pi-info-circle">
-              <ng-template pTemplate="content">
-                <div [attr.translate]="'yes'">
-                  <app-inmueble-form></app-inmueble-form>
-                </div>
-              </ng-template>
-            </p-tabPanel>
-          </p-tabView>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<app-inmueble-menu [actualizarInmueble]="actualizarInmueble"></app-inmueble-menu>
+<div class="container-fluid">
+  <app-inmueble-form
+    [cargarImagenes]="cargarImagenes"
+    [formRegistroInmueble]="formRegistroInmueble"
+    [idUsuario]="idUsuario"
+    [idInmueble]="idInmueble"
+    [loading]="loading"
+    [actualizarInmueble]="actualizarInmueble"
+    [msgTituloPage]="msgTituloPage"
+    [tiposInmuebles]="tiposInmuebles"
+    [listaEstratos]="listaEstratos"
+    [garageSeleccion]="garageSeleccion"
+    [estadoInmueble]="estadoInmueble"
+    [tipoPublicacion]="tipoPublicacion"
+    [tipoConstruccion]="tipoConstruccion"
+    (actionFormInmueble)="registrarActualizarInmueble()"
+  ></app-inmueble-form>
+</div>

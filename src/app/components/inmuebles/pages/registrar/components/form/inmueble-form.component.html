@@ -13,7 +13,7 @@
 
     <div class="row justify-content-center mb-4" *ngIf="!cargarImagenes">
       <div class="col-12 col-md-10">
-        <form [formGroup]="formRegistroInmueble" (submit)="registrarInmueble()" appValidator autocomplete="off">
+        <form [formGroup]="formRegistroInmueble" (submit)="onSubmitFormInmueble()" appValidator autocomplete="off">
           <div class="container-fluid">
             <div class="row justify-content-center">
               <div class="col-12 col-md-5">
@@ -195,11 +195,11 @@
             </div>
             <div class="d-flex justify-content-evenly mt-5">
               <div class="form-button">
-                <button class="form-btn bg-gray" type="reset">Cancelar</button>
+                <button class="form-btn bg-gray" type="button" (click)="btnCancel()">Cancelar</button>
               </div>
               <div class="form-button">
                 <button class="form-btn" type="submit">
-                  Registrar
+                  {{ actualizarInmueble ? 'Actualizar' : 'Registrar' }}
                   <div class="spinner-border spinner-border-sm" role="status" *ngIf="loading">
                     <span class="visually-hidden">Loading...</span>
                   </div>
@@ -212,12 +212,12 @@
     </div>
     <div class="row justify-content-center mt-3 mb-4" *ngIf="cargarImagenes">
       <div class="col-12 col-md-10">
-        <app-files-inmueble
+        <app-inmueble-subir-archivos
           [idInmueble]="idInmueble"
           [idUsuario]="idUsuario"
           (actionCargarImg)="cargarImagenes = $event"
           (actionMsgTituloPage)="msgTituloPage = $event"
-        ></app-files-inmueble>
+        ></app-inmueble-subir-archivos>
       </div>
     </div>
   </div>

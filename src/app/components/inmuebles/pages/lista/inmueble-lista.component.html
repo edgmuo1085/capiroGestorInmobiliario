@@ -1,0 +1,10 @@
+<app-inmueble-menu [actualizarInmueble]="false"></app-inmueble-menu>
+
+<div class="container-fluid">
+  <app-inmueble-table
+    [listaInmuebles]="listaInmuebles"
+    [idUsuario]="idUsuario"
+    [loading]="loading"
+    (actionCargarLista)="actualizarListaGeneral($event)"
+  ></app-inmueble-table>
+</div>

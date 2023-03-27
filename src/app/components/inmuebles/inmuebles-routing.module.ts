@@ -4,6 +4,7 @@ import { LayoutAuthComponent } from '../layout/pages/layout-auth/layout-auth.com
 import { LayoutPageComponent } from '../layout/pages/layout-page/layout-page.component';
 import { AuthGuard } from '../shared/shared-modules/guard/auth.guard';
 import { InmuebleDetalleComponent } from './pages/detalle/inmueble-detalle.component';
+import { InmuebleListaComponent } from './pages/lista/inmueble-lista.component';
 import { PropiedadesArriendoComponent } from './pages/propiedades-arriendo/propiedades-arriendo.component';
 import { PropiedadesVentaComponent } from './pages/propiedades-venta/propiedades-venta.component';
 import { InmuebleRegistrarComponent } from './pages/registrar/inmueble-registrar.component';
@@ -51,14 +52,24 @@ const routes: Routes = [
         component: PropiedadesVentaComponent,
       },
       {
-        title: '.::Registrar Inmueble::.',
+        title: '.::Ver Inmueble::.',
+        path: 'detalle/:inmueble',
+        component: InmuebleDetalleComponent,
+      },
+      {
+        title: '.::Listar Inmuebles::.',
+        path: 'listar',
+        component: InmuebleListaComponent,
+      },
+      {
+        title: '.::Registrar Inmuebles::.',
         path: 'registrar',
         component: InmuebleRegistrarComponent,
       },
       {
-        title: '.::Ver Inmueble::.',
-        path: 'detalle/:inmueble',
-        component: InmuebleDetalleComponent,
+        title: '.::Actualizar Inmuebles::.',
+        path: 'actualizar/:idInmueble',
+        component: InmuebleRegistrarComponent,
       },
       {
         path: '',

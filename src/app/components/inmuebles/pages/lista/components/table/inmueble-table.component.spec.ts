@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilesInmuebleComponent } from './files-inmueble.component';
+import { InmuebleTableComponent } from './inmueble-table.component';
 
-describe('FilesInmuebleComponent', () => {
-  let component: FilesInmuebleComponent;
-  let fixture: ComponentFixture<FilesInmuebleComponent>;
+describe('InmuebleTableComponent', () => {
+  let component: InmuebleTableComponent;
+  let fixture: ComponentFixture<InmuebleTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilesInmuebleComponent ]
+      declarations: [ InmuebleTableComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FilesInmuebleComponent);
+    fixture = TestBed.createComponent(InmuebleTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
