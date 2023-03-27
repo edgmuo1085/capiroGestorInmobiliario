@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.interface';
 
 @Component({
@@ -6,7 +6,7 @@ import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.i
   templateUrl: './galeria-inmueble.component.html',
   styleUrls: ['./galeria-inmueble.component.scss'],
 })
-export class GaleriaInmuebleComponent {
+export class GaleriaInmuebleComponent implements OnChanges {
   @Input() fotosInmueble: ResponseArchivo[] = [];
   responsiveOptions: any;
 
@@ -28,5 +28,19 @@ export class GaleriaInmuebleComponent {
         numScroll: 1,
       },
     ];
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.hasOwnProperty('fotosInmueble')) {
+      if (!this.fotosInmueble.length) {
+        console.log('No existen fotos');
+        this.fotosInmueble = [
+          {
+            url: './assets/images/not-found-img.jpg',
+            nombreArchivo: 'not found ',
+          } as ResponseArchivo,
+        ];
+      }
+    }
   }
 }

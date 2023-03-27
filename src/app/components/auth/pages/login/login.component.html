@@ -7,43 +7,51 @@
       <div class="col-12 col-sm-8 col-md-5 col-lg-4">
         <div class="login-container animate__animated animate__fadeInDown">
           <div class="container login-form">
-            <form [formGroup]="loginForm" (ngSubmit)="login()" autocomplete="off">
+            <form [formGroup]="loginForm" (ngSubmit)="login()" appValidator autocomplete="off">
               <div class="form-titulo">
                 <h2>Bienvenido</h2>
               </div>
 
               <div class="row justify-content-center">
-                <div class="col-11 col-md-10">
-                  <div class="form-floating mb-3">
-                    <input
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': formCtrlC['correo'].touched && formCtrlC['correo'].errors }"
-                      formControlName="correo"
-                      id="correo"
-                      type="email"
-                      placeholder="Correo electrónico"
-                      required=""
-                    />
-                    <label for="correo">Correo electrónico</label>
-                  </div>
-                  <div class="form-floating mb-3">
-                    <input
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': formCtrlC['contrasena'].touched && formCtrlC['contrasena'].errors }"
-                      formControlName="contrasena"
-                      id="contrasena"
-                      [type]="tipoInput"
-                      placeholder="Contraseña"
-                      required=""
-                    />
-                    <label for="contrasena">Contraseña</label>
-                    <div class="icon-eye-custom" (click)="mostrarPass()" *ngIf="eye === true">
-                      <i class="fa-solid fa-eye-slash"></i>
+                <div class="col-11 col-md-10 mb-3">
+                  <app-cap-form-fielset [label]="'correo'">
+                    <div class="form-floating">
+                      <input
+                        class="form-control"
+                        [ngClass]="{ 'is-invalid': formCtrlC['correo'].touched && formCtrlC['correo'].errors }"
+                        formControlName="correo"
+                        id="correo"
+                        type="email"
+                        placeholder="Correo electrónico"
+                        required=""
+                      />
+                      <label for="correo">Correo electrónico</label>
                     </div>
-                    <div class="icon-eye-custom" (click)="ocultarPass()" *ngIf="eye === false">
-                      <i class="fa-solid fa-eye"></i>
+                  </app-cap-form-fielset>
+                </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-11 col-md-10 mb-3">
+                  <app-cap-form-fielset [label]="'contrasena'">
+                    <div class="form-floating">
+                      <input
+                        class="form-control"
+                        [ngClass]="{ 'is-invalid': formCtrlC['contrasena'].touched && formCtrlC['contrasena'].errors }"
+                        formControlName="contrasena"
+                        id="contrasena"
+                        [type]="tipoInput"
+                        placeholder="Contraseña"
+                        required=""
+                      />
+                      <label for="contrasena">Contraseña</label>
+                      <div class="icon-eye-custom" (click)="mostrarPass()" *ngIf="eye === true">
+                        <i class="fa-solid fa-eye-slash"></i>
+                      </div>
+                      <div class="icon-eye-custom" (click)="ocultarPass()" *ngIf="eye === false">
+                        <i class="fa-solid fa-eye"></i>
+                      </div>
                     </div>
-                  </div>
+                  </app-cap-form-fielset>
                 </div>
               </div>
 

@@ -58,14 +58,29 @@
             <span class="">
               <ng-container *ngIf="inmueble.fotos.length; else blockUploadImg">
                 <ng-container *ngIf="inmueble.fotos.length < 4">
-                  <i class="icon-custom fa-solid fa-upload" (click)="subirImg(inmueble)"></i>
+                  <i
+                    class="icon-custom fa-solid fa-upload"
+                    (click)="subirImg(inmueble)"
+                    pTooltip="Anexar más imágenes"
+                    tooltipPosition="top"
+                  ></i>
                 </ng-container>
-                <i class="icon-custom fa-solid fa-image" (click)="mostrarImg(inmueble)"></i>
-                <i class="icon-custom fa-solid fa-pen-to-square" (click)="actionEditInmueble(inmueble.id)"></i>
+                <i class="icon-custom fa-solid fa-image" (click)="mostrarImg(inmueble)" pTooltip="Ver detalle" tooltipPosition="top"></i>
               </ng-container>
               <ng-template #blockUploadImg>
-                <i class="icon-custom fa-solid fa-file-arrow-up" (click)="subirImg(inmueble)"></i>
+                <i
+                  class="icon-custom fa-solid fa-file-arrow-up"
+                  (click)="subirImg(inmueble)"
+                  pTooltip="Anexar imágenes"
+                  tooltipPosition="top"
+                ></i>
               </ng-template>
+              <i
+                class="icon-custom fa-solid fa-pen-to-square"
+                (click)="actionEditInmueble(inmueble.id)"
+                pTooltip="Actualizar inmueble"
+                tooltipPosition="top"
+              ></i>
             </span>
           </td>
         </tr>

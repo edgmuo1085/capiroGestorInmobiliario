@@ -57,5 +57,43 @@
     "passwordPrompt": "Ingrese una contraseña",
     "emptyMessage": "No se encontraron resultados",
     "emptyFilterMessage": "No se encontraron resultados"
+  },
+  "form": {
+    "error": {
+      "email": "Ingrese un correo electrónico válido",
+      "required": {
+        "email": "Campo requerido",
+        "contrasena": "Campo requerido",
+        "nombres": "Campo requerido",
+        "apellidos": "Campo requerido",
+        "correo": "Campo requerido",
+        "identificacion": "Campo requerido",
+        "tipoIdentificacion": "Campo requerido",
+        "password": "Campo requerido",
+        "tipoInmueble": "Campo requerido",
+        "area": "Campo requerido",
+        "habitacion": "Campo requerido",
+        "estrato": "Campo requerido",
+        "banos": "Campo requerido",
+        "garage": "Campo requerido",
+        "estadoInmueble": "Campo requerido",
+        "tiempo": "Campo requerido",
+        "precio": "Campo requerido",
+        "tipoPublicacion": "Campo requerido",
+        "tipoConstruccion": "Campo requerido"
+      },
+      "maxlength": {
+        "area": "Ingresa máximo {{expected}} caracteres",
+        "habitacion": "Ingresa máximo {{expected}} caracteres",
+        "banos": "Ingresa máximo {{expected}} caracteres"
+      },
+      "pattern": {
+        "area": "Ingresa caracteres numéricos",
+        "habitacion": "Ingresa caracteres numéricos",
+        "banos": "Ingresa caracteres numéricos",
+        "tiempo": "Ingresa caracteres numéricos",
+        "precio": "Ingresa caracteres numéricos"
+      }
+    }
   }
 }

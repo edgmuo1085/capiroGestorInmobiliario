@@ -4,8 +4,8 @@ export interface ResponseArchivo {
   formato: string;
   idUsuario: number;
   idInmueble: number;
-  idFormulario: null;
-  archivo: null;
+  idFormulario: string;
+  archivo: string;
   id: number;
   url: string;
 }

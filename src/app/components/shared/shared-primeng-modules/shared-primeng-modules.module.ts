@@ -43,6 +43,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { BlockUIModule } from 'primeng/blockui';
 import { StepsModule } from 'primeng/steps';
 import { GalleriaModule } from 'primeng/galleria';
+import { TooltipModule } from 'primeng/tooltip';
 
 const modulePrimeng = [
   InputTextModule,
@@ -82,15 +83,17 @@ const modulePrimeng = [
   BlockUIModule,
   StepsModule,
   GalleriaModule,
+  TooltipModule,
 ];
 
 /** Components Custom */
 import { CapModalConfirmacionComponent } from './cap-modal-confirmacion/cap-modal-confirmacion.component';
+import { CapFormFielsetComponent } from './cap-form-fielset/cap-form-fielset.component';
 
 @NgModule({
-  declarations: [CapModalConfirmacionComponent],
+  declarations: [CapModalConfirmacionComponent, CapFormFielsetComponent],
   imports: [TranslateModule.forChild({}), CommonModule, FormsModule, ReactiveFormsModule, ...modulePrimeng],
-  exports: [CommonModule, ...modulePrimeng, CapModalConfirmacionComponent],
+  exports: [CommonModule, ...modulePrimeng, CapModalConfirmacionComponent, CapFormFielsetComponent],
   providers: [MessageService, ConfirmationService],
 })
 export class SharedPrimengModulesModule {}

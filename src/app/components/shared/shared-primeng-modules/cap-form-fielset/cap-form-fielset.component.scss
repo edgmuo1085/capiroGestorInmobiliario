@@ -1,0 +1,11 @@
+@import 'layout.functions';
+
+.cap-error-holder {
+  &.cap-field-error {
+    .error {
+      color: red;
+      font-weight: 400;
+      font-size: cap-font-size(14px);
+    }
+  }
+}

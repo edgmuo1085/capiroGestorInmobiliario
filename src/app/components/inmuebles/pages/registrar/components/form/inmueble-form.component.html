@@ -6,191 +6,217 @@
           <p>{{ msgTituloPage }}</p>
         </div>
         <p *ngIf="!cargarImagenes" class="registro-inmueble-descripcion">
-          Formulario de registro de inmuebles, ingrese los siguientes datos
+          {{
+            actualizarInmueble
+              ? 'Formulario de actualización de información del inmueble.'
+              : 'Formulario de registro de inmuebles, ingrese los siguientes datos.'
+          }}
         </p>
       </div>
     </div>
 
     <div class="row justify-content-center mb-4" *ngIf="!cargarImagenes">
       <div class="col-12 col-md-10">
-        <form [formGroup]="formRegistroInmueble" (submit)="onSubmitFormInmueble()" appValidator autocomplete="off">
+        <form [formGroup]="formRegistroInmueble" (ngSubmit)="onSubmitFormInmueble()" appValidator autocomplete="off">
           <div class="container-fluid">
             <div class="row justify-content-center">
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <select
-                    class="form-select"
-                    id="tipoInmueble"
-                    formControlName="tipoInmueble"
-                    aria-label="Tipo de inmueble"
-                    [ngClass]="{ 'is-invalid': formCtrlI['tipoInmueble'].touched && formCtrlI['tipoInmueble'].errors }"
-                  >
-                    <ng-container>
-                      <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                    </ng-container>
-                  </select>
-                  <label for="tipoInmueble">Tipo de inmueble</label>
-                </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'tipoInmueble'">
+                  <div class="form-floating">
+                    <select
+                      class="form-select"
+                      id="tipoInmueble"
+                      formControlName="tipoInmueble"
+                      aria-label="Tipo de inmueble"
+                      [ngClass]="{ 'is-invalid': formCtrlI['tipoInmueble'].touched && formCtrlI['tipoInmueble'].errors }"
+                    >
+                      <ng-container>
+                        <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                      </ng-container>
+                    </select>
+                    <label for="tipoInmueble">Tipo de inmueble</label>
+                  </div>
+                </app-cap-form-fielset>
               </div>
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <input
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': formCtrlI['area'].touched && formCtrlI['area'].errors }"
-                    formControlName="area"
-                    id="area"
-                    type="text"
-                    placeholder="Área del predio"
-                    required=""
-                  />
-                  <label for="area">Área del predio</label>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <input
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': formCtrlI['habitacion'].touched && formCtrlI['habitacion'].errors }"
-                    formControlName="habitacion"
-                    id="habitacion"
-                    type="text"
-                    placeholder="Número de habitaciones"
-                    required=""
-                  />
-                  <label for="habitacion">Número de habitaciones</label>
-                </div>
-              </div>
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <select
-                    class="form-select"
-                    id="estrato"
-                    formControlName="estrato"
-                    aria-label="Estratos"
-                    [ngClass]="{ 'is-invalid': formCtrlI['estrato'].touched && formCtrlI['estrato'].errors }"
-                  >
-                    <ng-container>
-                      <option *ngFor="let tipo of listaEstratos" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                    </ng-container>
-                  </select>
-                  <label for="estrato">Estratos</label>
-                </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'area'">
+                  <div class="form-floating">
+                    <input
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': formCtrlI['area'].touched && formCtrlI['area'].errors }"
+                      formControlName="area"
+                      id="area"
+                      type="text"
+                      placeholder="Área del predio"
+                      required=""
+                    />
+                    <label for="area">Área del predio</label>
+                  </div>
+                </app-cap-form-fielset>
               </div>
             </div>
             <div class="row justify-content-center">
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <input
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': formCtrlI['banos'].touched && formCtrlI['banos'].errors }"
-                    formControlName="banos"
-                    id="banos"
-                    type="text"
-                    placeholder="Número de baños"
-                    required=""
-                  />
-                  <label for="banos">Número de baños</label>
-                </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'habitacion'">
+                  <div class="form-floating">
+                    <input
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': formCtrlI['habitacion'].touched && formCtrlI['habitacion'].errors }"
+                      formControlName="habitacion"
+                      id="habitacion"
+                      type="text"
+                      placeholder="Número de habitaciones"
+                      required=""
+                    />
+                    <label for="habitacion">Número de habitaciones</label>
+                  </div>
+                </app-cap-form-fielset>
               </div>
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <select
-                    class="form-select"
-                    id="garage"
-                    formControlName="garage"
-                    aria-label="Garaje"
-                    [ngClass]="{ 'is-invalid': formCtrlI['garage'].touched && formCtrlI['garage'].errors }"
-                  >
-                    <ng-container>
-                      <option *ngFor="let tipo of garageSeleccion" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                    </ng-container>
-                  </select>
-                  <label for="garage">Garaje</label>
-                </div>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <select
-                    class="form-select"
-                    id="estadoInmueble"
-                    formControlName="estadoInmueble"
-                    aria-label="Estado del inmueble"
-                    [ngClass]="{ 'is-invalid': formCtrlI['estadoInmueble'].touched && formCtrlI['estadoInmueble'].errors }"
-                  >
-                    <ng-container>
-                      <option *ngFor="let tipo of estadoInmueble" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                    </ng-container>
-                  </select>
-                  <label for="estadoInmueble">Estado del inmueble</label>
-                </div>
-              </div>
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <input
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': formCtrlI['tiempo'].touched && formCtrlI['tiempo'].errors }"
-                    formControlName="tiempo"
-                    id="tiempo"
-                    type="text"
-                    placeholder="Tiempo de contruido (meses)"
-                    required=""
-                  />
-                  <label for="tiempo">Tiempo de contruido (meses)</label>
-                </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'estrato'">
+                  <div class="form-floating">
+                    <select
+                      class="form-select"
+                      id="estrato"
+                      formControlName="estrato"
+                      aria-label="Estratos"
+                      [ngClass]="{ 'is-invalid': formCtrlI['estrato'].touched && formCtrlI['estrato'].errors }"
+                    >
+                      <ng-container>
+                        <option *ngFor="let tipo of listaEstratos" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                      </ng-container>
+                    </select>
+                    <label for="estrato">Estratos</label>
+                  </div>
+                </app-cap-form-fielset>
               </div>
             </div>
             <div class="row justify-content-center">
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <input
-                    class="form-control"
-                    [ngClass]="{ 'is-invalid': formCtrlI['precio'].touched && formCtrlI['precio'].errors }"
-                    formControlName="precio"
-                    id="precio"
-                    type="text"
-                    placeholder="Precio"
-                    required=""
-                  />
-                  <label for="precio">Precio</label>
-                </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'banos'">
+                  <div class="form-floating">
+                    <input
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': formCtrlI['banos'].touched && formCtrlI['banos'].errors }"
+                      formControlName="banos"
+                      id="banos"
+                      type="text"
+                      placeholder="Número de baños"
+                      required=""
+                    />
+                    <label for="banos">Número de baños</label>
+                  </div>
+                </app-cap-form-fielset>
               </div>
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <select
-                    class="form-select"
-                    id="tipoPublicacion"
-                    formControlName="tipoPublicacion"
-                    aria-label="Tipo de publicación"
-                    [ngClass]="{ 'is-invalid': formCtrlI['tipoPublicacion'].touched && formCtrlI['tipoPublicacion'].errors }"
-                  >
-                    <ng-container>
-                      <option *ngFor="let tipo of tipoPublicacion" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                    </ng-container>
-                  </select>
-                  <label for="tipoPublicacion">Tipo de publicación</label>
-                </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'garage'">
+                  <div class="form-floating">
+                    <select
+                      class="form-select"
+                      id="garage"
+                      formControlName="garage"
+                      aria-label="Garaje"
+                      [ngClass]="{ 'is-invalid': formCtrlI['garage'].touched && formCtrlI['garage'].errors }"
+                    >
+                      <ng-container>
+                        <option *ngFor="let tipo of garageSeleccion" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                      </ng-container>
+                    </select>
+                    <label for="garage">Garaje</label>
+                  </div>
+                </app-cap-form-fielset>
               </div>
             </div>
             <div class="row justify-content-center">
-              <div class="col-12 col-md-5">
-                <div class="form-floating mb-3">
-                  <select
-                    class="form-select"
-                    id="tipoConstruccion"
-                    formControlName="tipoConstruccion"
-                    aria-label="Tipo de contrucción"
-                    [ngClass]="{ 'is-invalid': formCtrlI['tipoConstruccion'].touched && formCtrlI['tipoConstruccion'].errors }"
-                  >
-                    <ng-container>
-                      <option *ngFor="let tipo of tipoConstruccion" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                    </ng-container>
-                  </select>
-                  <label for="tipoConstruccion">Tipo de contrucción</label>
-                </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'estadoInmueble'">
+                  <div class="form-floating">
+                    <select
+                      class="form-select"
+                      id="estadoInmueble"
+                      formControlName="estadoInmueble"
+                      aria-label="Estado del inmueble"
+                      [ngClass]="{ 'is-invalid': formCtrlI['estadoInmueble'].touched && formCtrlI['estadoInmueble'].errors }"
+                    >
+                      <ng-container>
+                        <option *ngFor="let tipo of estadoInmueble" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                      </ng-container>
+                    </select>
+                    <label for="estadoInmueble">Estado del inmueble</label>
+                  </div>
+                </app-cap-form-fielset>
+              </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'tiempo'">
+                  <div class="form-floating">
+                    <input
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': formCtrlI['tiempo'].touched && formCtrlI['tiempo'].errors }"
+                      formControlName="tiempo"
+                      id="tiempo"
+                      type="text"
+                      placeholder="Tiempo de contruido (meses)"
+                      required=""
+                    />
+                    <label for="tiempo">Tiempo de contruido (meses)</label>
+                  </div>
+                </app-cap-form-fielset>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'precio'">
+                  <div class="form-floating">
+                    <input
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': formCtrlI['precio'].touched && formCtrlI['precio'].errors }"
+                      formControlName="precio"
+                      id="precio"
+                      type="text"
+                      placeholder="Precio"
+                      required=""
+                    />
+                    <label for="precio">Precio</label>
+                  </div>
+                </app-cap-form-fielset>
+              </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'tipoPublicacion'">
+                  <div class="form-floating">
+                    <select
+                      class="form-select"
+                      id="tipoPublicacion"
+                      formControlName="tipoPublicacion"
+                      aria-label="Tipo de publicación"
+                      [ngClass]="{ 'is-invalid': formCtrlI['tipoPublicacion'].touched && formCtrlI['tipoPublicacion'].errors }"
+                    >
+                      <ng-container>
+                        <option *ngFor="let tipo of tipoPublicacion" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                      </ng-container>
+                    </select>
+                    <label for="tipoPublicacion">Tipo de publicación</label>
+                  </div>
+                </app-cap-form-fielset>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'tipoConstruccion'">
+                  <div class="form-floating">
+                    <select
+                      class="form-select"
+                      id="tipoConstruccion"
+                      formControlName="tipoConstruccion"
+                      aria-label="Tipo de contrucción"
+                      [ngClass]="{ 'is-invalid': formCtrlI['tipoConstruccion'].touched && formCtrlI['tipoConstruccion'].errors }"
+                    >
+                      <ng-container>
+                        <option *ngFor="let tipo of tipoConstruccion" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                      </ng-container>
+                    </select>
+                    <label for="tipoConstruccion">Tipo de contrucción</label>
+                  </div>
+                </app-cap-form-fielset>
               </div>
             </div>
             <div class="d-flex justify-content-evenly mt-5">

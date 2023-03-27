@@ -55,7 +55,7 @@ export class ValidatorService {
     let divError = parentElement ? parentElement.getElementsByClassName('error') : null;
 
     if (divError && divError.length === 0) {
-      parentElement = element ? element.closest('.ada-error-holder') : null;
+      parentElement = element ? element.closest('.cap-error-holder') : null;
       divError = parentElement ? parentElement.getElementsByClassName('error') : null;
     }
 
@@ -64,8 +64,8 @@ export class ValidatorService {
         return;
       }
 
-      parentElement?.classList.remove('ada-field-error');
-      parentElement?.classList.add('ada-field-success');
+      parentElement?.classList.remove('cap-field-error');
+      parentElement?.classList.add('cap-field-success');
 
       if (!divError || divError.length === 0) {
         return;
@@ -77,8 +77,8 @@ export class ValidatorService {
 
     const errorData = this.getErrorsAndValues(control, id);
     let errores = errorData['error'].split('Dynamic')[0];
-    parentElement?.classList.add('ada-field-error');
-    parentElement?.classList.remove('ada-field-success');
+    parentElement?.classList.add('cap-field-error');
+    parentElement?.classList.remove('cap-field-success');
 
     if (!divError || divError.length === 0) {
       return;
