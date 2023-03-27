@@ -33,7 +33,6 @@ export class GaleriaInmuebleComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.hasOwnProperty('fotosInmueble')) {
       if (!this.fotosInmueble.length) {
-        console.log('No existen fotos');
         this.fotosInmueble = [
           {
             url: './assets/images/not-found-img.jpg',
