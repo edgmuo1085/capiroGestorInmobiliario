@@ -70,7 +70,6 @@ export class InmuebleRegistrarComponent implements OnInit {
   }
 
   registrarActualizarInmueble() {
-    console.log(this.formRegistroInmueble.controls);
     if (this.actualizarInmueble) {
       this.onSubmitActualizarInmueble();
       return;
