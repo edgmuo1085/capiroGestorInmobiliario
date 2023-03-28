@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ArchivoInmuebleModel, ArchivoInmuebleUpModel } from '../../interfaces/archivo-inmueble.interface';
 import { InmuebleModel, InmuebleRegistroModel } from '../../interfaces/inmueble.interface';
 import { ResponseInmueble } from '../../interfaces/response-inmueble.interface';
-import { PropiedadesInmuebles } from '../../interfaces/response-propiedades.interface';
 import { ResponseArchivo } from '../../interfaces/respose-archivo.interface';
 
 @Injectable({
@@ -44,9 +44,14 @@ export class PropiedadesService {
     return this.http.post<any>(url, inmueble);
   }
 
-  guardarFoto(data: any) {
+  guardarFoto(data: ArchivoInmuebleModel): Observable<ResponseArchivo> {
     const url = `${environment.URL_API}archivos/insertar/`;
-    return this.http.post<any>(url, data);
+    return this.http.post<ResponseArchivo>(url, data);
+  }
+
+  actualizarFoto(data: ArchivoInmuebleUpModel): Observable<ResponseArchivo> {
+    const url = `${environment.URL_API}archivos/insertar/`;
+    return this.http.post<ResponseArchivo>(url, data);
   }
 
   getPropiedades() {

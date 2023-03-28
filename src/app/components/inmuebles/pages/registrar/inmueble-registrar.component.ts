@@ -80,7 +80,7 @@ export class InmuebleRegistrarComponent implements OnInit {
 
   onSubmitRegistrarInmueble() {
     if (this.formRegistroInmueble.invalid) {
-      this.toastCustomService.showToas('Advertencia', 'Debe diligenciar todos los campos', 'error');
+      this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;
     }
 
@@ -101,14 +101,14 @@ export class InmuebleRegistrarComponent implements OnInit {
     this.propiedadesService.crearInmueble(registroInmueble).subscribe({
       next: response => {
         if (!response.id) {
-          this.toastCustomService.showToas(
+          this.toastCustomService.showToast(
             'Advertencia',
             'Ocurrió un error al momento de registrar el inmueble, inténtelo más tarde',
             'warn'
           );
           return;
         }
-        this.toastCustomService.showToas(
+        this.toastCustomService.showToast(
           'Información',
           'Propiedad registrada con éxito. Puede continuar anexando las imágenes al inmueble.'
         );
@@ -125,7 +125,7 @@ export class InmuebleRegistrarComponent implements OnInit {
 
   onSubmitActualizarInmueble() {
     if (this.formRegistroInmueble.invalid) {
-      this.toastCustomService.showToas('Advertencia', 'Debe diligenciar todos los campos', 'error');
+      this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;
     }
 
@@ -147,14 +147,14 @@ export class InmuebleRegistrarComponent implements OnInit {
     this.propiedadesService.crearInmueble(actualizarInmuebleData).subscribe({
       next: response => {
         if (!response.id) {
-          this.toastCustomService.showToas(
+          this.toastCustomService.showToast(
             'Advertencia',
             'Ocurrió un error al momento de registrar el inmueble, inténtelo más tarde',
             'warn'
           );
           return;
         }
-        this.toastCustomService.showToas(
+        this.toastCustomService.showToast(
           'Información',
           'Propiedad registrada con éxito. Puede continuar anexando las imágenes al inmueble.'
         );

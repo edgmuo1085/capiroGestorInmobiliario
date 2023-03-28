@@ -38,8 +38,8 @@ export class HipotecasFormComponent implements OnInit {
   }
 
   solicitar() {
+    console.log(this.formHipotecas.value);
     if (this.formHipotecas.valid) {
-      console.log(this.formHipotecas.value);
     } else {
       Swal.fire({
         icon: 'info',

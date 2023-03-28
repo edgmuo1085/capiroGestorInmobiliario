@@ -17,6 +17,7 @@ import { InmuebleTableComponent } from './pages/lista/components/table/inmueble-
 import { InmuebleSubirArchivosComponent } from './shared-components/subir-archivos/inmueble-subir-archivos.component';
 import { InmuebleModalComponent } from './pages/lista/components/modal/inmueble-modal.component';
 import { InmuebleFormComponent } from './pages/registrar/components/form/inmueble-form.component';
+import { InmueblesFotosUpdateComponent } from './pages/lista/components/lista-fotos/inmuebles-fotos-update.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { InmuebleFormComponent } from './pages/registrar/components/form/inmuebl
     InmuebleSubirArchivosComponent,
     InmuebleModalComponent,
     InmuebleFormComponent,
+    InmueblesFotosUpdateComponent,
   ],
   imports: [
     CommonModule,

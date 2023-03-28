@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
@@ -15,7 +14,7 @@ export class InmuebleListaComponent implements OnInit {
   loading: boolean = false;
   idUsuario: number = 0;
 
-  constructor(private propiedadesService: PropiedadesService, private dataUserService: DataUserService, private router: Router) {
+  constructor(private propiedadesService: PropiedadesService, private dataUserService: DataUserService) {
     this.dataUserService.getUserData().subscribe(response => {
       this.idUsuario = response.idUsuario;
     });

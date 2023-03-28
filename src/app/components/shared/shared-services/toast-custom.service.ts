@@ -7,7 +7,7 @@ import { MessageService } from 'primeng/api';
 export class ToastCustomService {
   constructor(private messageService: MessageService) {}
 
-  showToas(summary: string, detail: string, severity?: string, life?: number) {
+  showToast(summary: string, detail: string, severity?: string, life?: number) {
     let severityCustom = severity ? severity : 'success';
     let lifeCustom = life ? life : 8000;
     this.messageService.add({

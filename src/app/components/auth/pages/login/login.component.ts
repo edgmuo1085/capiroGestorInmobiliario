@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.loginForm.invalid) {
-      this.toastCustomService.showToas('Advertencia', 'Correo electrónico y contraseña requeridos', 'error');
+      this.toastCustomService.showToast('Advertencia', 'Correo electrónico y contraseña requeridos', 'error');
       return;
     }
     this.loading = true;
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
       next: response => {
         if (!response.idUsuario) {
           this.loading = false;
-          this.toastCustomService.showToas('Advertencia', 'Correo electrónico o contraseña incorrectos', 'warn');
+          this.toastCustomService.showToast('Advertencia', 'Correo electrónico o contraseña incorrectos', 'warn');
           return;
         }
 

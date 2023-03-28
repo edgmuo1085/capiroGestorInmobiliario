@@ -65,7 +65,13 @@
                     tooltipPosition="top"
                   ></i>
                 </ng-container>
-                <i class="icon-custom fa-solid fa-image" (click)="mostrarImg(inmueble)" pTooltip="Ver detalle" tooltipPosition="top"></i>
+                <i class="icon-custom fa-solid fa-eye" (click)="mostrarImg(inmueble)" pTooltip="Ver detalle" tooltipPosition="top"></i>
+                <i
+                  class="icon-custom fa-solid fa-images"
+                  pTooltip="Actualizar imágenes"
+                  tooltipPosition="top"
+                  (click)="actualizarImagenes(inmueble)"
+                ></i>
               </ng-container>
               <ng-template #blockUploadImg>
                 <i
@@ -101,4 +107,12 @@
     [sizeFotos]="sizeFotos"
     *ngIf="showUpload"
   ></app-inmueble-subir-archivos>
+</app-inmueble-modal>
+
+<app-inmueble-modal [visible]="showModalUpdateImg" (eventCloseDialogModal)="closeModalUpload($event)">
+  <app-inmuebles-fotos-update
+    [listaFotos]="listaFotos"
+    (actionGuardarImg)="onSubmitModificarImg($event)"
+    *ngIf="showBlockUpImg"
+  ></app-inmuebles-fotos-update>
 </app-inmueble-modal>

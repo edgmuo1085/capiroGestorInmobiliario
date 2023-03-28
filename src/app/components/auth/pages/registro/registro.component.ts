@@ -56,7 +56,7 @@ export class RegistroComponent implements OnInit {
 
   registrar() {
     if (this.formRegistro.invalid) {
-      this.toastCustomService.showToas('Advertencia', 'Debe diligenciar todos los campos', 'error');
+      this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;
     }
     this.loading = true;
@@ -67,7 +67,7 @@ export class RegistroComponent implements OnInit {
       next: response => {
         if (!response.idUsuario) {
           this.loading = false;
-          this.toastCustomService.showToas(
+          this.toastCustomService.showToast(
             'Advertencia',
             'Ocurrió un error al momento de registrar el usuario, inténtelo más tarde',
             'warn'
@@ -75,7 +75,7 @@ export class RegistroComponent implements OnInit {
           return;
         }
         this.loading = false;
-        this.toastCustomService.showToas('Información', 'Usuario registrado con éxito');
+        this.toastCustomService.showToast('Información', 'Usuario registrado con éxito');
         this.formRegistro.reset();
         this.router.navigate(['/page/home']);
       },

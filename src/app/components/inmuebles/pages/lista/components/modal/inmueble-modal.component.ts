@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-inmueble-modal',
   templateUrl: './inmueble-modal.component.html',
   styleUrls: ['./inmueble-modal.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class InmuebleModalComponent {
   @Input() visible: boolean = false;

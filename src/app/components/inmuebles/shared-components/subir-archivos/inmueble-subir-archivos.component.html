@@ -8,8 +8,8 @@
     name="myfile[]"
     [multiple]="multiple"
     [customUpload]="true"
+    accept="image/*"
     (uploadHandler)="subirImagenes($event)"
     (onClear)="clearImg()"
-    (onRemove)="remover($event)"
   ></p-fileUpload>
 </div>

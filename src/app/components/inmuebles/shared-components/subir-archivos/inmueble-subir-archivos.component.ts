@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs';
-import { ArchivoInmueble } from 'src/app/components/interfaces/archivo-inmueble.interface';
+import { ArchivoInmueble, ArchivoInmuebleModel } from 'src/app/components/interfaces/archivo-inmueble.interface';
 import { IdGenerateService } from 'src/app/components/shared/shared-services/id-generate.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
@@ -58,7 +58,15 @@ export class InmuebleSubirArchivosComponent {
 
   async enviarDataImg() {
     for await (const item of this.anexoImgInmuebles) {
-      this.propiedadesService.guardarFoto(item).subscribe({
+      let fotoInsertar: ArchivoInmueble = new ArchivoInmuebleModel(
+        item.nombreArchivo,
+        item.formato,
+        item.idUsuario,
+        item.idInmueble,
+        item.archivo
+      );
+
+      this.propiedadesService.guardarFoto(fotoInsertar).subscribe({
         next: response => {},
         error: err => {
           console.error(err);
@@ -68,7 +76,7 @@ export class InmuebleSubirArchivosComponent {
 
     this.actionCargarImg.emit(false);
     this.actionMsgTituloPage.emit('Registrar inmueble');
-    this.toastCustomService.showToas('Información', 'Imágenes anexadas con éxtio.');
+    this.toastCustomService.showToast('Información', 'Imágenes anexadas con éxito.');
   }
 
   onFileSelected(event: any): Promise<string> {
@@ -89,9 +97,5 @@ export class InmuebleSubirArchivosComponent {
 
   clearImg() {
     this.anexoImgInmuebles = [];
-  }
-
-  remover(event: any) {
-    //console.log(event);
   }
 }

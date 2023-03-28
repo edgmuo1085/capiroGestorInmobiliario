@@ -1,0 +1,12 @@
+@import 'layout.functions';
+
+#update-img-inmueble {
+  .border-custom {
+    border: cap-font-size(1px) solid var(--black-color-5);
+    border-radius: cap-font-size(10px);
+  }
+  .custom-img-update {
+    width: 100%;
+    max-width: cap-font-size(100px);
+  }
+}
