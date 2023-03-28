@@ -1,14 +1,24 @@
-.btn-requisitos {
-  border: 1px solid var(--color-principal);
-  color: var(--color-principal);
-  padding: 0.6rem 3rem 0.6rem 3rem;
-  border-radius: 0.6rem;
-  background-color: transparent;
-  cursor: pointer;
-  font-weight: 700;
+@import 'layout.functions';
 
-  &:hover {
-    color: #ffffff;
-    background-color: var(--color-principal);
+#propiedades-venta-block {
+  .btn-requisitos {
+    border: cap-font-size(1px) solid var(--color-principal);
+    color: var(--color-principal);
+    padding: cap-font-size(9px) cap-font-size(48px);
+    border-radius: cap-font-size(9px);
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 700;
+
+    &:hover {
+      color: #ffffff;
+      background-color: var(--color-principal);
+    }
+  }
+
+  .titulo-sin-registro {
+    font-size: cap-font-size(28px);
+    font-weight: 700;
+    color: var(--color-secundario);
   }
 }
