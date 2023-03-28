@@ -15,9 +15,11 @@ import { InmuebleListaComponent } from './pages/lista/inmueble-lista.component';
 import { InmuebleMenuComponent } from './shared-components/menu/inmueble-menu.component';
 import { InmuebleTableComponent } from './pages/lista/components/table/inmueble-table.component';
 import { InmuebleSubirArchivosComponent } from './shared-components/subir-archivos/inmueble-subir-archivos.component';
-import { InmuebleModalComponent } from './pages/lista/components/modal/inmueble-modal.component';
 import { InmuebleFormComponent } from './pages/registrar/components/form/inmueble-form.component';
 import { InmueblesFotosUpdateComponent } from './pages/lista/components/lista-fotos/inmuebles-fotos-update.component';
+import { InmueblesFiltrosComponent } from './shared-components/filtros/inmuebles-filtros.component';
+import { InmueblePropiedadItemComponent } from './shared-components/item-propiedad/inmueble-propiedad-item.component';
+import { ModalInmuebleComponent } from './shared-components/modal/modal-inmueble.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,11 @@ import { InmueblesFotosUpdateComponent } from './pages/lista/components/lista-fo
     InmuebleMenuComponent,
     InmuebleTableComponent,
     InmuebleSubirArchivosComponent,
-    InmuebleModalComponent,
     InmuebleFormComponent,
     InmueblesFotosUpdateComponent,
+    InmueblesFiltrosComponent,
+    InmueblePropiedadItemComponent,
+    ModalInmuebleComponent,
   ],
   imports: [
     CommonModule,

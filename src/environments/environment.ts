@@ -1,8 +1,9 @@
-import { parametrosSelect, storageKeys } from './constants';
+import { parametrosSelect, requisitosPropiedades, storageKeys } from './constants';
 
 const constants = {
   ...storageKeys,
   ...parametrosSelect,
+  ...requisitosPropiedades,
 };
 
 export const environment = {

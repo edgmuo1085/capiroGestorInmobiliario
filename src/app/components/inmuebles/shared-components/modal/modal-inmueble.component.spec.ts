@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InmuebleModalComponent } from './inmueble-modal.component';
+import { ModalInmuebleComponent } from './modal-inmueble.component';
 
-describe('InmuebleModalComponent', () => {
-  let component: InmuebleModalComponent;
-  let fixture: ComponentFixture<InmuebleModalComponent>;
+describe('ModalInmuebleComponent', () => {
+  let component: ModalInmuebleComponent;
+  let fixture: ComponentFixture<ModalInmuebleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InmuebleModalComponent ]
+      declarations: [ ModalInmuebleComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(InmuebleModalComponent);
+    fixture = TestBed.createComponent(ModalInmuebleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

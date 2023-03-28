@@ -58,6 +58,36 @@ export const parametrosSelect = {
       label: 'Estrato 7',
     },
   ],
+  listaHabitaciones: [
+    {
+      value: '1',
+      label: 'Habitaciones 1',
+    },
+    {
+      value: '2',
+      label: 'Habitaciones 2',
+    },
+    {
+      value: '3',
+      label: 'Habitaciones 3',
+    },
+    {
+      value: '4',
+      label: 'Habitaciones 4',
+    },
+    {
+      value: '5',
+      label: 'Habitaciones 5',
+    },
+    {
+      value: '6',
+      label: 'Habitaciones 6',
+    },
+    {
+      value: '7',
+      label: 'Habitaciones 7',
+    },
+  ],
   garageSeleccion: [
     {
       value: 'Si',
@@ -98,4 +128,9 @@ export const parametrosSelect = {
       label: 'Antiguo',
     },
   ],
+};
+
+export const requisitosPropiedades = {
+  arriendoPropiedadImg: './assets/images/arriendo-capiro.png',
+  ventaPropiedadImg: './assets/images/venta-capiro.png',
 };

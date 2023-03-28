@@ -1,0 +1,90 @@
+@import 'layout.functions';
+
+.contenedor-item-inmueble {
+  box-shadow: 5px 5px 15px #88888846;
+
+  .block-galeria {
+    width: 100%;
+    position: relative;
+  }
+
+  .descripcion-item-inmueble {
+    padding-left: cap-font-size(8px);
+    padding-right: cap-font-size(8px);
+    padding-bottom: cap-font-size(16px);
+
+    h3 {
+      font-size: cap-font-size(28px);
+      font-weight: 700;
+      color: var(--color-principal);
+      margin-top: cap-font-size(8px);
+      margin-bottom: cap-font-size(8px);
+    }
+
+    .icons-item-inmueble {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: cap-font-size(16px);
+      margin-bottom: cap-font-size(16px);
+
+      .icons-item {
+        font-size: cap-font-size(14px);
+
+        .icons-item-img {
+          width: 100%;
+          max-width: cap-font-size(35px);
+        }
+      }
+    }
+
+    .badges-item-inmuebles {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: cap-font-size(16px);
+      margin-bottom: cap-font-size(16px);
+
+      .item-badge {
+        background: var(--color-secundario);
+        margin-right: cap-font-size(8px);
+        padding: cap-font-size(6px) cap-font-size(10px);
+        border-radius: cap-font-size(16px);
+        color: #ffffff;
+        font-weight: 400;
+        font-size: cap-font-size(14px);
+
+        &.badge-arriendo {
+          background: #749e41;
+        }
+
+        &.badge-venta {
+          background: #a9c91e;
+        }
+      }
+    }
+
+    .btn-item-inmuebles {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .btn-item-inmueble {
+        background-color: var(--color-principal);
+        text-decoration: none;
+        border: 0;
+        color: #ffffff;
+        padding: cap-font-size(4px) cap-font-size(32px);
+        border-radius: cap-font-size(8px);
+        cursor: pointer;
+        font-size: cap-font-size(14px);
+
+        &:hover {
+          background-color: var(--color-hover);
+        }
+      }
+      .precio-info {
+        font-weight: 700;
+      }
+    }
+  }
+}

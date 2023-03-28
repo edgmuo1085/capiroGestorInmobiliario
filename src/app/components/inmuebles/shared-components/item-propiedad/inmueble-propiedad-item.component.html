@@ -1,0 +1,40 @@
+<div class="contenedor-item-inmueble">
+  <div class="block-galeria">
+    <app-galeria-inmueble [fotosInmueble]="inmublePropiedad.fotos"></app-galeria-inmueble>
+  </div>
+  <div class="descripcion-item-inmueble">
+    <h3>{{ inmublePropiedad.tipoInmueble }}</h3>
+    <div class="icons-item-inmueble">
+      <div class="icons-item">
+        <img src="./assets/images/icono-galeria1.png" alt="icono galeria" class="icons-item-img" />
+        <span>{{ inmublePropiedad.habitacion }} habitaciones</span>
+      </div>
+      <div class="icons-item">
+        <img src="./assets/images/icono-galeria2.png" alt="icono galeria" class="icons-item-img" />
+        <span>{{ inmublePropiedad.banos }} Baños</span>
+      </div>
+      <div class="icons-item">
+        <img src="./assets/images/icono-galeria3.png" alt="icono galeria" class="icons-item-img" />
+        <span>{{ inmublePropiedad.area }} m<sup>2</sup></span>
+      </div>
+    </div>
+    <div class="badges-item-inmuebles">
+      <div class="item-badge">
+        <span>{{ inmublePropiedad.estado }}</span>
+      </div>
+      <div
+        class="item-badge"
+        [ngClass]="{
+          'badge-venta': inmublePropiedad.tipoPublicacion === 'Venta',
+          'badge-arriendo': inmublePropiedad.tipoPublicacion === 'Arriendo'
+        }"
+      >
+        <span>{{ inmublePropiedad.tipoPublicacion }}</span>
+      </div>
+    </div>
+    <div class="btn-item-inmuebles">
+      <a class="btn-item-inmueble" [routerLink]="'/inmuebles' + isLogging + '/detalle/' + inmublePropiedad.id">Ver más</a>
+      <span class="precio-info">{{ inmublePropiedad.precio | currency : 'USD' : 'symbol' : '1.0-0' }}</span>
+    </div>
+  </div>
+</div>

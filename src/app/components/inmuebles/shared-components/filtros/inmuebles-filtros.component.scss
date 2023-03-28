@@ -1,0 +1,73 @@
+.propiedades__filtro {
+  width: 100%;
+  border-radius: 1rem;
+  outline: 1.6px solid var(--color-secundario);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0.5rem 1rem;
+}
+
+.pro__filtro--titulo {
+  color: var(--color-principal);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.pro__filtro--items {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.filtro-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.filtro--label {
+  color: var(--color-tercer);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.filtro--input {
+  width: 13rem;
+  border: solid 1px var(--color-tercer);
+  height: 2rem;
+  border-radius: 0.6rem;
+  padding: 0 1.5rem;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.filtro--input:focus-visible {
+  outline: solid 1.3px var(--color-tercer);
+}
+
+option {
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.filtro-limpiar {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.limpiar__boton {
+  background-color: var(--color-secundario);
+  border: 0;
+  color: #ffffff;
+  padding: 0.3rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.limpiar__boton:hover {
+  background-color: var(--color-tercer);
+}

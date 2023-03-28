@@ -100,19 +100,19 @@
   </div>
 </div>
 
-<app-inmueble-modal [visible]="visible" (eventCloseDialogModal)="closeModalUpload($event)">
+<app-modal-inmueble [visible]="visible" (eventCloseDialogModal)="closeModalUpload($event)">
   <app-inmueble-subir-archivos
     [idInmueble]="idInmueble"
     [idUsuario]="idUsuario"
     [sizeFotos]="sizeFotos"
     *ngIf="showUpload"
   ></app-inmueble-subir-archivos>
-</app-inmueble-modal>
+</app-modal-inmueble>
 
-<app-inmueble-modal [visible]="showModalUpdateImg" (eventCloseDialogModal)="closeModalUpload($event)">
+<app-modal-inmueble [visible]="showModalUpdateImg" (eventCloseDialogModal)="closeModalUpload($event)">
   <app-inmuebles-fotos-update
     [listaFotos]="listaFotos"
     (actionGuardarImg)="onSubmitModificarImg($event)"
     *ngIf="showBlockUpImg"
   ></app-inmuebles-fotos-update>
-</app-inmueble-modal>
+</app-modal-inmueble>

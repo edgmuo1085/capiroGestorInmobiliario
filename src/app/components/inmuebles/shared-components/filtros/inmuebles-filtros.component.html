@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-3 col-lg-3 my-2">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="tipoInmueble"
+          aria-label="Tipo de inmueble"
+          (change)="consultarFiltro($event)"
+          [(ngModel)]="tipoInmueble"
+        >
+          <ng-container>
+            <option value="" disabled selected="selected">Elija una opción</option>
+            <option *ngFor="let tipo of tiposInmuebles" [value]="tipo.value">{{ tipo.label }}</option>
+          </ng-container>
+        </select>
+        <label for="tipoInmueble">Tipo de inmueble</label>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 col-lg-3 my-2">
+      <div class="form-floating">
+        <input
+          class="form-control"
+          id="presupuesto"
+          type="text"
+          placeholder="Presupuesto"
+          (blur)="consultarFiltro($event)"
+          [(ngModel)]="presupuesto"
+        />
+        <label for="presupuesto">Presupuesto</label>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 col-lg-3 my-2">
+      <div class="form-floating">
+        <select class="form-select" id="estado" aria-label="Estado" (change)="consultarFiltro($event)" [(ngModel)]="estado">
+          <ng-container>
+            <option value="" disabled selected="selected">Elija una opción</option>
+            <option *ngFor="let tipo of estadosInmueble" [value]="tipo.value">{{ tipo.label }}</option>
+          </ng-container>
+        </select>
+        <label for="estado">Estado</label>
+      </div>
+    </div>
+    <div class="col-12 col-md-3 col-lg-3 my-2">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="habitaciones"
+          aria-label="Habitaciones"
+          (change)="consultarFiltro($event)"
+          [(ngModel)]="habitaciones"
+        >
+          <ng-container>
+            <option value="" disabled selected="selected">Elija una opción</option>
+            <option *ngFor="let tipo of listaHabitaciones" [value]="tipo.value">{{ tipo.label }}</option>
+          </ng-container>
+        </select>
+        <label for="habitaciones">Habitaciones</label>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-12 col-md-5 text-center">
+      <button class="limpiar__boton" (click)="limpiarFiltros()">Limpiar</button>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="propiedades__filtro animate__animated animate__fadeInDown">
+  <div class="pro__filtro--titulo">
+    <p>Busqueda Avanzada</p>
+  </div>
+  <div class="pro__filtro--items">
+    <div class="filtro-item">
+      <label for="tipo" class="filtro--label">Tipo de inmueble:</label>
+      <select name="" id="tipo" class="filtro--input">
+        <option value="apartamento" class="filtro__value-select">Apartamento</option>
+        <option value="casa" class="filtro__value-select">Casa</option>
+        <option value="finca" class="filtro__value-select">Finca</option>
+        <option value="local" class="filtro__value-select">Local</option>
+        <option value="oficina" class="filtro__value-select">Oficina</option>
+      </select>
+    </div>
+    <div class="filtro-item">
+      <label for="baños" class="filtro--label">Presupuesto:</label>
+      <input type="number" name="" id="metros" class="filtro--input" />
+    </div>
+    <div class="filtro-item">
+      <label for="metros" class="filtro--label">Estado:</label>
+      <select name="" id="baños" class="filtro--input">
+        <option value="nuevo" class="filtro__value-select">Nuevo</option>
+        <option value="usado" class="filtro__value-select">Usado</option>
+      </select>
+    </div>
+    <div class="filtro-item">
+      <label for="habitaciones" class="filtro--label">Habitaciones:</label>
+      <select name="" id="habitaciones" class="filtro--input">
+        <option value="1" class="filtro__value-select">1</option>
+        <option value="2" class="filtro__value-select">2</option>
+        <option value="3" class="filtro__value-select">3</option>
+        <option value="4" class="filtro__value-select">4</option>
+        <option value="5" class="filtro__value-select">5</option>
+      </select>
+    </div>
+    <div class="filtro-limpiar">
+      <button class="limpiar__boton" (click)="limpiarFiltros()">Limpiar</button>
+    </div>
+  </div>
+</div>
+ -->

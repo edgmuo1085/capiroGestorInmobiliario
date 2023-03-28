@@ -23,21 +23,22 @@
         </div>
         <div class="caracteristica-inmueble">
           <img src="./assets/images/icono-galeria3.png" alt="icon" class="icon-caracteristica" />
-          <p>{{ infoInmueble.area }} metros cuadrados</p>
+          <p>{{ infoInmueble.area }} m<sup>2</sup></p>
         </div>
       </div>
       <div class="detalle-caracteristicas-two">
         <div class="detalle-badges">{{ infoInmueble.estado }}</div>
         <div class="detalle-badges">{{ infoInmueble.tipoInmueble }}</div>
+        <div class="detalle-badges">{{ infoInmueble.tipoPublicacion }}</div>
       </div>
       <div class="detalle-inmueble-precio">
         <h4>Precio de venta</h4>
         <p class="precio-inmueble">{{ infoInmueble.precio | currency : 'USD' : 'symbol' : '1.0-0' }}</p>
       </div>
       <div class="d-flex justify-content-evenly mt-5">
-        <div class="form-button">
+        <!-- <div class="form-button">
           <button class="form-btn bg-link" type="button" routerLink="/dashboard">Cancelar</button>
-        </div>
+        </div> -->
         <div class="form-button" *ngIf="botonArriendo">
           <button class="form-btn" type="button" [routerLink]="'/arrendamiento' + isLogging">Arrendar</button>
         </div>

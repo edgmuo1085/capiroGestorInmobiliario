@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
+import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.interface';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-propiedades-venta',
@@ -7,35 +11,71 @@ import { PropiedadesService } from 'src/app/components/shared/shared-services/pr
   styleUrls: ['./propiedades-venta.component.scss'],
 })
 export class PropiedadesVentaComponent implements OnInit {
-  propiedades: any[] = [];
-  filtroHab!: any;
-  filtroPre!: any;
-  filtroEstado!: any;
-  filtroTipo!: any;
+  propiedadesArriendo: ResponseInmueble[] = [];
   display: boolean = false;
 
-  constructor(private propiedadesService: PropiedadesService) {}
+  constructor(private router: Router, private propiedadesService: PropiedadesService) {}
 
   ngOnInit(): void {
     this.showPropiedades();
   }
 
-  showPropiedades() {
-    this.propiedadesService.ventaPropiedades().subscribe(resp => {
-      this.propiedades = [resp];
-      console.log(this.propiedades);
+  showPropiedades(masFilter?: any) {
+    let filtros = {
+      tipoPublicacion: 'Venta',
+    };
+    let filtersMore = masFilter ? { ...filtros, ...masFilter } : filtros;
+    console.log(filtersMore);
+    let json = window.btoa(JSON.stringify(filtros));
+    this.propiedadesService.getPropiedadesFiltro(json).subscribe({
+      next: async response => {
+        console.log(response);
+        if (!response.length) {
+          return;
+        }
+        let inmueblesLista = await this.recorrerInmuebles(response);
+        this.propiedadesArriendo = inmueblesLista;
+      },
+      error: err => {
+        console.error(err);
+      },
     });
   }
 
-  limpiarFiltros() {
-    (this.filtroHab = ''), (this.filtroPre = ''), (this.filtroEstado = ''), (this.filtroTipo = '');
+  async recorrerInmuebles(inmuebles: ResponseInmueble[]): Promise<ResponseInmueble[]> {
+    for await (const item of inmuebles) {
+      let inmuebles = this.urlImgInmuebles(item.fotos);
+      item.fotos = inmuebles;
+    }
+    return inmuebles;
   }
 
-  showDialog() {
+  urlImgInmuebles(fotoInmueble: ResponseArchivo[]): ResponseArchivo[] {
+    if (!fotoInmueble.length) {
+      return [];
+    }
+
+    for (const item of fotoInmueble) {
+      item.url = this.propiedadesService.getArchivosUrlImg(item.nombreArchivo);
+    }
+
+    return fotoInmueble;
+  }
+
+  verRequisitos() {
     this.display = true;
   }
 
-  downloadImg(url: any, name: any) {
-    //saveAs(url, name + '.png');
+  closeModalUpload(event: any) {
+    this.display = event;
+  }
+
+  downloadImg() {
+    const aLink = document.createElement('a');
+    aLink.href = environment.arriendoPropiedadImg;
+    aLink.setAttribute('download', 'requisitos-arriendo');
+    document.body.appendChild(aLink);
+    aLink.click();
+    document.body.removeChild(aLink);
   }
 }
