@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./propiedades-venta.component.scss'],
 })
 export class PropiedadesVentaComponent implements OnInit {
-  propiedadesArriendo: ResponseInmueble[] = [];
+  propiedadesVenta: ResponseInmueble[] = [];
   display: boolean = false;
 
   constructor(private router: Router, private propiedadesService: PropiedadesService) {}
@@ -21,12 +21,13 @@ export class PropiedadesVentaComponent implements OnInit {
   }
 
   showPropiedades(masFilter?: any) {
+    this.propiedadesVenta = [];
     let filtros = {
       tipoPublicacion: 'Venta',
     };
     let filtersMore = masFilter ? { ...filtros, ...masFilter } : filtros;
     console.log(filtersMore);
-    let json = window.btoa(JSON.stringify(filtros));
+    let json = window.btoa(JSON.stringify(filtersMore));
     this.propiedadesService.getPropiedadesFiltro(json).subscribe({
       next: async response => {
         console.log(response);
@@ -34,7 +35,7 @@ export class PropiedadesVentaComponent implements OnInit {
           return;
         }
         let inmueblesLista = await this.recorrerInmuebles(response);
-        this.propiedadesArriendo = inmueblesLista;
+        this.propiedadesVenta = inmueblesLista;
       },
       error: err => {
         console.error(err);
@@ -73,7 +74,7 @@ export class PropiedadesVentaComponent implements OnInit {
   downloadImg() {
     const aLink = document.createElement('a');
     aLink.href = environment.arriendoPropiedadImg;
-    aLink.setAttribute('download', 'requisitos-arriendo');
+    aLink.setAttribute('download', 'requisitos-venta');
     document.body.appendChild(aLink);
     aLink.click();
     document.body.removeChild(aLink);

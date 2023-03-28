@@ -21,6 +21,7 @@ export class PropiedadesArriendoComponent implements OnInit {
   }
 
   showPropiedades(masFilter?: any) {
+    this.propiedadesArriendo = [];
     let filtros = {
       tipoPublicacion: 'Arriendo',
     };
@@ -28,14 +29,14 @@ export class PropiedadesArriendoComponent implements OnInit {
     let filtersMore = masFilter ? { ...filtros, ...masFilter } : filtros;
     console.log(filtersMore);
 
-    let json = window.btoa(JSON.stringify(filtros));
+    let json = window.btoa(JSON.stringify(filtersMore));
     this.propiedadesService.getPropiedadesFiltro(json).subscribe({
       next: async response => {
         console.log(response);
         if (!response.length) {
           return;
         }
-        let inmueblesLista = await this.recorrerInmuebles(response);
+        const inmueblesLista = await this.recorrerInmuebles(response);
         this.propiedadesArriendo = inmueblesLista;
       },
       error: err => {
