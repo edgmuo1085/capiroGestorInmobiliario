@@ -9,6 +9,7 @@
     [multiple]="multiple"
     [customUpload]="true"
     accept="image/*"
+    [maxFileSize]="1000000"
     (uploadHandler)="subirImagenes($event)"
     (onClear)="clearImg()"
   ></p-fileUpload>

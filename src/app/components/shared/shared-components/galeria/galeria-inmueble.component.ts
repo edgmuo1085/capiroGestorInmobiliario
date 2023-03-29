@@ -1,10 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.interface';
 
 @Component({
   selector: 'app-galeria-inmueble',
   templateUrl: './galeria-inmueble.component.html',
   styleUrls: ['./galeria-inmueble.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class GaleriaInmuebleComponent implements OnChanges {
   @Input() fotosInmueble: ResponseArchivo[] = [];

@@ -16,6 +16,9 @@
   .p-steps .p-steps-item.p-highlight .p-steps-title {
     color: var(--color-principal);
   }
+  .p-steps .p-steps-item .p-steps-title {
+    white-space: pre-wrap;
+  }
 }
 
 .arrend {

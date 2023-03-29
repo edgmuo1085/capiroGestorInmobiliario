@@ -177,7 +177,6 @@ body {
 }
 
 /* Responsive */
-
 @media screen and (max-width: 960px) {
   .p-datatable {
     &.p-datatable-custom {
@@ -208,105 +207,7 @@ body {
       }
     }
   }
-}
 
-.active {
-  color: var(--color-principal);
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 900;
-  padding: 0 2.5rem;
-}
-
-.badge__arriendo {
-  background: #749e41;
-  margin-left: 0.6rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 2rem;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 0.8rem;
-}
-
-.badge__venta {
-  background: #a9c91e;
-  margin-left: 0.6rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 2rem;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 0.8rem;
-}
-
-/* **************************** */
-
-.swal2-styled.swal2-confirm {
-  background-color: var(--color-principal) !important;
-}
-
-.swal2-popup {
-  display: none;
-  position: relative;
-  box-sizing: border-box;
-  grid-template-columns: minmax(0, 100%);
-  width: 30em !important;
-  max-width: 100%;
-  padding: 0 0 1.25em;
-  border: none;
-  border-radius: 5px;
-  background: #fff;
-  color: #545454;
-  font-family: inherit;
-  font-size: 0.8rem !important;
-}
-
-/* *********************************** */
-.p-galleria .p-galleria-thumbnail-container {
-  background: rgba(0, 0, 0, 0) !important;
-  padding: 1rem 0.25rem;
-  height: 10px !important;
-  position: absolute;
-  width: 100%;
-  top: 50%;
-}
-
-.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-prev,
-.p-galleria .p-galleria-thumbnail-container .p-galleria-thumbnail-next {
-  margin: 0.5rem;
-  background-color: #ffffff !important;
-  color: var(--color-principal) !important;
-  width: 5rem;
-  height: 5rem;
-  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
-  border-radius: 50%;
-}
-
-/* ********************************************* */
-
-.p-button {
-  color: #ffffff;
-  background: var(--color-principal) !important;
-  border: 1px solid var(--color-principal) !important;
-  padding: 0.5rem 1.25rem !important;
-  font-size: 0.8rem !important;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-  border-radius: 6px;
-}
-
-.p-progressbar .p-progressbar-value {
-  border: 0 none;
-  margin: 0;
-  background: var(--color-hover) !important;
-}
-
-/* ************************************************** */
-/* footer modal */
-.p-dialog .p-dialog-footer {
-  padding: 1rem !important;
-}
-
-/* **************botones subir imagen******************** */
-@media (max-width: 900px) {
   .p-fileupload .p-fileupload-buttonbar .p-button {
     margin-right: 0.5rem;
     padding: 0.5rem 0.7rem !important;

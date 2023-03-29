@@ -10,7 +10,13 @@
         <img [src]="foto.url" [alt]="foto.nombreArchivo" class="custom-img-update" />
       </div>
       <div class="col-12 col-md-9 text-center my-2 border-custom">
-        <p-fileUpload name="myfile[]" [customUpload]="true" accept="image/*" (uploadHandler)="actualizarImg($event, foto)"></p-fileUpload>
+        <p-fileUpload
+          name="myfile[]"
+          [customUpload]="true"
+          accept="image/*"
+          [maxFileSize]="1000000"
+          (uploadHandler)="actualizarImg($event, foto)"
+        ></p-fileUpload>
       </div>
     </div>
   </ng-container>
