@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MenuItem, MessageService } from 'primeng/api';
-import { Subscription } from 'rxjs';
+import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-arrendamiento',
@@ -12,18 +13,20 @@ import { Subscription } from 'rxjs';
 export class ArrendamientoComponent implements OnInit {
   items: MenuItem[] = [];
   activeIndex: number = 0;
-  subscription!: Subscription;
-  isLinear = false;
-  empleado = false;
-  independiente = false;
-  pensionado = false;
-  estadoCivil = false;
-  formArrendamientos!: FormGroup;
+  formArrendamientos: FormGroup = new FormGroup({});
 
   seccionInformacionGeneral: boolean = true;
   seccionOcupacion: boolean = false;
   seccionReferencias: boolean = false;
   seccionBienes: boolean = false;
+
+  tiposInmuebles: ParametrosShared[] = environment.tiposInmuebles;
+  tiposDocumentos: ParametrosShared[] = environment.tiposDocumentos;
+  listaSexos: ParametrosShared[] = environment.listaSexos;
+  listaNivelEstudio: ParametrosShared[] = environment.listaNivelEstudio;
+  listadoEstadosCivil: ParametrosShared[] = environment.listadoEstadosCivil;
+  listaOcupacion: ParametrosShared[] = environment.listaOcupacion;
+  tiposCuentasBancos: ParametrosShared[] = environment.tiposCuentasBancos;
 
   constructor(private fb: FormBuilder, private messageService: MessageService) {
     this.items = [
@@ -96,6 +99,15 @@ export class ArrendamientoComponent implements OnInit {
       personasAcargo: ['', [Validators.required]],
       estadoCivil: ['', [Validators.required]],
 
+      nombresC: ['', [Validators.required]],
+      apellidosC: ['', [Validators.required]],
+      tipoDocC: ['', [Validators.required]],
+      numeroDocC: ['', [Validators.required]],
+      correoC: ['', [Validators.required]],
+      celularC: ['', [Validators.required]],
+      ocupacionC: ['', [Validators.required]],
+      ingresosC: ['', [Validators.required]],
+
       empresa: ['', [Validators.required]],
       nitEmpresa: ['', [Validators.required]],
       direccionEmpresa: ['', [Validators.required]],
@@ -131,35 +143,7 @@ export class ArrendamientoComponent implements OnInit {
     });
   }
 
-  ocupacion(valor: string) {
-    if (valor === '1') {
-      this.empleado = true;
-      this.independiente = false;
-      this.pensionado = false;
-    } else if (valor === '2') {
-      this.independiente = true;
-      this.empleado = false;
-      this.pensionado = false;
-    } else if (valor === '3') {
-      this.pensionado = true;
-      this.empleado = false;
-      this.independiente = false;
-    } else {
-      this.empleado = false;
-      this.independiente = false;
-      this.pensionado = false;
-    }
-  }
-
-  estdoCivil(valor: String) {
-    if (valor === 'casado') {
-      this.estadoCivil = true;
-    } else {
-      this.estadoCivil = false;
-    }
-  }
-
-  enviar() {
+  guardarFormularioArrendamiento() {
     console.log('Prueba formulario ', this.formArrendamientos.value);
   }
 

@@ -1,0 +1,915 @@
+<form [formGroup]="formArrendamientos" (ngSubmit)="onSubmitRegistrarArrandar()" appValidator autocomplete="off">
+  <div class="container-fluid my-5">
+    <ng-container *ngIf="seccionInformacionGeneral">
+      <div class="row justify-content-start">
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'direccionPredio'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['direccionPredio'].touched && formCtrlA['direccionPredio'].errors }"
+                formControlName="direccionPredio"
+                id="direccionPredio"
+                type="text"
+                placeholder="Dirección del inmueble a tomar en arriendo"
+                required=""
+              />
+              <label for="direccionPredio">Dirección del inmueble a tomar en arriendo</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'destinacionPredio'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['destinacionPredio'].touched && formCtrlA['destinacionPredio'].errors }"
+                formControlName="destinacionPredio"
+                id="destinacionPredio"
+                type="text"
+                placeholder="Destinación que dará al inmueble"
+                required=""
+              />
+              <label for="destinacionPredio">Destinación que dará al inmueble</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'arrendamientoMen'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['arrendamientoMen'].touched && formCtrlA['arrendamientoMen'].errors }"
+                formControlName="arrendamientoMen"
+                id="arrendamientoMen"
+                type="text"
+                placeholder="Arrendamiento mensual"
+                required=""
+              />
+              <label for="arrendamientoMen">Arrendamiento mensual</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'tipoInmueble'">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="tipoInmueble"
+                formControlName="tipoInmueble"
+                aria-label="Tipo de inmueble"
+                [ngClass]="{ 'is-invalid': formCtrlA['tipoInmueble'].touched && formCtrlA['tipoInmueble'].errors }"
+              >
+                <ng-container>
+                  <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                </ng-container>
+              </select>
+              <label for="tipoInmueble">Tipo de inmueble</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'nombres'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['nombres'].touched && formCtrlA['nombres'].errors }"
+                formControlName="nombres"
+                id="nombres"
+                type="text"
+                placeholder="Nombres"
+                required=""
+              />
+              <label for="nombres">Nombres</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'apellidos'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['apellidos'].touched && formCtrlA['apellidos'].errors }"
+                formControlName="apellidos"
+                id="apellidos"
+                type="text"
+                placeholder="Apellidos"
+                required=""
+              />
+              <label for="apellidos">Apellidos</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'fechaNacimiento'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['fechaNacimiento'].touched && formCtrlA['fechaNacimiento'].errors }"
+                formControlName="fechaNacimiento"
+                id="fechaNacimiento"
+                type="date"
+                placeholder="Fecha de nacimiento"
+                required=""
+              />
+              <label for="fechaNacimiento">Fecha de nacimiento</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'tipoDoc'">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="tipoDoc"
+                formControlName="tipoDoc"
+                aria-label="Tipo de identificación"
+                [ngClass]="{ 'is-invalid': formCtrlA['tipoDoc'].touched && formCtrlA['tipoDoc'].errors }"
+              >
+                <ng-container>
+                  <option *ngFor="let tipo of tiposDocumentos" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                </ng-container>
+              </select>
+              <label for="tipoDoc">Tipos de documentos</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'numeroDoc'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['numeroDoc'].touched && formCtrlA['numeroDoc'].errors }"
+                formControlName="numeroDoc"
+                id="numeroDoc"
+                type="text"
+                placeholder="Número de documento"
+                required=""
+              />
+              <label for="numeroDoc">Número de documento</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'fechaExpedicion'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['fechaExpedicion'].touched && formCtrlA['fechaExpedicion'].errors }"
+                formControlName="fechaExpedicion"
+                id="fechaExpedicion"
+                type="date"
+                placeholder="Fecha de expedición"
+                required=""
+              />
+              <label for="fechaExpedicion">Fecha de expedición</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'lugarExpedicion'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['lugarExpedicion'].touched && formCtrlA['lugarExpedicion'].errors }"
+                formControlName="lugarExpedicion"
+                id="lugarExpedicion"
+                type="text"
+                placeholder="Lugar de Expedición"
+                required=""
+              />
+              <label for="lugarExpedicion">Lugar de Expedición</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'lugarNacimiento'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['lugarNacimiento'].touched && formCtrlA['lugarNacimiento'].errors }"
+                formControlName="lugarNacimiento"
+                id="lugarNacimiento"
+                type="text"
+                placeholder="Lugar de nacimiento"
+                required=""
+              />
+              <label for="lugarNacimiento">Lugar de nacimiento</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'sexo'">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="sexo"
+                formControlName="sexo"
+                aria-label="Sexo"
+                [ngClass]="{ 'is-invalid': formCtrlA['sexo'].touched && formCtrlA['sexo'].errors }"
+              >
+                <ng-container>
+                  <option *ngFor="let tipo of listaSexos" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                </ng-container>
+              </select>
+              <label for="sexo">Sexo</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'nacionalidad'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['nacionalidad'].touched && formCtrlA['nacionalidad'].errors }"
+                formControlName="nacionalidad"
+                id="nacionalidad"
+                type="text"
+                placeholder="Nacionalidad"
+                required=""
+              />
+              <label for="nacionalidad">Nacionalidad</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'direccionActual'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['direccionActual'].touched && formCtrlA['direccionActual'].errors }"
+                formControlName="direccionActual"
+                id="direccionActual"
+                type="text"
+                placeholder="Dirección domicilio actual"
+                required=""
+              />
+              <label for="direccionActual">Dirección domicilio actual</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'ciudad'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['ciudad'].touched && formCtrlA['ciudad'].errors }"
+                formControlName="ciudad"
+                id="ciudad"
+                type="text"
+                placeholder="Ciudad"
+                required=""
+              />
+              <label for="ciudad">Ciudad</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'nivelEstudio'">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="nivelEstudio"
+                formControlName="nivelEstudio"
+                aria-label="Nivel de estudio"
+                [ngClass]="{ 'is-invalid': formCtrlA['nivelEstudio'].touched && formCtrlA['nivelEstudio'].errors }"
+              >
+                <ng-container>
+                  <option *ngFor="let tipo of listaNivelEstudio" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                </ng-container>
+              </select>
+              <label for="nivelEstudio">Nivel de estudio</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'correo'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['correo'].touched && formCtrlA['correo'].errors }"
+                formControlName="correo"
+                id="correo"
+                type="email"
+                placeholder="Correo electrónico"
+                required=""
+              />
+              <label for="correo">Correo electrónico</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'celular'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['celular'].touched && formCtrlA['celular'].errors }"
+                formControlName="celular"
+                id="celular"
+                type="text"
+                placeholder="Celular"
+                required=""
+              />
+              <label for="celular">Celular</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'ocupacion'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['ocupacion'].touched && formCtrlA['ocupacion'].errors }"
+                formControlName="ocupacion"
+                id="ocupacion"
+                type="text"
+                placeholder="Profesión / Ocupación actual"
+                required=""
+              />
+              <label for="ocupacion">Profesión / Ocupación actual</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'personasAcargo'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlA['personasAcargo'].touched && formCtrlA['personasAcargo'].errors }"
+                formControlName="personasAcargo"
+                id="personasAcargo"
+                type="text"
+                placeholder="N° de personas a cargo (incluyéndose)"
+                required=""
+              />
+              <label for="personasAcargo">N° de personas a cargo (incluyéndose)</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+          <app-cap-form-fielset [label]="'estadoCivil'">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="estadoCivil"
+                formControlName="estadoCivil"
+                aria-label="Estado civil"
+                [ngClass]="{ 'is-invalid': formCtrlA['estadoCivil'].touched && formCtrlA['estadoCivil'].errors }"
+              >
+                <ng-container>
+                  <option *ngFor="let tipo of listadoEstadosCivil" [ngValue]="tipo.value" (click)="clicEstadoCivil(tipo.value)">
+                    {{ tipo.label }}
+                  </option>
+                </ng-container>
+              </select>
+              <label for="estadoCivil">Estado civil</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <ng-container *ngIf="estadoCivil">
+        <div class="row">
+          <div class="col-12">
+            <h4>Datos del Cónyuge</h4>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-4 mb-3">
+            <app-cap-form-fielset [label]="'nombresC'">
+              <div class="form-floating">
+                <input
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': formCtrlA['nombresC'].touched && formCtrlA['nombresC'].errors }"
+                  formControlName="nombresC"
+                  id="nombresC"
+                  type="text"
+                  placeholder="Nombres"
+                  required=""
+                />
+                <label for="nombresC">Nombres</label>
+              </div>
+            </app-cap-form-fielset>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <app-cap-form-fielset [label]="'apellidosC'">
+              <div class="form-floating">
+                <input
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': formCtrlA['apellidosC'].touched && formCtrlA['apellidosC'].errors }"
+                  formControlName="apellidosC"
+                  id="apellidosC"
+                  type="text"
+                  placeholder="Apellidos"
+                  required=""
+                />
+                <label for="apellidosC">Apellidos</label>
+              </div>
+            </app-cap-form-fielset>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <app-cap-form-fielset [label]="'tipoDocC'">
+              <div class="form-floating">
+                <select
+                  class="form-select"
+                  id="tipoDocC"
+                  formControlName="tipoDocC"
+                  aria-label="Tipo de identificación"
+                  [ngClass]="{ 'is-invalid': formCtrlA['tipoDocC'].touched && formCtrlA['tipoDocC'].errors }"
+                >
+                  <ng-container>
+                    <option *ngFor="let tipo of listadoEstadosCivil" [ngValue]="tipo.value" (click)="clicEstadoCivil(tipo.value)">
+                      {{ tipo.label }}
+                    </option>
+                  </ng-container>
+                </select>
+                <label for="tipoDocC">Tipo de identificación</label>
+              </div>
+            </app-cap-form-fielset>
+          </div>
+        </div>
+
+        <div class="row justify-content-start">
+          <div class="col-12 col-md-4 mb-3">
+            <app-cap-form-fielset [label]="'numeroDocC'">
+              <div class="form-floating">
+                <input
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': formCtrlA['numeroDocC'].touched && formCtrlA['numeroDocC'].errors }"
+                  formControlName="numeroDocC"
+                  id="numeroDocC"
+                  type="text"
+                  placeholder="Número de documento"
+                  required=""
+                />
+                <label for="numeroDocC">Número de documento</label>
+              </div>
+            </app-cap-form-fielset>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <app-cap-form-fielset [label]="'correoC'">
+              <div class="form-floating">
+                <input
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': formCtrlA['correoC'].touched && formCtrlA['correoC'].errors }"
+                  formControlName="correoC"
+                  id="correoC"
+                  type="email"
+                  placeholder="Correo electrónico"
+                  required=""
+                />
+                <label for="correoC">Correo electrónico</label>
+              </div>
+            </app-cap-form-fielset>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <app-cap-form-fielset [label]="'celularC'">
+              <div class="form-floating">
+                <input
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': formCtrlA['celularC'].touched && formCtrlA['celularC'].errors }"
+                  formControlName="celularC"
+                  id="celularC"
+                  type="text"
+                  placeholder="Celular"
+                  required=""
+                />
+                <label for="celularC">Celular</label>
+              </div>
+            </app-cap-form-fielset>
+          </div>
+        </div>
+
+        <div class="row justify-content-start">
+          <div class="col-12 col-md-4 mb-3">
+            <app-cap-form-fielset [label]="'ocupacionC'">
+              <div class="form-floating">
+                <input
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': formCtrlA['ocupacionC'].touched && formCtrlA['ocupacionC'].errors }"
+                  formControlName="ocupacionC"
+                  id="ocupacionC"
+                  type="text"
+                  placeholder="Ocupación actual"
+                  required=""
+                />
+                <label for="ocupacionC">Ocupación actual</label>
+              </div>
+            </app-cap-form-fielset>
+          </div>
+          <div class="col-12 col-md-4 mb-3">
+            <app-cap-form-fielset [label]="'ingresosC'">
+              <div class="form-floating">
+                <input
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': formCtrlA['ingresosC'].touched && formCtrlA['ingresosC'].errors }"
+                  formControlName="ingresosC"
+                  id="ingresosC"
+                  type="text"
+                  placeholder="Ingresos"
+                  required=""
+                />
+                <label for="ingresosC">Ingresos</label>
+              </div>
+            </app-cap-form-fielset>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="seccionOcupacion">
+    <!-- <div class="info__general--items">
+      <div class="info__general--item">
+        <select name="nacionalidad" id="sexo" class="formulario__input" (click)="ocupacion(emple.value)" #emple>
+          <option selected value="0">Elija una opción</option>
+          <option value="1">Empleado</option>
+          <option value="2">Independiente</option>
+          <option value="3">Pensionado</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="empleado" *ngIf="empleado">
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="nombreempre" class="formulario__label">Empresa donde trabaja:</label>
+          <input type="text" name="nombreempre" id="nombreempre" class="formulario__input" formControlName="empresa" />
+        </div>
+        <div class="info__general--item">
+          <label for="nit" class="formulario__label">NIT de la empresa:</label>
+          <input type="text" name="nit" id="nit" class="formulario__input" formControlName="nitEmpresa" />
+        </div>
+        <div class="info__general--item">
+          <label for="dirempre" class="formulario__label">Dirección:</label>
+          <input type="text" name="dirempre" id="dirempre" class="formulario__input" formControlName="direccionEmpresa" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="ciudadempre" class="formulario__label">Ciudad:</label>
+          <input type="text" name="ciudadempre" id="ciudadempre" class="formulario__input" formControlName="ciudadEmpresa" />
+        </div>
+        <div class="info__general--item">
+          <label for="fechaingreso" class="formulario__label">Fecha de ingreso:</label>
+          <input type="date" name="fechaingreso" id="fechaingreso" class="formulario__input" formControlName="fechaIngreso" />
+        </div>
+        <div class="info__general--item">
+          <label for="cargo" class="formulario__label">Cargo u Oficio :</label>
+          <input type="text" name="cargo" id="cargo" class="formulario__input" formControlName="cargo" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="tipocontrato" class="formulario__label">Tipo de contrato:</label>
+          <input type="text" name="tipocontrato" id="tipocontrato" class="formulario__input" formControlName="tipoContrato" />
+        </div>
+        <div class="info__general--item">
+          <label for="contactoempre" class="formulario__label">Contacto de la empresa:</label>
+          <input type="number" name="contactoempre" id="contactoempre" class="formulario__input" formControlName="telefonoEmpresa" />
+        </div>
+        <div class="info__general--item">
+          <label for="salario" class="formulario__label">Salario:</label>
+          <input type="number" name="salario" id="salario" class="formulario__input" formControlName="salario" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="otroingreso" class="formulario__label">Otros Ingresos :</label>
+          <input type="text" name="otroingreso" id="otroingreso" class="formulario__input" formControlName="otroIngreso" />
+        </div>
+        <div class="info__general--item">
+          <label for="origenotro" class="formulario__label">Origen de otros ingresos:</label>
+          <input type="date" name="origenotro" id="origenotro" class="formulario__input" formControlName="origenOtrosIngresos" />
+        </div>
+        <div class="info__general--item">
+          <label for="egresos" class="formulario__label">Egresos mensuales:</label>
+          <input type="number" name="egresos" id="egresos" class="formulario__input" formControlName="egresosMensuales" />
+        </div>
+      </div>
+    </div>
+
+    <div class="independiente" *ngIf="independiente">
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="actividad" class="formulario__label">Actividad profesional:</label>
+          <input type="text" name="actividad" id="actividad" class="formulario__input" />
+        </div>
+        <div class="info__general--item">
+          <label for="cargo" class="formulario__label">Cargo u Oficio :</label>
+          <input type="text" name="cargo" id="cargo" class="formulario__input" formControlName="cargo" />
+        </div>
+        <div class="info__general--item">
+          <label for="dirempre" class="formulario__label">Dirección:</label>
+          <input type="text" name="dirempre" id="dirempre" class="formulario__input" formControlName="direccionEmpresa" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="ciudadempre" class="formulario__label">Ciudad:</label>
+          <input type="text" name="ciudadempre" id="ciudadempre" class="formulario__input" formControlName="ciudadEmpresa" />
+        </div>
+        <div class="info__general--item">
+          <label for="contactoempre" class="formulario__label">Contacto:</label>
+          <input type="number" name="contactoempre" id="contactoempre" class="formulario__input" formControlName="telefonoEmpresa" />
+        </div>
+        <div class="info__general--item">
+          <label for="salario" class="formulario__label">Salario:</label>
+          <input type="number" name="salario" id="salario" class="formulario__input" formControlName="salario" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="origenotro" class="formulario__label">Otros ingresos/Origen ingresos:</label>
+          <input type="text" name="origenotro" id="origenotro" class="formulario__input" formControlName="otroIngreso" />
+        </div>
+        <div class="info__general--item">
+          <label for="egresos" class="formulario__label">Egresos mensuales:</label>
+          <input type="number" name="egresos" id="egresos" class="formulario__input" formControlName="egresosMensuales" />
+        </div>
+        <div class="info__general--item"></div>
+      </div>
+    </div>
+
+    <div class="pensionado" *ngIf="pensionado">
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="nombreempre" class="formulario__label">Nombre de la empresa:</label>
+          <input type="text" name="nombreempre" id="nombreempre" class="formulario__input" formControlName="empresa" />
+        </div>
+        <div class="info__general--item">
+          <label for="contacto" class="formulario__label">Contacto:</label>
+          <input type="number" name="contacto" id="contacto" class="formulario__input" formControlName="telefonoEmpresa" />
+        </div>
+        <div class="info__general--item">
+          <label for="ingresopension" class="formulario__label">Ingreso mensual de pensión:</label>
+          <input type="number" name="ingresopension" id="ingresopension" class="formulario__input" formControlName="salario" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="deduccion" class="formulario__label">Deducción mensual:</label>
+          <input type="number" name="deduccion" id="deduccion" class="formulario__input" formControlName="egresosMensuales" />
+        </div>
+      </div>
+    </div> -->
+  </ng-container>
+
+  <ng-container *ngIf="seccionReferencias">
+    <!-- <div class="Referencias">
+      <div class="info__general--items">
+        <p class="text__form">Referencias Comerciales</p>
+      </div>
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="razon" class="formulario__label">Nombre o Razón social:</label>
+          <input type="text" name="razon" id="razon" class="formulario__input" formControlName="nombreRazon" />
+        </div>
+        <div class="info__general--item">
+          <label for="apellidoC" class="formulario__label">Celular:</label>
+          <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" formControlName="celularRefencia" />
+        </div>
+        <div class="info__general--item">
+          <label for="tipodoc" class="formulario__label">Municipio:</label>
+          <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" formControlName="municipio" />
+        </div>
+      </div>
+    </div>
+
+    <div class="Referencias">
+      <div class="info__general--items">
+        <p class="text__form">Referencias Personales</p>
+      </div>
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="razon" class="formulario__label">Nombre:</label>
+          <input type="text" name="razon" id="razon" class="formulario__input" />
+        </div>
+        <div class="info__general--item">
+          <label for="apellidoC" class="formulario__label">Celular:</label>
+          <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" />
+        </div>
+        <div class="info__general--item">
+          <label for="tipodoc" class="formulario__label">Municipio:</label>
+          <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="razon" class="formulario__label">Nombre:</label>
+          <input type="text" name="razon" id="razon" class="formulario__input" />
+        </div>
+        <div class="info__general--item">
+          <label for="apellidoC" class="formulario__label">Celular:</label>
+          <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" />
+        </div>
+        <div class="info__general--item">
+          <label for="tipodoc" class="formulario__label">Municipio:</label>
+          <input type="text" name="apellidoC" id="apellidoC" class="formulario__input" />
+        </div>
+      </div>
+    </div>
+
+    <div class="Referencias">
+      <div class="info__general--items">
+        <p class="text__form">Referencias Familiares</p>
+      </div>
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="razon" class="formulario__label">Nombre:</label>
+          <input type="text" id="razon" class="formulario__input" />
+        </div>
+        <div class="info__general--item">
+          <label for="apellidoC" class="formulario__label">Celular:</label>
+          <input type="text" id="apellidoC" class="formulario__input" />
+        </div>
+        <div class="info__general--item">
+          <label for="tipodoc" class="formulario__label">Municipio:</label>
+          <input type="text" id="apellidoC" class="formulario__input" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="razon" class="formulario__label">Nombre:</label>
+          <input type="text" id="razon" class="formulario__input" />
+        </div>
+        <div class="info__general--item">
+          <label for="apellidoC" class="formulario__label">Celular:</label>
+          <input type="text" id="apellidoC" class="formulario__input" />
+        </div>
+        <div class="info__general--item">
+          <label for="tipodoc" class="formulario__label">Municipio:</label>
+          <input type="text" id="apellidoC" class="formulario__input" />
+        </div>
+      </div>
+    </div>
+
+    <div class="Referencias">
+      <div class="info__general--items">
+        <p class="text__form">Referencias Bancarias</p>
+      </div>
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="tipoCuenta" class="formulario__label">Tipo de cuenta:</label>
+          <select name="tipoCuenta" id="tipoCuenta" class="formulario__input" formControlName="tipoCuenta">
+            <option selected>Elija una opción</option>
+            <option value="ahorros">Cuenta de Ahorros</option>
+            <option value="corriente">Cuenta de Corriente</option>
+          </select>
+        </div>
+        <div class="info__general--item">
+          <label for="entidad" class="formulario__label">Entidad Financiera:</label>
+          <input type="text" name="entidad" id="entidad" class="formulario__input" formControlName="entidadFinanciera" />
+        </div>
+        <div class="info__general--item">
+          <label for="numeroCuenta" class="formulario__label">Número cuenta:</label>
+          <input type="text" name="numeroCuenta" id="numeroCuenta" class="formulario__input" formControlName="numeroCuenta" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="tipoCuenta" class="formulario__label">Tipo de cuenta:</label>
+          <select name="tipoCuenta" id="tipoCuenta" class="formulario__input" formControlName="tipoCuenta">
+            <option selected>Elija una opción</option>
+            <option value="ahorros">Cuenta de Ahorros</option>
+            <option value="corriente">Cuenta de Corriente</option>
+          </select>
+        </div>
+        <div class="info__general--item">
+          <label for="entidad" class="formulario__label">Entidad Financiera:</label>
+          <input type="text" name="entidad" id="entidad" class="formulario__input" formControlName="entidadFinanciera" />
+        </div>
+        <div class="info__general--item">
+          <label for="numeroCuenta" class="formulario__label">Número cuenta:</label>
+          <input type="text" name="numeroCuenta" id="numeroCuenta" class="formulario__input" formControlName="numeroCuenta" />
+        </div>
+      </div>
+    </div> -->
+  </ng-container>
+
+  <ng-container *ngIf="seccionBienes">
+    <!-- <div class="Bienes">
+      <div class="info__general--items">
+        <p class="text__form">Bienes inmuebles de su propiedad</p>
+      </div>
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="tipoInmueble" class="formulario__label">Tipo de inmueble y dirección:</label>
+          <input type="text" name="tipoInmueble" id="tipoInmueble" class="formulario__input" formControlName="tipoInmuebleDire" />
+        </div>
+        <div class="info__general--item">
+          <label for="numeroMatricula" class="formulario__label">N° de matrícula inmobiliaria:</label>
+          <input type="text" name="numeroMatricula" id="numeroMatricula" class="formulario__input" formControlName="matricula" />
+        </div>
+        <div class="info__general--item">
+          <label for="municp" class="formulario__label">Municipio:</label>
+          <input type="text" name="municp" id="municp" class="formulario__input" formControlName="municipioInmueble" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="tipoInmueble" class="formulario__label">Tipo de inmueble y dirección:</label>
+          <input type="text" name="tipoInmueble" id="tipoInmueble" class="formulario__input" formControlName="tipoInmuebleDire" />
+        </div>
+        <div class="info__general--item">
+          <label for="numeroMatricula" class="formulario__label">N° de matrícula inmobiliaria:</label>
+          <input type="text" name="numeroMatricula" id="numeroMatricula" class="formulario__input" formControlName="matricula" />
+        </div>
+        <div class="info__general--item">
+          <label for="municp" class="formulario__label">Municipio:</label>
+          <input type="text" name="municp" id="municp" class="formulario__input" formControlName="municipioInmueble" />
+        </div>
+      </div>
+    </div>
+
+    <div class="Bienes">
+      <div class="info__general--items">
+        <p class="text__form">Vehículos de su propiedad</p>
+      </div>
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="marca" class="formulario__label">Marca:</label>
+          <input type="text" name="marca" id="marca" class="formulario__input" formControlName="vehiculoMarca" />
+        </div>
+        <div class="info__general--item">
+          <label for="modelo" class="formulario__label">Modelo:</label>
+          <input type="text" name="modelo" id="modelo" class="formulario__input" formControlName="vehiculoPlaca" />
+        </div>
+        <div class="info__general--item">
+          <label for="placa" class="formulario__label">Placa:</label>
+          <input type="text" name="placa" id="placa" class="formulario__input" formControlName="vehiculoModelo" />
+        </div>
+      </div>
+
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <label for="marca" class="formulario__label">Marca:</label>
+          <input type="text" name="marca" id="marca" class="formulario__input" formControlName="vehiculoMarca" />
+        </div>
+        <div class="info__general--item">
+          <label for="modelo" class="formulario__label">Modelo:</label>
+          <input type="text" name="modelo" id="modelo" class="formulario__input" formControlName="vehiculoPlaca" />
+        </div>
+        <div class="info__general--item">
+          <label for="placa" class="formulario__label">Placa:</label>
+          <input type="text" name="placa" id="placa" class="formulario__input" formControlName="vehiculoModelo" />
+        </div>
+      </div>
+    </div>
+
+    <div class="Bienes">
+      <div class="info__general--items">
+        <p class="text__form">Observaciones o información adicional que nos permita conocerlo mejor:</p>
+      </div>
+      <div class="info__general--items">
+        <div class="info__general--item">
+          <textarea
+            name="observaciones"
+            id=""
+            cols="75"
+            rows="2"
+            class="text__area"
+            resize="none"
+            formControlName="observaciones"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="form__botones">
+      <div class="form__botones--container">
+        <button type="button" class="btn__arriendo--cancelar" routerLink="/home">Cancelar</button>
+        <button type="submit" class="btn__arriendo--enviar">Enviar</button>
+      </div>
+    </div> -->
+  </ng-container>
+</form>

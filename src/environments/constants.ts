@@ -128,6 +128,94 @@ export const parametrosSelect = {
       label: 'Antiguo',
     },
   ],
+  tiposDocumentos: [
+    {
+      value: 'Cédula de ciudadanía',
+      label: 'Cédula de ciudadanía',
+    },
+    {
+      value: 'Cédula de extranjería',
+      label: 'Cédula de extranjería',
+    },
+    {
+      value: 'Pasaporte',
+      label: 'Pasaporte',
+    },
+  ],
+  listaSexos: [
+    {
+      value: 'Masculino',
+      label: 'Masculino',
+    },
+    {
+      value: 'Femenino',
+      label: 'Femenino',
+    },
+    {
+      value: 'Otro',
+      label: 'Otro',
+    },
+  ],
+  listaNivelEstudio: [
+    {
+      value: 'Primaria',
+      label: 'Primaria',
+    },
+    {
+      value: 'Bachiller',
+      label: 'Bachiller',
+    },
+    {
+      value: 'Técnico',
+      label: 'Técnico',
+    },
+    {
+      value: 'Tecnólogo',
+      label: 'Tecnólogo',
+    },
+    {
+      value: 'Universitario',
+      label: 'Universitario',
+    },
+    {
+      value: 'Ninguno',
+      label: 'Ninguno',
+    },
+  ],
+  listadoEstadosCivil: [
+    {
+      value: 'Soltero',
+      label: 'Soltero',
+    },
+    {
+      value: 'Casado',
+      label: 'Casado',
+    },
+  ],
+  listaOcupacion: [
+    {
+      value: 'Empleado',
+      label: 'Empleado',
+    },
+    {
+      value: 'Independiente',
+      label: 'Independiente',
+    },
+    {
+      value: 'Pensionado',
+      label: 'Pensionado',
+    },
+  ],
+  tiposCuentasBancos: [
+    {
+      value: 'Cuenta de Ahorros',
+      label: 'Cuenta de Ahorros',
+    },
+    {
+      value: 'Cuenta de Corriente',
+      label: 'Cuenta de Corriente',
+    },
+  ],
 };
 
 export const requisitosPropiedades = {
