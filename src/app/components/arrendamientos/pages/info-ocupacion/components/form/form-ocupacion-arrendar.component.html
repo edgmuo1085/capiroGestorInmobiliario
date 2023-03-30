@@ -1,0 +1,331 @@
+<form [formGroup]="formInfoOcupacion" (ngSubmit)="onSubmitInfoOcupacion()" appValidator autocomplete="off">
+  <div class="container-fluid my-5">
+    <div class="row justify-content-start">
+      <div class="col-12 col-md-4 mb-4">
+        <div class="form-floating">
+          <select
+            class="form-select"
+            id="tipoInmueble"
+            aria-label="Ocupación"
+            (change)="clicOcupacion(ocupacionLista.value)"
+            #ocupacionLista
+          >
+            <ng-container>
+              <option value="" disabled selected="selected">Elija una opción</option>
+              <option *ngFor="let tipo of listaOcupacion" [value]="tipo.value">{{ tipo.label }}</option>
+            </ng-container>
+          </select>
+          <label for="tipoInmueble">Ocupación</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[0]">
+        <app-cap-form-fielset [label]="'empresa'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['empresa'].touched && formCtrlO['empresa'].errors }"
+              formControlName="empresa"
+              id="empresa"
+              type="text"
+              placeholder="Empresa donde trabaja"
+              required=""
+            />
+            <label for="empresa">Empresa donde trabaja</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[1]">
+        <app-cap-form-fielset [label]="'nitEmpresa'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['nitEmpresa'].touched && formCtrlO['nitEmpresa'].errors }"
+              formControlName="nitEmpresa"
+              id="nitEmpresa"
+              type="text"
+              placeholder="NIT de la empresa"
+              required=""
+            />
+            <label for="nitEmpresa">NIT de la empresa</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[2]">
+        <app-cap-form-fielset [label]="'direccionOcupacion'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['direccionOcupacion'].touched && formCtrlO['direccionOcupacion'].errors }"
+              formControlName="direccionOcupacion"
+              id="direccionOcupacion"
+              type="text"
+              placeholder="Dirección"
+              required=""
+            />
+            <label for="direccionOcupacion">Dirección</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[3]">
+        <app-cap-form-fielset [label]="'ciudadOcupacion'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['ciudadOcupacion'].touched && formCtrlO['ciudadOcupacion'].errors }"
+              formControlName="ciudadOcupacion"
+              id="ciudadOcupacion"
+              type="text"
+              placeholder="Ciudad"
+              required=""
+            />
+            <label for="ciudadOcupacion">Ciudad</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[4]">
+        <app-cap-form-fielset [label]="'fechaIngreso'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['fechaIngreso'].touched && formCtrlO['fechaIngreso'].errors }"
+              formControlName="fechaIngreso"
+              id="fechaIngreso"
+              type="date"
+              placeholder="Fecha de ingreso"
+              required=""
+            />
+            <label for="fechaIngreso">Fecha de ingreso</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[5]">
+        <app-cap-form-fielset [label]="'cargoOcupacion'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['cargoOcupacion'].touched && formCtrlO['cargoOcupacion'].errors }"
+              formControlName="cargoOcupacion"
+              id="cargoOcupacion"
+              type="text"
+              placeholder="Cargo u Oficio"
+              required=""
+            />
+            <label for="cargoOcupacion">Cargo u Oficio</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[6]">
+        <app-cap-form-fielset [label]="'tipoContrato'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['tipoContrato'].touched && formCtrlO['tipoContrato'].errors }"
+              formControlName="tipoContrato"
+              id="tipoContrato"
+              type="text"
+              placeholder="Tipo de contrato"
+              required=""
+            />
+            <label for="tipoContrato">Tipo de contrato</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[7]">
+        <app-cap-form-fielset [label]="'telefonoEmpresa'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['telefonoEmpresa'].touched && formCtrlO['telefonoEmpresa'].errors }"
+              formControlName="telefonoEmpresa"
+              id="telefonoEmpresa"
+              type="text"
+              placeholder="Contacto de la empresa"
+              required=""
+            />
+            <label for="telefonoEmpresa">Contacto de la empresa</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[8]">
+        <app-cap-form-fielset [label]="'salario'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['salario'].touched && formCtrlO['salario'].errors }"
+              formControlName="salario"
+              id="salario"
+              type="text"
+              placeholder="Salario"
+              required=""
+            />
+            <label for="salario">Salario</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[9]">
+        <app-cap-form-fielset [label]="'otroIngreso'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['otroIngreso'].touched && formCtrlO['otroIngreso'].errors }"
+              formControlName="otroIngreso"
+              id="otroIngreso"
+              type="text"
+              placeholder="Otros ingresos"
+              required=""
+            />
+            <label for="otroIngreso">Otros ingresos</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[10]">
+        <app-cap-form-fielset [label]="'origenOtrosIngresos'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['origenOtrosIngresos'].touched && formCtrlO['origenOtrosIngresos'].errors }"
+              formControlName="origenOtrosIngresos"
+              id="origenOtrosIngresos"
+              type="text"
+              placeholder="Origen de otros ingresos"
+              required=""
+            />
+            <label for="origenOtrosIngresos">Origen de otros ingresos</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[11]">
+        <app-cap-form-fielset [label]="'egresosMensuales'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['egresosMensuales'].touched && formCtrlO['egresosMensuales'].errors }"
+              formControlName="egresosMensuales"
+              id="egresosMensuales"
+              type="text"
+              placeholder="Egresos mensuales"
+              required=""
+            />
+            <label for="egresosMensuales">Egresos mensuales</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[12]">
+        <app-cap-form-fielset [label]="'actividadProfesional'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['actividadProfesional'].touched && formCtrlO['actividadProfesional'].errors }"
+              formControlName="actividadProfesional"
+              id="actividadProfesional"
+              type="text"
+              placeholder="Actividad profesional"
+              required=""
+            />
+            <label for="actividadProfesional">Actividad profesional</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[13]">
+        <app-cap-form-fielset [label]="'contacto'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['contacto'].touched && formCtrlO['contacto'].errors }"
+              formControlName="contacto"
+              id="contacto"
+              type="text"
+              placeholder="Contacto"
+              required=""
+            />
+            <label for="contacto">Contacto</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[14]">
+        <app-cap-form-fielset [label]="'otroIngresoOrigen'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['otroIngresoOrigen'].touched && formCtrlO['otroIngresoOrigen'].errors }"
+              formControlName="otroIngresoOrigen"
+              id="otroIngresoOrigen"
+              type="text"
+              placeholder="Otros ingresos/Origen ingresos"
+              required=""
+            />
+            <label for="otroIngresoOrigen">Otros ingresos/Origen ingresos</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[15]">
+        <app-cap-form-fielset [label]="'empresaPensionado'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['empresaPensionado'].touched && formCtrlO['empresaPensionado'].errors }"
+              formControlName="empresaPensionado"
+              id="empresaPensionado"
+              type="text"
+              placeholder="Nombre de la empresa"
+              required=""
+            />
+            <label for="empresaPensionado">Nombre de la empresa</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[16]">
+        <app-cap-form-fielset [label]="'ingresoMensualPension'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['ingresoMensualPension'].touched && formCtrlO['ingresoMensualPension'].errors }"
+              formControlName="ingresoMensualPension"
+              id="ingresoMensualPension"
+              type="text"
+              placeholder="Ingreso mensual de pensión"
+              required=""
+            />
+            <label for="ingresoMensualPension">Ingreso mensual de pensión</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+
+      <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[17]">
+        <app-cap-form-fielset [label]="'deduccionMensual'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlO['deduccionMensual'].touched && formCtrlO['deduccionMensual'].errors }"
+              formControlName="deduccionMensual"
+              id="deduccionMensual"
+              type="text"
+              placeholder="Deducción mensual"
+              required=""
+            />
+            <label for="deduccionMensual">Deducción mensual</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+  </div>
+</form>

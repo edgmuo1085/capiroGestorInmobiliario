@@ -1,0 +1,24 @@
+<app-header-arrendar></app-header-arrendar>
+
+<div class="container">
+  <div class="row justify-contente-center">
+    <div class="col-12 mt-4">
+      <app-form-general-arrendar
+        [tiposInmuebles]="tiposInmuebles"
+        [tiposDocumentos]="tiposDocumentos"
+        [listaSexos]="listaSexos"
+        [listaNivelEstudio]="listaNivelEstudio"
+        [listadoEstadosCivil]="listadoEstadosCivil"
+        [listaOcupacion]="listaOcupacion"
+        [tiposCuentasBancos]="tiposCuentasBancos"
+        [formInfoGeneral]="formInfoGeneral"
+        (actionGuardarForm)="guardarFormularioArrendamiento()"
+      ></app-form-general-arrendar>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center mt-3 mb-5">
+    <div class="form-button">
+      <button class="login-btn" type="button" (click)="nextPage()">Siguiente</button>
+    </div>
+  </div>
+</div>

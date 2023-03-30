@@ -79,7 +79,6 @@ export class ArrendamientoComponent implements OnInit {
       destinacionPredio: ['', [Validators.required]],
       arrendamientoMen: ['', [Validators.required]],
       tipoInmueble: ['', [Validators.required]],
-
       nombres: ['', [Validators.required]],
       apellidos: ['', [Validators.required]],
       fechaNacimiento: ['', [Validators.required]],
@@ -98,8 +97,8 @@ export class ArrendamientoComponent implements OnInit {
       ocupacion: ['', [Validators.required]],
       personasAcargo: ['', [Validators.required]],
       estadoCivil: ['', [Validators.required]],
-
       nombresC: ['', [Validators.required]],
+
       apellidosC: ['', [Validators.required]],
       tipoDocC: ['', [Validators.required]],
       numeroDocC: ['', [Validators.required]],
@@ -145,9 +144,5 @@ export class ArrendamientoComponent implements OnInit {
 
   guardarFormularioArrendamiento() {
     console.log('Prueba formulario ', this.formArrendamientos.value);
-  }
-
-  activarTab(label: string) {
-    console.log(label);
   }
 }

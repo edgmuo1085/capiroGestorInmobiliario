@@ -38,13 +38,13 @@
           <button class="form-btn bg-link" type="button" routerLink="/dashboard">Cancelar</button>
         </div> -->
         <div class="form-button" *ngIf="botonArriendo">
-          <button class="form-btn" type="button" [routerLink]="'/arrendamiento' + isLogging">Arrendar</button>
+          <button class="form-btn" type="button" [routerLink]="'/arrendamiento/informacion-general' + isLogging">Arrendar</button>
         </div>
         <div class="form-button" *ngIf="botonVenta">
-          <button class="form-btn" type="button" [routerLink]="'/arrendamiento' + isLogging">Comprar</button>
+          <button class="form-btn" type="button" [routerLink]="'/arrendamiento/informacion-general' + isLogging">Comprar</button>
         </div>
         <div class="form-button" *ngIf="botonContacto">
-          <button class="form-btn" type="button" [routerLink]="'/arrendamiento' + isLogging">Contactar</button>
+          <button class="form-btn" type="button" [routerLink]="'/arrendamiento/informacion-general' + isLogging">Contactar</button>
         </div>
       </div>
     </div>

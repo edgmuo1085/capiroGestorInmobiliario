@@ -33,16 +33,18 @@ export class ArrendarFormComponent {
     return this.formArrendamientos.controls;
   }
 
-  clicOcupacion(valor: string) {
-    if (valor === '1') {
+  clicOcupacion(event: string) {
+    console.log(event);
+
+    if (event === 'Empleado') {
       this.empleado = true;
       this.independiente = false;
       this.pensionado = false;
-    } else if (valor === '2') {
+    } else if (event === 'Independiente') {
       this.independiente = true;
       this.empleado = false;
       this.pensionado = false;
-    } else if (valor === '3') {
+    } else if (event === 'Pensionado') {
       this.pensionado = true;
       this.empleado = false;
       this.independiente = false;
@@ -53,12 +55,13 @@ export class ArrendarFormComponent {
     }
   }
 
-  clicEstadoCivil(valor: string) {
-    if (valor === 'Casado') {
+  clicEstadoCivil(event: string) {
+    if (event === 'Casado') {
       this.estadoCivil = true;
-    } else {
-      this.estadoCivil = false;
+      return;
     }
+
+    this.estadoCivil = false;
   }
 
   onSubmitRegistrarArrandar() {

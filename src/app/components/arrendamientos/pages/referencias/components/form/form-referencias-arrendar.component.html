@@ -1,0 +1,359 @@
+<form [formGroup]="formReferencias" (ngSubmit)="onSubmitReferencias()" appValidator autocomplete="off">
+  <div class="container-fluid my-5">
+    <h3 class="titulo-referencias">Referencias Comerciales</h3>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'nombreRazon'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['nombreRazon'].touched && formCtrlR['nombreRazon'].errors }"
+              formControlName="nombreRazon"
+              id="nombreRazon"
+              type="text"
+              placeholder="Nombre o Razón social"
+              required=""
+            />
+            <label for="nombreRazon">Nombre o Razón social</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'celularRefencia'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['celularRefencia'].touched && formCtrlR['celularRefencia'].errors }"
+              formControlName="celularRefencia"
+              id="celularRefencia"
+              type="text"
+              placeholder="Celular"
+              required=""
+            />
+            <label for="celularRefencia">Celular</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'municipio'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['municipio'].touched && formCtrlR['municipio'].errors }"
+              formControlName="municipio"
+              id="municipio"
+              type="text"
+              placeholder="Municipio"
+              required=""
+            />
+            <label for="municipio">Municipio</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <h3 class="titulo-referencias">Referencias Personales</h3>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'nombresPersonalesUno'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['nombresPersonalesUno'].touched && formCtrlR['nombresPersonalesUno'].errors }"
+              formControlName="nombresPersonalesUno"
+              id="nombresPersonalesUno"
+              type="text"
+              placeholder="Nombres"
+              required=""
+            />
+            <label for="nombresPersonalesUno">Nombres</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'celularPersonalesUno'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['celularPersonalesUno'].touched && formCtrlR['celularPersonalesUno'].errors }"
+              formControlName="celularPersonalesUno"
+              id="celularPersonalesUno"
+              type="text"
+              placeholder="Celular"
+              required=""
+            />
+            <label for="celularPersonalesUno">Celular</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'municipioPersonalesUno'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['municipioPersonalesUno'].touched && formCtrlR['municipioPersonalesUno'].errors }"
+              formControlName="municipioPersonalesUno"
+              id="municipioPersonalesUno"
+              type="text"
+              placeholder="Municipio"
+              required=""
+            />
+            <label for="municipioPersonalesUno">Municipio</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'nombresPersonalesDos'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['nombresPersonalesDos'].touched && formCtrlR['nombresPersonalesDos'].errors }"
+              formControlName="nombresPersonalesDos"
+              id="nombresPersonalesDos"
+              type="text"
+              placeholder="Nombres"
+              required=""
+            />
+            <label for="nombresPersonalesDos">Nombres</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'celularPersonalesDos'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['celularPersonalesDos'].touched && formCtrlR['celularPersonalesDos'].errors }"
+              formControlName="celularPersonalesDos"
+              id="celularPersonalesDos"
+              type="text"
+              placeholder="Celular"
+              required=""
+            />
+            <label for="celularPersonalesDos">Celular</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'municipioPersonalesDos'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['municipioPersonalesDos'].touched && formCtrlR['municipioPersonalesDos'].errors }"
+              formControlName="municipioPersonalesDos"
+              id="municipioPersonalesDos"
+              type="text"
+              placeholder="Municipio"
+              required=""
+            />
+            <label for="municipioPersonalesDos">Municipio</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <h3 class="titulo-referencias">Referencias Familiares</h3>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'nombresFamiliaresUno'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['nombresFamiliaresUno'].touched && formCtrlR['nombresFamiliaresUno'].errors }"
+              formControlName="nombresFamiliaresUno"
+              id="nombresFamiliaresUno"
+              type="text"
+              placeholder="Nombres"
+              required=""
+            />
+            <label for="nombresFamiliaresUno">Nombres</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'celularFamiliaresUno'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['celularFamiliaresUno'].touched && formCtrlR['celularFamiliaresUno'].errors }"
+              formControlName="celularFamiliaresUno"
+              id="celularFamiliaresUno"
+              type="text"
+              placeholder="Celular"
+              required=""
+            />
+            <label for="celularFamiliaresUno">Celular</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'municipioFamiliaresUno'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['municipioFamiliaresUno'].touched && formCtrlR['municipioFamiliaresUno'].errors }"
+              formControlName="municipioFamiliaresUno"
+              id="municipioFamiliaresUno"
+              type="text"
+              placeholder="Municipio"
+              required=""
+            />
+            <label for="municipioFamiliaresUno">Municipio</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'nombresFamiliaresDos'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['nombresFamiliaresDos'].touched && formCtrlR['nombresFamiliaresDos'].errors }"
+              formControlName="nombresFamiliaresDos"
+              id="nombresFamiliaresDos"
+              type="text"
+              placeholder="Nombres"
+              required=""
+            />
+            <label for="nombresFamiliaresDos">Nombres</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'celularFamiliaresDos'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['celularFamiliaresDos'].touched && formCtrlR['celularFamiliaresDos'].errors }"
+              formControlName="celularFamiliaresDos"
+              id="celularFamiliaresDos"
+              type="text"
+              placeholder="Celular"
+              required=""
+            />
+            <label for="celularFamiliaresDos">Celular</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'municipioFamiliaresDos'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['municipioFamiliaresDos'].touched && formCtrlR['municipioFamiliaresDos'].errors }"
+              formControlName="municipioFamiliaresDos"
+              id="municipioFamiliaresDos"
+              type="text"
+              placeholder="Municipio"
+              required=""
+            />
+            <label for="municipioFamiliaresDos">Municipio</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <h3 class="titulo-referencias">Referencias Bancarias</h3>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'tipoCuentaUno'">
+          <div class="form-floating">
+            <select
+              class="form-select"
+              id="tipoCuentaUno"
+              formControlName="tipoCuentaUno"
+              aria-label="Tipo de cuenta"
+              [ngClass]="{ 'is-invalid': formCtrlR['tipoCuentaUno'].touched && formCtrlR['tipoCuentaUno'].errors }"
+            >
+              <ng-container>
+                <option *ngFor="let tipo of tiposCuentasBancos" [ngValue]="tipo.value">{{ tipo.label }}</option>
+              </ng-container>
+            </select>
+            <label for="tipoCuentaUno">Tipo de cuenta</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'entidadFinancieraUno'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['entidadFinancieraUno'].touched && formCtrlR['entidadFinancieraUno'].errors }"
+              formControlName="entidadFinancieraUno"
+              id="entidadFinancieraUno"
+              type="text"
+              placeholder="Entidad financiera"
+              required=""
+            />
+            <label for="entidadFinancieraUno">Entidad financiera</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'numCuentaUno'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['numCuentaUno'].touched && formCtrlR['numCuentaUno'].errors }"
+              formControlName="numCuentaUno"
+              id="numCuentaUno"
+              type="text"
+              placeholder="Número de cuenta"
+              required=""
+            />
+            <label for="numCuentaUno">Número de cuenta</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'tipoCuentaDos'">
+          <div class="form-floating">
+            <select
+              class="form-select"
+              id="tipoCuentaDos"
+              formControlName="tipoCuentaDos"
+              aria-label="Tipo de cuenta"
+              [ngClass]="{ 'is-invalid': formCtrlR['tipoCuentaDos'].touched && formCtrlR['tipoCuentaDos'].errors }"
+            >
+              <ng-container>
+                <option *ngFor="let tipo of tiposCuentasBancos" [ngValue]="tipo.value">{{ tipo.label }}</option>
+              </ng-container>
+            </select>
+            <label for="tipoCuentaDos">Tipo de cuenta</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'entidadFinancieraDos'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['entidadFinancieraDos'].touched && formCtrlR['entidadFinancieraDos'].errors }"
+              formControlName="entidadFinancieraDos"
+              id="entidadFinancieraDos"
+              type="text"
+              placeholder="Entidad financiera"
+              required=""
+            />
+            <label for="entidadFinancieraDos">Entidad financiera</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-4 mb-3">
+        <app-cap-form-fielset [label]="'numCuentaDos'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlR['numCuentaDos'].touched && formCtrlR['numCuentaDos'].errors }"
+              formControlName="numCuentaDos"
+              id="numCuentaDos"
+              type="text"
+              placeholder="Número de cuenta"
+              required=""
+            />
+            <label for="numCuentaDos">Número de cuenta</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+  </div>
+</form>
