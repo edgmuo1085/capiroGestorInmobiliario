@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -47,6 +47,21 @@ export class PropiedadesService {
   guardarFoto(data: ArchivoInmuebleModel): Observable<ResponseArchivo> {
     const url = `${environment.URL_API}archivos/insertar/`;
     return this.http.post<ResponseArchivo>(url, data);
+  }
+
+  getUploadPhotoHosting2(formData: FormData): Observable<any> {
+    const url = `https://arrendamientoscapiro.com/up_imagen/form-capiro.php`;
+    return this.http.post(url, formData);
+  }
+
+  getUploadPhotoHosting(formData: FormData): Observable<HttpEvent<void>> {
+    //const url = `http://localhost/capiro/up_imagen/form-capiro.php`;
+    const url = `https://arrendamientoscapiro.com/up_imagen/form-capiro.php`;
+    const req = new HttpRequest('POST', url, formData, {
+      reportProgress: true,
+      responseType: 'json',
+    });
+    return this.http.request(req);
   }
 
   actualizarFoto(data: ArchivoInmuebleUpModel): Observable<ResponseArchivo> {

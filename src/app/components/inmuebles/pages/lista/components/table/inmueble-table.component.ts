@@ -1,8 +1,9 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Table } from 'primeng/table';
-import { Observable, ReplaySubject } from 'rxjs';
 import { ArchivoInmuebleUp, ArchivoInmuebleUpModel } from 'src/app/components/interfaces/archivo-inmueble.interface';
+import { ImagesInmuebleUp } from 'src/app/components/interfaces/img-inmueble.interface';
 import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
 import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.interface';
 import { IdGenerateService } from 'src/app/components/shared/shared-services/id-generate.service';
@@ -28,7 +29,7 @@ export class InmuebleTableComponent {
   sizeFotos: number = 0;
   idInmueble: number = 0;
   listaFotos: ResponseArchivo[] = [];
-  anexoImgInmuebles: ArchivoInmuebleUp[] = [];
+  uploadedFiles: ImagesInmuebleUp[] = [];
   fotoInsertar: ArchivoInmuebleUp = new ArchivoInmuebleUpModel('', '', 0, 0, '', 0);
 
   constructor(
@@ -61,7 +62,7 @@ export class InmuebleTableComponent {
 
   subirImg(inmueble: ResponseInmueble) {
     this.idInmueble = inmueble.id;
-    this.sizeFotos = 3 - inmueble.fotos.length;
+    this.sizeFotos = 4 - inmueble.fotos.length;
     this.visible = true;
     this.showUpload = true;
   }
@@ -82,8 +83,7 @@ export class InmuebleTableComponent {
         if (!response.id) {
           return;
         }
-        let inmueblesFotos = this.urlImgInmuebles(response.fotos);
-        this.listaFotos = inmueblesFotos;
+        this.listaFotos = response.fotos;
       },
       error: err => {
         console.error(err);
@@ -91,31 +91,69 @@ export class InmuebleTableComponent {
     });
   }
 
-  urlImgInmuebles(fotoInmueble: ResponseArchivo[]): ResponseArchivo[] {
-    for (const item of fotoInmueble) {
-      item.url = this.propiedadesService.getArchivosUrlImg(item.nombreArchivo);
-    }
-
-    return fotoInmueble;
-  }
-
   async onSubmitModificarImg(event: any) {
     let fotoInfo: ResponseArchivo = event.foto;
     let foto = event.upload;
 
-    for await (const file of foto.files) {
-      let base = await this.onFileSelected(file);
+    this.uploadedFiles = [];
+    const arrayFiles: File[] = foto.files;
+    let json: ImagesInmuebleUp = {} as ImagesInmuebleUp;
+
+    for (const file of arrayFiles) {
       const idUnique = this.idGenerateService.generate();
       let filesNames = file.name.split('.');
       let extension = filesNames.at(-1);
+      json = {
+        nameFile: file.name,
+        sizeFile: file.size,
+        progress: 0,
+        nombreArchivo: `${idUnique}.${extension}`,
+        nombreSinExt: `${idUnique}`,
+        formato: file.type,
+        idUsuario: this.idUsuario,
+        idInmueble: this.idInmueble,
+        archivo: 'base',
+      };
       this.fotoInsertar.nombreArchivo = `${idUnique}.${extension}`;
       this.fotoInsertar.formato = file.type;
       this.fotoInsertar.idUsuario = fotoInfo.idUsuario;
       this.fotoInsertar.idInmueble = fotoInfo.idInmueble;
-      this.fotoInsertar.archivo = base;
+      this.fotoInsertar.archivo = 'base';
       this.fotoInsertar.Id = fotoInfo.id;
+      this.uploadedFiles = [...this.uploadedFiles, json];
+    }
+
+    for await (const [index, file] of arrayFiles.entries()) {
+      this.uploadFileOne(index, file, this.uploadedFiles[index].nombreSinExt);
       this.actualizarDataImg();
     }
+  }
+
+  uploadFileOne(index: number, file: File, nombreSinExt: string) {
+    this.uploadedFiles[index].progress = 0;
+    const formData: FormData = new FormData();
+    formData.append('guardar', 'true');
+    formData.append('tipoDocumento', 'imagenes');
+    formData.append('nombreImg', nombreSinExt);
+    formData.append('archivoCapiro', file);
+    this.propiedadesService.getUploadPhotoHosting(formData).subscribe({
+      next: event => {
+        switch (event.type) {
+          case HttpEventType.UploadProgress:
+            this.uploadedFiles[index].progress = Math.round((100 * event.loaded) / file.size);
+            if (this.uploadedFiles[index].progress === 100) {
+              this.getImagenes(this.fotoInsertar.idInmueble);
+            }
+            break;
+          case HttpEventType.Response:
+            break;
+        }
+      },
+      error: err => {
+        console.error(err);
+        this.uploadedFiles[index].progress = 0;
+      },
+    });
   }
 
   actualizarDataImg() {
@@ -127,27 +165,10 @@ export class InmuebleTableComponent {
         }
 
         this.toastCustomService.showToast('Información', 'Imagen actualizada con éxito.');
-        this.getImagenes(this.fotoInsertar.idInmueble);
       },
       error: err => {
         console.error(err);
       },
     });
-  }
-
-  onFileSelected(event: any): Promise<string> {
-    return new Promise(resolve => {
-      this.convertFile(event).subscribe(base64 => {
-        resolve(base64);
-      });
-    });
-  }
-
-  convertFile(file: File): Observable<string> {
-    const result = new ReplaySubject<string>(1);
-    const reader = new FileReader();
-    reader.readAsBinaryString(file);
-    reader.onload = (event: any) => result.next(window.btoa(event.target.result.toString()));
-    return result;
   }
 }

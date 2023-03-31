@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
+import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -12,8 +13,11 @@ import { environment } from 'src/environments/environment';
 export class ReferenciasArrendarComponent implements OnInit {
   formReferencias: FormGroup = new FormGroup({});
   tiposCuentasBancos: ParametrosShared[] = environment.tiposCuentasBancos;
+  isLogging: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router, private dataUserService: DataUserService) {
+    this.isLogging = this.dataUserService.enableToken() ? '/sesion' : '';
+  }
 
   ngOnInit(): void {
     this.formReferencias = this.fb.group({
@@ -50,11 +54,11 @@ export class ReferenciasArrendarComponent implements OnInit {
 
   prevPage() {
     console.log('formReferencias ', this.formReferencias.value);
-    this.router.navigate(['/arrendamiento/informacion-ocupacion']);
+    this.router.navigate(['/arrendamiento' + this.isLogging + '/informacion-ocupacion']);
   }
 
   nextPage() {
     console.log('formReferencias ', this.formReferencias.value);
-    this.router.navigate(['/arrendamiento/bienes']);
+    this.router.navigate(['/arrendamiento' + this.isLogging + '/bienes']);
   }
 }

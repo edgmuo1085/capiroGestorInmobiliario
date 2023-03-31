@@ -36,7 +36,7 @@ export class GaleriaInmuebleComponent implements OnChanges {
       if (!this.fotosInmueble.length) {
         this.fotosInmueble = [
           {
-            url: './assets/images/not-found-img.jpg',
+            ruta: './assets/images/not-found-img.jpg',
             nombreArchivo: 'not found ',
           } as ResponseArchivo,
         ];

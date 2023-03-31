@@ -31,9 +31,7 @@ export class HomeDestacadosComponent implements OnInit {
 
   urlImgDestacados(destacados: ResponseInmueble[]): ResponseInmueble[] {
     for (const item of destacados) {
-      item.url = item.fotos.length
-        ? this.propiedadesService.getArchivosUrlImg(item.fotos[0].nombreArchivo)
-        : './assets/images/not-found-img.jpg';
+      item.url = item.fotos.length ? item.fotos[0].ruta : './assets/images/not-found-img.jpg';
     }
     return destacados;
   }

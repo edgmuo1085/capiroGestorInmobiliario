@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
+import { HttpEventType } from '@angular/common/http';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { ArchivoInmueble, ArchivoInmuebleModel } from 'src/app/components/interfaces/archivo-inmueble.interface';
+import { ImagesInmuebleUp } from 'src/app/components/interfaces/img-inmueble.interface';
 import { IdGenerateService } from 'src/app/components/shared/shared-services/id-generate.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
@@ -9,17 +10,17 @@ import { ToastCustomService } from 'src/app/components/shared/shared-services/to
   selector: 'app-inmueble-subir-archivos',
   templateUrl: './inmueble-subir-archivos.component.html',
   styleUrls: ['./inmueble-subir-archivos.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class InmuebleSubirArchivosComponent {
   @Input() idUsuario: number = 0;
   @Input() idInmueble: number = 0;
-  @Input() sizeFotos: number = 3;
+  @Input() sizeFotos: number = 4;
   @Output() actionCargarImg: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() actionMsgTituloPage: EventEmitter<string> = new EventEmitter<string>();
 
   multiple: boolean = true;
-  anexoImgInmuebles: ArchivoInmueble[] = [];
-  base64Output: string = '';
+  uploadedFiles: ImagesInmuebleUp[] = [];
 
   constructor(
     private propiedadesService: PropiedadesService,
@@ -28,74 +29,101 @@ export class InmuebleSubirArchivosComponent {
   ) {}
 
   ngOnDestroy(): void {
-    this.anexoImgInmuebles = [];
+    this.uploadedFiles = [];
   }
 
-  async subirImagenes(data: any) {
-    let conteoSizeFiles: number = 0;
+  async onBasicUploadAuto(event: any) {
+    let conteoSizeFilesHost: number = 1;
+    this.uploadedFiles = [];
+    const arrayFiles: File[] = event.files;
+    let json: ImagesInmuebleUp = {} as ImagesInmuebleUp;
 
-    for await (const file of data.files) {
-      let base = await this.onFileSelected(file);
+    for (const file of arrayFiles) {
+      if (conteoSizeFilesHost > this.sizeFotos) {
+        break;
+      }
       const idUnique = this.idGenerateService.generate();
       let filesNames = file.name.split('.');
       let extension = filesNames.at(-1);
-      this.anexoImgInmuebles.push({
+      json = {
+        nameFile: file.name,
+        sizeFile: file.size,
+        progress: 0,
         nombreArchivo: `${idUnique}.${extension}`,
+        nombreSinExt: `${idUnique}`,
         formato: file.type,
         idUsuario: this.idUsuario,
         idInmueble: this.idInmueble,
-        archivo: base,
-      });
+        archivo: 'base',
+      };
+      this.uploadedFiles = [...this.uploadedFiles, json];
+      conteoSizeFilesHost++;
+    }
 
-      conteoSizeFiles++;
-
-      if (conteoSizeFiles > this.sizeFotos) {
+    for await (const [index, file] of arrayFiles.entries()) {
+      if (!this.uploadedFiles[index]) {
+        this.toastCustomService.showToast('Advertencia', 'No es posible subir más imágenes.', 'warn');
         break;
       }
+      this.uploadFileOne(index, file, this.uploadedFiles[index].nombreSinExt);
+      this.enviarDataImg(this.uploadedFiles[index]);
     }
-    this.enviarDataImg();
   }
 
-  async enviarDataImg() {
-    for await (const item of this.anexoImgInmuebles) {
-      let fotoInsertar: ArchivoInmueble = new ArchivoInmuebleModel(
-        item.nombreArchivo,
-        item.formato,
-        item.idUsuario,
-        item.idInmueble,
-        item.archivo
-      );
-
-      this.propiedadesService.guardarFoto(fotoInsertar).subscribe({
-        next: response => {},
-        error: err => {
-          console.error(err);
-        },
-      });
-    }
-
-    this.actionCargarImg.emit(false);
-    this.actionMsgTituloPage.emit('Registrar inmueble');
-    this.toastCustomService.showToast('Información', 'Imágenes anexadas con éxito.');
-  }
-
-  onFileSelected(event: any): Promise<string> {
-    return new Promise(resolve => {
-      this.convertFile(event).subscribe(base64 => {
-        resolve(base64);
-      });
+  uploadFileOne(index: number, file: File, nombreSinExt: string) {
+    this.uploadedFiles[index].progress = 0;
+    const formData: FormData = new FormData();
+    formData.append('guardar', 'true');
+    formData.append('tipoDocumento', 'imagenes');
+    formData.append('nombreImg', nombreSinExt);
+    formData.append('archivoCapiro', file);
+    this.propiedadesService.getUploadPhotoHosting(formData).subscribe({
+      next: event => {
+        switch (event.type) {
+          case HttpEventType.UploadProgress:
+            this.uploadedFiles[index].progress = Math.round((100 * event.loaded) / file.size);
+            this.terminarProgreso();
+            break;
+          case HttpEventType.Response:
+            break;
+        }
+      },
+      error: err => {
+        console.error(err);
+        this.uploadedFiles[index].progress = 0;
+      },
     });
   }
 
-  convertFile(file: File): Observable<string> {
-    const result = new ReplaySubject<string>(1);
-    const reader = new FileReader();
-    reader.readAsBinaryString(file);
-    reader.onload = (event: any) => result.next(window.btoa(event.target.result.toString()));
-    return result;
+  async enviarDataImg(item: ImagesInmuebleUp) {
+    const fotoInsertar: ArchivoInmueble = new ArchivoInmuebleModel(
+      item.nombreArchivo,
+      item.formato,
+      item.idUsuario,
+      item.idInmueble,
+      item.archivo
+    );
+
+    this.propiedadesService.guardarFoto(fotoInsertar).subscribe({
+      next: response => {
+        this.toastCustomService.showToast('Información', 'Imágenes anexadas con éxito.');
+      },
+      error: err => {
+        console.error(err);
+      },
+    });
   }
 
   clearImg() {
-    this.anexoImgInmuebles = [];
+    this.uploadedFiles = [];
+  }
+
+  terminarProgreso() {
+    let progreso = this.uploadedFiles.find(item => item.progress !== 100);
+    if (!progreso) {
+      this.sizeFotos = this.sizeFotos - this.uploadedFiles.length;
+      this.actionCargarImg.emit(false);
+      this.actionMsgTituloPage.emit('Registrar inmueble');
+    }
   }
 }

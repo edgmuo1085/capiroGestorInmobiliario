@@ -10,7 +10,16 @@
     [customUpload]="true"
     accept="image/*"
     [maxFileSize]="1000000"
-    (uploadHandler)="subirImagenes($event)"
+    (uploadHandler)="onBasicUploadAuto($event)"
     (onClear)="clearImg()"
-  ></p-fileUpload>
+  >
+  </p-fileUpload>
+  <ng-container *ngFor="let imageProgress of uploadedFiles">
+    <div class="images-uploaded">
+      <div class="div1">{{ imageProgress.nameFile }}</div>
+      <div class="div2">
+        <p-progressBar [value]="imageProgress.progress"></p-progressBar>
+      </div>
+    </div>
+  </ng-container>
 </div>

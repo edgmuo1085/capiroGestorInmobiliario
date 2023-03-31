@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
+import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -19,8 +20,16 @@ export class InforGeneralArrendarComponent implements OnInit {
   listadoEstadosCivil: ParametrosShared[] = environment.listadoEstadosCivil;
   listaOcupacion: ParametrosShared[] = environment.listaOcupacion;
   tiposCuentasBancos: ParametrosShared[] = environment.tiposCuentasBancos;
+  isLogging: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router, private messageService: MessageService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private dataUserService: DataUserService,
+    private messageService: MessageService
+  ) {
+    this.isLogging = this.dataUserService.enableToken() ? '/sesion' : '';
+  }
 
   ngOnInit(): void {
     this.formInfoGeneral = this.fb.group({
@@ -64,6 +73,6 @@ export class InforGeneralArrendarComponent implements OnInit {
 
   nextPage() {
     console.log('formInfoGeneral ', this.formInfoGeneral.value);
-    this.router.navigate(['/arrendamiento/informacion-ocupacion']);
+    this.router.navigate(['/arrendamiento' + this.isLogging + '/informacion-ocupacion']);
   }
 }

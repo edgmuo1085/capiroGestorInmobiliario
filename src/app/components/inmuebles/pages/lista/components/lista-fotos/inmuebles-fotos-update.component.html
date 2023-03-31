@@ -7,7 +7,7 @@
   <ng-container *ngFor="let foto of listaFotos">
     <div class="row justify-content-center">
       <div class="col-12 col-md-3 text-center my-2 border-custom">
-        <img [src]="foto.url" [alt]="foto.nombreArchivo" class="custom-img-update" />
+        <img [src]="foto.ruta" [alt]="foto.nombreArchivo" class="custom-img-update" />
       </div>
       <div class="col-12 col-md-9 text-center my-2 border-custom">
         <p-fileUpload

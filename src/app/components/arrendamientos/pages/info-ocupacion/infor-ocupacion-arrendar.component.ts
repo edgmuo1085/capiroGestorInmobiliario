@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
+import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,8 +14,16 @@ import { environment } from 'src/environments/environment';
 export class InforOcupacionArrendarComponent implements OnInit {
   formInfoOcupacion: FormGroup = new FormGroup({});
   listaOcupacion: ParametrosShared[] = environment.listaOcupacion;
+  isLogging: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router, private messageService: MessageService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private dataUserService: DataUserService,
+    private messageService: MessageService
+  ) {
+    this.isLogging = this.dataUserService.enableToken() ? '/sesion' : '';
+  }
 
   ngOnInit(): void {
     this.formInfoOcupacion = this.fb.group({
@@ -45,11 +54,11 @@ export class InforOcupacionArrendarComponent implements OnInit {
 
   prevPage() {
     console.log('formInfoOcupacion ', this.formInfoOcupacion.value);
-    this.router.navigate(['/arrendamiento/informacion-general']);
+    this.router.navigate(['/arrendamiento' + this.isLogging + '/informacion-general']);
   }
 
   nextPage() {
     console.log('formInfoOcupacion ', this.formInfoOcupacion.value);
-    this.router.navigate(['/arrendamiento/referencias']);
+    this.router.navigate(['/arrendamiento' + this.isLogging + '/referencias']);
   }
 }
