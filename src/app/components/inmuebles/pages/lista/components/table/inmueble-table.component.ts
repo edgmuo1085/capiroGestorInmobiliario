@@ -124,8 +124,8 @@ export class InmuebleTableComponent {
     }
 
     for await (const [index, file] of arrayFiles.entries()) {
-      this.uploadFileOne(index, file, this.uploadedFiles[index].nombreSinExt);
       this.actualizarDataImg();
+      this.uploadFileOne(index, file, this.uploadedFiles[index].nombreSinExt);
     }
   }
 
@@ -142,7 +142,9 @@ export class InmuebleTableComponent {
           case HttpEventType.UploadProgress:
             this.uploadedFiles[index].progress = Math.round((100 * event.loaded) / file.size);
             if (this.uploadedFiles[index].progress === 100) {
-              this.getImagenes(this.fotoInsertar.idInmueble);
+              setTimeout(() => {
+                this.getImagenes(this.fotoInsertar.idInmueble);
+              }, 1500);
             }
             break;
           case HttpEventType.Response:

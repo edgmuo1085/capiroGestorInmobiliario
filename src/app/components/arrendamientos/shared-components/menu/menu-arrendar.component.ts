@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 
 @Component({
   selector: 'app-menu-arrendar',
@@ -9,24 +10,26 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenuArrendarComponent {
   items: MenuItem[] = [];
+  isLogging: string = '';
 
-  constructor() {
+  constructor(private dataUserService: DataUserService) {
+    this.isLogging = this.dataUserService.enableToken() ? '/sesion' : '';
     this.items = [
       {
         label: 'Información General',
-        routerLink: '/arrendamiento/informacion-general',
+        routerLink: '/arrendamiento' + this.isLogging + '/informacion-general',
       },
       {
         label: 'Información Ocupación',
-        routerLink: '/arrendamiento/informacion-ocupacion',
+        routerLink: '/arrendamiento' + this.isLogging + '/informacion-ocupacion',
       },
       {
         label: 'Referencias',
-        routerLink: '/arrendamiento/referencias',
+        routerLink: '/arrendamiento' + this.isLogging + '/referencias',
       },
       {
         label: 'Bienes',
-        routerLink: '/arrendamiento/bienes',
+        routerLink: '/arrendamiento' + this.isLogging + '/bienes',
       },
     ];
   }

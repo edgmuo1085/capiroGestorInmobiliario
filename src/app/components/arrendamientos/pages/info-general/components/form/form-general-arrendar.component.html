@@ -372,9 +372,11 @@
               formControlName="estadoCivil"
               aria-label="Estado civil"
               [ngClass]="{ 'is-invalid': formCtrlG['estadoCivil'].touched && formCtrlG['estadoCivil'].errors }"
+              (change)="clicEstadoCivil(estadoCivilSelect.value)"
+              #estadoCivilSelect
             >
               <ng-container>
-                <option *ngFor="let tipo of listadoEstadosCivil" [ngValue]="tipo.value" (click)="clicEstadoCivil(tipo.value)">
+                <option *ngFor="let tipo of listadoEstadosCivil" [value]="tipo.value">
                   {{ tipo.label }}
                 </option>
               </ng-container>
@@ -436,7 +438,7 @@
                 [ngClass]="{ 'is-invalid': formCtrlG['tipoDocC'].touched && formCtrlG['tipoDocC'].errors }"
               >
                 <ng-container>
-                  <option *ngFor="let tipo of listadoEstadosCivil" [ngValue]="tipo.value" (click)="clicEstadoCivil(tipo.value)">
+                  <option *ngFor="let tipo of listadoEstadosCivil" [ngValue]="tipo.value">
                     {{ tipo.label }}
                   </option>
                 </ng-container>

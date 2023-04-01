@@ -1,0 +1,9 @@
+@import 'layout.functions';
+
+.titulo-referencias {
+  font-size: cap-font-size(16px);
+  font-weight: 700;
+  color: var(--color-principal);
+  margin-top: cap-font-size(24px);
+  margin-bottom: cap-font-size(24px);
+}
