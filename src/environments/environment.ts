@@ -8,7 +8,7 @@ const constants = {
 
 export const environment = {
   production: false,
-  URL_API: `http://34.203.40.127:9099/serviciosCapiro-1/`, //pruebas desarrollo
+  URL_API: `http://44.214.189.34:9099/serviciosCapiro-1/`, //pruebas desarrollo
   //URL_API: `https://arrendamientoscapiro.com/`,
   //URL_API: `http://localhost:9099/pruebas/`, //pruebas local
   ...constants,
