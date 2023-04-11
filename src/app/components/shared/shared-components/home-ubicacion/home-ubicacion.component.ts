@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home-ubicacion',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeUbicacionComponent implements OnInit {
   rutaUbicacionCapiro: string = '';
+  mostraMapa: boolean = environment.production;
 
   constructor() {}
 

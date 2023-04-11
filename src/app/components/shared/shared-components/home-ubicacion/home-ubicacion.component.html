@@ -9,8 +9,8 @@
   <div class="row justify-content-center">
     <div class="col-12 col-md-12 text-center">
       <div class="block-map-container">
-        mapa-mantenimiento
-        <!-- <iframe
+        <iframe
+          *ngIf="mostraMapa"
           class="map"
           [src]="rutaUbicacionCapiro | safeUrl"
           width="100%"
@@ -19,7 +19,7 @@
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-        ></iframe> -->
+        ></iframe>
       </div>
     </div>
   </div>
