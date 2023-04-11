@@ -16,6 +16,9 @@ export class HomeDestacadosComponent implements OnInit {
   ngOnInit(): void {
     this.propiedadesService.getPropiedadesDestacados().subscribe({
       next: response => {
+        if (!response) {
+          return;
+        }
         if (!response.length) {
           return;
         }

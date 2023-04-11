@@ -28,7 +28,7 @@ export const parametrosSelect = {
       label: 'Casa Finca',
     },
   ],
-  listaEstados: [
+  listaEstratos: [
     {
       value: '1',
       label: 'Estrato 1',
@@ -61,31 +61,31 @@ export const parametrosSelect = {
   listaHabitaciones: [
     {
       value: '1',
-      label: 'Habitaciones 1',
+      label: '1 Habitación',
     },
     {
       value: '2',
-      label: 'Habitaciones 2',
+      label: '2 Habitaciones',
     },
     {
       value: '3',
-      label: 'Habitaciones 3',
+      label: '3 Habitaciones',
     },
     {
       value: '4',
-      label: 'Habitaciones 4',
+      label: '4 Habitaciones',
     },
     {
       value: '5',
-      label: 'Habitaciones 5',
+      label: '5 Habitaciones',
     },
     {
       value: '6',
-      label: 'Habitaciones 6',
+      label: '6 Habitaciones',
     },
     {
       value: '7',
-      label: 'Habitaciones 7',
+      label: '7 Habitaciones',
     },
   ],
   garageSeleccion: [
@@ -214,6 +214,58 @@ export const parametrosSelect = {
     {
       value: 'Cuenta de Corriente',
       label: 'Cuenta de Corriente',
+    },
+  ],
+  listaNiveles: [
+    {
+      value: '1',
+      label: 'Nivel 1',
+    },
+    {
+      value: '2',
+      label: 'Nivel 2',
+    },
+    {
+      value: '3',
+      label: 'Nivel 3',
+    },
+    {
+      value: '4',
+      label: 'Nivel 4',
+    },
+    {
+      value: '5',
+      label: 'Nivel 5',
+    },
+    {
+      value: '6',
+      label: 'Nivel 6',
+    },
+  ],
+  listaBanios: [
+    {
+      value: '1',
+      label: '1 Baño',
+    },
+    {
+      value: '2',
+      label: '2 Baños',
+    },
+    {
+      value: '3',
+      label: '3 Baños',
+    },
+    {
+      value: '4',
+      label: '4 Baños',
+    },
+    {
+      value: '5',
+      label: '5 Baños',
+    },
+    {
+      value: '6',
+      label: '6 Baños',
     },
   ],
 };

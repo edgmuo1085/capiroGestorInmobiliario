@@ -1,0 +1,335 @@
+<form [formGroup]="formAvaluos" (ngSubmit)="solicitarAvaluo()" appValidator autocomplete="off" class="form-avaluos">
+  <div class="container-fluid my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'tipoInmueble'">
+          <div class="form-floating">
+            <select
+              class="form-select"
+              id="tipoInmueble"
+              formControlName="tipoInmueble"
+              aria-label="Tipo de inmueble"
+              [ngClass]="{ 'is-invalid': formCtrlAv['tipoInmueble'].touched && formCtrlAv['tipoInmueble'].errors }"
+            >
+              <ng-container>
+                <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
+              </ng-container>
+            </select>
+            <label for="tipoInmueble">Tipo de inmueble</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'estrato'">
+          <div class="form-floating">
+            <select
+              class="form-select"
+              id="estrato"
+              formControlName="estrato"
+              aria-label="Estratos"
+              [ngClass]="{ 'is-invalid': formCtrlAv['estrato'].touched && formCtrlAv['estrato'].errors }"
+            >
+              <ng-container>
+                <option *ngFor="let tipo of listaEstratos" [ngValue]="tipo.value">{{ tipo.label }}</option>
+              </ng-container>
+            </select>
+            <label for="estrato">Estratos</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'niveles'">
+          <div class="form-floating">
+            <select
+              class="form-select"
+              id="niveles"
+              formControlName="niveles"
+              aria-label="Niveles"
+              [ngClass]="{ 'is-invalid': formCtrlAv['niveles'].touched && formCtrlAv['niveles'].errors }"
+            >
+              <ng-container>
+                <option *ngFor="let tipo of listaNiveles" [ngValue]="tipo.value">{{ tipo.label }}</option>
+              </ng-container>
+            </select>
+            <label for="niveles">Niveles</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'habitaciones'">
+          <div class="form-floating">
+            <select
+              class="form-select"
+              id="habitaciones"
+              formControlName="habitaciones"
+              aria-label="Habitaciones"
+              [ngClass]="{ 'is-invalid': formCtrlAv['habitaciones'].touched && formCtrlAv['habitaciones'].errors }"
+            >
+              <ng-container>
+                <option *ngFor="let tipo of listaHabitaciones" [ngValue]="tipo.value">{{ tipo.label }}</option>
+              </ng-container>
+            </select>
+            <label for="habitaciones">Habitaciones</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'garaje'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlAv['garaje'].touched && formCtrlAv['garaje'].errors }"
+              formControlName="garaje"
+              id="garaje"
+              type="text"
+              placeholder="Garaje"
+              required=""
+            />
+            <label for="garaje">Garaje</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'banos'">
+          <div class="form-floating">
+            <select
+              class="form-select"
+              id="banos"
+              formControlName="banos"
+              aria-label="Baños"
+              [ngClass]="{ 'is-invalid': formCtrlAv['banos'].touched && formCtrlAv['banos'].errors }"
+            >
+              <ng-container>
+                <option *ngFor="let tipo of listaBanios" [ngValue]="tipo.value">{{ tipo.label }}</option>
+              </ng-container>
+            </select>
+            <label for="banos">Baños</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'tiempoConstruido'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlAv['tiempoConstruido'].touched && formCtrlAv['tiempoConstruido'].errors }"
+              formControlName="tiempoConstruido"
+              id="tiempoConstruido"
+              type="text"
+              placeholder="Tiempo de construido"
+              required=""
+            />
+            <label for="tiempoConstruido">Tiempo de construido</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'tipoConstruccion'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlAv['tipoConstruccion'].touched && formCtrlAv['tipoConstruccion'].errors }"
+              formControlName="tipoConstruccion"
+              id="tipoConstruccion"
+              type="text"
+              placeholder="Tipo de construcción"
+              required=""
+            />
+            <label for="tipoConstruccion">Tipo de construcción</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'ubicacion'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlAv['ubicacion'].touched && formCtrlAv['ubicacion'].errors }"
+              formControlName="ubicacion"
+              id="ubicacion"
+              type="text"
+              placeholder="Ubicación"
+              required=""
+            />
+            <label for="ubicacion">Ubicación</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'direccion'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlAv['direccion'].touched && formCtrlAv['direccion'].errors }"
+              formControlName="direccion"
+              id="direccion"
+              type="text"
+              placeholder="Dirección"
+              required=""
+            />
+            <label for="direccion">Dirección</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <h3 class="hipotecas-titulo">Datos personales</h3>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'nombres'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlAv['nombres'].touched && formCtrlAv['nombres'].errors }"
+              formControlName="nombres"
+              id="nombres"
+              type="text"
+              placeholder="Nombres"
+              required=""
+            />
+            <label for="nombres">Nombres</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'apellidos'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlAv['apellidos'].touched && formCtrlAv['apellidos'].errors }"
+              formControlName="apellidos"
+              id="apellidos"
+              type="text"
+              placeholder="Apellidos"
+              required=""
+            />
+            <label for="apellidos">Apellidos</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'telefono'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlAv['telefono'].touched && formCtrlAv['telefono'].errors }"
+              formControlName="telefono"
+              id="telefono"
+              type="text"
+              placeholder="Teléfono"
+              required=""
+            />
+            <label for="telefono">Teléfono</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+      <div class="col-12 col-md-5 mb-3">
+        <app-cap-form-fielset [label]="'email'">
+          <div class="form-floating">
+            <input
+              class="form-control"
+              [ngClass]="{ 'is-invalid': formCtrlAv['email'].touched && formCtrlAv['email'].errors }"
+              formControlName="email"
+              id="email"
+              type="email"
+              placeholder="Correo electrónico"
+              required=""
+            />
+            <label for="email">Correo electrónico</label>
+          </div>
+        </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <h3 class="hipotecas-titulo">Documentos</h3>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 mb-3">
+        <app-upload-avaluo [titleCampo]="'Certificado de libertad'"></app-upload-avaluo>
+      </div>
+      <div class="col-12 col-md-5 mb-3">
+        <app-upload-avaluo [titleCampo]="'Escritura pública'"></app-upload-avaluo>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-5 mb-3">
+        <app-upload-avaluo [titleCampo]="'Predial'"></app-upload-avaluo>
+      </div>
+      <div class="col-12 col-md-5 mb-3">
+        <app-upload-avaluo [titleCampo]="'Certificado catastral'"></app-upload-avaluo>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-evenly mt-5">
+      <div class="form-button">
+        <button class="form-btn bg-gray" type="button" (click)="btnCancel()">Cancelar</button>
+      </div>
+      <div class="form-button">
+        <button class="form-btn" type="submit">
+          Solicitar
+          <div class="spinner-border spinner-border-sm" role="status" *ngIf="loadingButton">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<!-- <form [formGroup]="formAvaluos" (ngSubmit)="solicitarAvaluo()">
+  <div class="hipotecas__form--items">
+
+    <div class="form__items">
+      <div class="form__item">
+        <label for="certificadoLibertad" class="formulario__label">Certificado de libertad:</label>
+        <input type="file" accept="*" id="certificadoLibertad" name="certificadoLibertad" formControlName="certificadoLibertad" />
+      </div>
+      <div class="form__item">
+        <label for="escrituraPublica" class="formulario__label">Escritura pública:</label>
+        <input type="file" accept=".pdf" id="escrituraPublica" name="escrituraPublica" formControlName="escrituraPublica" />
+      </div>
+    </div>
+
+    <div class="form__items">
+      <div class="form__item">
+        <label for="predial" class="formulario__label">Predial:</label>
+        <input type="file" accept=".pdf" id="predial" name="predial" formControlName="predial" />
+      </div>
+      <div class="form__item">
+        <label for="certificadoCatastral" class="formulario__label">Certificado de catastral:</label>
+        <input type="file" accept=".pdf" id="certificadoCatastral" name="certificadoCatastral" formControlName="certificadoCatastral" />
+      </div>
+    </div>
+
+    <div class="form__items--botones">
+      <a routerLink="/home" class="registrar__boton--cancelar">Cancelar</a>
+      <button type="submit" class="registrar__boton">Solicitar</button>
+    </div>
+  </div>
+</form>
+ -->

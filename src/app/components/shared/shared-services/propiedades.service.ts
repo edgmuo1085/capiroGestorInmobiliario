@@ -18,6 +18,11 @@ export class PropiedadesService {
     return this.http.get<ResponseInmueble[]>(url);
   }
 
+  getInmueblesUsuario(idUsuario: number): Observable<ResponseInmueble[]> {
+    const url = `${environment.URL_API}predio/listausuario/${idUsuario}`;
+    return this.http.get<ResponseInmueble[]>(url);
+  }
+
   getInmuebleOne(id: number): Observable<ResponseInmueble> {
     const url = `${environment.URL_API}predio/buscar/${id}`;
     //return this.http.get<ResponseArchivo[]>('./assets/data/imagenes.json');

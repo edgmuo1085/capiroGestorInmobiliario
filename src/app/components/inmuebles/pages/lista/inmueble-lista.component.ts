@@ -26,7 +26,7 @@ export class InmuebleListaComponent implements OnInit {
 
   getListaInmuebles() {
     this.loading = true;
-    this.propiedadesService.getInmuebles().subscribe({
+    this.propiedadesService.getInmueblesUsuario(this.idUsuario).subscribe({
       next: response => {
         if (!response.length) {
           this.loading = false;

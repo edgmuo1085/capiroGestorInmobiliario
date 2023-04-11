@@ -1,5 +1,7 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-avaluos-form',
@@ -7,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./avaluos-form.component.scss'],
 })
 export class AvaluosFormComponent implements OnInit {
-  display: boolean = false;
-  formAvaluos!: FormGroup;
+  mostrarModal: boolean = false;
+  loadingButton: boolean = false;
+  formAvaluos: FormGroup = new FormGroup({});
+  tiposInmuebles: ParametrosShared[] = environment.tiposInmuebles;
+  listaEstratos: ParametrosShared[] = environment.listaEstratos;
+  listaNiveles: ParametrosShared[] = environment.listaNiveles;
+  listaHabitaciones: ParametrosShared[] = environment.listaHabitaciones;
+  listaBanios: ParametrosShared[] = environment.listaBanios;
 
   constructor(private fb: FormBuilder) {}
 
@@ -24,10 +32,10 @@ export class AvaluosFormComponent implements OnInit {
       tipoConstruccion: ['', [Validators.required]],
       ubicacion: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
-      nombre: ['', [Validators.required]],
-      apellido: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      nombres: ['', [Validators.required]],
+      apellidos: ['', [Validators.required]],
       telefono: ['', [Validators.required]],
+      email: ['', [Validators.required]],
       certificadoLibertad: ['', [Validators.required]],
       escrituraPublica: ['', [Validators.required]],
       predial: ['', [Validators.required]],
@@ -35,13 +43,19 @@ export class AvaluosFormComponent implements OnInit {
     });
   }
 
-  solicitarAvaluo() {
-    if (this.formAvaluos.valid) {
-      console.log(this.formAvaluos.value);
+  onSubmitAvaluo() {
+    if (this.formAvaluos.invalid) {
+      return;
     }
+
+    console.log(this.formAvaluos.value);
   }
 
   showDialog() {
-    this.display = true;
+    this.mostrarModal = true;
+  }
+
+  hideDialog(event: boolean) {
+    this.mostrarModal = event;
   }
 }

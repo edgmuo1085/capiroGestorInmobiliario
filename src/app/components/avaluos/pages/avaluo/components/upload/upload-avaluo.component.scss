@@ -1,0 +1,36 @@
+@import 'layout.functions';
+
+.blok-upload-files {
+  .upload-file-text h4 {
+    text-align: left;
+    font-size: cap-font-size(16px);
+    padding: cap-font-size(16px) 0 cap-font-size(8px);
+  }
+}
+
+.images-uploaded {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: cap-font-size(8px);
+  padding: cap-font-size(5px);
+
+  .div1 {
+    grid-area: 1 / 1 / 2 / 2;
+    font-weight: 400;
+    font-size: cap-font-size(10px);
+  }
+
+  .div2 {
+    grid-area: 1 / 2 / 2 / 6;
+
+    .p-progressbar {
+      font-size: cap-font-size(10px);
+      height: cap-font-size(15px);
+
+      &.p-progressbar-value {
+        background: var(--purple-color-1);
+      }
+    }
+  }
+}
