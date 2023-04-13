@@ -8,9 +8,8 @@ describe('LayoutAuthComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LayoutAuthComponent ]
-    })
-    .compileComponents();
+      declarations: [LayoutAuthComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LayoutAuthComponent);
     component = fixture.componentInstance;

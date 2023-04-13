@@ -8,9 +8,8 @@ describe('CapFormFielsetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CapFormFielsetComponent ]
-    })
-    .compileComponents();
+      declarations: [CapFormFielsetComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CapFormFielsetComponent);
     component = fixture.componentInstance;

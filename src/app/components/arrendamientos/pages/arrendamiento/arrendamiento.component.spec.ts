@@ -8,9 +8,8 @@ describe('ArrendamientoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ArrendamientoComponent ]
-    })
-    .compileComponents();
+      declarations: [ArrendamientoComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ArrendamientoComponent);
     component = fixture.componentInstance;

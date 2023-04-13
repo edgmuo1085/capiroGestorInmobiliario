@@ -8,9 +8,8 @@ describe('LayoutPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LayoutPageComponent ]
-    })
-    .compileComponents();
+      declarations: [LayoutPageComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LayoutPageComponent);
     component = fixture.componentInstance;

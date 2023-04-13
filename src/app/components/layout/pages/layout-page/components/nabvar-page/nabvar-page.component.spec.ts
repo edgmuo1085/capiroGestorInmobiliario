@@ -8,9 +8,8 @@ describe('NabvarPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NabvarPageComponent ]
-    })
-    .compileComponents();
+      declarations: [NabvarPageComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(NabvarPageComponent);
     component = fixture.componentInstance;

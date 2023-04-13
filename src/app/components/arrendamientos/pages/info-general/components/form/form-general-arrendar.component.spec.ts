@@ -8,9 +8,8 @@ describe('FormGeneralArrendarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormGeneralArrendarComponent ]
-    })
-    .compileComponents();
+      declarations: [FormGeneralArrendarComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(FormGeneralArrendarComponent);
     component = fixture.componentInstance;

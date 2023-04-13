@@ -8,9 +8,8 @@ describe('CapModalConfirmacionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CapModalConfirmacionComponent ]
-    })
-    .compileComponents();
+      declarations: [CapModalConfirmacionComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CapModalConfirmacionComponent);
     component = fixture.componentInstance;
