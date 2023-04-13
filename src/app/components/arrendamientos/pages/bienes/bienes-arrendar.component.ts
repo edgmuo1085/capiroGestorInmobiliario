@@ -46,6 +46,7 @@ export class BienesArrendarComponent implements OnInit {
   }
 
   enviarFormulario() {
+    console.log('formBienes ', this.formBienes.value);
     console.log('guardar formulario');
   }
 }
