@@ -88,7 +88,7 @@ export const parametrosSelect = {
       label: '7 Habitaciones',
     },
   ],
-  garageSeleccion: [
+  listaEleccionSiNo: [
     {
       value: 'Si',
       label: 'Sí',
@@ -266,6 +266,24 @@ export const parametrosSelect = {
     {
       value: '6',
       label: '6 Baños',
+    },
+  ],
+  listaUsoPropiedad: [
+    {
+      value: 'Residencial',
+      label: 'Residencial',
+    },
+    {
+      value: 'Comercial',
+      label: 'Comercial',
+    },
+    {
+      value: 'Mixto',
+      label: 'Mixto',
+    },
+    {
+      value: 'Otro',
+      label: 'Otro',
     },
   ],
 };

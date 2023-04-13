@@ -24,7 +24,7 @@ export class InmuebleRegistrarComponent implements OnInit {
 
   tiposInmuebles: ParametrosShared[] = environment.tiposInmuebles;
   listaEstratos: ParametrosShared[] = environment.listaEstratos;
-  garageSeleccion: ParametrosShared[] = environment.garageSeleccion;
+  listaEleccionSiNo: ParametrosShared[] = environment.listaEleccionSiNo;
   estadoInmueble: ParametrosShared[] = environment.estadoInmueble;
   tipoPublicacion: ParametrosShared[] = environment.tipoPublicacion;
   tipoConstruccion: ParametrosShared[] = environment.tipoConstruccion;

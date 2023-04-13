@@ -7,11 +7,11 @@ import { PropiedadesService } from 'src/app/components/shared/shared-services/pr
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
 
 @Component({
-  selector: 'app-upload-avaluo',
-  templateUrl: './upload-avaluo.component.html',
-  styleUrls: ['./upload-avaluo.component.scss'],
+  selector: 'app-upload-hipoteca',
+  templateUrl: './upload-hipoteca.component.html',
+  styleUrls: ['./upload-hipoteca.component.scss'],
 })
-export class UploadAvaluoComponent implements OnDestroy {
+export class UploadHipotecaComponent implements OnDestroy {
   @Input() idUsuario: number = 0;
   @Input() idInmueble: number = 0;
   @Input() titleCampo: string = '';

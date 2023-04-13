@@ -119,7 +119,7 @@
                       [ngClass]="{ 'is-invalid': formCtrlI['garage'].touched && formCtrlI['garage'].errors }"
                     >
                       <ng-container>
-                        <option *ngFor="let tipo of garageSeleccion" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                        <option *ngFor="let tipo of listaEleccionSiNo" [ngValue]="tipo.value">{{ tipo.label }}</option>
                       </ng-container>
                     </select>
                     <label for="garage">Garaje</label>

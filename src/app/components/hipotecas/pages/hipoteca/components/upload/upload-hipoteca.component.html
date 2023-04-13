@@ -1,0 +1,23 @@
+<div class="blok-upload-files animate__animated animate__fadeInDown">
+  <div class="upload-file-text">
+    <h4>{{ titleCampo }}</h4>
+  </div>
+  <p-fileUpload
+    name="myfile[]"
+    [multiple]="multiple"
+    [customUpload]="true"
+    accept="image/*,.pdf"
+    [maxFileSize]="10000000"
+    (uploadHandler)="onBasicUploadAuto($event)"
+    (onClear)="clearImg()"
+  >
+  </p-fileUpload>
+  <ng-container *ngFor="let imageProgress of uploadedFiles">
+    <div class="images-uploaded">
+      <div class="div1">{{ imageProgress.nameFile }}</div>
+      <div class="div2">
+        <p-progressBar [value]="imageProgress.progress"></p-progressBar>
+      </div>
+    </div>
+  </ng-container>
+</div>

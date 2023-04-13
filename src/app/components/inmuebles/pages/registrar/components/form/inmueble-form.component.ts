@@ -18,7 +18,7 @@ export class InmuebleFormComponent {
   @Input() msgTituloPage: string = '';
   @Input() tiposInmuebles: ParametrosShared[] = [];
   @Input() listaEstratos: ParametrosShared[] = [];
-  @Input() garageSeleccion: ParametrosShared[] = [];
+  @Input() listaEleccionSiNo: ParametrosShared[] = [];
   @Input() estadoInmueble: ParametrosShared[] = [];
   @Input() tipoPublicacion: ParametrosShared[] = [];
   @Input() tipoConstruccion: ParametrosShared[] = [];

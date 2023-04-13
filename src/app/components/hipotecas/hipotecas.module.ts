@@ -3,13 +3,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { HipotecasRoutingModule } from './hipotecas-routing.module';
+import { SharedModulesModule } from '../shared/shared-modules/shared-modules.module';
+import { SharedPrimengModulesModule } from '../shared/shared-primeng-modules/shared-primeng-modules.module';
 
-import { FileUploadModule } from 'primeng/fileupload';
-import { DialogModule } from 'primeng/dialog';
 import { HipotecasFormComponent } from './pages/hipoteca/hipotecas-form.component';
+import { FormHipotecaComponent } from './pages/hipoteca/components/form/form-hipoteca.component';
+import { ModalHipotecaComponent } from './pages/hipoteca/components/modal/modal-hipoteca.component';
+import { UploadHipotecaComponent } from './pages/hipoteca/components/upload/upload-hipoteca.component';
 
 @NgModule({
-  declarations: [HipotecasFormComponent],
-  imports: [CommonModule, HipotecasRoutingModule, FormsModule, ReactiveFormsModule, FileUploadModule, DialogModule],
+  declarations: [HipotecasFormComponent, FormHipotecaComponent, ModalHipotecaComponent, UploadHipotecaComponent],
+  imports: [CommonModule, HipotecasRoutingModule, FormsModule, ReactiveFormsModule, SharedModulesModule, SharedPrimengModulesModule],
 })
 export class HipotecasModule {}
