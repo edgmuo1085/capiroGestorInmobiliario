@@ -1,6 +1,6 @@
 <section id="section-avaluo">
   <div class="container-fluid">
-    <div class="row justify-contente-center">
+    <div class="row justify-content-center">
       <div class="col-12 px-0">
         <div class="header-avaluo animate__animated animate__fadeInDown">
           <img src="./assets/images/fondoNosotros.jpg" alt="Fondo registro inmueble" class="img-avaluo" />
@@ -20,22 +20,14 @@
         <button class="requisitos-button" (click)="showDialog()">Ver requisitos</button>
       </div>
     </div>
-    <div class="row justify-contente-center my-4">
+  </div>
+  <div class="container">
+    <div class="row justify-content-center mt-3">
       <div class="col-12">
-        <app-form-avaluo
-          [formAvaluos]="formAvaluos"
-          [tiposInmuebles]="tiposInmuebles"
-          [listaEstratos]="listaEstratos"
-          [listaNiveles]="listaNiveles"
-          [listaHabitaciones]="listaHabitaciones"
-          [listaEleccionSiNo]="listaEleccionSiNo"
-          [listaBanios]="listaBanios"
-          [tipoConstruccion]="tipoConstruccion"
-          (actionSaveForm)="onSubmitAvaluo()"
-        ></app-form-avaluo>
+        <p-tabMenu [model]="items"></p-tabMenu>
       </div>
     </div>
   </div>
 </section>
 
-<app-modal-avaluo [visible]="mostrarModal" (eventCloseDialogModal)="hideDialog($event)"></app-modal-avaluo>
+<app-avaluos-modal-requisitos [visible]="mostrarModal" (eventCloseDialogModal)="hideDialog($event)"></app-avaluos-modal-requisitos>

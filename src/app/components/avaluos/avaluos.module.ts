@@ -6,13 +6,26 @@ import { AvaluosRoutingModule } from './avaluos-routing.module';
 import { SharedPrimengModulesModule } from '../shared/shared-primeng-modules/shared-primeng-modules.module';
 import { SharedModulesModule } from '../shared/shared-modules/shared-modules.module';
 
-import { AvaluosFormComponent } from './pages/avaluo/avaluos-form.component';
-import { FormAvaluoComponent } from './pages/avaluo/components/form/form-avaluo.component';
-import { ModalAvaluoComponent } from './pages/avaluo/components/modal/modal-avaluo.component';
-import { UploadAvaluoComponent } from './pages/avaluo/components/upload/upload-avaluo.component';
+import { ModalAvaluoComponent } from './shared-components/modal/modal-avaluo.component';
+import { AvaluosMenuComponent } from './shared-components/menu/avaluos-menu.component';
+import { AvaluosListaComponent } from './pages/lista/avaluos-lista.component';
+import { AvaluosRegistrarComponent } from './pages/registrar/avaluos-registrar.component';
+import { AvaluoFormComponent } from './pages/registrar/components/form/avaluo-form.component';
+import { AvaluosUploadComponent } from './shared-components/upload/avaluos-upload.component';
+import { AvaluosModalRequisitosComponent } from './shared-components/modal-requisitos/avaluos-modal-requisitos.component';
+import { AvaluosTableComponent } from './pages/lista/components/table/avaluos-table.component';
 
 @NgModule({
-  declarations: [AvaluosFormComponent, FormAvaluoComponent, ModalAvaluoComponent, UploadAvaluoComponent],
+  declarations: [
+    ModalAvaluoComponent,
+    AvaluosRegistrarComponent,
+    AvaluoFormComponent,
+    AvaluosUploadComponent,
+    AvaluosModalRequisitosComponent,
+    AvaluosMenuComponent,
+    AvaluosListaComponent,
+    AvaluosTableComponent,
+  ],
   imports: [CommonModule, AvaluosRoutingModule, FormsModule, ReactiveFormsModule, SharedModulesModule, SharedPrimengModulesModule],
 })
 export class AvaluosModule {}

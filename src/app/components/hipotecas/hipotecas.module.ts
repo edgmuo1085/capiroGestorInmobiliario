@@ -10,9 +10,10 @@ import { HipotecasFormComponent } from './pages/hipoteca/hipotecas-form.componen
 import { FormHipotecaComponent } from './pages/hipoteca/components/form/form-hipoteca.component';
 import { ModalHipotecaComponent } from './pages/hipoteca/components/modal/modal-hipoteca.component';
 import { UploadHipotecaComponent } from './pages/hipoteca/components/upload/upload-hipoteca.component';
+import { HipotecasMenuComponent } from './shared-components/menu/hipotecas-menu.component';
 
 @NgModule({
-  declarations: [HipotecasFormComponent, FormHipotecaComponent, ModalHipotecaComponent, UploadHipotecaComponent],
+  declarations: [HipotecasFormComponent, FormHipotecaComponent, ModalHipotecaComponent, UploadHipotecaComponent, HipotecasMenuComponent],
   imports: [CommonModule, HipotecasRoutingModule, FormsModule, ReactiveFormsModule, SharedModulesModule, SharedPrimengModulesModule],
 })
 export class HipotecasModule {}

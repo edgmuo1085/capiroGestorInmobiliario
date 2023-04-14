@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutPageComponent } from '../layout/pages/layout-page/layout-page.component';
-import { AvaluosFormComponent } from './pages/avaluo/avaluos-form.component';
+import { AvaluosListaComponent } from './pages/lista/avaluos-lista.component';
+import { AvaluosRegistrarComponent } from './pages/registrar/avaluos-registrar.component';
 
 const routes: Routes = [
   {
@@ -11,12 +12,17 @@ const routes: Routes = [
       {
         title: '.::Avalúos::.',
         path: 'registrar',
-        component: AvaluosFormComponent,
+        component: AvaluosRegistrarComponent,
+      },
+      {
+        title: '.::Listar Avalúos::.',
+        path: 'listar',
+        component: AvaluosListaComponent,
       },
       {
         title: '.::Avalúos::.',
         path: '',
-        component: AvaluosFormComponent,
+        component: AvaluosListaComponent,
       },
     ],
   },

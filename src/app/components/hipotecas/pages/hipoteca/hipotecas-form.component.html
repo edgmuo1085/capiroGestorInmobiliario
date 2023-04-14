@@ -1,6 +1,6 @@
 <section id="section-hipoteca">
   <div class="container-fluid">
-    <div class="row justify-contente-center">
+    <div class="row justify-content-center">
       <div class="col-12 px-0">
         <div class="header-hipoteca animate__animated animate__fadeInDown">
           <img src="./assets/images/fondo-hipotecas.jpg" alt="Fondo registro inmueble" class="img-hipoteca" />
@@ -16,7 +16,7 @@
         <button class="requisitos-button" (click)="showDialog()">Ver requisitos</button>
       </div>
     </div>
-    <div class="row justify-contente-center my-4">
+    <div class="row justify-content-center my-4">
       <div class="col-12">
         <app-form-hipoteca
           [formHipotecas]="formHipotecas"
@@ -24,7 +24,7 @@
           [listaUsoPropiedad]="listaUsoPropiedad"
           [listaEleccionSiNo]="listaEleccionSiNo"
           [listaEstratos]="listaEstratos"
-          (actionSaveForm)="onSolicitarHipoteca()"
+          (actionSaveForm)="onSubmitHipoteca()"
         ></app-form-hipoteca>
       </div>
     </div>

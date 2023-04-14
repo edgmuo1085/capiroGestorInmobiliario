@@ -4,14 +4,14 @@ import { ParametrosShared } from 'src/app/components/interfaces/parametros.inter
 import { environment } from 'src/environments/environment';
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
+import { AvaluoModel, ResponseAvaluo } from 'src/app/components/interfaces/response-avaluo-hipoteca.interface';
 
 @Component({
-  selector: 'app-avaluos-form',
-  templateUrl: './avaluos-form.component.html',
-  styleUrls: ['./avaluos-form.component.scss'],
+  selector: 'app-avaluos-registrar',
+  templateUrl: './avaluos-registrar.component.html',
+  styleUrls: ['./avaluos-registrar.component.scss'],
 })
-export class AvaluosFormComponent implements OnInit {
-  mostrarModal: boolean = false;
+export class AvaluosRegistrarComponent implements OnInit {
   loadingButton: boolean = false;
   formAvaluos: FormGroup = new FormGroup({});
   tiposInmuebles: ParametrosShared[] = environment.tiposInmuebles;
@@ -41,11 +41,6 @@ export class AvaluosFormComponent implements OnInit {
       apellido: ['', [Validators.required]],
       correo: ['', [Validators.required, Validators.email]],
       celular: ['', [Validators.required]],
-      /*
-      certificadoLibertad: [''],
-      escrituraPublica: [''],
-      predial: [''],
-      certificadoCatastral: [''], */
     });
   }
 
@@ -55,14 +50,40 @@ export class AvaluosFormComponent implements OnInit {
       return;
     }
 
-    console.log(this.formAvaluos.value);
-  }
+    let registroAvaluo: ResponseAvaluo = new AvaluoModel(
+      this.formAvaluos.get('tipoFormulario')?.value,
+      this.formAvaluos.get('tipoInmueble')?.value,
+      this.formAvaluos.get('estrato')?.value,
+      this.formAvaluos.get('niveles')?.value,
+      this.formAvaluos.get('habitaciones')?.value,
+      this.formAvaluos.get('garaje')?.value,
+      this.formAvaluos.get('banos')?.value,
+      this.formAvaluos.get('tiempoConstruido')?.value,
+      this.formAvaluos.get('tipoConstruccion')?.value,
+      this.formAvaluos.get('ubicacion')?.value,
+      this.formAvaluos.get('direccion')?.value,
+      this.formAvaluos.get('nombre')?.value,
+      this.formAvaluos.get('apellido')?.value,
+      this.formAvaluos.get('correo')?.value,
+      this.formAvaluos.get('celular')?.value
+    );
 
-  showDialog() {
-    this.mostrarModal = true;
-  }
-
-  hideDialog(event: boolean) {
-    this.mostrarModal = event;
+    this.propiedadesService.crearAvaluo(registroAvaluo).subscribe({
+      next: response => {
+        if (!response.id) {
+          this.toastCustomService.showToast(
+            'Advertencia',
+            'Ocurrió un error al momento de registrar el avalúo, inténtelo más tarde',
+            'warn'
+          );
+          return;
+        }
+        this.toastCustomService.showToast('Información', 'Avalúo registrado con éxito. Puede continuar anexando los documentos.');
+        this.formAvaluos.reset();
+      },
+      error: err => {
+        console.error(err);
+      },
+    });
   }
 }

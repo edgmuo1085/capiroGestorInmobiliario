@@ -1,0 +1,49 @@
+@import 'layout.functions';
+
+.layout-modal-general {
+  .p-dialog-mask {
+    background-color: var(--black-color-5);
+    pointer-events: unset;
+
+    .p-dialog {
+      .p-dialog-header,
+      .p-dialog-content {
+        background-color: var(--gray-color-2);
+      }
+    }
+  }
+
+  .requisitos-header {
+    color: var(--color-principal);
+    font-size: cap-font-size(18px);
+    font-weight: 700;
+  }
+
+  .requisitos-item {
+    border: 1px solid var(--color-tercer);
+    border-radius: cap-font-size(16px);
+    padding: cap-font-size(8px) cap-font-size(16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+    box-shadow: cap-font-size(2px) cap-font-size(2px) cap-font-size(2px) cap-font-size(2px) #3f3f3f1c;
+
+    .requisitos-icono {
+      width: min(100%, cap-font-size(120px));
+    }
+
+    .requisitos-subtitulo h3 {
+      color: var(--color-tercer);
+      font-size: cap-font-size(18px);
+      font-weight: 700;
+      padding: cap-font-size(8px) 0;
+    }
+
+    .requisitos-description {
+      color: var(--color-tercer);
+      font-size: cap-font-size(14px);
+    }
+  }
+}

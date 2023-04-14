@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+  <div class="col-12">
+    <p-table
+      #tableListaAvaluos
+      [value]="listaAvaluos"
+      [(selection)]="selectedListaAvaluos"
+      dataKey="id"
+      styleClass="p-datatable-custom"
+      [rowHover]="true"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[5, 10, 25, 50]"
+      [loading]="loading"
+      [paginator]="true"
+      currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+      [filterDelay]="0"
+      [globalFilterFields]="['tipoInmueble', 'tipoConstruccion', 'ubicacion', 'direccion']"
+      id="table-avaluo"
+    >
+      <ng-template pTemplate="caption">
+        <div class="table-header">
+          Buscar avaluo
+          <span class="p-input-icon-left">
+            <i class="pi pi-search"></i>
+            <input pInputText type="text" (input)="filterGlobalListaInmuebles($event, 'contains')" placeholder="Buscar ..." />
+          </span>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="tipoInmueble">Tipo Inmueble <p-sortIcon field="tipoInmueble"></p-sortIcon></th>
+          <th pSortableColumn="tipoConstruccion">Tipo Construcción <p-sortIcon field="tipoConstruccion"></p-sortIcon></th>
+          <th pSortableColumn="ubicacion">Ubicación <p-sortIcon field="ubicacion"></p-sortIcon></th>
+          <th pSortableColumn="direccion">Dirección <p-sortIcon field="direccion"></p-sortIcon></th>
+          <th class="text-center">Más detalles</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-avaluo>
+        <tr class="p-selectable-row">
+          <td>
+            <span class="p-column-title fw-bold">Tipo Inmueble</span>
+            <span class="">{{ avaluo.tipoInmueble }}</span>
+          </td>
+          <td>
+            <span class="p-column-title fw-bold">Tipo Construcción</span>
+            <span class="">{{ avaluo.tipoConstruccion }}</span>
+          </td>
+          <td>
+            <span class="p-column-title fw-bold">Ubicación</span>
+            <span class="">{{ avaluo.ubicacion }} </span>
+          </td>
+          <td>
+            <span class="p-column-title fw-bold">Dirección</span>
+            <span class="">{{ avaluo.direccion }}</span>
+          </td>
+          <td class="text-center">
+            <span class="p-column-title fw-bold">Opciones</span>
+            <span class=""> </span>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="5" class="text-center">No existen datos para mostrar.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

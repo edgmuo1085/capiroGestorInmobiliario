@@ -6,6 +6,7 @@ import { ArchivoInmuebleModel, ArchivoInmuebleUpModel } from '../../interfaces/a
 import { InmuebleModel, InmuebleRegistroModel } from '../../interfaces/inmueble.interface';
 import { ResponseInmueble } from '../../interfaces/response-inmueble.interface';
 import { ResponseArchivo } from '../../interfaces/respose-archivo.interface';
+import { AvaluoModel, HipotecaModel, ResponseAvaluoHipoteca } from '../../interfaces/response-avaluo-hipoteca.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -84,8 +85,18 @@ export class PropiedadesService {
     return this.http.get<ResponseInmueble[]>(url);
   }
 
-  crearAvaluoHipeteca(data: ArchivoInmuebleUpModel): Observable<ResponseArchivo> {
-    const url = `${environment.URL_API}archivos/insertar/`;
-    return this.http.post<ResponseArchivo>(url, data);
+  listarAvaluoHipoteca(): Observable<ResponseAvaluoHipoteca[]> {
+    const url = `${environment.URL_API}aval/lista`;
+    return this.http.get<ResponseAvaluoHipoteca[]>(url);
+  }
+
+  crearAvaluo(data: AvaluoModel): Observable<ResponseAvaluoHipoteca> {
+    const url = `${environment.URL_API}aval/insertar/`;
+    return this.http.post<ResponseAvaluoHipoteca>(url, data);
+  }
+
+  crearHipoteca(data: HipotecaModel): Observable<ResponseAvaluoHipoteca> {
+    const url = `${environment.URL_API}aval/insertar/`;
+    return this.http.post<ResponseAvaluoHipoteca>(url, data);
   }
 }

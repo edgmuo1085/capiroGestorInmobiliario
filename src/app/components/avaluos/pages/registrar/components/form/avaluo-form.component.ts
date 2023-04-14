@@ -3,11 +3,11 @@ import { FormGroup } from '@angular/forms';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
 
 @Component({
-  selector: 'app-form-avaluo',
-  templateUrl: './form-avaluo.component.html',
-  styleUrls: ['./form-avaluo.component.scss'],
+  selector: 'app-avaluo-form',
+  templateUrl: './avaluo-form.component.html',
+  styleUrls: ['./avaluo-form.component.scss'],
 })
-export class FormAvaluoComponent {
+export class AvaluoFormComponent {
   @Input() formAvaluos: FormGroup = new FormGroup({});
   @Input() loadingButton: boolean = false;
   @Output() actionSaveForm: EventEmitter<any> = new EventEmitter<any>();

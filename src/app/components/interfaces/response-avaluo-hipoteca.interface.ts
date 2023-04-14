@@ -1,5 +1,4 @@
-export interface ResponseAvaluoHipoteca {
-  id: number;
+export interface AvaluoHipoteca {
   tipoFormulario: string;
   tipoInmueble: string;
   estrato: string;
@@ -21,21 +20,50 @@ export interface ResponseAvaluoHipoteca {
   afectacion: string;
 }
 
-/* export class InmuebleModel implements Inmueble {
+export interface ResponseAvaluoHipoteca extends AvaluoHipoteca {
+  id: number;
+}
+
+export type ResponseAvaluo = Omit<AvaluoHipoteca, 'valor' | 'area' | 'usoPropiedad' | 'afectacion'>;
+
+export type ResponseHipeteca = Omit<
+  AvaluoHipoteca,
+  'niveles' | 'habitaciones' | 'garaje' | 'banos' | 'tiempoConstruido' | 'tipoConstruccion' | 'ubicacion'
+>;
+
+export class AvaluoModel implements ResponseAvaluo {
   constructor(
+    public tipoFormulario: string,
     public tipoInmueble: string,
-    public area: number,
-    public habitacion: number,
     public estrato: string,
-    public banos: number,
-    public garage: string,
-    public estado: string,
-    public tiempo: string,
-    public precio: number,
-    public tipoPublicacion: string,
-    public tipoCons: string,
-    public idUsuario: number,
-    public id: number
+    public niveles: string,
+    public habitaciones: string,
+    public garaje: string,
+    public banos: string,
+    public tiempoConstruido: string,
+    public tipoConstruccion: string,
+    public ubicacion: string,
+    public direccion: string,
+    public nombre: string,
+    public apellido: string,
+    public correo: string,
+    public celular: string
   ) {}
 }
- */
+
+export class HipotecaModel implements ResponseHipeteca {
+  constructor(
+    public tipoFormulario: string,
+    public tipoInmueble: string,
+    public estrato: string,
+    public direccion: string,
+    public nombre: string,
+    public apellido: string,
+    public correo: string,
+    public celular: string,
+    public valor: string,
+    public area: string,
+    public usoPropiedad: string,
+    public afectacion: string
+  ) {}
+}

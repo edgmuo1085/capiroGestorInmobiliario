@@ -45,3 +45,21 @@
     }
   }
 }
+
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem {
+  .p-menuitem-link {
+    background-color: var(--gray-color-5);
+    color: var(--purple-color-2);
+    border-radius: 0;
+    border-left: cap-font-size(1px) solid var(--white-color-1);
+    border-right: cap-font-size(1px) solid var(--white-color-1);
+  }
+
+  &.p-highlight .p-menuitem-link {
+    background-color: var(--gray-color-2);
+    color: var(--color-principal);
+    border-left: none;
+    border-right: none;
+    border-bottom: cap-font-size(2px) solid var(--color-principal);
+  }
+}
