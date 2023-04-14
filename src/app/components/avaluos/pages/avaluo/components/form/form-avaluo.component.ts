@@ -15,7 +15,9 @@ export class FormAvaluoComponent {
   @Input() listaEstratos: ParametrosShared[] = [];
   @Input() listaNiveles: ParametrosShared[] = [];
   @Input() listaHabitaciones: ParametrosShared[] = [];
+  @Input() listaEleccionSiNo: ParametrosShared[] = [];
   @Input() listaBanios: ParametrosShared[] = [];
+  @Input() tipoConstruccion: ParametrosShared[] = [];
 
   constructor() {}
 

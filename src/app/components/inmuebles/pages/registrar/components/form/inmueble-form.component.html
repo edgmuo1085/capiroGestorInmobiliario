@@ -59,16 +59,18 @@
               <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'habitacion'">
                   <div class="form-floating">
-                    <input
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': formCtrlI['habitacion'].touched && formCtrlI['habitacion'].errors }"
-                      formControlName="habitacion"
+                    <select
+                      class="form-select"
                       id="habitacion"
-                      type="text"
-                      placeholder="Número de habitaciones"
-                      required=""
-                    />
-                    <label for="habitacion">Número de habitaciones</label>
+                      formControlName="habitacion"
+                      aria-label="Habitaciones"
+                      [ngClass]="{ 'is-invalid': formCtrlI['habitacion'].touched && formCtrlI['habitacion'].errors }"
+                    >
+                      <ng-container>
+                        <option *ngFor="let tipo of listaHabitaciones" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                      </ng-container>
+                    </select>
+                    <label for="habitacion">Habitaciones</label>
                   </div>
                 </app-cap-form-fielset>
               </div>
@@ -95,16 +97,18 @@
               <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'banos'">
                   <div class="form-floating">
-                    <input
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': formCtrlI['banos'].touched && formCtrlI['banos'].errors }"
-                      formControlName="banos"
+                    <select
+                      class="form-select"
                       id="banos"
-                      type="text"
-                      placeholder="Número de baños"
-                      required=""
-                    />
-                    <label for="banos">Número de baños</label>
+                      formControlName="banos"
+                      aria-label="Baños"
+                      [ngClass]="{ 'is-invalid': formCtrlI['banos'].touched && formCtrlI['banos'].errors }"
+                    >
+                      <ng-container>
+                        <option *ngFor="let tipo of listaBanios" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                      </ng-container>
+                    </select>
+                    <label for="banos">Baños</label>
                   </div>
                 </app-cap-form-fielset>
               </div>

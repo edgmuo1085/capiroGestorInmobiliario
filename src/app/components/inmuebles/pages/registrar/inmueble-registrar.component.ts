@@ -23,13 +23,14 @@ export class InmuebleRegistrarComponent implements OnInit {
   msgTituloPage: string = 'Registrar Inmueble';
 
   tiposInmuebles: ParametrosShared[] = environment.tiposInmuebles;
+  listaHabitaciones: ParametrosShared[] = environment.listaHabitaciones;
   listaEstratos: ParametrosShared[] = environment.listaEstratos;
+  listaBanios: ParametrosShared[] = environment.listaBanios;
   listaEleccionSiNo: ParametrosShared[] = environment.listaEleccionSiNo;
   estadoInmueble: ParametrosShared[] = environment.estadoInmueble;
   tipoPublicacion: ParametrosShared[] = environment.tipoPublicacion;
   tipoConstruccion: ParametrosShared[] = environment.tipoConstruccion;
   loading: boolean = false;
-  onlyNumbers: string = '^([0-9])*$';
 
   constructor(
     private fb: FormBuilder,
@@ -56,14 +57,14 @@ export class InmuebleRegistrarComponent implements OnInit {
     this.formRegistroInmueble = this.fb.group({
       isInvalidForm: false,
       tipoInmueble: ['', [Validators.required]],
-      area: ['', [Validators.required, Validators.maxLength(8), Validators.pattern(this.onlyNumbers)]],
-      habitacion: ['', [Validators.required, Validators.maxLength(2), Validators.pattern(this.onlyNumbers)]],
+      area: ['', [Validators.required, Validators.maxLength(8), Validators.pattern(environment.soloNumeros)]],
+      habitacion: ['', [Validators.required]],
       estrato: ['', [Validators.required]],
-      banos: ['', [Validators.required, Validators.maxLength(2), Validators.pattern(this.onlyNumbers)]],
+      banos: ['', [Validators.required]],
       garage: ['', [Validators.required]],
       estadoInmueble: ['', [Validators.required]],
-      tiempo: ['', [Validators.required, Validators.pattern(this.onlyNumbers)]],
-      precio: ['', [Validators.required, Validators.pattern(this.onlyNumbers)]],
+      tiempo: ['', [Validators.required, Validators.pattern(environment.soloNumeros)]],
+      precio: ['', [Validators.required, Validators.pattern(environment.soloNumeros)]],
       tipoPublicacion: ['', [Validators.required]],
       tipoConstruccion: ['', [Validators.required]],
     });

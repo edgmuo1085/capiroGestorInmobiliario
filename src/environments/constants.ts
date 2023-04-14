@@ -293,3 +293,7 @@ export const requisitosPropiedades = {
   arriendoPropiedadImg: './assets/images/arriendo-capiro.png',
   ventaPropiedadImg: './assets/images/venta-capiro.png',
 };
+
+export const validacionPatterns = {
+  soloNumeros: '^([0-9])*$',
+};

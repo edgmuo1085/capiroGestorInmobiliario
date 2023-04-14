@@ -159,7 +159,7 @@ export class InmuebleTableComponent {
   }
 
   actualizarDataImg() {
-    this.propiedadesService.actualizarFoto(this.fotoInsertar).subscribe({
+    this.propiedadesService.actualizarArchivoAdjunto(this.fotoInsertar).subscribe({
       next: response => {
         if (!response.id) {
           this.toastCustomService.showToast('Información', 'La imagen no ha sido actualizada.', 'warn');

@@ -1,8 +1,8 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
 import { environment } from 'src/environments/environment';
+import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
 
 @Component({
   selector: 'app-hipotecas-form',
@@ -19,41 +19,36 @@ export class HipotecasFormComponent implements OnInit {
   listaEstratos: ParametrosShared[] = environment.listaEstratos;
   formHipotecas: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private toastCustomService: ToastCustomService) {}
 
   ngOnInit(): void {
     this.formHipotecas = this.fb.group({
+      tipoFormulario: ['hipoteca'],
       tipoInmueble: ['', [Validators.required]],
-      valor: ['', [Validators.required]],
-      area: ['', [Validators.required]],
+      estrato: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
+      nombre: ['', [Validators.required]],
+      apellido: ['', [Validators.required]],
+      correo: ['', [Validators.required, Validators.email]],
+      celular: ['', [Validators.required]],
+      valor: ['', [Validators.required, Validators.maxLength(15), Validators.pattern(environment.soloNumeros)]],
+      area: ['', [Validators.required, Validators.maxLength(8), Validators.pattern(environment.soloNumeros)]],
       usoPropiedad: ['', [Validators.required]],
       afectacion: ['', [Validators.required]],
-      estrato: ['', [Validators.required]],
-
-      nombres: ['', [Validators.required]],
-      apellidos: ['', [Validators.required]],
-      telefono: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-
       escritura: ['', [Validators.required]],
-      predial: ['', [Validators.required]],
-      cedula: ['', [Validators.required]],
-      certificadoLibertad: ['', [Validators.required]],
-      certificadoTradicion: ['', [Validators.required]],
-      certificadoCatastral: ['', [Validators.required]],
+      /* 
+      predial: [''],
+      cedula: [''],
+      certificadoLibertad: [''],
+      certificadoTradicion: [''],
+      certificadoCatastral: [''], */
     });
   }
 
   onSolicitarHipoteca() {
-    console.log(this.formHipotecas.value);
-    if (this.formHipotecas.valid) {
-    } else {
-      Swal.fire({
-        icon: 'info',
-        title: 'Oops...',
-        text: 'Debe completar todos los campos!',
-      });
+    if (this.formHipotecas.invalid) {
+      this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
+      return;
     }
   }
 

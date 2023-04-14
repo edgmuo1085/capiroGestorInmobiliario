@@ -69,12 +69,12 @@ export class PropiedadesService {
     return this.http.request(req);
   }
 
-  actualizarFoto(data: ArchivoInmuebleUpModel): Observable<ResponseArchivo> {
+  actualizarArchivoAdjunto(data: ArchivoInmuebleUpModel): Observable<ResponseArchivo> {
     const url = `${environment.URL_API}archivos/insertar/`;
     return this.http.post<ResponseArchivo>(url, data);
   }
 
-  getPropiedades() {
+  getPropiedadesTodas() {
     const url = `${environment.URL_API}predio/lista`;
     return this.http.get(url);
   }
@@ -84,21 +84,8 @@ export class PropiedadesService {
     return this.http.get<ResponseInmueble[]>(url);
   }
 
-  // ********************************************************++
-
-  todasPropiedades() {
-    return this.http.get('./assets/data/propiedades.json');
-  }
-
-  arriendoPropiedades() {
-    return this.http.get('./assets/data/propiedades-arriendo.json');
-  }
-
-  ventaPropiedades() {
-    return this.http.get('./assets/data/propiedades-ventas.json');
-  }
-
-  getImgenes() {
-    return this.http.get('./assets/data/imagenes.json');
+  crearAvaluoHipeteca(data: ArchivoInmuebleUpModel): Observable<ResponseArchivo> {
+    const url = `${environment.URL_API}archivos/insertar/`;
+    return this.http.post<ResponseArchivo>(url, data);
   }
 }
