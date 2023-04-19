@@ -14,7 +14,7 @@
       [paginator]="true"
       currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
       [filterDelay]="0"
-      [globalFilterFields]="['tipoInmueble', 'tipoConstruccion', 'ubicacion', 'direccion']"
+      [globalFilterFields]="['tipoInmueble', 'usoPropiedad', 'ubicacion', 'direccion']"
       id="table-hipoteca"
     >
       <ng-template pTemplate="caption">
@@ -29,9 +29,11 @@
       <ng-template pTemplate="header">
         <tr>
           <th pSortableColumn="tipoInmueble">Tipo Inmueble <p-sortIcon field="tipoInmueble"></p-sortIcon></th>
-          <th pSortableColumn="tipoConstruccion">Tipo Construcción <p-sortIcon field="tipoConstruccion"></p-sortIcon></th>
-          <th pSortableColumn="ubicacion">Ubicación <p-sortIcon field="ubicacion"></p-sortIcon></th>
+          <th pSortableColumn="usoPropiedad">Uso de la propiedad <p-sortIcon field="usoPropiedad"></p-sortIcon></th>
           <th pSortableColumn="direccion">Dirección <p-sortIcon field="direccion"></p-sortIcon></th>
+          <th>Área</th>
+          <th pSortableColumn="valor">Valor <p-sortIcon field="valor"></p-sortIcon></th>
+          <th pSortableColumn="afectacion">Afectación de la propiedad <p-sortIcon field="afectacion"></p-sortIcon></th>
           <th class="text-center">Más detalles</th>
         </tr>
       </ng-template>
@@ -42,16 +44,24 @@
             <span class="">{{ avaluo.tipoInmueble }}</span>
           </td>
           <td>
-            <span class="p-column-title fw-bold">Tipo Construcción</span>
-            <span class="">{{ avaluo.tipoConstruccion }}</span>
-          </td>
-          <td>
-            <span class="p-column-title fw-bold">Ubicación</span>
-            <span class="">{{ avaluo.ubicacion }} </span>
+            <span class="p-column-title fw-bold">Uso de la propiedad</span>
+            <span class="">{{ avaluo.usoPropiedad }}</span>
           </td>
           <td>
             <span class="p-column-title fw-bold">Dirección</span>
             <span class="">{{ avaluo.direccion }}</span>
+          </td>
+          <td>
+            <span class="p-column-title fw-bold">Área</span>
+            <span class="">{{ avaluo.area + ' m' }}<sup>2</sup></span>
+          </td>
+          <td>
+            <span class="p-column-title fw-bold">Valor</span>
+            <span class="">{{ avaluo.valor | currency : 'USD' : 'symbol' : '1.0-0' }} </span>
+          </td>
+          <td>
+            <span class="p-column-title fw-bold">Afectación de la propiedad</span>
+            <span class="">{{ avaluo.afectacion }} </span>
           </td>
           <td class="text-center">
             <span class="p-column-title fw-bold">Opciones</span>

@@ -27,14 +27,13 @@ export class AvaluosListaComponent implements OnInit {
     this.loading = true;
     this.propiedadesService.listarAvaluoHipoteca().subscribe({
       next: response => {
-        console.log(response);
-
         if (!response.length) {
           this.loading = false;
           return;
         }
 
         this.listaAvaluos = response.filter(item => item.tipoFormulario !== 'hipoteca');
+        console.log(this.listaAvaluos);
         this.loading = false;
       },
       error: err => {

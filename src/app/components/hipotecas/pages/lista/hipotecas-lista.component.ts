@@ -26,14 +26,13 @@ export class HipotecasListaComponent implements OnInit {
     this.loading = true;
     this.propiedadesService.listarAvaluoHipoteca().subscribe({
       next: response => {
-        console.log(response);
-
         if (!response.length) {
           this.loading = false;
           return;
         }
 
         this.listaHipotecas = response.filter(item => item.tipoFormulario !== 'avaluo');
+        console.log(this.listaHipotecas);
         this.loading = false;
       },
       error: err => {
