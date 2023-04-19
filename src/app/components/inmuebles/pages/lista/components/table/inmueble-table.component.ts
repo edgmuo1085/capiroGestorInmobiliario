@@ -112,7 +112,7 @@ export class InmuebleTableComponent {
         formato: file.type,
         idUsuario: this.idUsuario,
         idInmueble: this.idInmueble,
-        archivo: 'base',
+        archivo: file.type,
       };
       this.fotoInsertar.nombreArchivo = `${idUnique}.${extension}`;
       this.fotoInsertar.formato = file.type;

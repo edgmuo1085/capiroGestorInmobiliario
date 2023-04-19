@@ -26,6 +26,11 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: '',
+    redirectTo: 'sesion',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

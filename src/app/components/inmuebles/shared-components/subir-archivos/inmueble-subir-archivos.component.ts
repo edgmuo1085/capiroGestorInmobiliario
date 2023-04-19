@@ -54,7 +54,7 @@ export class InmuebleSubirArchivosComponent {
         formato: file.type,
         idUsuario: this.idUsuario,
         idInmueble: this.idInmueble,
-        archivo: 'base',
+        archivo: file.type,
       };
       this.uploadedFiles = [...this.uploadedFiles, json];
       conteoSizeFilesHost++;

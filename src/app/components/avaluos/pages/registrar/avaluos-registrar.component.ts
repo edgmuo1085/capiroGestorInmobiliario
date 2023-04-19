@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 import { AvaluoModel, ResponseAvaluo } from 'src/app/components/interfaces/response-avaluo-hipoteca.interface';
+import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 
 @Component({
   selector: 'app-avaluos-registrar',
@@ -12,7 +13,10 @@ import { AvaluoModel, ResponseAvaluo } from 'src/app/components/interfaces/respo
   styleUrls: ['./avaluos-registrar.component.scss'],
 })
 export class AvaluosRegistrarComponent implements OnInit {
+  idUsuario: number = 0;
+  idFormulario: number = 0;
   loadingButton: boolean = false;
+  cargarDocumentos: boolean = false;
   formAvaluos: FormGroup = new FormGroup({});
   tiposInmuebles: ParametrosShared[] = environment.tiposInmuebles;
   listaEstratos: ParametrosShared[] = environment.listaEstratos;
@@ -22,7 +26,16 @@ export class AvaluosRegistrarComponent implements OnInit {
   listaBanios: ParametrosShared[] = environment.listaBanios;
   tipoConstruccion: ParametrosShared[] = environment.tipoConstruccion;
 
-  constructor(private fb: FormBuilder, private toastCustomService: ToastCustomService, private propiedadesService: PropiedadesService) {}
+  constructor(
+    private fb: FormBuilder,
+    private toastCustomService: ToastCustomService,
+    private propiedadesService: PropiedadesService,
+    private dataUserService: DataUserService
+  ) {
+    this.dataUserService.getUserData().subscribe(response => {
+      this.idUsuario = response.idUsuario;
+    });
+  }
 
   ngOnInit(): void {
     this.formAvaluos = this.fb.group({
@@ -80,6 +93,8 @@ export class AvaluosRegistrarComponent implements OnInit {
         }
         this.toastCustomService.showToast('Información', 'Avalúo registrado con éxito. Puede continuar anexando los documentos.');
         this.formAvaluos.reset();
+        this.idFormulario = response.id;
+        this.cargarDocumentos = true;
       },
       error: err => {
         console.error(err);

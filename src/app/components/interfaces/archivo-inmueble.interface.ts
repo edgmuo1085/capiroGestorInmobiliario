@@ -30,3 +30,20 @@ export class ArchivoInmuebleUpModel implements ArchivoInmuebleUp {
     public Id: number
   ) {}
 }
+export interface DocumentoUp {
+  nombreArchivo: string;
+  formato: string;
+  idUsuario: number;
+  archivo: string;
+  idFormulario: number;
+}
+
+export class DocumentoUpModel implements DocumentoUp {
+  constructor(
+    public nombreArchivo: string,
+    public formato: string,
+    public idUsuario: number,
+    public archivo: string,
+    public idFormulario: number
+  ) {}
+}

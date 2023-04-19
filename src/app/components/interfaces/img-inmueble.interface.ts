@@ -9,3 +9,7 @@ export interface ImagesInmuebleUp {
   idInmueble: number;
   archivo: string;
 }
+
+export interface DocumentoInmuebleUp extends ImagesInmuebleUp {
+  idFormulario: number;
+}

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
 
@@ -8,6 +8,9 @@ import { ParametrosShared } from 'src/app/components/interfaces/parametros.inter
   styleUrls: ['./avaluo-form.component.scss'],
 })
 export class AvaluoFormComponent {
+  @Input() idUsuario: number = 0;
+  @Input() idFormulario: number = 0;
+  @Input() cargarDocumentos: boolean = false;
   @Input() formAvaluos: FormGroup = new FormGroup({});
   @Input() loadingButton: boolean = false;
   @Output() actionSaveForm: EventEmitter<any> = new EventEmitter<any>();

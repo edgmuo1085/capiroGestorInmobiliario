@@ -8,6 +8,7 @@ import { HomeUbicacionComponent } from './home-ubicacion/home-ubicacion.componen
 import { SharedPrimengModulesModule } from '../shared-primeng-modules/shared-primeng-modules.module';
 import { SharedModulesModule } from '../shared-modules/shared-modules.module';
 import { GaleriaInmuebleComponent } from './galeria/galeria-inmueble.component';
+import { DocumentosAvaluoHipotecaComponent } from './documentos/documentos-avaluo-hipoteca.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { GaleriaInmuebleComponent } from './galeria/galeria-inmueble.component';
     HomeDestacadosComponent,
     HomeUbicacionComponent,
     GaleriaInmuebleComponent,
+    DocumentosAvaluoHipotecaComponent,
   ],
   imports: [CommonModule, SharedPrimengModulesModule, SharedModulesModule],
   exports: [
@@ -26,6 +28,7 @@ import { GaleriaInmuebleComponent } from './galeria/galeria-inmueble.component';
     HomeDestacadosComponent,
     HomeUbicacionComponent,
     GaleriaInmuebleComponent,
+    DocumentosAvaluoHipotecaComponent,
   ],
 })
 export class SharedComponentsModule {}
