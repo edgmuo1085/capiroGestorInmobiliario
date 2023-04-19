@@ -46,7 +46,7 @@ export class AvaluosRegistrarComponent implements OnInit {
       habitaciones: ['', [Validators.required]],
       garaje: ['', [Validators.required]],
       banos: ['', [Validators.required]],
-      tiempoConstruido: ['', [Validators.required]],
+      tiempoConstruido: ['', [Validators.required, Validators.pattern(environment.soloNumeros)]],
       tipoConstruccion: ['', [Validators.required]],
       ubicacion: ['', [Validators.required]],
       direccion: ['', [Validators.required]],

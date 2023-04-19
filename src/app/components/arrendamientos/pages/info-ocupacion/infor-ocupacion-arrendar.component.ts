@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { environment } from 'src/environments/environment';
@@ -16,12 +15,7 @@ export class InforOcupacionArrendarComponent implements OnInit {
   listaOcupacion: ParametrosShared[] = environment.listaOcupacion;
   isLogging: string = '';
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private dataUserService: DataUserService,
-    private messageService: MessageService
-  ) {
+  constructor(private fb: FormBuilder, private router: Router, private dataUserService: DataUserService) {
     this.isLogging = this.dataUserService.enableToken() ? '/sesion' : '';
   }
 
@@ -59,6 +53,9 @@ export class InforOcupacionArrendarComponent implements OnInit {
 
   nextPage() {
     console.log('formInfoOcupacion ', this.formInfoOcupacion.value);
+    if (this.formInfoOcupacion.invalid) {
+      return;
+    }
     this.router.navigate(['/arrendamiento' + this.isLogging + '/referencias']);
   }
 }

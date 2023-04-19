@@ -80,7 +80,19 @@
         "tiempo": "Campo requerido",
         "precio": "Campo requerido",
         "tipoPublicacion": "Campo requerido",
-        "tipoConstruccion": "Campo requerido"
+        "tipoConstruccion": "Campo requerido",
+        "niveles": "Campo requerido",
+        "habitaciones": "Campo requerido",
+        "garaje": "Campo requerido",
+        "tiempoConstruido": "Campo requerido",
+        "ubicacion": "Campo requerido",
+        "direccion": "Campo requerido",
+        "nombre": "Campo requerido",
+        "apellido": "Campo requerido",
+        "celular": "Campo requerido",
+        "valor": "Campo requerido",
+        "usoPropiedad": "Campo requerido",
+        "afectacion": "Campo requerido"
       },
       "maxlength": {
         "area": "Ingresa máximo {{expected}} caracteres",
@@ -92,7 +104,9 @@
         "habitacion": "Ingresa caracteres numéricos",
         "banos": "Ingresa caracteres numéricos",
         "tiempo": "Ingresa caracteres numéricos",
-        "precio": "Ingresa caracteres numéricos"
+        "precio": "Ingresa caracteres numéricos",
+        "tiempoConstruido": "Ingresa caracteres numéricos",
+        "valor": "Ingresa caracteres numéricos"
       }
     }
   }

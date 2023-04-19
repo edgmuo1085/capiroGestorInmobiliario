@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
@@ -31,7 +30,6 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private router: Router,
     private dataUserService: DataUserService,
-    private messageService: MessageService,
     private storageService: StorageLocalService,
     private stepArrendarService: StepArrendamientosService
   ) {
@@ -64,7 +62,7 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
       direccionActual: ['', [Validators.required]],
       ciudad: ['', [Validators.required]],
       nivelEstudio: ['', [Validators.required]],
-      correo: ['', [Validators.required]],
+      correo: ['', [Validators.required, Validators.email]],
       celular: ['', [Validators.required]],
       ocupacion: ['', [Validators.required]],
       personasAcargo: ['', [Validators.required]],
@@ -127,12 +125,8 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
     this.observableSubscription.push(sub1$);
   }
 
-  guardarFormularioArrendamiento() {
-    console.log('formInfoGeneral ', this.formInfoGeneral.value);
-  }
-
   nextPage() {
-    console.log('form: ', this.formInfoGeneral);
+    console.log('form: ', this.formInfoGeneral.controls);
     if (this.formInfoGeneral.invalid) {
       return;
     }

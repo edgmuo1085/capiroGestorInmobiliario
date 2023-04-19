@@ -11,6 +11,7 @@ export class FormOcupacionArrendarComponent {
   @Input() formInfoOcupacion: FormGroup = new FormGroup({});
   @Input() listaOcupacion: ParametrosShared[] = [];
   @Output() actionGuardarForm: EventEmitter<any> = new EventEmitter<any>();
+  @Output() actionPrevPage: EventEmitter<any> = new EventEmitter<any>();
 
   showCtrlForm: boolean[] = [
     true,
@@ -73,5 +74,9 @@ export class FormOcupacionArrendarComponent {
 
   onSubmitInfoOcupacion() {
     this.actionGuardarForm.emit();
+  }
+
+  btnAtras() {
+    this.actionPrevPage.emit();
   }
 }
