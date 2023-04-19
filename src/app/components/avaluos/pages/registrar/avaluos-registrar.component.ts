@@ -62,7 +62,7 @@ export class AvaluosRegistrarComponent implements OnInit {
       this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;
     }
-
+    this.loadingButton = true;
     let registroAvaluo: ResponseAvaluo = new AvaluoModel(
       this.formAvaluos.get('tipoFormulario')?.value,
       this.formAvaluos.get('tipoInmueble')?.value,
@@ -89,14 +89,17 @@ export class AvaluosRegistrarComponent implements OnInit {
             'Ocurrió un error al momento de registrar el avalúo, inténtelo más tarde',
             'warn'
           );
+          this.loadingButton = false;
           return;
         }
         this.toastCustomService.showToast('Información', 'Avalúo registrado con éxito. Puede continuar anexando los documentos.');
         this.formAvaluos.reset();
         this.idFormulario = response.id;
         this.cargarDocumentos = true;
+        this.loadingButton = false;
       },
       error: err => {
+        this.loadingButton = false;
         console.error(err);
       },
     });

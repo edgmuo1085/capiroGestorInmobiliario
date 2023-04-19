@@ -1,0 +1,19 @@
+<app-hipotecas-menu [actualizarAvaluo]="false"></app-hipotecas-menu>
+
+<div class="container">
+  <div class="row justify-content-center my-4">
+    <div class="col-12">
+      <app-hipotecas-form
+        [formHipotecas]="formHipotecas"
+        [tiposInmuebles]="tiposInmuebles"
+        [listaUsoPropiedad]="listaUsoPropiedad"
+        [listaEleccionSiNo]="listaEleccionSiNo"
+        [listaEstratos]="listaEstratos"
+        [idUsuario]="idUsuario"
+        [idFormulario]="idFormulario"
+        [cargarDocumentos]="cargarDocumentos"
+        (actionSaveForm)="onSubmitHipoteca()"
+      ></app-hipotecas-form>
+    </div>
+  </div>
+</div>

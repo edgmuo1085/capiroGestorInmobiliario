@@ -21,7 +21,7 @@ export class NabvarPageComponent implements OnInit {
     },
     {
       label: 'Hipotecas',
-      link: '/hipotecas/sesion',
+      link: '/hipotecas/sesion/listar',
     },
     {
       label: 'Inmuebles',

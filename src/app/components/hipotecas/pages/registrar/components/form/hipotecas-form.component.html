@@ -1,0 +1,278 @@
+<ng-container *ngIf="!cargarDocumentos">
+  <form [formGroup]="formHipotecas" (ngSubmit)="solicitarHipoteca()" appValidator autocomplete="off" class="form-hipotecas">
+    <div class="container-fluid my-5">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'tipoInmueble'">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="tipoInmueble"
+                formControlName="tipoInmueble"
+                aria-label="Tipo de inmueble"
+                [ngClass]="{ 'is-invalid': formCtrlH['tipoInmueble'].touched && formCtrlH['tipoInmueble'].errors }"
+              >
+                <ng-container>
+                  <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                </ng-container>
+              </select>
+              <label for="tipoInmueble">Tipo de inmueble</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'valor'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlH['valor'].touched && formCtrlH['valor'].errors }"
+                formControlName="valor"
+                id="valor"
+                type="text"
+                placeholder="Valor comercial"
+                required=""
+              />
+              <label for="valor">Valor comercial</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'area'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlH['area'].touched && formCtrlH['area'].errors }"
+                formControlName="area"
+                id="area"
+                type="text"
+                placeholder="Área de la propiedad"
+                required=""
+              />
+              <label for="area">Área de la propiedad</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'direccion'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlH['direccion'].touched && formCtrlH['direccion'].errors }"
+                formControlName="direccion"
+                id="direccion"
+                type="text"
+                placeholder="Dirección de la propiedad"
+                required=""
+              />
+              <label for="direccion">Dirección de la propiedad</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'usoPropiedad'">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="usoPropiedad"
+                formControlName="usoPropiedad"
+                aria-label="¿Qué uso le da a la propiedad?"
+                [ngClass]="{ 'is-invalid': formCtrlH['usoPropiedad'].touched && formCtrlH['usoPropiedad'].errors }"
+              >
+                <ng-container>
+                  <option *ngFor="let tipo of listaUsoPropiedad" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                </ng-container>
+              </select>
+              <label for="usoPropiedad">¿Qué uso le da a la propiedad?</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'afectacion'">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="afectacion"
+                formControlName="afectacion"
+                aria-label="¿Tiene alguna afectación la propiedad?"
+                [ngClass]="{ 'is-invalid': formCtrlH['afectacion'].touched && formCtrlH['afectacion'].errors }"
+              >
+                <ng-container>
+                  <option *ngFor="let tipo of listaEleccionSiNo" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                </ng-container>
+              </select>
+              <label for="afectacion">¿Tiene alguna afectación la propiedad?</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'estrato'">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="estrato"
+                formControlName="estrato"
+                aria-label="Estrato"
+                [ngClass]="{ 'is-invalid': formCtrlH['estrato'].touched && formCtrlH['estrato'].errors }"
+              >
+                <ng-container>
+                  <option *ngFor="let tipo of listaEstratos" [ngValue]="tipo.value">{{ tipo.label }}</option>
+                </ng-container>
+              </select>
+              <label for="estrato">Estrato</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <h3 class="hipotecas-titulo">Datos Personales</h3>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'nombre'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlH['nombre'].touched && formCtrlH['nombre'].errors }"
+                formControlName="nombre"
+                id="nombre"
+                type="text"
+                placeholder="Nombres"
+                required=""
+              />
+              <label for="nombre">Nombres</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'apellido'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlH['apellido'].touched && formCtrlH['apellido'].errors }"
+                formControlName="apellido"
+                id="apellido"
+                type="text"
+                placeholder="Apellidos"
+                required=""
+              />
+              <label for="apellido">Apellidos</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'celular'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlH['celular'].touched && formCtrlH['celular'].errors }"
+                formControlName="celular"
+                id="celular"
+                type="text"
+                placeholder="Teléfono"
+                required=""
+              />
+              <label for="celular">Teléfono</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+        <div class="col-12 col-md-5 mb-3">
+          <app-cap-form-fielset [label]="'correo'">
+            <div class="form-floating">
+              <input
+                class="form-control"
+                [ngClass]="{ 'is-invalid': formCtrlH['correo'].touched && formCtrlH['correo'].errors }"
+                formControlName="correo"
+                id="correo"
+                type="email"
+                placeholder="Correo electrónico"
+                required=""
+              />
+              <label for="correo">Correo electrónico</label>
+            </div>
+          </app-cap-form-fielset>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-evenly mt-5">
+        <div class="form-button">
+          <button class="form-btn bg-gray" type="button" (click)="btnCancel()">Cancelar</button>
+        </div>
+        <div class="form-button">
+          <button class="form-btn" type="submit">
+            Solicitar
+            <div class="spinner-border spinner-border-sm" role="status" *ngIf="loadingButton">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</ng-container>
+<ng-container *ngIf="cargarDocumentos">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h3 class="hipotecas-titulo">Documentos</h3>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-5 mb-3">
+      <app-documentos-avaluo-hipoteca
+        [titleCampo]="'Cédula'"
+        [idUsuario]="idUsuario"
+        [idFormulario]="idFormulario"
+      ></app-documentos-avaluo-hipoteca>
+    </div>
+    <div class="col-12 col-md-5 mb-3">
+      <app-documentos-avaluo-hipoteca
+        [titleCampo]="'Escritura'"
+        [idUsuario]="idUsuario"
+        [idFormulario]="idFormulario"
+      ></app-documentos-avaluo-hipoteca>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-5 mb-3">
+      <app-documentos-avaluo-hipoteca
+        [titleCampo]="'Certificado de libertad y tradicción'"
+        [idUsuario]="idUsuario"
+        [idFormulario]="idFormulario"
+      ></app-documentos-avaluo-hipoteca>
+    </div>
+    <div class="col-12 col-md-5 mb-3">
+      <app-documentos-avaluo-hipoteca
+        [titleCampo]="'Predial'"
+        [idUsuario]="idUsuario"
+        [idFormulario]="idFormulario"
+      ></app-documentos-avaluo-hipoteca>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-5 mb-3">
+      <app-documentos-avaluo-hipoteca
+        [titleCampo]="'Certificado catastral'"
+        [idUsuario]="idUsuario"
+        [idFormulario]="idFormulario"
+      ></app-documentos-avaluo-hipoteca>
+    </div>
+  </div>
+</ng-container>

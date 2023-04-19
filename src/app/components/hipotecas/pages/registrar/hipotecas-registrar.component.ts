@@ -5,15 +5,18 @@ import { environment } from 'src/environments/environment';
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
 import { HipotecaModel, ResponseHipeteca } from 'src/app/components/interfaces/response-avaluo-hipoteca.interface';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
+import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 
 @Component({
-  selector: 'app-hipotecas-form',
-  templateUrl: './hipotecas-form.component.html',
-  styleUrls: ['./hipotecas-form.component.scss'],
+  selector: 'app-hipotecas-registrar',
+  templateUrl: './hipotecas-registrar.component.html',
+  styleUrls: ['./hipotecas-registrar.component.scss'],
 })
-export class HipotecasFormComponent implements OnInit {
-  mostrarModal: boolean = false;
+export class HipotecasRegistrarComponent implements OnInit {
+  idUsuario: number = 0;
+  idFormulario: number = 0;
   loadingButton: boolean = false;
+  cargarDocumentos: boolean = false;
   formAvaluos: FormGroup = new FormGroup({});
   tiposInmuebles: ParametrosShared[] = environment.tiposInmuebles;
   listaUsoPropiedad: ParametrosShared[] = environment.listaUsoPropiedad;
@@ -21,7 +24,16 @@ export class HipotecasFormComponent implements OnInit {
   listaEstratos: ParametrosShared[] = environment.listaEstratos;
   formHipotecas: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder, private toastCustomService: ToastCustomService, private propiedadesService: PropiedadesService) {}
+  constructor(
+    private fb: FormBuilder,
+    private toastCustomService: ToastCustomService,
+    private propiedadesService: PropiedadesService,
+    private dataUserService: DataUserService
+  ) {
+    this.dataUserService.getUserData().subscribe(response => {
+      this.idUsuario = response.idUsuario;
+    });
+  }
 
   ngOnInit(): void {
     this.formHipotecas = this.fb.group({
@@ -45,7 +57,7 @@ export class HipotecasFormComponent implements OnInit {
       this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;
     }
-
+    this.loadingButton = true;
     let registroHipoteca: ResponseHipeteca = new HipotecaModel(
       this.formHipotecas.get('tipoFormulario')?.value,
       this.formHipotecas.get('tipoInmueble')?.value,
@@ -69,22 +81,19 @@ export class HipotecasFormComponent implements OnInit {
             'Ocurrió un error al momento de registrar la hipoteca, inténtelo más tarde',
             'warn'
           );
+          this.loadingButton = false;
           return;
         }
         this.toastCustomService.showToast('Información', 'Hipoteca registrada con éxito. Puede continuar anexando los documentos.');
         this.formAvaluos.reset();
+        this.idFormulario = response.id;
+        this.cargarDocumentos = true;
+        this.loadingButton = false;
       },
       error: err => {
+        this.loadingButton = false;
         console.error(err);
       },
     });
-  }
-
-  showDialog() {
-    this.mostrarModal = true;
-  }
-
-  hideDialog(event: boolean) {
-    this.mostrarModal = event;
   }
 }

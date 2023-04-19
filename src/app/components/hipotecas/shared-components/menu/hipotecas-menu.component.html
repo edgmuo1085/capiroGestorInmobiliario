@@ -1,1 +1,29 @@
-<p>hipotecas-menu works!</p>
+<section id="section-hipoteca">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-12 px-0">
+        <div class="header-hipoteca animate__animated animate__fadeInDown">
+          <img src="./assets/images/fondo-hipotecas.jpg" alt="Fondo registro inmueble" class="img-hipoteca" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center mt-4">
+      <div class="col-12 requisitos-header-content">
+        <h3>Hipotecar inmueble</h3>
+        <p>Formulario para hipotecar inmuebles, ingrese los siguientes datos</p>
+        <button class="requisitos-button" (click)="showDialog()">Ver requisitos</button>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center mt-3">
+      <div class="col-12">
+        <p-tabMenu [model]="items"></p-tabMenu>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-hipotecas-modal-requisitos [visible]="mostrarModal" (eventCloseDialogModal)="hideDialog($event)"></app-hipotecas-modal-requisitos>
