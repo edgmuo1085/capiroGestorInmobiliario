@@ -11,6 +11,7 @@ export interface Inmueble {
   tipoPublicacion: string;
   tipoCons: string;
   idUsuario: number;
+  direccion: string;
   id: number;
 }
 
@@ -28,6 +29,7 @@ export class InmuebleModel implements Inmueble {
     public tipoPublicacion: string,
     public tipoCons: string,
     public idUsuario: number,
+    public direccion: string,
     public id: number
   ) {}
 }
@@ -47,6 +49,7 @@ export class InmuebleRegistroModel implements InmuebleRegistro {
     public precio: number,
     public tipoPublicacion: string,
     public tipoCons: string,
+    public direccion: string,
     public idUsuario: number
   ) {}
 }

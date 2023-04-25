@@ -67,6 +67,7 @@ export class InmuebleRegistrarComponent implements OnInit {
       precio: ['', [Validators.required, Validators.pattern(environment.soloNumeros)]],
       tipoPublicacion: ['', [Validators.required]],
       tipoConstruccion: ['', [Validators.required]],
+      direccion: ['', [Validators.required]],
     });
   }
 
@@ -97,6 +98,7 @@ export class InmuebleRegistrarComponent implements OnInit {
       this.formRegistroInmueble.get('precio')?.value,
       this.formRegistroInmueble.get('tipoPublicacion')?.value,
       this.formRegistroInmueble.get('tipoConstruccion')?.value,
+      this.formRegistroInmueble.get('direccion')?.value,
       this.idUsuario
     );
     this.propiedadesService.crearInmueble(registroInmueble).subscribe({
@@ -143,6 +145,7 @@ export class InmuebleRegistrarComponent implements OnInit {
       this.formRegistroInmueble.get('tipoPublicacion')?.value,
       this.formRegistroInmueble.get('tipoConstruccion')?.value,
       this.idUsuario,
+      this.formRegistroInmueble.get('direccion')?.value,
       +this.idInmuebleUpdate
     );
     this.propiedadesService.crearInmueble(actualizarInmuebleData).subscribe({

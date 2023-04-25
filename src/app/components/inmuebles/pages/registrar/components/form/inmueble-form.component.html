@@ -206,6 +206,22 @@
                   </div>
                 </app-cap-form-fielset>
               </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'direccion'">
+                  <div class="form-floating">
+                    <input
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': formCtrlI['direccion'].touched && formCtrlI['direccion'].errors }"
+                      formControlName="direccion"
+                      id="direccion"
+                      type="text"
+                      placeholder="Dirección"
+                      required=""
+                    />
+                    <label for="direccion">Dirección</label>
+                  </div>
+                </app-cap-form-fielset>
+              </div>
             </div>
             <div class="d-flex justify-content-evenly mt-5">
               <div class="form-button">
