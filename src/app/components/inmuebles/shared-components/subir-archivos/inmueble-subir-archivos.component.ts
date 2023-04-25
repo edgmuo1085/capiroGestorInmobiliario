@@ -5,6 +5,7 @@ import { ImagesInmuebleUp } from 'src/app/components/interfaces/img-inmueble.int
 import { IdGenerateService } from 'src/app/components/shared/shared-services/id-generate.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-inmueble-subir-archivos',
@@ -74,7 +75,7 @@ export class InmuebleSubirArchivosComponent {
     this.uploadedFiles[index].progress = 0;
     const formData: FormData = new FormData();
     formData.append('guardar', 'true');
-    formData.append('tipoDocumento', 'imagenes');
+    formData.append('tipoDocumento', environment.rutaImg);
     formData.append('nombreImg', nombreSinExt);
     formData.append('archivoCapiro', file);
     this.propiedadesService.getUploadPhotoHosting(formData).subscribe({

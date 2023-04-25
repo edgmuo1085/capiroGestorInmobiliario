@@ -5,6 +5,7 @@ import { DocumentoInmuebleUp } from 'src/app/components/interfaces/img-inmueble.
 import { IdGenerateService } from 'src/app/components/shared/shared-services/id-generate.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-documentos-avaluo-hipoteca',
@@ -65,7 +66,7 @@ export class DocumentosAvaluoHipotecaComponent implements OnDestroy {
     this.uploadedFiles[index].progress = 0;
     const formData: FormData = new FormData();
     formData.append('guardar', 'true');
-    formData.append('tipoDocumento', 'documentos');
+    formData.append('tipoDocumento', environment.rutaDoc);
     formData.append('nombreImg', nombreSinExt);
     formData.append('archivoCapiro', file);
     this.propiedadesService.getUploadPhotoHosting(formData).subscribe({

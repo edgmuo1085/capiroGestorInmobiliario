@@ -297,3 +297,8 @@ export const requisitosPropiedades = {
 export const validacionPatterns = {
   soloNumeros: '^([0-9])*$',
 };
+
+export const rutasFiles = {
+  rutaImg: 'imagenes',
+  rutaDoc: 'documentos',
+};
