@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-avaluo-form',
@@ -9,7 +10,7 @@ import { ParametrosShared } from 'src/app/components/interfaces/parametros.inter
 })
 export class AvaluoFormComponent {
   @Input() idUsuario: number = 0;
-  @Input() idFormulario: number = 0;
+  @Input() idAvaluo: number = 0;
   @Input() cargarDocumentos: boolean = false;
   @Input() formAvaluos: FormGroup = new FormGroup({});
   @Input() loadingButton: boolean = false;
@@ -21,6 +22,8 @@ export class AvaluoFormComponent {
   @Input() listaEleccionSiNo: ParametrosShared[] = [];
   @Input() listaBanios: ParametrosShared[] = [];
   @Input() tipoConstruccion: ParametrosShared[] = [];
+
+  nombresAvaluoDocumentos: string[] = environment.nombresAvaluoDocumentos;
 
   constructor() {}
 

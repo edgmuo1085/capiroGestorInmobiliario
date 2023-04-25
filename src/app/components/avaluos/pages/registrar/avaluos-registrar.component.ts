@@ -14,7 +14,7 @@ import { DataUserService } from 'src/app/components/shared/shared-services/data-
 })
 export class AvaluosRegistrarComponent implements OnInit {
   idUsuario: number = 0;
-  idFormulario: number = 0;
+  idAvaluo: number = 0;
   loadingButton: boolean = false;
   cargarDocumentos: boolean = false;
   formAvaluos: FormGroup = new FormGroup({});
@@ -78,7 +78,8 @@ export class AvaluosRegistrarComponent implements OnInit {
       this.formAvaluos.get('nombre')?.value,
       this.formAvaluos.get('apellido')?.value,
       this.formAvaluos.get('correo')?.value,
-      this.formAvaluos.get('celular')?.value
+      this.formAvaluos.get('celular')?.value,
+      this.idUsuario
     );
 
     this.propiedadesService.crearAvaluo(registroAvaluo).subscribe({
@@ -94,7 +95,7 @@ export class AvaluosRegistrarComponent implements OnInit {
         }
         this.toastCustomService.showToast('Información', 'Avalúo registrado con éxito. Puede continuar anexando los documentos.');
         this.formAvaluos.reset();
-        this.idFormulario = response.id;
+        this.idAvaluo = response.id;
         this.cargarDocumentos = true;
         this.loadingButton = false;
       },

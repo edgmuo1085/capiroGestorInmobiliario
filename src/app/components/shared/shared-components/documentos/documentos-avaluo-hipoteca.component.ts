@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DocumentosAvaluoHipotecaComponent implements OnDestroy {
   @Input() idUsuario: number = 0;
-  @Input() idFormulario: number = 0;
+  @Input() idAvaluo: number = 0;
   @Input() titleCampo: string = '';
   @Output() actionCargarImg: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() actionMsgTituloPage: EventEmitter<string> = new EventEmitter<string>();
@@ -50,8 +50,9 @@ export class DocumentosAvaluoHipotecaComponent implements OnDestroy {
         formato: file.type,
         idUsuario: this.idUsuario,
         idInmueble: 0,
-        idFormulario: this.idFormulario,
+        idAvaluo: this.idAvaluo,
         archivo: file.type,
+        tipoDocumento: environment.rutaDoc,
       };
       this.uploadedFiles = [...this.uploadedFiles, json];
     }
@@ -92,7 +93,8 @@ export class DocumentosAvaluoHipotecaComponent implements OnDestroy {
       item.formato,
       item.idUsuario,
       item.archivo,
-      item.idFormulario
+      item.idAvaluo,
+      item.tipoDocumento
     );
 
     this.propiedadesService.guardarDocumento(fotoInsertar).subscribe({

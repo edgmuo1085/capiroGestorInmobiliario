@@ -268,45 +268,10 @@
     </div>
   </form>
 </ng-container>
-
-<div class="container-fluid my-5" *ngIf="cargarDocumentos">
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <h3 class="hipotecas-titulo">Documentos</h3>
-    </div>
-  </div>
-
-  <div class="row justify-content-center upload-block">
-    <div class="col-12 col-md-5 mb-3 pb-3">
-      <app-documentos-avaluo-hipoteca
-        [titleCampo]="'Certificado de libertad'"
-        [idUsuario]="idUsuario"
-        [idFormulario]="idFormulario"
-      ></app-documentos-avaluo-hipoteca>
-    </div>
-    <div class="col-12 col-md-5 mb-3">
-      <app-documentos-avaluo-hipoteca
-        [titleCampo]="'Escritura pública'"
-        [idUsuario]="idUsuario"
-        [idFormulario]="idFormulario"
-      ></app-documentos-avaluo-hipoteca>
-    </div>
-  </div>
-
-  <div class="row justify-content-center upload-block">
-    <div class="col-12 col-md-5 mb-3 pb-3">
-      <app-documentos-avaluo-hipoteca
-        [titleCampo]="'Predial'"
-        [idUsuario]="idUsuario"
-        [idFormulario]="idFormulario"
-      ></app-documentos-avaluo-hipoteca>
-    </div>
-    <div class="col-12 col-md-5 mb-3">
-      <app-documentos-avaluo-hipoteca
-        [titleCampo]="'Certificado catastral'"
-        [idUsuario]="idUsuario"
-        [idFormulario]="idFormulario"
-      ></app-documentos-avaluo-hipoteca>
-    </div>
-  </div>
-</div>
+<ng-container *ngIf="cargarDocumentos">
+  <app-documentos-avaluo-hipotecas
+    [idAvaluo]="idAvaluo"
+    [idUsuario]="idUsuario"
+    [nombresFields]="nombresAvaluoDocumentos"
+  ></app-documentos-avaluo-hipotecas>
+</ng-container>

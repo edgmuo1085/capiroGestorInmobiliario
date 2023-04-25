@@ -25,7 +25,7 @@ export class AvaluosListaComponent implements OnInit {
 
   getListaAvaluos() {
     this.loading = true;
-    this.propiedadesService.listarAvaluoHipoteca().subscribe({
+    this.propiedadesService.listarAvaluoHipotecaUsuario(this.idUsuario).subscribe({
       next: response => {
         if (!response.length) {
           this.loading = false;

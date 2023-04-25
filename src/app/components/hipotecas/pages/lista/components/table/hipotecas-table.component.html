@@ -65,15 +65,48 @@
           </td>
           <td class="text-center">
             <span class="p-column-title fw-bold">Opciones</span>
-            <span class=""> </span>
+            <span class="">
+              <i
+                class="icon-custom fa-solid fa-upload"
+                (click)="mostrarModal(avaluo)"
+                pTooltip="Anexar documentos"
+                tooltipPosition="top"
+              ></i>
+              <i
+                class="icon-custom fa-solid fa-eye"
+                (click)="mostrarDocumentosAnexos(avaluo)"
+                pTooltip="Ver documentos"
+                tooltipPosition="top"
+              ></i>
+            </span>
           </td>
         </tr>
       </ng-template>
       <ng-template pTemplate="emptymessage">
         <tr>
-          <td colspan="5" class="text-center">No existen datos para mostrar.</td>
+          <td colspan="7" class="text-center">No existen datos para mostrar.</td>
         </tr>
       </ng-template>
     </p-table>
   </div>
 </div>
+
+<app-modal-avaluo-hipoteca [visible]="mostrarModalAvaluoHipoteca" (eventCloseDialogModal)="closeModalAvaluoHipoteca($event)">
+  <app-documentos-avaluo-hipotecas
+    [idAvaluo]="idAvaluo"
+    [idUsuario]="idUsuario"
+    [nombresFields]="nombresHipotecaDocumentos"
+  ></app-documentos-avaluo-hipotecas>
+</app-modal-avaluo-hipoteca>
+
+<app-modal-avaluo-hipoteca [visible]="mostrarDocumentos" (eventCloseDialogModal)="closeModalAvaluoHipoteca($event)">
+  <h5>Documentos anexos a la hipoteca: {{ tipoAvaluo }}</h5>
+
+  <ul class="mt-3">
+    <ng-container *ngFor="let documento of documentosAnexos">
+      <li>
+        Documento anexo: <a [href]="documento.ruta" target="_blank">{{ documento.nombreArchivo }}</a>
+      </li>
+    </ng-container>
+  </ul>
+</app-modal-avaluo-hipoteca>

@@ -1,3 +1,5 @@
+import { DocumentoAvaluoHipoteca } from './documentos-avaluo-hipoteca.interface';
+
 export interface AvaluoHipoteca {
   tipoFormulario: string;
   tipoInmueble: string;
@@ -18,10 +20,12 @@ export interface AvaluoHipoteca {
   area: string;
   usoPropiedad: string;
   afectacion: string;
+  idUsuario: number;
 }
 
 export interface ResponseAvaluoHipoteca extends AvaluoHipoteca {
   id: number;
+  documentos: DocumentoAvaluoHipoteca[];
 }
 
 export type ResponseAvaluo = Omit<AvaluoHipoteca, 'valor' | 'area' | 'usoPropiedad' | 'afectacion'>;
@@ -47,7 +51,8 @@ export class AvaluoModel implements ResponseAvaluo {
     public nombre: string,
     public apellido: string,
     public correo: string,
-    public celular: string
+    public celular: string,
+    public idUsuario: number
   ) {}
 }
 
@@ -64,6 +69,7 @@ export class HipotecaModel implements ResponseHipeteca {
     public valor: string,
     public area: string,
     public usoPropiedad: string,
-    public afectacion: string
+    public afectacion: string,
+    public idUsuario: number
   ) {}
 }

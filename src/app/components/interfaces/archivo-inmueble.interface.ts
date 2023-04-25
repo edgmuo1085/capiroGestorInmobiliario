@@ -4,6 +4,7 @@ export interface ArchivoInmueble {
   idUsuario: number;
   idInmueble: number;
   archivo: string;
+  tipoDocumento: string;
 }
 
 export class ArchivoInmuebleModel implements ArchivoInmueble {
@@ -12,7 +13,8 @@ export class ArchivoInmuebleModel implements ArchivoInmueble {
     public formato: string,
     public idUsuario: number,
     public idInmueble: number,
-    public archivo: string
+    public archivo: string,
+    public tipoDocumento: string
   ) {}
 }
 
@@ -27,6 +29,7 @@ export class ArchivoInmuebleUpModel implements ArchivoInmuebleUp {
     public idUsuario: number,
     public idInmueble: number,
     public archivo: string,
+    public tipoDocumento: string,
     public Id: number
   ) {}
 }
@@ -35,7 +38,8 @@ export interface DocumentoUp {
   formato: string;
   idUsuario: number;
   archivo: string;
-  idFormulario: number;
+  idAvaluo: number;
+  tipoDocumento: string;
 }
 
 export class DocumentoUpModel implements DocumentoUp {
@@ -44,6 +48,7 @@ export class DocumentoUpModel implements DocumentoUp {
     public formato: string,
     public idUsuario: number,
     public archivo: string,
-    public idFormulario: number
+    public idAvaluo: number,
+    public tipoDocumento: string
   ) {}
 }

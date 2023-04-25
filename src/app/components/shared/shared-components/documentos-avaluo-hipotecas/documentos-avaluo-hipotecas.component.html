@@ -1,0 +1,19 @@
+<div class="container-fluid my-5">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h3 class="hipotecas-titulo">Documentos</h3>
+    </div>
+  </div>
+
+  <div class="row justify-content-center upload-block">
+    <ng-container *ngFor="let nombreField of nombresFields">
+      <div class="col-12 col-md-10 col-lg-5 mb-3 pb-3">
+        <app-documentos-avaluo-hipoteca
+          [titleCampo]="nombreField"
+          [idUsuario]="idUsuario"
+          [idAvaluo]="idAvaluo"
+        ></app-documentos-avaluo-hipoteca>
+      </div>
+    </ng-container>
+  </div>
+</div>

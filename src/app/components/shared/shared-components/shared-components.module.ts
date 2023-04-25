@@ -9,6 +9,8 @@ import { SharedPrimengModulesModule } from '../shared-primeng-modules/shared-pri
 import { SharedModulesModule } from '../shared-modules/shared-modules.module';
 import { GaleriaInmuebleComponent } from './galeria/galeria-inmueble.component';
 import { DocumentosAvaluoHipotecaComponent } from './documentos/documentos-avaluo-hipoteca.component';
+import { ModalAvaluoHipotecaComponent } from './modal-avaluo-hipoteca/modal-avaluo-hipoteca.component';
+import { DocumentosAvaluoHipotecasComponent } from './documentos-avaluo-hipotecas/documentos-avaluo-hipotecas.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { DocumentosAvaluoHipotecaComponent } from './documentos/documentos-avalu
     HomeUbicacionComponent,
     GaleriaInmuebleComponent,
     DocumentosAvaluoHipotecaComponent,
+    ModalAvaluoHipotecaComponent,
+    DocumentosAvaluoHipotecasComponent,
   ],
   imports: [CommonModule, SharedPrimengModulesModule, SharedModulesModule],
   exports: [
@@ -29,6 +33,8 @@ import { DocumentosAvaluoHipotecaComponent } from './documentos/documentos-avalu
     HomeUbicacionComponent,
     GaleriaInmuebleComponent,
     DocumentosAvaluoHipotecaComponent,
+    ModalAvaluoHipotecaComponent,
+    DocumentosAvaluoHipotecasComponent,
   ],
 })
 export class SharedComponentsModule {}

@@ -9,6 +9,7 @@ import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.i
 import { IdGenerateService } from 'src/app/components/shared/shared-services/id-generate.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-inmueble-table',
@@ -30,7 +31,7 @@ export class InmuebleTableComponent {
   idInmueble: number = 0;
   listaFotos: ResponseArchivo[] = [];
   uploadedFiles: ImagesInmuebleUp[] = [];
-  fotoInsertar: ArchivoInmuebleUp = new ArchivoInmuebleUpModel('', '', 0, 0, '', 0);
+  fotoInsertar: ArchivoInmuebleUp = new ArchivoInmuebleUpModel('', '', 0, 0, '', '', 0);
 
   constructor(
     private router: Router,
@@ -113,12 +114,14 @@ export class InmuebleTableComponent {
         idUsuario: this.idUsuario,
         idInmueble: this.idInmueble,
         archivo: file.type,
+        tipoDocumento: environment.rutaImg,
       };
       this.fotoInsertar.nombreArchivo = `${idUnique}.${extension}`;
       this.fotoInsertar.formato = file.type;
       this.fotoInsertar.idUsuario = fotoInfo.idUsuario;
       this.fotoInsertar.idInmueble = fotoInfo.idInmueble;
       this.fotoInsertar.archivo = 'base';
+      this.fotoInsertar.tipoDocumento = environment.rutaImg;
       this.fotoInsertar.Id = fotoInfo.id;
       this.uploadedFiles = [...this.uploadedFiles, json];
     }
@@ -133,7 +136,7 @@ export class InmuebleTableComponent {
     this.uploadedFiles[index].progress = 0;
     const formData: FormData = new FormData();
     formData.append('guardar', 'true');
-    formData.append('tipoDocumento', 'imagenes');
+    formData.append('tipoDocumento', environment.rutaImg);
     formData.append('nombreImg', nombreSinExt);
     formData.append('archivoCapiro', file);
     this.propiedadesService.getUploadPhotoHosting(formData).subscribe({

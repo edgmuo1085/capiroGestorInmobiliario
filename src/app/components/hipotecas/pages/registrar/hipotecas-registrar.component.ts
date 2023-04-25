@@ -14,7 +14,7 @@ import { DataUserService } from 'src/app/components/shared/shared-services/data-
 })
 export class HipotecasRegistrarComponent implements OnInit {
   idUsuario: number = 0;
-  idFormulario: number = 0;
+  idAvaluo: number = 0;
   loadingButton: boolean = false;
   cargarDocumentos: boolean = false;
   formAvaluos: FormGroup = new FormGroup({});
@@ -70,7 +70,8 @@ export class HipotecasRegistrarComponent implements OnInit {
       this.formHipotecas.get('valor')?.value,
       this.formHipotecas.get('area')?.value,
       this.formHipotecas.get('usoPropiedad')?.value,
-      this.formHipotecas.get('afectacion')?.value
+      this.formHipotecas.get('afectacion')?.value,
+      this.idUsuario
     );
 
     this.propiedadesService.crearHipoteca(registroHipoteca).subscribe({
@@ -86,7 +87,7 @@ export class HipotecasRegistrarComponent implements OnInit {
         }
         this.toastCustomService.showToast('Información', 'Hipoteca registrada con éxito. Puede continuar anexando los documentos.');
         this.formAvaluos.reset();
-        this.idFormulario = response.id;
+        this.idAvaluo = response.id;
         this.cargarDocumentos = true;
         this.loadingButton = false;
       },

@@ -56,6 +56,7 @@ export class InmuebleSubirArchivosComponent {
         idUsuario: this.idUsuario,
         idInmueble: this.idInmueble,
         archivo: file.type,
+        tipoDocumento: environment.rutaImg,
       };
       this.uploadedFiles = [...this.uploadedFiles, json];
       conteoSizeFilesHost++;
@@ -102,7 +103,8 @@ export class InmuebleSubirArchivosComponent {
       item.formato,
       item.idUsuario,
       item.idInmueble,
-      item.archivo
+      item.archivo,
+      item.tipoDocumento
     );
 
     this.propiedadesService.guardarFoto(fotoInsertar).subscribe({

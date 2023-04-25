@@ -298,7 +298,7 @@ export const validacionPatterns = {
   soloNumeros: '^([0-9])*$',
 };
 
-export const rutasFiles = {
-  rutaImg: 'imagenes',
-  rutaDoc: 'documentos',
+export const nombresDocumentosAvaluoHipoteca = {
+  nombresAvaluoDocumentos: ['Certificado de libertad', 'Escritura pública', 'Predial', 'Certificado catastral'],
+  nombresHipotecaDocumentos: ['Cédula', 'Escritura', 'Certificado de libertad y tradicción', 'Predial', 'Certificado catastral'],
 };

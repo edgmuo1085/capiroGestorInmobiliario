@@ -95,6 +95,11 @@ export class PropiedadesService {
     return this.http.get<ResponseAvaluoHipoteca[]>(url);
   }
 
+  listarAvaluoHipotecaUsuario(idUsuario: number): Observable<ResponseAvaluoHipoteca[]> {
+    const url = `${environment.URL_API}aval/listaId/${idUsuario}`;
+    return this.http.get<ResponseAvaluoHipoteca[]>(url);
+  }
+
   crearAvaluo(data: AvaluoModel): Observable<ResponseAvaluoHipoteca> {
     const url = `${environment.URL_API}aval/insertar/`;
     return this.http.post<ResponseAvaluoHipoteca>(url, data);
