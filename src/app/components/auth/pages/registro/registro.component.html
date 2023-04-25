@@ -76,9 +76,7 @@
                       aria-label="Tipo de identificación"
                       [ngClass]="{ 'is-invalid': formCtrlR['tipoIdentificacion'].touched && formCtrlR['tipoIdentificacion'].errors }"
                     >
-                      <ng-container>
-                        <option *ngFor="let tipo of tiposIdentificacion" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                      </ng-container>
+                      <option *ngFor="let tipo of tiposIdentificacion" [ngValue]="tipo.value">{{ tipo.label }}</option>
                     </select>
                     <label for="tipoIdentificacion">Tipo de identificación</label>
                   </div>

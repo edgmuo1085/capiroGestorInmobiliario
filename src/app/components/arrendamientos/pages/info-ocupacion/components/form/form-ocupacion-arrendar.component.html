@@ -10,10 +10,8 @@
             (change)="clicOcupacion(ocupacionLista.value)"
             #ocupacionLista
           >
-            <ng-container>
-              <option value="" disabled selected="selected">Elija una opción</option>
-              <option *ngFor="let tipo of listaOcupacion" [value]="tipo.value">{{ tipo.label }}</option>
-            </ng-container>
+            <option value="" disabled selected="selected">Elija una opción</option>
+            <option *ngFor="let tipo of listaOcupacion" [value]="tipo.value">{{ tipo.label }}</option>
           </select>
           <label for="tipoInmueble">Ocupación</label>
         </div>

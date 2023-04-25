@@ -12,9 +12,7 @@
                 aria-label="Tipo de inmueble"
                 [ngClass]="{ 'is-invalid': formCtrlH['tipoInmueble'].touched && formCtrlH['tipoInmueble'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="tipoInmueble">Tipo de inmueble</label>
             </div>
@@ -84,9 +82,7 @@
                 aria-label="¿Qué uso le da a la propiedad?"
                 [ngClass]="{ 'is-invalid': formCtrlH['usoPropiedad'].touched && formCtrlH['usoPropiedad'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of listaUsoPropiedad" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of listaUsoPropiedad" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="usoPropiedad">¿Qué uso le da a la propiedad?</label>
             </div>
@@ -102,9 +98,7 @@
                 aria-label="¿Tiene alguna afectación la propiedad?"
                 [ngClass]="{ 'is-invalid': formCtrlH['afectacion'].touched && formCtrlH['afectacion'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of listaEleccionSiNo" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of listaEleccionSiNo" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="afectacion">¿Tiene alguna afectación la propiedad?</label>
             </div>
@@ -123,9 +117,7 @@
                 aria-label="Estrato"
                 [ngClass]="{ 'is-invalid': formCtrlH['estrato'].touched && formCtrlH['estrato'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of listaEstratos" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of listaEstratos" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="estrato">Estrato</label>
             </div>

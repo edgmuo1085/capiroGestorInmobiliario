@@ -264,9 +264,7 @@
               aria-label="Tipo de cuenta"
               [ngClass]="{ 'is-invalid': formCtrlR['tipoCuentaUno'].touched && formCtrlR['tipoCuentaUno'].errors }"
             >
-              <ng-container>
-                <option *ngFor="let tipo of tiposCuentasBancos" [ngValue]="tipo.value">{{ tipo.label }}</option>
-              </ng-container>
+              <option *ngFor="let tipo of tiposCuentasBancos" [ngValue]="tipo.value">{{ tipo.label }}</option>
             </select>
             <label for="tipoCuentaUno">Tipo de cuenta</label>
           </div>
@@ -314,9 +312,7 @@
               aria-label="Tipo de cuenta"
               [ngClass]="{ 'is-invalid': formCtrlR['tipoCuentaDos'].touched && formCtrlR['tipoCuentaDos'].errors }"
             >
-              <ng-container>
-                <option *ngFor="let tipo of tiposCuentasBancos" [ngValue]="tipo.value">{{ tipo.label }}</option>
-              </ng-container>
+              <option *ngFor="let tipo of tiposCuentasBancos" [ngValue]="tipo.value">{{ tipo.label }}</option>
             </select>
             <label for="tipoCuentaDos">Tipo de cuenta</label>
           </div>

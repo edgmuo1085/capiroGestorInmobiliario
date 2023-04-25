@@ -59,9 +59,7 @@
               aria-label="Tipo de inmueble"
               [ngClass]="{ 'is-invalid': formCtrlG['tipoInmueble'].touched && formCtrlG['tipoInmueble'].errors }"
             >
-              <ng-container>
-                <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
-              </ng-container>
+              <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
             </select>
             <label for="tipoInmueble">Tipo de inmueble</label>
           </div>
@@ -131,9 +129,7 @@
               aria-label="Tipo de documentos"
               [ngClass]="{ 'is-invalid': formCtrlG['tipoDoc'].touched && formCtrlG['tipoDoc'].errors }"
             >
-              <ng-container>
-                <option *ngFor="let tipo of tiposDocumentos" [ngValue]="tipo.value">{{ tipo.label }}</option>
-              </ng-container>
+              <option *ngFor="let tipo of tiposDocumentos" [ngValue]="tipo.value">{{ tipo.label }}</option>
             </select>
             <label for="tipoDoc">Tipos de documentos</label>
           </div>
@@ -216,9 +212,7 @@
               aria-label="Sexo"
               [ngClass]="{ 'is-invalid': formCtrlG['sexo'].touched && formCtrlG['sexo'].errors }"
             >
-              <ng-container>
-                <option *ngFor="let tipo of listaSexos" [ngValue]="tipo.value">{{ tipo.label }}</option>
-              </ng-container>
+              <option *ngFor="let tipo of listaSexos" [ngValue]="tipo.value">{{ tipo.label }}</option>
             </select>
             <label for="sexo">Sexo</label>
           </div>
@@ -288,9 +282,7 @@
               aria-label="Nivel de estudio"
               [ngClass]="{ 'is-invalid': formCtrlG['nivelEstudio'].touched && formCtrlG['nivelEstudio'].errors }"
             >
-              <ng-container>
-                <option *ngFor="let tipo of listaNivelEstudio" [ngValue]="tipo.value">{{ tipo.label }}</option>
-              </ng-container>
+              <option *ngFor="let tipo of listaNivelEstudio" [ngValue]="tipo.value">{{ tipo.label }}</option>
             </select>
             <label for="nivelEstudio">Nivel de estudio</label>
           </div>
@@ -375,11 +367,9 @@
               (change)="clicEstadoCivil(estadoCivilSelect.value)"
               #estadoCivilSelect
             >
-              <ng-container>
-                <option *ngFor="let tipo of listadoEstadosCivil" [value]="tipo.value">
-                  {{ tipo.label }}
-                </option>
-              </ng-container>
+              <option *ngFor="let tipo of listadoEstadosCivil" [value]="tipo.value">
+                {{ tipo.label }}
+              </option>
             </select>
             <label for="estadoCivil">Estado civil</label>
           </div>
@@ -437,11 +427,9 @@
                 aria-label="Tipo de identificación"
                 [ngClass]="{ 'is-invalid': formCtrlG['tipoDocC'].touched && formCtrlG['tipoDocC'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of listadoEstadosCivil" [ngValue]="tipo.value">
-                    {{ tipo.label }}
-                  </option>
-                </ng-container>
+                <option *ngFor="let tipo of listadoEstadosCivil" [ngValue]="tipo.value">
+                  {{ tipo.label }}
+                </option>
               </select>
               <label for="tipoDocC">Tipo de identificación</label>
             </div>

@@ -12,9 +12,7 @@
                 aria-label="Tipo de inmueble"
                 [ngClass]="{ 'is-invalid': formCtrlAv['tipoInmueble'].touched && formCtrlAv['tipoInmueble'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="tipoInmueble">Tipo de inmueble</label>
             </div>
@@ -30,9 +28,7 @@
                 aria-label="Estratos"
                 [ngClass]="{ 'is-invalid': formCtrlAv['estrato'].touched && formCtrlAv['estrato'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of listaEstratos" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of listaEstratos" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="estrato">Estratos</label>
             </div>
@@ -51,9 +47,7 @@
                 aria-label="Niveles"
                 [ngClass]="{ 'is-invalid': formCtrlAv['niveles'].touched && formCtrlAv['niveles'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of listaNiveles" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of listaNiveles" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="niveles">Niveles</label>
             </div>
@@ -69,9 +63,7 @@
                 aria-label="Habitaciones"
                 [ngClass]="{ 'is-invalid': formCtrlAv['habitaciones'].touched && formCtrlAv['habitaciones'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of listaHabitaciones" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of listaHabitaciones" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="habitaciones">Habitaciones</label>
             </div>
@@ -90,9 +82,7 @@
                 aria-label="Garaje"
                 [ngClass]="{ 'is-invalid': formCtrlAv['garaje'].touched && formCtrlAv['garaje'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of listaEleccionSiNo" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of listaEleccionSiNo" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="garaje">Garaje</label>
             </div>
@@ -108,9 +98,7 @@
                 aria-label="Baños"
                 [ngClass]="{ 'is-invalid': formCtrlAv['banos'].touched && formCtrlAv['banos'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of listaBanios" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of listaBanios" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="banos">Baños</label>
             </div>
@@ -145,9 +133,7 @@
                 aria-label="Tipo de contrucción"
                 [ngClass]="{ 'is-invalid': formCtrlAv['tipoConstruccion'].touched && formCtrlAv['tipoConstruccion'].errors }"
               >
-                <ng-container>
-                  <option *ngFor="let tipo of tipoConstruccion" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                </ng-container>
+                <option *ngFor="let tipo of tipoConstruccion" [ngValue]="tipo.value">{{ tipo.label }}</option>
               </select>
               <label for="tipoConstruccion">Tipo de contrucción</label>
             </div>
@@ -284,45 +270,43 @@
 </ng-container>
 
 <div class="container-fluid my-5" *ngIf="cargarDocumentos">
-  <ng-container>
-    <div class="row justify-content-center">
-      <div class="col-10">
-        <h3 class="hipotecas-titulo">Documentos</h3>
-      </div>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h3 class="hipotecas-titulo">Documentos</h3>
     </div>
+  </div>
 
-    <div class="row justify-content-center upload-block">
-      <div class="col-12 col-md-5 mb-3 pb-3">
-        <app-documentos-avaluo-hipoteca
-          [titleCampo]="'Certificado de libertad'"
-          [idUsuario]="idUsuario"
-          [idFormulario]="idFormulario"
-        ></app-documentos-avaluo-hipoteca>
-      </div>
-      <div class="col-12 col-md-5 mb-3">
-        <app-documentos-avaluo-hipoteca
-          [titleCampo]="'Escritura pública'"
-          [idUsuario]="idUsuario"
-          [idFormulario]="idFormulario"
-        ></app-documentos-avaluo-hipoteca>
-      </div>
+  <div class="row justify-content-center upload-block">
+    <div class="col-12 col-md-5 mb-3 pb-3">
+      <app-documentos-avaluo-hipoteca
+        [titleCampo]="'Certificado de libertad'"
+        [idUsuario]="idUsuario"
+        [idFormulario]="idFormulario"
+      ></app-documentos-avaluo-hipoteca>
     </div>
+    <div class="col-12 col-md-5 mb-3">
+      <app-documentos-avaluo-hipoteca
+        [titleCampo]="'Escritura pública'"
+        [idUsuario]="idUsuario"
+        [idFormulario]="idFormulario"
+      ></app-documentos-avaluo-hipoteca>
+    </div>
+  </div>
 
-    <div class="row justify-content-center upload-block">
-      <div class="col-12 col-md-5 mb-3 pb-3">
-        <app-documentos-avaluo-hipoteca
-          [titleCampo]="'Predial'"
-          [idUsuario]="idUsuario"
-          [idFormulario]="idFormulario"
-        ></app-documentos-avaluo-hipoteca>
-      </div>
-      <div class="col-12 col-md-5 mb-3">
-        <app-documentos-avaluo-hipoteca
-          [titleCampo]="'Certificado catastral'"
-          [idUsuario]="idUsuario"
-          [idFormulario]="idFormulario"
-        ></app-documentos-avaluo-hipoteca>
-      </div>
+  <div class="row justify-content-center upload-block">
+    <div class="col-12 col-md-5 mb-3 pb-3">
+      <app-documentos-avaluo-hipoteca
+        [titleCampo]="'Predial'"
+        [idUsuario]="idUsuario"
+        [idFormulario]="idFormulario"
+      ></app-documentos-avaluo-hipoteca>
     </div>
-  </ng-container>
+    <div class="col-12 col-md-5 mb-3">
+      <app-documentos-avaluo-hipoteca
+        [titleCampo]="'Certificado catastral'"
+        [idUsuario]="idUsuario"
+        [idFormulario]="idFormulario"
+      ></app-documentos-avaluo-hipoteca>
+    </div>
+  </div>
 </div>

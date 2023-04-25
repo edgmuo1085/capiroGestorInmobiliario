@@ -9,10 +9,8 @@
           (change)="consultarFiltro($event)"
           [(ngModel)]="tipoInmueble"
         >
-          <ng-container>
-            <option value="" disabled selected="selected">Elija una opción</option>
-            <option *ngFor="let tipo of tiposInmuebles" [value]="tipo.value">{{ tipo.label }}</option>
-          </ng-container>
+          <option value="" disabled selected="selected">Elija una opción</option>
+          <option *ngFor="let tipo of tiposInmuebles" [value]="tipo.value">{{ tipo.label }}</option>
         </select>
         <label for="tipoInmueble">Tipo de inmueble</label>
       </div>
@@ -33,10 +31,8 @@
     <div class="col-12 col-md-3 col-lg-3 my-2">
       <div class="form-floating">
         <select class="form-select" id="estado" aria-label="Estado" (change)="consultarFiltro($event)" [(ngModel)]="estado">
-          <ng-container>
-            <option value="" disabled selected="selected">Elija una opción</option>
-            <option *ngFor="let tipo of estadosInmueble" [value]="tipo.value">{{ tipo.label }}</option>
-          </ng-container>
+          <option value="" disabled selected="selected">Elija una opción</option>
+          <option *ngFor="let tipo of estadosInmueble" [value]="tipo.value">{{ tipo.label }}</option>
         </select>
         <label for="estado">Estado</label>
       </div>
@@ -50,10 +46,8 @@
           (change)="consultarFiltro($event)"
           [(ngModel)]="habitaciones"
         >
-          <ng-container>
-            <option value="" disabled selected="selected">Elija una opción</option>
-            <option *ngFor="let tipo of listaHabitaciones" [value]="tipo.value">{{ tipo.label }}</option>
-          </ng-container>
+          <option value="" disabled selected="selected">Elija una opción</option>
+          <option *ngFor="let tipo of listaHabitaciones" [value]="tipo.value">{{ tipo.label }}</option>
         </select>
         <label for="habitaciones">Habitaciones</label>
       </div>
