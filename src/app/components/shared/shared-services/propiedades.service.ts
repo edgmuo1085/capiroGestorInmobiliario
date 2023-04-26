@@ -60,13 +60,7 @@ export class PropiedadesService {
     return this.http.post<ResponseArchivo>(url, data);
   }
 
-  getUploadPhotoHosting2(formData: FormData): Observable<any> {
-    const url = `https://arrendamientoscapiro.com/up_imagen/form-capiro.php`;
-    return this.http.post(url, formData);
-  }
-
   getUploadPhotoHosting(formData: FormData): Observable<HttpEvent<void>> {
-    //const url = `http://localhost/capiro/up_imagen/form-capiro.php`;
     const url = `https://arrendamientoscapiro.com/up_imagen/form-capiro.php`;
     const req = new HttpRequest('POST', url, formData, {
       reportProgress: true,

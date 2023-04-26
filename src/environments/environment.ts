@@ -10,8 +10,10 @@ const constants = {
 
 export const environment = {
   production: false,
-  URL_API: `https://general2-https.ddns.net/serviciosCapiro-1/`,
+  URL_API: `https://general2-https.ddns.net/pruebas/`,
   ...constants,
-  rutaImg: 'imagenes',
-  rutaDoc: 'documentos',
+  rutaImg: 'imagenes_p/',
+  rutaDoc: 'documentos_p/',
+  rutaImgPhp: 'imagenes_p',
+  rutaDocPhp: 'documentos_p',
 };

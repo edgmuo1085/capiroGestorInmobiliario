@@ -89,9 +89,9 @@ export class InmuebleRegistrarComponent implements OnInit {
     let registroInmueble: InmuebleRegistro = new InmuebleRegistroModel(
       this.formRegistroInmueble.get('tipoInmueble')?.value,
       this.formRegistroInmueble.get('area')?.value,
-      this.formRegistroInmueble.get('habitacion')?.value,
+      +this.formRegistroInmueble.get('habitacion')?.value,
       this.formRegistroInmueble.get('estrato')?.value,
-      this.formRegistroInmueble.get('banos')?.value,
+      +this.formRegistroInmueble.get('banos')?.value,
       this.formRegistroInmueble.get('garage')?.value,
       this.formRegistroInmueble.get('estadoInmueble')?.value,
       this.formRegistroInmueble.get('tiempo')?.value,
@@ -135,9 +135,9 @@ export class InmuebleRegistrarComponent implements OnInit {
     let actualizarInmuebleData: Inmueble = new InmuebleModel(
       this.formRegistroInmueble.get('tipoInmueble')?.value,
       this.formRegistroInmueble.get('area')?.value,
-      this.formRegistroInmueble.get('habitacion')?.value,
+      +this.formRegistroInmueble.get('habitacion')?.value,
       this.formRegistroInmueble.get('estrato')?.value,
-      this.formRegistroInmueble.get('banos')?.value,
+      +this.formRegistroInmueble.get('banos')?.value,
       this.formRegistroInmueble.get('garage')?.value,
       this.formRegistroInmueble.get('estadoInmueble')?.value,
       this.formRegistroInmueble.get('tiempo')?.value,
@@ -180,15 +180,16 @@ export class InmuebleRegistrarComponent implements OnInit {
         this.formRegistroInmueble.patchValue({
           tipoInmueble: response.tipoInmueble,
           area: response.area,
-          habitacion: response.habitacion,
+          habitacion: '' + response.habitacion,
           estrato: response.estrato,
-          banos: response.banos,
+          banos: '' + response.banos,
           garage: response.garage,
           estadoInmueble: response.estado,
           tiempo: response.tiempo,
           precio: response.precio,
           tipoPublicacion: response.tipoPublicacion,
           tipoConstruccion: response.tipoCons,
+          direccion: response.direccion,
         });
       },
       error: err => {

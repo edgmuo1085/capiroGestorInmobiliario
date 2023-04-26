@@ -12,6 +12,8 @@ export const environment = {
   production: true,
   URL_API: `https://general2-https.ddns.net/serviciosCapiro-1/`,
   ...constants,
-  rutaImg: 'imagenes',
-  rutaDoc: 'documentos',
+  rutaImg: 'imagenes/',
+  rutaDoc: 'documentos/',
+  rutaImgPhp: 'imagenes',
+  rutaDocPhp: 'documentos',
 };

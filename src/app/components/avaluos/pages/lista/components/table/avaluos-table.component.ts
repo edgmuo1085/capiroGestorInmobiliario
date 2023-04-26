@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Table } from 'primeng/table';
 import { DocumentoAvaluoHipoteca } from 'src/app/components/interfaces/documentos-avaluo-hipoteca.interface';
 import { ResponseAvaluoHipoteca } from 'src/app/components/interfaces/response-avaluo-hipoteca.interface';
@@ -14,6 +14,7 @@ export class AvaluosTableComponent {
   @Input() selectedListaAvaluos: ResponseAvaluoHipoteca[] = [];
   @Input() loading: boolean = false;
   @Input() idUsuario: number = 0;
+  @Output() actionRefreshList: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('tableListaAvaluos') tableListaAvaluos!: Table;
 
   documentosAnexos: DocumentoAvaluoHipoteca[] = [];
@@ -46,5 +47,6 @@ export class AvaluosTableComponent {
   closeModalAvaluoHipoteca(event: boolean) {
     this.mostrarModalAvaluoHipoteca = event;
     this.mostrarDocumentos = event;
+    this.actionRefreshList.emit();
   }
 }

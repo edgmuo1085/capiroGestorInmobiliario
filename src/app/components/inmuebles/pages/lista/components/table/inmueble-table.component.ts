@@ -136,7 +136,7 @@ export class InmuebleTableComponent {
     this.uploadedFiles[index].progress = 0;
     const formData: FormData = new FormData();
     formData.append('guardar', 'true');
-    formData.append('tipoDocumento', environment.rutaImg);
+    formData.append('tipoDocumento', environment.rutaImgPhp);
     formData.append('nombreImg', nombreSinExt);
     formData.append('archivoCapiro', file);
     this.propiedadesService.getUploadPhotoHosting(formData).subscribe({

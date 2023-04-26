@@ -67,7 +67,7 @@ export class DocumentosAvaluoHipotecaComponent implements OnDestroy {
     this.uploadedFiles[index].progress = 0;
     const formData: FormData = new FormData();
     formData.append('guardar', 'true');
-    formData.append('tipoDocumento', environment.rutaDoc);
+    formData.append('tipoDocumento', environment.rutaDocPhp);
     formData.append('nombreImg', nombreSinExt);
     formData.append('archivoCapiro', file);
     this.propiedadesService.getUploadPhotoHosting(formData).subscribe({
