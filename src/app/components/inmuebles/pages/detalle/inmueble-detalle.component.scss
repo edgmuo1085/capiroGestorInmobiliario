@@ -36,6 +36,13 @@
         max-width: cap-font-size(32px);
       }
 
+      .icon-custom {
+        font-size: cap-font-size(22px);
+        margin-left: cap-font-size(7px);
+        margin-right: cap-font-size(7px);
+        color: var(--color-principal);
+      }
+
       p {
         padding: 0;
         margin: 0 0 0 cap-font-size(4px);
