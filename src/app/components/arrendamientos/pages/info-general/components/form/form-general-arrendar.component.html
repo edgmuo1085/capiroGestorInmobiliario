@@ -363,6 +363,7 @@
               id="estadoCivil"
               formControlName="estadoCivil"
               aria-label="Estado civil"
+              required=""
               [ngClass]="{ 'is-invalid': formCtrlG['estadoCivil'].touched && formCtrlG['estadoCivil'].errors }"
               (change)="clicEstadoCivil(estadoCivilSelect.value)"
               #estadoCivilSelect
@@ -386,52 +387,43 @@
 
       <div class="row justify-content-center">
         <div class="col-12 col-md-4 mb-3">
-          <app-cap-form-fielset [label]="'nombresC'">
-            <div class="form-floating">
-              <input
-                class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlG['nombresC'].touched && formCtrlG['nombresC'].errors }"
-                formControlName="nombresC"
-                id="nombresC"
-                type="text"
-                placeholder="Nombres"
-                required=""
-              />
-              <label for="nombresC">Nombres</label>
-            </div>
+          <app-cap-form-fielset [label]="'nombresConyuge'">
+            <app-cap-form-input [formData]="formInfoGeneral" [controlName]="'nombresConyuge'" [placeholder]="'Nombres'">
+            </app-cap-form-input>
           </app-cap-form-fielset>
         </div>
         <div class="col-12 col-md-4 mb-3">
-          <app-cap-form-fielset [label]="'apellidosC'">
+          <app-cap-form-fielset [label]="'apellidosConyuge'">
             <div class="form-floating">
               <input
                 class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlG['apellidosC'].touched && formCtrlG['apellidosC'].errors }"
-                formControlName="apellidosC"
-                id="apellidosC"
+                [ngClass]="{ 'is-invalid': formCtrlG['apellidosConyuge'].touched && formCtrlG['apellidosConyuge'].errors }"
+                formControlName="apellidosConyuge"
+                id="apellidosConyuge"
                 type="text"
                 placeholder="Apellidos"
                 required=""
               />
-              <label for="apellidosC">Apellidos</label>
+              <label for="apellidosConyuge">Apellidos</label>
             </div>
           </app-cap-form-fielset>
         </div>
         <div class="col-12 col-md-4 mb-3">
-          <app-cap-form-fielset [label]="'tipoDocC'">
+          <app-cap-form-fielset [label]="'tipoDocConyuge'">
             <div class="form-floating">
               <select
                 class="form-select"
-                id="tipoDocC"
-                formControlName="tipoDocC"
+                id="tipoDocConyuge"
+                formControlName="tipoDocConyuge"
                 aria-label="Tipo de identificación"
-                [ngClass]="{ 'is-invalid': formCtrlG['tipoDocC'].touched && formCtrlG['tipoDocC'].errors }"
+                required=""
+                [ngClass]="{ 'is-invalid': formCtrlG['tipoDocConyuge'].touched && formCtrlG['tipoDocConyuge'].errors }"
               >
                 <option *ngFor="let tipo of listadoEstadosCivil" [ngValue]="tipo.value">
                   {{ tipo.label }}
                 </option>
               </select>
-              <label for="tipoDocC">Tipo de identificación</label>
+              <label for="tipoDocConyuge">Tipo de identificación</label>
             </div>
           </app-cap-form-fielset>
         </div>
@@ -439,50 +431,50 @@
 
       <div class="row justify-content-start">
         <div class="col-12 col-md-4 mb-3">
-          <app-cap-form-fielset [label]="'numeroDocC'">
+          <app-cap-form-fielset [label]="'numeroDocConyuge'">
             <div class="form-floating">
               <input
                 class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlG['numeroDocC'].touched && formCtrlG['numeroDocC'].errors }"
-                formControlName="numeroDocC"
-                id="numeroDocC"
+                [ngClass]="{ 'is-invalid': formCtrlG['numeroDocConyuge'].touched && formCtrlG['numeroDocConyuge'].errors }"
+                formControlName="numeroDocConyuge"
+                id="numeroDocConyuge"
                 type="text"
                 placeholder="Número de documento"
                 required=""
               />
-              <label for="numeroDocC">Número de documento</label>
+              <label for="numeroDocConyuge">Número de documento</label>
             </div>
           </app-cap-form-fielset>
         </div>
         <div class="col-12 col-md-4 mb-3">
-          <app-cap-form-fielset [label]="'correoC'">
+          <app-cap-form-fielset [label]="'correoConyuge'">
             <div class="form-floating">
               <input
                 class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlG['correoC'].touched && formCtrlG['correoC'].errors }"
-                formControlName="correoC"
-                id="correoC"
+                [ngClass]="{ 'is-invalid': formCtrlG['correoConyuge'].touched && formCtrlG['correoConyuge'].errors }"
+                formControlName="correoConyuge"
+                id="correoConyuge"
                 type="email"
                 placeholder="Correo electrónico"
                 required=""
               />
-              <label for="correoC">Correo electrónico</label>
+              <label for="correoConyuge">Correo electrónico</label>
             </div>
           </app-cap-form-fielset>
         </div>
         <div class="col-12 col-md-4 mb-3">
-          <app-cap-form-fielset [label]="'celularC'">
+          <app-cap-form-fielset [label]="'celularConyuge'">
             <div class="form-floating">
               <input
                 class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlG['celularC'].touched && formCtrlG['celularC'].errors }"
-                formControlName="celularC"
-                id="celularC"
+                [ngClass]="{ 'is-invalid': formCtrlG['celularConyuge'].touched && formCtrlG['celularConyuge'].errors }"
+                formControlName="celularConyuge"
+                id="celularConyuge"
                 type="text"
                 placeholder="Celular"
                 required=""
               />
-              <label for="celularC">Celular</label>
+              <label for="celularConyuge">Celular</label>
             </div>
           </app-cap-form-fielset>
         </div>
@@ -490,34 +482,34 @@
 
       <div class="row justify-content-start">
         <div class="col-12 col-md-4 mb-3">
-          <app-cap-form-fielset [label]="'ocupacionC'">
+          <app-cap-form-fielset [label]="'ocupacionConyuge'">
             <div class="form-floating">
               <input
                 class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlG['ocupacionC'].touched && formCtrlG['ocupacionC'].errors }"
-                formControlName="ocupacionC"
-                id="ocupacionC"
+                [ngClass]="{ 'is-invalid': formCtrlG['ocupacionConyuge'].touched && formCtrlG['ocupacionConyuge'].errors }"
+                formControlName="ocupacionConyuge"
+                id="ocupacionConyuge"
                 type="text"
                 placeholder="Ocupación actual"
                 required=""
               />
-              <label for="ocupacionC">Ocupación actual</label>
+              <label for="ocupacionConyuge">Ocupación actual</label>
             </div>
           </app-cap-form-fielset>
         </div>
         <div class="col-12 col-md-4 mb-3">
-          <app-cap-form-fielset [label]="'ingresosC'">
+          <app-cap-form-fielset [label]="'ingresosConyuge'">
             <div class="form-floating">
               <input
                 class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlG['ingresosC'].touched && formCtrlG['ingresosC'].errors }"
-                formControlName="ingresosC"
-                id="ingresosC"
+                [ngClass]="{ 'is-invalid': formCtrlG['ingresosConyuge'].touched && formCtrlG['ingresosConyuge'].errors }"
+                formControlName="ingresosConyuge"
+                id="ingresosConyuge"
                 type="text"
                 placeholder="Ingresos"
                 required=""
               />
-              <label for="ingresosC">Ingresos</label>
+              <label for="ingresosConyuge">Ingresos</label>
             </div>
           </app-cap-form-fielset>
         </div>

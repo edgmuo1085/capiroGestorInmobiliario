@@ -1,0 +1,19 @@
+<ng-container [formGroup]="formData">
+  <div class="form-floating">
+    <input
+      class="form-control"
+      [ngClass]="{ 'is-invalid': formData.controls[controlName].touched && formData.controls[controlName].errors }"
+      [formControlName]="controlName"
+      [id]="controlName"
+      [type]="type"
+      [maxlength]="maxLenght"
+      [placeholder]="placeholder"
+      [required]="required"
+      (blur)="validatorService.validateControl(formData, controlName, cdref)"
+    />
+    <label [for]="controlName">{{ placeholder }}</label>
+    <span class="icon-eye-custom" *ngIf="showPass">
+      <i class="fa-solid fa-eye icon-pass" aria-hidden="true" (click)="changeInputType($event, controlName)"></i>
+    </span>
+  </div>
+</ng-container>

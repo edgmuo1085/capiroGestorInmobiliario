@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   loading: boolean = false;
   eye: boolean = true;
-  tipoInput: string = 'password';
 
   constructor(
     private fb: FormBuilder,
@@ -33,16 +32,6 @@ export class LoginComponent implements OnInit {
       correo: ['', [Validators.required, Validators.email]],
       contrasena: ['', Validators.required],
     });
-  }
-
-  mostrarPass() {
-    this.eye = false;
-    this.tipoInput = 'text';
-  }
-
-  ocultarPass() {
-    this.eye = true;
-    this.tipoInput = 'password';
   }
 
   login() {
@@ -90,9 +79,5 @@ export class LoginComponent implements OnInit {
         console.error(err);
       },
     });
-  }
-
-  get formCtrlC() {
-    return this.loginForm.controls;
   }
 }

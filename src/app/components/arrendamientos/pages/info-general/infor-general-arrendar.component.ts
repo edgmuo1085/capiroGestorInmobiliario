@@ -45,6 +45,7 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.formInfoGeneral = this.fb.group({
+      isInvalidForm: false,
       direccionPredio: ['', [Validators.required]],
       destinacionPredio: ['', [Validators.required]],
       arrendamientoMen: ['', [Validators.required]],
@@ -67,15 +68,14 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
       ocupacion: ['', [Validators.required]],
       personasAcargo: ['', [Validators.required]],
       estadoCivil: ['', [Validators.required]],
-
-      nombresC: [''],
-      apellidosC: [''],
-      tipoDocC: [''],
-      numeroDocC: [''],
-      correoC: [''],
-      celularC: [''],
-      ocupacionC: [''],
-      ingresosC: [''],
+      nombresConyuge: [''],
+      apellidosConyuge: [''],
+      tipoDocConyuge: [''],
+      numeroDocConyuge: [''],
+      correoConyuge: [''],
+      celularConyuge: [''],
+      ocupacionConyuge: [''],
+      ingresosConyuge: [''],
     });
     this.setValuesFormArrendamiento();
   }
@@ -111,14 +111,14 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
         ocupacion: response.ocupacion,
         personasAcargo: response.personasAcargo,
         estadoCivil: response.estadoCivil,
-        nombresC: response.nombresC,
-        apellidosC: response.apellidosC,
-        tipoDocC: response.tipoDocC,
-        numeroDocC: response.numeroDocC,
-        correoC: response.correoC,
-        celularC: response.celularC,
-        ocupacionC: response.ocupacionC,
-        ingresosC: response.ingresosC,
+        nombresConyuge: response.nombresConyuge,
+        apellidosConyuge: response.apellidosConyuge,
+        tipoDocConyuge: response.tipoDocConyuge,
+        numeroDocConyuge: response.numeroDocConyuge,
+        correoConyuge: response.correoConyuge,
+        celularConyuge: response.celularConyuge,
+        ocupacionConyuge: response.ocupacionConyuge,
+        ingresosConyuge: response.ingresosConyuge,
       });
     });
 

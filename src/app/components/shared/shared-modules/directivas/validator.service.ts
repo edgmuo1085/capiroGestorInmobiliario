@@ -88,7 +88,7 @@ export class ValidatorService {
   }
 
   getErrorsAndValues(control: AbstractControl, id: string): { [key: string]: any } {
-    let formError = control.errors || new FormGroup({});
+    let formError = control.errors || {};
     let values: RangeValidatorShared = {};
     let error = Object.keys(formError)[0];
     const errorSpecificValues = Object.values(formError)[0];

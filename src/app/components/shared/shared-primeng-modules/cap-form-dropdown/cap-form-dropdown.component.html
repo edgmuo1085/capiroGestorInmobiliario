@@ -1,0 +1,14 @@
+<ng-container [formGroup]="formData">
+  <div class="form-floating">
+    <select
+      class="form-select"
+      [formControlName]="controlName"
+      [id]="controlName"
+      [ngClass]="{ 'is-invalid': formData.controls[controlName].touched && formData.controls[controlName].errors }"
+      (click)="validatorService.validateControl(formData, controlName, cdref)"
+    >
+      <option *ngFor="let tipo of listaItems" [value]="tipo.value">{{ tipo.label }}</option>
+    </select>
+    <label [for]="controlName">{{ placeholder }}</label>
+  </div>
+</ng-container>

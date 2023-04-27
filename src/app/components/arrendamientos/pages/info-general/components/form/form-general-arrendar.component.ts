@@ -41,21 +41,22 @@ export class FormGeneralArrendarComponent {
 
   selectEstadoCivil(estadoCivil: string) {
     const validatorsRequired: ValidatorFn[] = [Validators.required];
-    let ctrlNombresC = this.formInfoGeneral.get('nombresC');
-    let ctrlApellidosC = this.formInfoGeneral.get('apellidosC');
-    let ctrlTipoDocC = this.formInfoGeneral.get('tipoDocC');
-    let ctrlNumeroDocC = this.formInfoGeneral.get('numeroDocC');
-    let ctrlCorreoC = this.formInfoGeneral.get('correoC');
-    let ctrlCelularC = this.formInfoGeneral.get('celularC');
-    let ctrlOcupacionC = this.formInfoGeneral.get('ocupacionC');
-    let ctrlIngresosC = this.formInfoGeneral.get('ingresosC');
+    const validatorsReqEmail: ValidatorFn[] = [Validators.required, Validators.email];
+    let ctrlNombresC = this.formInfoGeneral.get('nombresConyuge');
+    let ctrlApellidosC = this.formInfoGeneral.get('apellidosConyuge');
+    let ctrlTipoDocC = this.formInfoGeneral.get('tipoDocConyuge');
+    let ctrlNumeroDocC = this.formInfoGeneral.get('numeroDocConyuge');
+    let ctrlCorreoC = this.formInfoGeneral.get('correoConyuge');
+    let ctrlCelularC = this.formInfoGeneral.get('celularConyuge');
+    let ctrlOcupacionC = this.formInfoGeneral.get('ocupacionConyuge');
+    let ctrlIngresosC = this.formInfoGeneral.get('ingresosConyuge');
 
     if (estadoCivil === 'Casado') {
       ctrlNombresC?.setValidators(validatorsRequired);
       ctrlApellidosC?.setValidators(validatorsRequired);
       ctrlTipoDocC?.setValidators(validatorsRequired);
       ctrlNumeroDocC?.setValidators(validatorsRequired);
-      ctrlCorreoC?.setValidators(validatorsRequired);
+      ctrlCorreoC?.setValidators(validatorsReqEmail);
       ctrlCelularC?.setValidators(validatorsRequired);
       ctrlOcupacionC?.setValidators(validatorsRequired);
       ctrlIngresosC?.setValidators(validatorsRequired);

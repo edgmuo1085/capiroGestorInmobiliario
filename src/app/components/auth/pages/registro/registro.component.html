@@ -14,114 +14,63 @@
             <div class="row justify-content-center">
               <div class="col-11 col-md-10 mb-3">
                 <app-cap-form-fielset [label]="'nombres'">
-                  <div class="form-floating">
-                    <input
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': formCtrlR['nombres'].touched && formCtrlR['nombres'].errors }"
-                      formControlName="nombres"
-                      id="nombres"
-                      type="text"
-                      placeholder="Nombres"
-                      required=""
-                    />
-                    <label for="nombres">Nombres</label>
-                  </div>
+                  <app-cap-form-input [formData]="formRegistro" [controlName]="'nombres'" [placeholder]="'Nombres'"> </app-cap-form-input>
                 </app-cap-form-fielset>
               </div>
             </div>
             <div class="row justify-content-center">
               <div class="col-11 col-md-10 mb-3">
                 <app-cap-form-fielset [label]="'apellidos'">
-                  <div class="form-floating">
-                    <input
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': formCtrlR['apellidos'].touched && formCtrlR['apellidos'].errors }"
-                      formControlName="apellidos"
-                      id="apellidos"
-                      type="text"
-                      placeholder="Apellidos"
-                      required=""
-                    />
-                    <label for="apellidos">Apellidos</label>
-                  </div>
+                  <app-cap-form-input [formData]="formRegistro" [controlName]="'apellidos'" [placeholder]="'Apellidos'">
+                  </app-cap-form-input>
                 </app-cap-form-fielset>
               </div>
             </div>
             <div class="row justify-content-center">
               <div class="col-11 col-md-10 mb-3">
                 <app-cap-form-fielset [label]="'correo'">
-                  <div class="form-floating">
-                    <input
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': formCtrlR['correo'].touched && formCtrlR['correo'].errors }"
-                      formControlName="correo"
-                      id="correo"
-                      type="email"
-                      placeholder="Correo electrónico"
-                      required=""
-                    />
-                    <label for="correo">Correo electrónico</label>
-                  </div>
+                  <app-cap-form-input
+                    [formData]="formRegistro"
+                    [controlName]="'correo'"
+                    [type]="'email'"
+                    [placeholder]="'Correo electrónico'"
+                  >
+                  </app-cap-form-input>
                 </app-cap-form-fielset>
               </div>
             </div>
             <div class="row justify-content-center">
               <div class="col-11 col-md-10 mb-3">
                 <app-cap-form-fielset [label]="'tipoIdentificacion'">
-                  <div class="form-floating">
-                    <select
-                      class="form-select"
-                      id="tipoIdentificacion"
-                      formControlName="tipoIdentificacion"
-                      aria-label="Tipo de identificación"
-                      [ngClass]="{ 'is-invalid': formCtrlR['tipoIdentificacion'].touched && formCtrlR['tipoIdentificacion'].errors }"
-                    >
-                      <option *ngFor="let tipo of tiposIdentificacion" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                    </select>
-                    <label for="tipoIdentificacion">Tipo de identificación</label>
-                  </div>
+                  <app-cap-form-dropdown
+                    [formData]="formRegistro"
+                    [controlName]="'tipoIdentificacion'"
+                    [listaItems]="tiposIdentificacion"
+                    [placeholder]="'Tipo de identificación'"
+                  >
+                  </app-cap-form-dropdown>
                 </app-cap-form-fielset>
               </div>
             </div>
             <div class="row justify-content-center">
               <div class="col-11 col-md-10 mb-3">
                 <app-cap-form-fielset [label]="'identificacion'">
-                  <div class="form-floating">
-                    <input
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': formCtrlR['identificacion'].touched && formCtrlR['identificacion'].errors }"
-                      formControlName="identificacion"
-                      id="identificacion"
-                      type="number"
-                      placeholder="Identificación"
-                      required=""
-                    />
-                    <label for="identificacion">Identificación</label>
-                  </div>
+                  <app-cap-form-input [formData]="formRegistro" [controlName]="'identificacion'" [placeholder]="'Identificación'">
+                  </app-cap-form-input>
                 </app-cap-form-fielset>
               </div>
             </div>
             <div class="row justify-content-center">
               <div class="col-11 col-md-10 mb-3">
                 <app-cap-form-fielset [label]="'password'">
-                  <div class="form-floating">
-                    <input
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': formCtrlR['password'].touched && formCtrlR['password'].errors }"
-                      formControlName="password"
-                      id="password"
-                      [type]="tipoInput"
-                      placeholder="Contraseña"
-                      required=""
-                    />
-                    <label for="password">Contraseña</label>
-                    <div class="icon-eye-custom" (click)="mostrarPass()" *ngIf="eye === true">
-                      <i class="fa-solid fa-eye-slash"></i>
-                    </div>
-                    <div class="icon-eye-custom" (click)="ocultarPass()" *ngIf="eye === false">
-                      <i class="fa-solid fa-eye"></i>
-                    </div>
-                  </div>
+                  <app-cap-form-input
+                    [formData]="formRegistro"
+                    [controlName]="'password'"
+                    [type]="'password'"
+                    [placeholder]="'Contraseña'"
+                    [showPass]="true"
+                  >
+                  </app-cap-form-input>
                 </app-cap-form-fielset>
               </div>
             </div>

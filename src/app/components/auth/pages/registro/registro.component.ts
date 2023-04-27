@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/components/shared/shared-services/login.service';
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
+import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-registro',
@@ -12,10 +14,7 @@ import { ToastCustomService } from 'src/app/components/shared/shared-services/to
 export class RegistroComponent implements OnInit {
   formRegistro!: FormGroup;
   loading: boolean = false;
-  eye: boolean = true;
-  tipoInput: string = 'password';
-
-  tiposIdentificacion: any[] = [
+  tiposIdentificacion: ParametrosShared[] = [
     {
       value: 'CC',
       label: 'Cédula de ciudadanía',
@@ -37,21 +36,11 @@ export class RegistroComponent implements OnInit {
     this.formRegistro = this.fb.group({
       nombres: ['', Validators.required],
       apellidos: ['', Validators.required],
-      correo: ['', Validators.required],
-      identificacion: ['', Validators.required],
-      tipoIdentificacion: ['CC', Validators.required],
+      correo: ['', [Validators.required, Validators.email]],
+      identificacion: ['', [Validators.required, Validators.pattern(environment.soloNumeros)]],
+      tipoIdentificacion: ['', Validators.required],
       password: ['', Validators.required],
     });
-  }
-
-  mostrarPass() {
-    this.eye = false;
-    this.tipoInput = 'text';
-  }
-
-  ocultarPass() {
-    this.eye = true;
-    this.tipoInput = 'password';
   }
 
   registrar() {
@@ -84,9 +73,5 @@ export class RegistroComponent implements OnInit {
         this.loading = false;
       },
     });
-  }
-
-  get formCtrlR() {
-    return this.formRegistro.controls;
   }
 }

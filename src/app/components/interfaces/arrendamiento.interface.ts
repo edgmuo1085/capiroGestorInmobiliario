@@ -21,14 +21,14 @@ export interface InformacionGeneralA {
   ocupacion: string;
   personasAcargo: string;
   estadoCivil: string;
-  nombresC: string;
-  apellidosC: string;
-  tipoDocC: string;
-  numeroDocC: string;
-  correoC: string;
-  celularC: string;
-  ocupacionC: string;
-  ingresosC: string;
+  nombresConyuge: string;
+  apellidosConyuge: string;
+  tipoDocConyuge: string;
+  numeroDocConyuge: string;
+  correoConyuge: string;
+  celularConyuge: string;
+  ocupacionConyuge: string;
+  ingresosConyuge: string;
 }
 
 export interface InformacionOcupacionA {

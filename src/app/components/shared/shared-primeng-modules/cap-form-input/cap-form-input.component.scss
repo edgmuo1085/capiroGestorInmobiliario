@@ -1,0 +1,23 @@
+@import 'layout.functions';
+
+.icon-eye-custom {
+  position: absolute;
+  display: block;
+  bottom: cap-font-size(16px);
+  right: cap-font-size(32px);
+  cursor: pointer;
+  color: var(--color-principal);
+}
+
+.maska {
+  display: block;
+  height: cap-font-size(1px);
+
+  span {
+    display: block;
+    position: relative;
+    bottom: cap-font-size(37px);
+    padding: cap-font-size(6px);
+    background: rgba(0, 0, 0, 0.2);
+  }
+}

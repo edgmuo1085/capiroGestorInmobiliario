@@ -1,23 +1,19 @@
-<form [formGroup]="formInfoOcupacion" (ngSubmit)="onSubmitInfoOcupacion()" appValidator autocomplete="off">
-  <div class="container-fluid my-5">
-    <div class="row justify-content-start">
-      <div class="col-12 col-md-4 mb-4">
-        <div class="form-floating">
-          <select
-            class="form-select"
-            id="tipoInmueble"
-            aria-label="Ocupación"
-            (change)="clicOcupacion(ocupacionLista.value)"
-            #ocupacionLista
-          >
-            <option value="" disabled selected="selected">Elija una opción</option>
-            <option *ngFor="let tipo of listaOcupacion" [value]="tipo.value">{{ tipo.label }}</option>
-          </select>
-          <label for="tipoInmueble">Ocupación</label>
-        </div>
+<div class="container-fluid my-5">
+  <div class="row justify-content-start">
+    <div class="col-12 col-md-4 mb-4">
+      <div class="form-floating">
+        <select class="form-select" id="tipoInmueble" aria-label="Ocupación" (change)="clicOcupacion(ocupacionLista.value)" #ocupacionLista>
+          <option value="" disabled selected="selected">Elija una opción</option>
+          <option *ngFor="let tipo of listaOcupacion" [value]="tipo.value">{{ tipo.label }}</option>
+        </select>
+        <label for="tipoInmueble">Ocupación</label>
       </div>
     </div>
+  </div>
+</div>
 
+<form [formGroup]="formInfoOcupacion" (ngSubmit)="onSubmitInfoOcupacion()" appValidator autocomplete="off">
+  <div class="container-fluid my-5">
     <div class="row justify-content-center">
       <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[0]">
         <app-cap-form-fielset [label]="'empresa'">
