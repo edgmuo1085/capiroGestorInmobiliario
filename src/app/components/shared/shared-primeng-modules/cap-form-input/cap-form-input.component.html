@@ -2,7 +2,7 @@
   <div class="form-floating">
     <input
       class="form-control"
-      [ngClass]="{ 'is-invalid': formData.controls[controlName].touched && formData.controls[controlName].errors }"
+      [ngClass]="{ 'is-invalid': isInvalidControl() }"
       [formControlName]="controlName"
       [id]="controlName"
       [type]="type"

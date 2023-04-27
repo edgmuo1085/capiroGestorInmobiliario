@@ -1,0 +1,7 @@
+<div class="form-floating">
+  <select class="form-select" [id]="controlName" (change)="actionEmit(dropdownCustom.value)" #dropdownCustom>
+    <option value="" disabled selected="selected">Elija una opción</option>
+    <option *ngFor="let tipo of listaItems" [value]="tipo.value">{{ tipo.label }}</option>
+  </select>
+  <label [for]="controlName">{{ placeholder }}</label>
+</div>

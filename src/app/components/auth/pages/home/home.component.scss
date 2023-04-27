@@ -49,8 +49,7 @@
         background-color: var(--color-principal);
         color: #ffffff;
         cursor: pointer;
-        width: 100%;
-        max-width: cap-font-size(150px);
+        width: min(100%, cap-font-size(150px));
         border-radius: cap-font-size(12px);
         padding: cap-font-size(16px) cap-font-size(20px);
         font-size: cap-font-size(16px);

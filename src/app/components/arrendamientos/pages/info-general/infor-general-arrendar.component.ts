@@ -54,7 +54,7 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
       apellidos: ['', [Validators.required]],
       fechaNacimiento: ['', [Validators.required]],
       tipoDoc: ['', [Validators.required]],
-      numeroDoc: ['', [Validators.required]],
+      numeroDoc: ['', [Validators.required, Validators.pattern(environment.soloNumeros)]],
       fechaExpedicion: ['', [Validators.required]],
       lugarExpedicion: ['', [Validators.required]],
       lugarNacimiento: ['', [Validators.required]],
@@ -126,7 +126,7 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
   }
 
   nextPage() {
-    console.log('form: ', this.formInfoGeneral.controls);
+    console.log('form: ', this.formInfoGeneral.value);
     if (this.formInfoGeneral.invalid) {
       return;
     }

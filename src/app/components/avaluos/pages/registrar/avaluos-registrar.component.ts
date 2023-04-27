@@ -39,6 +39,7 @@ export class AvaluosRegistrarComponent implements OnInit {
 
   ngOnInit(): void {
     this.formAvaluos = this.fb.group({
+      isInvalidForm: false,
       tipoFormulario: ['avaluo'],
       tipoInmueble: ['', [Validators.required]],
       estrato: ['', [Validators.required]],

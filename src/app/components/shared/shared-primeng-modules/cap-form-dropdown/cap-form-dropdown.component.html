@@ -6,6 +6,8 @@
       [id]="controlName"
       [ngClass]="{ 'is-invalid': formData.controls[controlName].touched && formData.controls[controlName].errors }"
       (click)="validatorService.validateControl(formData, controlName, cdref)"
+      (change)="actionEmit(estadoCivilSelect.value)"
+      #estadoCivilSelect
     >
       <option *ngFor="let tipo of listaItems" [value]="tipo.value">{{ tipo.label }}</option>
     </select>

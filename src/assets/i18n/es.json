@@ -118,22 +118,31 @@
         "correoConyuge": "Campo requerido",
         "celularConyuge": "Campo requerido",
         "ocupacionConyuge": "Campo requerido",
-        "ingresosConyuge": "Campo requerido"
+        "ingresosConyuge": "Campo requerido",
+        "empresa": "Campo requerido",
+
+        "nitEmpresa": "Campo requerido",
+        "direccionOcupacion": "Campo requerido",
+        "ciudadOcupacion": "Campo requerido",
+        "fechaIngreso": "Campo requerido",
+        "cargoOcupacion": "Campo requerido",
+        "tipoContrato": "Campo requerido",
+        "telefonoEmpresa": "Campo requerido",
+        "salario": "Campo requerido",
+        "otroIngreso": "Campo requerido",
+        "origenOtrosIngresos": "Campo requerido",
+        "egresosMensuales": "Campo requerido",
+        "actividadProfesional": "Campo requerido",
+        "contacto": "Campo requerido",
+        "otroIngresoOrigen": "Campo requerido",
+        "empresaPensionado": "Campo requerido",
+        "ingresoMensualPension": "Campo requerido",
+        "deduccionMensual": "Campo requerido"
       },
       "maxlength": {
         "area": "Ingresa máximo {{expected}} caracteres",
         "habitacion": "Ingresa máximo {{expected}} caracteres",
         "banos": "Ingresa máximo {{expected}} caracteres"
-      },
-      "invalid": {
-        "identificacion": "Ingresa caracteres numéricos",
-        "area": "Ingresa caracteres numéricos",
-        "habitacion": "Ingresa caracteres numéricos",
-        "banos": "Ingresa caracteres numéricos",
-        "tiempo": "Ingresa caracteres numéricos",
-        "precio": "Ingresa caracteres numéricos",
-        "tiempoConstruido": "Ingresa caracteres numéricos",
-        "valor": "Ingresa caracteres numéricos"
       },
       "pattern": {
         "identificacion": "Ingresa caracteres numéricos",
@@ -143,7 +152,9 @@
         "tiempo": "Ingresa caracteres numéricos",
         "precio": "Ingresa caracteres numéricos",
         "tiempoConstruido": "Ingresa caracteres numéricos",
-        "valor": "Ingresa caracteres numéricos"
+        "valor": "Ingresa caracteres numéricos",
+        "numeroDoc": "Ingresa caracteres numéricos",
+        "numeroDocConyuge": "Ingresa caracteres numéricos"
       }
     }
   }

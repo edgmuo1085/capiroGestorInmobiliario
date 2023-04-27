@@ -37,6 +37,7 @@ export class HipotecasRegistrarComponent implements OnInit {
 
   ngOnInit(): void {
     this.formHipotecas = this.fb.group({
+      isInvalidForm: false,
       tipoFormulario: ['hipoteca'],
       tipoInmueble: ['', [Validators.required]],
       estrato: ['', [Validators.required]],

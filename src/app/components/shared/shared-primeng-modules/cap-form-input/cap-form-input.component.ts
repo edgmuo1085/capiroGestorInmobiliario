@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { UtilsService } from '../../shared-services/utils.service';
 import { ValidatorService } from '../../shared-modules/directivas/validator.service';
@@ -7,6 +7,7 @@ import { ValidatorService } from '../../shared-modules/directivas/validator.serv
   selector: 'app-cap-form-input',
   templateUrl: './cap-form-input.component.html',
   styleUrls: ['./cap-form-input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CapFormInputComponent {
   @Input() formData: FormGroup = new FormGroup({});
@@ -21,5 +22,11 @@ export class CapFormInputComponent {
 
   changeInputType(event: Event, id: string) {
     this.utilsService.changeInputTypePassword(event, id);
+  }
+
+  isInvalidControl() {
+    let validacion1 = this.formData.controls[this.controlName].touched;
+    let validacion2 = this.formData.controls[this.controlName].errors;
+    return validacion1 && validacion2;
   }
 }

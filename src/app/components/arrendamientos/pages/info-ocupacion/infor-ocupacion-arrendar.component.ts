@@ -21,6 +21,7 @@ export class InforOcupacionArrendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.formInfoOcupacion = this.fb.group({
+      isInvalidForm: false,
       empresa: ['', [Validators.required]],
       nitEmpresa: ['', [Validators.required]],
       direccionOcupacion: ['', [Validators.required]],
@@ -40,10 +41,6 @@ export class InforOcupacionArrendarComponent implements OnInit {
       ingresoMensualPension: ['', [Validators.required]],
       deduccionMensual: ['', [Validators.required]],
     });
-  }
-
-  guardarFormularioArrendamiento() {
-    console.log('formInfoOcupacion ', this.formInfoOcupacion.value);
   }
 
   prevPage() {

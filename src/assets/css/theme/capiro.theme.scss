@@ -70,6 +70,7 @@ body {
 .form-button {
   display: flex;
   justify-content: center;
+  width: min(100%, 10rem);
 
   .login-btn {
     background-color: var(--color-principal);
