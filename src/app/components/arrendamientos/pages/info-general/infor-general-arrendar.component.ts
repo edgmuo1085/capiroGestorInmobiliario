@@ -82,7 +82,7 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
 
   setValuesFormArrendamiento() {
     const sub1$ = this.stepArrendarService.getInfoGeneralArrendar().subscribe(response => {
-      if (!response) {
+      if (!response.estadoCivil) {
         return;
       }
 
@@ -126,7 +126,7 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
   }
 
   nextPage() {
-    console.log('form: ', this.formInfoGeneral.value);
+    //console.log('form: ', this.formInfoGeneral.value);
     if (this.formInfoGeneral.invalid) {
       return;
     }

@@ -32,6 +32,7 @@ export interface InformacionGeneralA {
 }
 
 export interface InformacionOcupacionA {
+  selectOcupacion: string;
   empresa: string;
   nitEmpresa: string;
   direccionOcupacion: string;

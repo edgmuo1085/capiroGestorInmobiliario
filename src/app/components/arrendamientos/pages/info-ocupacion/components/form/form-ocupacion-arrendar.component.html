@@ -1,19 +1,19 @@
-<div class="container-fluid my-5">
-  <div class="row justify-content-start">
-    <div class="col-12 col-md-4 mb-4">
-      <app-cap-form-dropdown-custom
-        [controlName]="'tipoInmueble'"
-        [listaItems]="listaOcupacion"
-        [placeholder]="'Ocupación'"
-        (actionChangeSelect)="clicOcupacion($event)"
-      >
-      </app-cap-form-dropdown-custom>
-    </div>
-  </div>
-</div>
-
 <form [formGroup]="formInfoOcupacion" (ngSubmit)="onSubmitInfoOcupacion()" appValidator autocomplete="off">
   <div class="container-fluid my-5">
+    <div class="row justify-content-start">
+      <div class="col-12 col-md-4 mb-4">
+        <app-cap-form-fielset [label]="'selectOcupacion'">
+          <app-cap-form-dropdown
+            [formData]="formInfoOcupacion"
+            [controlName]="'selectOcupacion'"
+            [listaItems]="listaOcupacion"
+            [placeholder]="'Ocupación'"
+            (actionChangeSelect)="clicOcupacion($event)"
+          >
+          </app-cap-form-dropdown>
+        </app-cap-form-fielset>
+      </div>
+    </div>
     <div class="row justify-content-center">
       <div class="col-12 col-md-4 mb-3" *ngIf="showCtrlForm[0]">
         <app-cap-form-fielset [label]="'empresa'">

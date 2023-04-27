@@ -3,6 +3,8 @@ export const storageKeys = {
     usuarioCapiro: 'CAPIRO-WEB::usuario',
     tokenCapiro: 'CAPIRO-WEB::token',
     infoGeneralArrendar: 'CAPIRO-WEB::informacion-general-arrendar',
+    infoOcupacionArrendar: 'CAPIRO-WEB::informacion-ocupacion-arrendar',
+    infoReferenciasArrendar: 'CAPIRO-WEB::referencias-arrendar',
   },
 };
 
