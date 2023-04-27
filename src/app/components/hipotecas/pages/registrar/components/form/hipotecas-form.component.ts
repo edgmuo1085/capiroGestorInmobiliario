@@ -28,10 +28,6 @@ export class HipotecasFormComponent {
     this.actionSaveForm.emit();
   }
 
-  get formCtrlH() {
-    return this.formHipotecas.controls;
-  }
-
   btnCancel() {
     this.formHipotecas.reset();
   }

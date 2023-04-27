@@ -32,10 +32,6 @@ export class InmuebleFormComponent {
     this.actionFormInmueble.emit();
   }
 
-  get formCtrlI() {
-    return this.formRegistroInmueble.controls;
-  }
-
   btnCancel() {
     if (this.actualizarInmueble) {
       this.router.navigate(['/inmuebles/sesion/listar']);

@@ -4,34 +4,18 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'tipoInmueble'">
-            <div class="form-floating">
-              <select
-                class="form-select"
-                id="tipoInmueble"
-                formControlName="tipoInmueble"
-                aria-label="Tipo de inmueble"
-                [ngClass]="{ 'is-invalid': formCtrlH['tipoInmueble'].touched && formCtrlH['tipoInmueble'].errors }"
-              >
-                <option *ngFor="let tipo of tiposInmuebles" [ngValue]="tipo.value">{{ tipo.label }}</option>
-              </select>
-              <label for="tipoInmueble">Tipo de inmueble</label>
-            </div>
+            <app-cap-form-dropdown
+              [formData]="formHipotecas"
+              [controlName]="'tipoInmueble'"
+              [listaItems]="tiposInmuebles"
+              [placeholder]="'Tipo de inmueble'"
+            >
+            </app-cap-form-dropdown>
           </app-cap-form-fielset>
         </div>
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'valor'">
-            <div class="form-floating">
-              <input
-                class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlH['valor'].touched && formCtrlH['valor'].errors }"
-                formControlName="valor"
-                id="valor"
-                type="text"
-                placeholder="Valor comercial"
-                required=""
-              />
-              <label for="valor">Valor comercial</label>
-            </div>
+            <app-cap-form-input [formData]="formHipotecas" [controlName]="'valor'" [placeholder]="'Valor comercial'"> </app-cap-form-input>
           </app-cap-form-fielset>
         </div>
       </div>
@@ -39,34 +23,14 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'area'">
-            <div class="form-floating">
-              <input
-                class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlH['area'].touched && formCtrlH['area'].errors }"
-                formControlName="area"
-                id="area"
-                type="text"
-                placeholder="Área de la propiedad"
-                required=""
-              />
-              <label for="area">Área de la propiedad</label>
-            </div>
+            <app-cap-form-input [formData]="formHipotecas" [controlName]="'area'" [placeholder]="'Área de la propiedad'">
+            </app-cap-form-input>
           </app-cap-form-fielset>
         </div>
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'direccion'">
-            <div class="form-floating">
-              <input
-                class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlH['direccion'].touched && formCtrlH['direccion'].errors }"
-                formControlName="direccion"
-                id="direccion"
-                type="text"
-                placeholder="Dirección de la propiedad"
-                required=""
-              />
-              <label for="direccion">Dirección de la propiedad</label>
-            </div>
+            <app-cap-form-input [formData]="formHipotecas" [controlName]="'direccion'" [placeholder]="'Dirección de la propiedad'">
+            </app-cap-form-input>
           </app-cap-form-fielset>
         </div>
       </div>
@@ -74,34 +38,24 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'usoPropiedad'">
-            <div class="form-floating">
-              <select
-                class="form-select"
-                id="usoPropiedad"
-                formControlName="usoPropiedad"
-                aria-label="¿Qué uso le da a la propiedad?"
-                [ngClass]="{ 'is-invalid': formCtrlH['usoPropiedad'].touched && formCtrlH['usoPropiedad'].errors }"
-              >
-                <option *ngFor="let tipo of listaUsoPropiedad" [ngValue]="tipo.value">{{ tipo.label }}</option>
-              </select>
-              <label for="usoPropiedad">¿Qué uso le da a la propiedad?</label>
-            </div>
+            <app-cap-form-dropdown
+              [formData]="formHipotecas"
+              [controlName]="'usoPropiedad'"
+              [listaItems]="listaUsoPropiedad"
+              [placeholder]="'¿Qué uso le da a la propiedad?'"
+            >
+            </app-cap-form-dropdown>
           </app-cap-form-fielset>
         </div>
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'afectacion'">
-            <div class="form-floating">
-              <select
-                class="form-select"
-                id="afectacion"
-                formControlName="afectacion"
-                aria-label="¿Tiene alguna afectación la propiedad?"
-                [ngClass]="{ 'is-invalid': formCtrlH['afectacion'].touched && formCtrlH['afectacion'].errors }"
-              >
-                <option *ngFor="let tipo of listaEleccionSiNo" [ngValue]="tipo.value">{{ tipo.label }}</option>
-              </select>
-              <label for="afectacion">¿Tiene alguna afectación la propiedad?</label>
-            </div>
+            <app-cap-form-dropdown
+              [formData]="formHipotecas"
+              [controlName]="'afectacion'"
+              [listaItems]="listaEleccionSiNo"
+              [placeholder]="'¿Tiene alguna afectación la propiedad?'"
+            >
+            </app-cap-form-dropdown>
           </app-cap-form-fielset>
         </div>
       </div>
@@ -109,18 +63,13 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'estrato'">
-            <div class="form-floating">
-              <select
-                class="form-select"
-                id="estrato"
-                formControlName="estrato"
-                aria-label="Estrato"
-                [ngClass]="{ 'is-invalid': formCtrlH['estrato'].touched && formCtrlH['estrato'].errors }"
-              >
-                <option *ngFor="let tipo of listaEstratos" [ngValue]="tipo.value">{{ tipo.label }}</option>
-              </select>
-              <label for="estrato">Estrato</label>
-            </div>
+            <app-cap-form-dropdown
+              [formData]="formHipotecas"
+              [controlName]="'estrato'"
+              [listaItems]="listaEstratos"
+              [placeholder]="'Estrato'"
+            >
+            </app-cap-form-dropdown>
           </app-cap-form-fielset>
         </div>
       </div>
@@ -134,34 +83,12 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'nombre'">
-            <div class="form-floating">
-              <input
-                class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlH['nombre'].touched && formCtrlH['nombre'].errors }"
-                formControlName="nombre"
-                id="nombre"
-                type="text"
-                placeholder="Nombres"
-                required=""
-              />
-              <label for="nombre">Nombres</label>
-            </div>
+            <app-cap-form-input [formData]="formHipotecas" [controlName]="'nombre'" [placeholder]="'Nombres'"> </app-cap-form-input>
           </app-cap-form-fielset>
         </div>
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'apellido'">
-            <div class="form-floating">
-              <input
-                class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlH['apellido'].touched && formCtrlH['apellido'].errors }"
-                formControlName="apellido"
-                id="apellido"
-                type="text"
-                placeholder="Apellidos"
-                required=""
-              />
-              <label for="apellido">Apellidos</label>
-            </div>
+            <app-cap-form-input [formData]="formHipotecas" [controlName]="'apellido'" [placeholder]="'Apellidos'"> </app-cap-form-input>
           </app-cap-form-fielset>
         </div>
       </div>
@@ -169,34 +96,13 @@
       <div class="row justify-content-center">
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'celular'">
-            <div class="form-floating">
-              <input
-                class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlH['celular'].touched && formCtrlH['celular'].errors }"
-                formControlName="celular"
-                id="celular"
-                type="text"
-                placeholder="Teléfono"
-                required=""
-              />
-              <label for="celular">Teléfono</label>
-            </div>
+            <app-cap-form-input [formData]="formHipotecas" [controlName]="'celular'" [placeholder]="'Teléfono'"> </app-cap-form-input>
           </app-cap-form-fielset>
         </div>
         <div class="col-12 col-md-5 mb-3">
           <app-cap-form-fielset [label]="'correo'">
-            <div class="form-floating">
-              <input
-                class="form-control"
-                [ngClass]="{ 'is-invalid': formCtrlH['correo'].touched && formCtrlH['correo'].errors }"
-                formControlName="correo"
-                id="correo"
-                type="email"
-                placeholder="Correo electrónico"
-                required=""
-              />
-              <label for="correo">Correo electrónico</label>
-            </div>
+            <app-cap-form-input [formData]="formHipotecas" [controlName]="'correo'" [type]="'email'" [placeholder]="'Correo electrónico'">
+            </app-cap-form-input>
           </app-cap-form-fielset>
         </div>
       </div>

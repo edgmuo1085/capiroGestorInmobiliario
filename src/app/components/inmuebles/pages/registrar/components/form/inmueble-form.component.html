@@ -131,34 +131,19 @@
             <div class="row justify-content-center">
               <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'tipoConstruccion'">
-                  <div class="form-floating">
-                    <select
-                      class="form-select"
-                      id="tipoConstruccion"
-                      formControlName="tipoConstruccion"
-                      aria-label="Tipo de contrucción"
-                      [ngClass]="{ 'is-invalid': formCtrlI['tipoConstruccion'].touched && formCtrlI['tipoConstruccion'].errors }"
-                    >
-                      <option *ngFor="let tipo of tipoConstruccion" [ngValue]="tipo.value">{{ tipo.label }}</option>
-                    </select>
-                    <label for="tipoConstruccion">Tipo de contrucción</label>
-                  </div>
+                  <app-cap-form-dropdown
+                    [formData]="formRegistroInmueble"
+                    [controlName]="'tipoConstruccion'"
+                    [listaItems]="tipoConstruccion"
+                    [placeholder]="'Tipo de contrucción'"
+                  >
+                  </app-cap-form-dropdown>
                 </app-cap-form-fielset>
               </div>
               <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'direccion'">
-                  <div class="form-floating">
-                    <input
-                      class="form-control"
-                      [ngClass]="{ 'is-invalid': formCtrlI['direccion'].touched && formCtrlI['direccion'].errors }"
-                      formControlName="direccion"
-                      id="direccion"
-                      type="text"
-                      placeholder="Dirección"
-                      required=""
-                    />
-                    <label for="direccion">Dirección</label>
-                  </div>
+                  <app-cap-form-input [formData]="formRegistroInmueble" [controlName]="'direccion'" [placeholder]="'Dirección'">
+                  </app-cap-form-input>
                 </app-cap-form-fielset>
               </div>
             </div>

@@ -31,10 +31,6 @@ export class AvaluoFormComponent {
     this.actionSaveForm.emit();
   }
 
-  get formCtrlAv() {
-    return this.formAvaluos.controls;
-  }
-
   btnCancel() {
     this.formAvaluos.reset();
   }

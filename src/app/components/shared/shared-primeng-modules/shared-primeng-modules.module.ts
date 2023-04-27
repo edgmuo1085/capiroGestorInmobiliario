@@ -90,17 +90,10 @@ const modulePrimeng = [
 import { CapModalConfirmacionComponent } from './cap-modal-confirmacion/cap-modal-confirmacion.component';
 import { CapFormFielsetComponent } from './cap-form-fielset/cap-form-fielset.component';
 import { CapFormInputComponent } from './cap-form-input/cap-form-input.component';
-import { CapFormInputCurrencyComponent } from './cap-form-input-currency/cap-form-input-currency.component';
 import { CapFormDropdownComponent } from './cap-form-dropdown/cap-form-dropdown.component';
 
 @NgModule({
-  declarations: [
-    CapModalConfirmacionComponent,
-    CapFormFielsetComponent,
-    CapFormInputComponent,
-    CapFormInputCurrencyComponent,
-    CapFormDropdownComponent,
-  ],
+  declarations: [CapModalConfirmacionComponent, CapFormFielsetComponent, CapFormInputComponent, CapFormDropdownComponent],
   imports: [TranslateModule.forChild({}), CommonModule, FormsModule, ReactiveFormsModule, ...modulePrimeng],
   exports: [
     CommonModule,
@@ -108,7 +101,6 @@ import { CapFormDropdownComponent } from './cap-form-dropdown/cap-form-dropdown.
     CapModalConfirmacionComponent,
     CapFormFielsetComponent,
     CapFormInputComponent,
-    CapFormInputCurrencyComponent,
     CapFormDropdownComponent,
   ],
   providers: [MessageService, ConfirmationService],
