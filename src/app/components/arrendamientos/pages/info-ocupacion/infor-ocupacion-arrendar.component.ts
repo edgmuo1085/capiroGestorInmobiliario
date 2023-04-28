@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -6,6 +6,7 @@ import { ParametrosShared } from 'src/app/components/interfaces/parametros.inter
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { StepArrendamientosService } from 'src/app/components/shared/shared-services/step-arrendamientos.service';
 import { StorageLocalService } from 'src/app/components/shared/shared-services/storage-local.service';
+import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -13,7 +14,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './infor-ocupacion-arrendar.component.html',
   styleUrls: ['./infor-ocupacion-arrendar.component.scss'],
 })
-export class InforOcupacionArrendarComponent implements OnInit {
+export class InforOcupacionArrendarComponent implements OnInit, OnDestroy {
   formInfoOcupacion: FormGroup = new FormGroup({});
   listaOcupacion: ParametrosShared[] = environment.listaOcupacion;
   isLogging: string = '';
@@ -25,9 +26,16 @@ export class InforOcupacionArrendarComponent implements OnInit {
     private router: Router,
     private dataUserService: DataUserService,
     private storageService: StorageLocalService,
+    private toastCustomService: ToastCustomService,
     private stepArrendarService: StepArrendamientosService
   ) {
     this.isLogging = this.dataUserService.enableToken() ? '/sesion' : '';
+  }
+
+  ngOnDestroy(): void {
+    if (this.observableSubscription) {
+      this.observableSubscription.forEach(s => s.unsubscribe());
+    }
   }
 
   ngOnInit(): void {
@@ -102,6 +110,7 @@ export class InforOcupacionArrendarComponent implements OnInit {
   nextPage() {
     //console.log('formInfoOcupacion ', this.formInfoOcupacion.value);
     if (this.formInfoOcupacion.invalid) {
+      this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;
     }
 

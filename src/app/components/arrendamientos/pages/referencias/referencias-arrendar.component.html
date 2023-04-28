@@ -6,16 +6,9 @@
       <app-form-referencias-arrendar
         [formReferencias]="formReferencias"
         [tiposCuentasBancos]="tiposCuentasBancos"
-        (actionGuardarForm)="guardarFormularioArrendamiento()"
+        (actionGuardarForm)="nextPage()"
+        (actionPrevPage)="prevPage()"
       ></app-form-referencias-arrendar>
-    </div>
-  </div>
-  <div class="d-flex justify-content-center mt-3 mb-5">
-    <div class="form-button">
-      <button class="login-btn" type="button" (click)="prevPage()">Atrás</button>
-    </div>
-    <div class="form-button">
-      <button class="login-btn" type="button" (click)="nextPage()">Siguiente</button>
     </div>
   </div>
 </div>

@@ -11,14 +11,15 @@ export class FormReferenciasArrendarComponent {
   @Input() formReferencias: FormGroup = new FormGroup({});
   @Input() tiposCuentasBancos: ParametrosShared[] = [];
   @Output() actionGuardarForm: EventEmitter<any> = new EventEmitter<any>();
+  @Output() actionPrevPage: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
-  get formCtrlR() {
-    return this.formReferencias.controls;
-  }
-
   onSubmitReferencias() {
     this.actionGuardarForm.emit();
+  }
+
+  btnAtras() {
+    this.actionPrevPage.emit();
   }
 }

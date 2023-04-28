@@ -137,7 +137,29 @@
         "otroIngresoOrigen": "Campo requerido",
         "empresaPensionado": "Campo requerido",
         "ingresoMensualPension": "Campo requerido",
-        "deduccionMensual": "Campo requerido"
+        "deduccionMensual": "Campo requerido",
+
+        "nombreRazon": "Campo requerido",
+        "celularRefencia": "Campo requerido",
+        "municipio": "Campo requerido",
+        "nombresPersonalesUno": "Campo requerido",
+        "celularPersonalesUno": "Campo requerido",
+        "municipioPersonalesUno": "Campo requerido",
+        "nombresPersonalesDos": "Campo requerido",
+        "celularPersonalesDos": "Campo requerido",
+        "municipioPersonalesDos": "Campo requerido",
+        "nombresFamiliaresUno": "Campo requerido",
+        "celularFamiliaresUno": "Campo requerido",
+        "municipioFamiliaresUno": "Campo requerido",
+        "nombresFamiliaresDos": "Campo requerido",
+        "celularFamiliaresDos": "Campo requerido",
+        "municipioFamiliaresDos": "Campo requerido",
+        "tipoCuentaUno": "Campo requerido",
+        "entidadFinancieraUno": "Campo requerido",
+        "numCuentaUno": "Campo requerido",
+        "tipoCuentaDos": "Campo requerido",
+        "entidadFinancieraDos": "Campo requerido",
+        "numCuentaDos": "Campo requerido"
       },
       "maxlength": {
         "area": "Ingresa máximo {{expected}} caracteres",
@@ -154,7 +176,14 @@
         "tiempoConstruido": "Ingresa caracteres numéricos",
         "valor": "Ingresa caracteres numéricos",
         "numeroDoc": "Ingresa caracteres numéricos",
-        "numeroDocConyuge": "Ingresa caracteres numéricos"
+        "numeroDocConyuge": "Ingresa caracteres numéricos",
+        "celularRefencia": "Ingresa caracteres numéricos",
+        "celularPersonalesUno": "Ingresa caracteres numéricos",
+        "celularPersonalesDos": "Ingresa caracteres numéricos",
+        "celularFamiliaresUno": "Ingresa caracteres numéricos",
+        "celularFamiliaresDos": "Ingresa caracteres numéricos",
+        "numCuentaUno": "Ingresa caracteres numéricos",
+        "numCuentaDos": "Ingresa caracteres numéricos"
       }
     }
   }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -8,9 +8,9 @@ import { FormGroup } from '@angular/forms';
 })
 export class FormBienesArrendarComponent {
   @Input() formBienes: FormGroup = new FormGroup({});
+  @Input() loading: boolean = false;
   @Output() actionGuardarForm: EventEmitter<any> = new EventEmitter<any>();
-
-  constructor() {}
+  @Output() actionPrevPage: EventEmitter<any> = new EventEmitter<any>();
 
   get formCtrlB() {
     return this.formBienes.controls;
@@ -18,5 +18,9 @@ export class FormBienesArrendarComponent {
 
   onSubmitReferencias() {
     this.actionGuardarForm.emit();
+  }
+
+  btnAtras() {
+    this.actionPrevPage.emit();
   }
 }

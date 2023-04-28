@@ -6,6 +6,7 @@ import { ParametrosShared } from 'src/app/components/interfaces/parametros.inter
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { StepArrendamientosService } from 'src/app/components/shared/shared-services/step-arrendamientos.service';
 import { StorageLocalService } from 'src/app/components/shared/shared-services/storage-local.service';
+import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -31,6 +32,7 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
     private router: Router,
     private dataUserService: DataUserService,
     private storageService: StorageLocalService,
+    private toastCustomService: ToastCustomService,
     private stepArrendarService: StepArrendamientosService
   ) {
     this.isLogging = this.dataUserService.enableToken() ? '/sesion' : '';
@@ -128,6 +130,7 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
   nextPage() {
     //console.log('form: ', this.formInfoGeneral.value);
     if (this.formInfoGeneral.invalid) {
+      this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;
     }
 

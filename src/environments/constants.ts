@@ -5,6 +5,7 @@ export const storageKeys = {
     infoGeneralArrendar: 'CAPIRO-WEB::informacion-general-arrendar',
     infoOcupacionArrendar: 'CAPIRO-WEB::informacion-ocupacion-arrendar',
     infoReferenciasArrendar: 'CAPIRO-WEB::referencias-arrendar',
+    infoBienesArrendar: 'CAPIRO-WEB::bienes-arrendar',
   },
 };
 

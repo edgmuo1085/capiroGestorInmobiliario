@@ -4,98 +4,46 @@
     <div class="row justify-content-center">
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'tipoInmuebleDireccionUno'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['tipoInmuebleDireccionUno'].touched && formCtrlB['tipoInmuebleDireccionUno'].errors }"
-              formControlName="tipoInmuebleDireccionUno"
-              id="tipoInmuebleDireccionUno"
-              type="text"
-              placeholder="Tipo de inmueble y dirección"
-              required=""
-            />
-            <label for="tipoInmuebleDireccionUno">Tipo de inmueble y dirección</label>
-          </div>
+          <app-cap-form-input
+            [formData]="formBienes"
+            [controlName]="'tipoInmuebleDireccionUno'"
+            [placeholder]="'Tipo de inmueble y dirección'"
+          >
+          </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'matriculaNumeroUno'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['matriculaNumeroUno'].touched && formCtrlB['matriculaNumeroUno'].errors }"
-              formControlName="matriculaNumeroUno"
-              id="matriculaNumeroUno"
-              type="text"
-              placeholder="N° de matrícula inmobiliaria"
-              required=""
-            />
-            <label for="matriculaNumeroUno">N° de matrícula inmobiliaria</label>
-          </div>
+          <app-cap-form-input [formData]="formBienes" [controlName]="'matriculaNumeroUno'" [placeholder]="'N° de matrícula inmobiliaria'">
+          </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'municipioInmuebleUno'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['municipioInmuebleUno'].touched && formCtrlB['municipioInmuebleUno'].errors }"
-              formControlName="municipioInmuebleUno"
-              id="municipioInmuebleUno"
-              type="text"
-              placeholder="Municipio"
-              required=""
-            />
-            <label for="municipioInmuebleUno">Municipio</label>
-          </div>
+          <app-cap-form-input [formData]="formBienes" [controlName]="'municipioInmuebleUno'" [placeholder]="'Municipio'">
+          </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'tipoInmuebleDireccionDos'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['tipoInmuebleDireccionDos'].touched && formCtrlB['tipoInmuebleDireccionDos'].errors }"
-              formControlName="tipoInmuebleDireccionDos"
-              id="tipoInmuebleDireccionDos"
-              type="text"
-              placeholder="Tipo de inmueble y dirección"
-              required=""
-            />
-            <label for="tipoInmuebleDireccionDos">Tipo de inmueble y dirección</label>
-          </div>
+          <app-cap-form-input
+            [formData]="formBienes"
+            [controlName]="'tipoInmuebleDireccionDos'"
+            [placeholder]="'Tipo de inmueble y dirección'"
+          >
+          </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'matriculaNumeroDos'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['matriculaNumeroDos'].touched && formCtrlB['matriculaNumeroDos'].errors }"
-              formControlName="matriculaNumeroDos"
-              id="matriculaNumeroDos"
-              type="text"
-              placeholder="N° de matrícula inmobiliaria"
-              required=""
-            />
-            <label for="matriculaNumeroDos">N° de matrícula inmobiliaria</label>
-          </div>
+          <app-cap-form-input [formData]="formBienes" [controlName]="'matriculaNumeroDos'" [placeholder]="'N° de matrícula inmobiliaria'">
+          </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'municipioInmuebleDos'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['municipioInmuebleDos'].touched && formCtrlB['municipioInmuebleDos'].errors }"
-              formControlName="municipioInmuebleDos"
-              id="municipioInmuebleDos"
-              type="text"
-              placeholder="Municipio"
-              required=""
-            />
-            <label for="municipioInmuebleDos">Municipio</label>
-          </div>
+          <app-cap-form-input [formData]="formBienes" [controlName]="'municipioInmuebleDos'" [placeholder]="'Municipio'">
+          </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
     </div>
@@ -104,105 +52,39 @@
     <div class="row justify-content-center">
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'vehiculoMarcaUno'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['vehiculoMarcaUno'].touched && formCtrlB['vehiculoMarcaUno'].errors }"
-              formControlName="vehiculoMarcaUno"
-              id="vehiculoMarcaUno"
-              type="text"
-              placeholder="Marca"
-              required=""
-            />
-            <label for="vehiculoMarcaUno">Marca</label>
-          </div>
+          <app-cap-form-input [formData]="formBienes" [controlName]="'vehiculoMarcaUno'" [placeholder]="'Marca'"> </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'vehiculoModeloUno'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['vehiculoModeloUno'].touched && formCtrlB['vehiculoModeloUno'].errors }"
-              formControlName="vehiculoModeloUno"
-              id="vehiculoModeloUno"
-              type="text"
-              placeholder="Modelo"
-              required=""
-            />
-            <label for="vehiculoModeloUno">Modelo</label>
-          </div>
+          <app-cap-form-input [formData]="formBienes" [controlName]="'vehiculoModeloUno'" [placeholder]="'Modelo'"> </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'vehiculoPlacaUno'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['vehiculoPlacaUno'].touched && formCtrlB['vehiculoPlacaUno'].errors }"
-              formControlName="vehiculoPlacaUno"
-              id="vehiculoPlacaUno"
-              type="text"
-              placeholder="Placa"
-              required=""
-            />
-            <label for="vehiculoPlacaUno">Placa</label>
-          </div>
+          <app-cap-form-input [formData]="formBienes" [controlName]="'vehiculoPlacaUno'" [placeholder]="'Placa'"> </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'vehiculoMarcaDos'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['vehiculoMarcaDos'].touched && formCtrlB['vehiculoMarcaDos'].errors }"
-              formControlName="vehiculoMarcaDos"
-              id="vehiculoMarcaDos"
-              type="text"
-              placeholder="Marca"
-              required=""
-            />
-            <label for="vehiculoMarcaDos">Marca</label>
-          </div>
+          <app-cap-form-input [formData]="formBienes" [controlName]="'vehiculoMarcaDos'" [placeholder]="'Marca'"> </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'vehiculoModeloDos'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['vehiculoModeloDos'].touched && formCtrlB['vehiculoModeloDos'].errors }"
-              formControlName="vehiculoModeloDos"
-              id="vehiculoModeloDos"
-              type="text"
-              placeholder="Modelo"
-              required=""
-            />
-            <label for="vehiculoModeloDos">Modelo</label>
-          </div>
+          <app-cap-form-input [formData]="formBienes" [controlName]="'vehiculoModeloDos'" [placeholder]="'Modelo'"> </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
       <div class="col-12 col-md-4 mb-3">
         <app-cap-form-fielset [label]="'vehiculoPlacaDos'">
-          <div class="form-floating">
-            <input
-              class="form-control"
-              [ngClass]="{ 'is-invalid': formCtrlB['vehiculoPlacaDos'].touched && formCtrlB['vehiculoPlacaDos'].errors }"
-              formControlName="vehiculoPlacaDos"
-              id="vehiculoPlacaDos"
-              type="text"
-              placeholder="Placa"
-              required=""
-            />
-            <label for="vehiculoPlacaDos">Placa</label>
-          </div>
+          <app-cap-form-input [formData]="formBienes" [controlName]="'vehiculoPlacaDos'" [placeholder]="'Placa'"> </app-cap-form-input>
         </app-cap-form-fielset>
       </div>
     </div>
 
     <h3 class="titulo-referencias">Observaciones o información adicional que nos permita conocerlo mejor</h3>
     <div class="row justify-content-center">
-      <div class="col-12 col-md-4 mb-3">
+      <div class="col-12 col-md-6 col-lg-4 mb-3">
         <app-cap-form-fielset [label]="'observaciones'">
           <div class="form-floating">
             <textarea
@@ -211,11 +93,24 @@
               formControlName="observaciones"
               id="observaciones"
               placeholder="Observaciones"
-              style="height: 150px"
             ></textarea>
             <label for="observaciones">Observaciones</label>
           </div>
         </app-cap-form-fielset>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-evenly mt-5">
+      <div class="form-button">
+        <button class="form-btn bg-gray" type="button" (click)="btnAtras()">Atrás</button>
+      </div>
+      <div class="form-button">
+        <button class="form-btn" type="submit">
+          Enviar
+          <div class="spinner-border spinner-border-sm" role="status" *ngIf="loading">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { StorageLocalService } from './storage-local.service';
 import { environment } from 'src/environments/environment';
-import { InformacionGeneralA, InformacionOcupacionA, ReferenciasA } from '../../interfaces/arrendamiento.interface';
+import { BienesA, InformacionGeneralA, InformacionOcupacionA, ReferenciasA } from '../../interfaces/arrendamiento.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -10,30 +10,32 @@ import { InformacionGeneralA, InformacionOcupacionA, ReferenciasA } from '../../
 export class StepArrendamientosService {
   infoGeneralArrendar: BehaviorSubject<InformacionGeneralA>;
   infoGeneralArrendarVal$: Observable<InformacionGeneralA>;
-
   infoOcupacionArrendar: BehaviorSubject<InformacionOcupacionA>;
   infoOcupacionArrendarVal$: Observable<InformacionOcupacionA>;
-
   infoReferenciasArrendar: BehaviorSubject<ReferenciasA>;
-  infofoReferenciasArrendarVal$: Observable<ReferenciasA>;
+  infoReferenciasArrendarVal$: Observable<ReferenciasA>;
+  infoBienesArrendar: BehaviorSubject<BienesA>;
+  infoBienesArrendarVal$: Observable<BienesA>;
 
   informacionGeneral: InformacionGeneralA = {} as InformacionGeneralA;
   informacionOcupacion: InformacionOcupacionA = {} as InformacionOcupacionA;
   informacionReferencias: ReferenciasA = {} as ReferenciasA;
+  informacionBienes: BienesA = {} as BienesA;
 
   constructor(private storageService: StorageLocalService) {
     this.infoGeneralArrendar = new BehaviorSubject<InformacionGeneralA>(this.informacionGeneral);
     this.infoGeneralArrendarVal$ = this.infoGeneralArrendar.asObservable();
-
     this.infoOcupacionArrendar = new BehaviorSubject<InformacionOcupacionA>(this.informacionOcupacion);
     this.infoOcupacionArrendarVal$ = this.infoOcupacionArrendar.asObservable();
-
     this.infoReferenciasArrendar = new BehaviorSubject<ReferenciasA>(this.informacionReferencias);
-    this.infofoReferenciasArrendarVal$ = this.infoReferenciasArrendar.asObservable();
+    this.infoReferenciasArrendarVal$ = this.infoReferenciasArrendar.asObservable();
+    this.infoBienesArrendar = new BehaviorSubject<BienesA>(this.informacionBienes);
+    this.infoBienesArrendarVal$ = this.infoBienesArrendar.asObservable();
 
     this.setInfoGeneralAStorage();
     this.setInfoOcupacionAStorage();
     this.setReferenciasAStorage();
+    this.setBienesAStorage();
   }
 
   setInfoGenArrendar(infoGeneral: InformacionGeneralA): void {
@@ -57,7 +59,15 @@ export class StepArrendamientosService {
   }
 
   getReferenciasArrendar(): Observable<ReferenciasA> {
-    return this.infofoReferenciasArrendarVal$;
+    return this.infoReferenciasArrendarVal$;
+  }
+
+  setBienesArrendar(infoBienes: BienesA): void {
+    this.infoBienesArrendar.next(infoBienes);
+  }
+
+  getBienesArrendar(): Observable<BienesA> {
+    return this.infoBienesArrendarVal$;
   }
 
   private setInfoGeneralAStorage(): void {
@@ -85,5 +95,14 @@ export class StepArrendamientosService {
       inforRefer = JSON.parse(gestorCapiroReferencias);
     }
     this.setReferenciasArrendar(gestorCapiroReferencias ? inforRefer : this.informacionReferencias);
+  }
+
+  private setBienesAStorage(): void {
+    const gestorCapiroBienes = this.storageService.localGet(environment.storageKey.infoBienesArrendar);
+    let inforBienes: BienesA = {} as BienesA;
+    if (gestorCapiroBienes) {
+      inforBienes = JSON.parse(gestorCapiroBienes);
+    }
+    this.setBienesArrendar(gestorCapiroBienes ? inforBienes : this.informacionBienes);
   }
 }
