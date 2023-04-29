@@ -7,6 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NosotrosComponent } from './pages/nosotros/nosotros.component';
 import { RegistroComponent } from './pages/registro/registro.component';
+import { PoliticasComponent } from './pages/politicas/politicas.component';
+import { HabeasComponent } from './pages/habeas/habeas.component';
 
 const routes: Routes = [
   {
@@ -27,6 +29,16 @@ const routes: Routes = [
         path: 'nosotros',
         title: '.::Nosotros::.',
         component: NosotrosComponent,
+      },
+      {
+        path: 'politicas',
+        title: '.::Politicas::.',
+        component: PoliticasComponent,
+      },
+      {
+        path: 'habeas',
+        title: '.::Habeas::.',
+        component: HabeasComponent,
       },
       {
         path: 'home',

@@ -1,6 +1,10 @@
-<section class="section-home" [ngStyle]="{ background: 'linear-gradient(to right, #55627057, #ff6b6b65),url(./assets/images/laceja.jpg)' }">
+<br>
+<app-home-destacados></app-home-destacados>
+
+<section class="section-home"
+  [ngStyle]="{ background: 'linear-gradient(to right, #55627057, #ff6b6b65),url(./assets/images/laceja.jpg)' }">
   <div class="grupo-titulo-enlaces">
-    <div class="titulo animate__animated animate__fadeIn">Nuestros Últimos Lanzamientos</div>
+    <div class="titulo animate__animated animate__fadeIn">Nuestros últimos lanzamientos</div>
     <div class="grupo-enlaces animate__animated animate__fadeInUp">
       <a routerLink="/inmuebles/arriendo" class="btn-inmueble">Arriendo</a>
       <a routerLink="/inmuebles/venta" class="btn-inmueble">Venta</a>
@@ -9,7 +13,5 @@
 </section>
 
 <app-home-servicios></app-home-servicios>
-
-<app-home-destacados></app-home-destacados>
 
 <app-home-ubicacion></app-home-ubicacion>
