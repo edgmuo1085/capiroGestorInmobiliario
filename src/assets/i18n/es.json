@@ -159,7 +159,21 @@
         "numCuentaUno": "Campo requerido",
         "tipoCuentaDos": "Campo requerido",
         "entidadFinancieraDos": "Campo requerido",
-        "numCuentaDos": "Campo requerido"
+        "numCuentaDos": "Campo requerido",
+
+        "tipoInmuebleDireccionUno": "Campo requerido",
+        "matriculaNumeroUno": "Campo requerido",
+        "municipioInmuebleUno": "Campo requerido",
+        "tipoInmuebleDireccionDos": "Campo requerido",
+        "matriculaNumeroDos": "Campo requerido",
+        "municipioInmuebleDos": "Campo requerido",
+        "vehiculoMarcaUno": "Campo requerido",
+        "vehiculoModeloUno": "Campo requerido",
+        "vehiculoPlacaUno": "Campo requerido",
+        "vehiculoMarcaDos": "Campo requerido",
+        "vehiculoModeloDos": "Campo requerido",
+        "vehiculoPlacaDos": "Campo requerido",
+        "observaciones": "Campo requerido"
       },
       "maxlength": {
         "area": "Ingresa máximo {{expected}} caracteres",

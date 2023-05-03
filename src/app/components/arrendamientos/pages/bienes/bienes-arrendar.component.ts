@@ -43,18 +43,16 @@ export class BienesArrendarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.formBienes = this.fb.group({
+      isInvalidForm: false,
       tipoInmuebleDireccionUno: ['', [Validators.required]],
       matriculaNumeroUno: ['', [Validators.required]],
       municipioInmuebleUno: ['', [Validators.required]],
-
       tipoInmuebleDireccionDos: ['', [Validators.required]],
       matriculaNumeroDos: ['', [Validators.required]],
       municipioInmuebleDos: ['', [Validators.required]],
-
       vehiculoMarcaUno: ['', [Validators.required]],
       vehiculoModeloUno: ['', [Validators.required]],
       vehiculoPlacaUno: ['', [Validators.required]],
-
       vehiculoMarcaDos: ['', [Validators.required]],
       vehiculoModeloDos: ['', [Validators.required]],
       vehiculoPlacaDos: ['', [Validators.required]],

@@ -39,6 +39,7 @@ export class ReferenciasArrendarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.formReferencias = this.fb.group({
+      isInvalidForm: false,
       nombreRazon: ['', [Validators.required]],
       celularRefencia: ['', [Validators.required, Validators.pattern(environment.soloNumeros)]],
       municipio: ['', [Validators.required]],
