@@ -16,9 +16,10 @@ import { environment } from 'src/environments/environment';
 export class InmuebleSubirArchivosComponent {
   @Input() idUsuario: number = 0;
   @Input() idInmueble: number = 0;
-  @Input() sizeFotos: number = 4;
+  @Input() sizeFotos: number = environment.postMaxUploadPhoto;
   @Output() actionCargarImg: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() actionMsgTituloPage: EventEmitter<string> = new EventEmitter<string>();
+  taminioUploadPhoto: number = environment.postMaxUploadPhoto;
 
   multiple: boolean = true;
   uploadedFiles: ImagesInmuebleUp[] = [];

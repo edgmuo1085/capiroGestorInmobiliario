@@ -57,7 +57,7 @@
             <span class="p-column-title fw-bold">Opciones</span>
             <span class="">
               <ng-container *ngIf="inmueble.fotos.length; else blockUploadImg">
-                <ng-container *ngIf="inmueble.fotos.length < 4">
+                <ng-container *ngIf="inmueble.fotos.length < tamanioUploadPhoto">
                   <i
                     class="icon-custom fa-solid fa-upload"
                     (click)="subirImg(inmueble)"

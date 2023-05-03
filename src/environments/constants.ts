@@ -305,3 +305,7 @@ export const nombresDocumentosAvaluoHipoteca = {
   nombresAvaluoDocumentos: ['Certificado de libertad', 'Escritura pública', 'Predial', 'Certificado catastral'],
   nombresHipotecaDocumentos: ['Cédula', 'Escritura', 'Certificado de libertad y tradicción', 'Predial', 'Certificado catastral'],
 };
+
+export const parametrosInmuebles = {
+  postMaxUploadPhoto: 8,
+};

@@ -1,10 +1,18 @@
-import { parametrosSelect, requisitosPropiedades, nombresDocumentosAvaluoHipoteca, storageKeys, validacionPatterns } from './constants';
+import {
+  parametrosSelect,
+  requisitosPropiedades,
+  nombresDocumentosAvaluoHipoteca,
+  storageKeys,
+  validacionPatterns,
+  parametrosInmuebles,
+} from './constants';
 
 const constants = {
   ...storageKeys,
   ...parametrosSelect,
   ...requisitosPropiedades,
   ...validacionPatterns,
+  ...parametrosInmuebles,
   ...nombresDocumentosAvaluoHipoteca,
 };
 

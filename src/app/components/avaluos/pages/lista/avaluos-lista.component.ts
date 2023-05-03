@@ -33,7 +33,6 @@ export class AvaluosListaComponent implements OnInit {
         }
 
         this.listaAvaluos = response.filter(item => item.tipoFormulario !== 'hipoteca');
-        console.log(this.listaAvaluos);
         this.loading = false;
       },
       error: err => {

@@ -128,7 +128,6 @@ export class InforGeneralArrendarComponent implements OnInit, OnDestroy {
   }
 
   nextPage() {
-    //console.log('form: ', this.formInfoGeneral.value);
     if (this.formInfoGeneral.invalid) {
       this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;

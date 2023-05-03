@@ -136,6 +136,10 @@ body {
 
   h2 {
     color: var(--color-principal);
+
+    &.h-white {
+      color: #fff;
+    }
   }
 }
 

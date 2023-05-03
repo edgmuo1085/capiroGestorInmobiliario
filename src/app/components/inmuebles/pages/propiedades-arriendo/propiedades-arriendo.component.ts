@@ -25,14 +25,10 @@ export class PropiedadesArriendoComponent implements OnInit {
     let filtros = {
       tipoPublicacion: 'Arriendo',
     };
-
     let filtersMore = masFilter ? { ...filtros, ...masFilter } : filtros;
-    console.log(filtersMore);
-
     let json = window.btoa(JSON.stringify(filtersMore));
     this.propiedadesService.getPropiedadesFiltro(json).subscribe({
       next: async response => {
-        console.log(response);
         if (!response.length) {
           return;
         }

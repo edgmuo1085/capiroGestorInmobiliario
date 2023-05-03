@@ -97,7 +97,6 @@ export class BienesArrendarComponent implements OnInit, OnDestroy {
   }
 
   guardarFormularioBienes() {
-    //console.log('formBienes ', this.formBienes.value);
     if (this.formBienes.invalid) {
       this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;

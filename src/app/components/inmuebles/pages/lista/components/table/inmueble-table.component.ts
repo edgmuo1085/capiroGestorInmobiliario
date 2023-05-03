@@ -32,6 +32,7 @@ export class InmuebleTableComponent {
   listaFotos: ResponseArchivo[] = [];
   uploadedFiles: ImagesInmuebleUp[] = [];
   fotoInsertar: ArchivoInmuebleUp = new ArchivoInmuebleUpModel('', '', 0, 0, '', '', 0);
+  tamanioUploadPhoto = environment.postMaxUploadPhoto;
 
   constructor(
     private router: Router,
@@ -63,7 +64,7 @@ export class InmuebleTableComponent {
 
   subirImg(inmueble: ResponseInmueble) {
     this.idInmueble = inmueble.id;
-    this.sizeFotos = 4 - inmueble.fotos.length;
+    this.sizeFotos = environment.postMaxUploadPhoto - inmueble.fotos.length;
     this.visible = true;
     this.showUpload = true;
   }

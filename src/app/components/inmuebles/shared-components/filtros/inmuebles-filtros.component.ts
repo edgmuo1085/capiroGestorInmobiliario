@@ -53,7 +53,6 @@ export class InmueblesFiltrosComponent implements OnInit {
       };
     });
 
-    console.log(json);
     this.actionFiltrosInmueble.emit(json);
   }
 }

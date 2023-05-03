@@ -103,12 +103,10 @@ export class InforOcupacionArrendarComponent implements OnInit, OnDestroy {
   }
 
   prevPage() {
-    //console.log('formInfoOcupacion ', this.formInfoOcupacion.value);
     this.router.navigate(['/arrendamiento' + this.isLogging + '/informacion-general']);
   }
 
   nextPage() {
-    //console.log('formInfoOcupacion ', this.formInfoOcupacion.value);
     if (this.formInfoOcupacion.invalid) {
       this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;
