@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-form-ocupacion-arrendar',
@@ -84,6 +85,7 @@ export class FormOcupacionArrendarComponent implements OnChanges {
 
   validacionRequiredForm(tipoOcupacion: string, clearForm: boolean) {
     const validatorsRequired: ValidatorFn[] = [Validators.required];
+    const validatorsRequiredNumber: ValidatorFn[] = [Validators.required, Validators.pattern(environment.soloNumeros)];
 
     let ctrlEmpresa = this.formInfoOcupacion.get('empresa');
     let ctrlNitEmpresa = this.formInfoOcupacion.get('nitEmpresa');
@@ -152,11 +154,11 @@ export class FormOcupacionArrendarComponent implements OnChanges {
       ctrlFechaIngreso?.setValidators(validatorsRequired);
       ctrlCargoOcupacion?.setValidators(validatorsRequired);
       ctrlTipoContrato?.setValidators(validatorsRequired);
-      ctrlTelefonoEmpresa?.setValidators(validatorsRequired);
-      ctrlSalario?.setValidators(validatorsRequired);
-      ctrlOtroIngreso?.setValidators(validatorsRequired);
+      ctrlTelefonoEmpresa?.setValidators(validatorsRequiredNumber);
+      ctrlSalario?.setValidators(validatorsRequiredNumber);
+      ctrlOtroIngreso?.setValidators(validatorsRequiredNumber);
       ctrlOrigenOtrosIngresos?.setValidators(validatorsRequired);
-      ctrlEgresosMensuales?.setValidators(validatorsRequired);
+      ctrlEgresosMensuales?.setValidators(validatorsRequiredNumber);
       ctrlActividadProfesional?.clearValidators();
       ctrlContacto?.clearValidators();
       ctrlOtroIngresoOrigen?.clearValidators();
@@ -171,8 +173,8 @@ export class FormOcupacionArrendarComponent implements OnChanges {
       ctrlDireccionOcupacion?.setValidators(validatorsRequired);
       ctrlCiudadOcupacion?.setValidators(validatorsRequired);
       ctrlCargoOcupacion?.setValidators(validatorsRequired);
-      ctrlSalario?.setValidators(validatorsRequired);
-      ctrlEgresosMensuales?.setValidators(validatorsRequired);
+      ctrlSalario?.setValidators(validatorsRequiredNumber);
+      ctrlEgresosMensuales?.setValidators(validatorsRequiredNumber);
       ctrlActividadProfesional?.setValidators(validatorsRequired);
       ctrlContacto?.setValidators(validatorsRequired);
       ctrlOtroIngresoOrigen?.setValidators(validatorsRequired);

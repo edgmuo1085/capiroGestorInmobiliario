@@ -1,4 +1,4 @@
-import { HttpClient, HttpEvent, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -7,6 +7,21 @@ import { InmuebleModel, InmuebleRegistroModel } from '../../interfaces/inmueble.
 import { ResponseInmueble } from '../../interfaces/response-inmueble.interface';
 import { ResponseArchivo } from '../../interfaces/respose-archivo.interface';
 import { AvaluoModel, HipotecaModel, ResponseAvaluoHipoteca } from '../../interfaces/response-avaluo-hipoteca.interface';
+import {
+  Arriendo,
+  Bienes,
+  BienesModel,
+  CrearArriendo,
+  CrearArriendoModel,
+  RefBancariasModel,
+  RefFamiliaresModel,
+  RefPersonalesModel,
+  ReferenciasBancarias,
+  ReferenciasFamiliares,
+  ReferenciasPersonales,
+  Vehiculos,
+  VehiculosModel,
+} from '../../interfaces/arrendamiento.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -102,5 +117,35 @@ export class PropiedadesService {
   crearHipoteca(data: HipotecaModel): Observable<ResponseAvaluoHipoteca> {
     const url = `${environment.URL_API}aval/insertar/`;
     return this.http.post<ResponseAvaluoHipoteca>(url, data);
+  }
+
+  crearArriendo(arriendo: CrearArriendoModel): Observable<Arriendo> {
+    const url = `${environment.URL_API}predio/arriendo`;
+    return this.http.post<Arriendo>(url, arriendo);
+  }
+
+  crearReferenciasPersonales(personal: RefPersonalesModel): Observable<ReferenciasPersonales> {
+    const url = `${environment.URL_API}predio/arriendo/personal`;
+    return this.http.post<ReferenciasPersonales>(url, personal);
+  }
+
+  crearReferenciasFamiliares(familiares: RefFamiliaresModel): Observable<ReferenciasFamiliares> {
+    const url = `${environment.URL_API}predio/arriendo/familiar`;
+    return this.http.post<ReferenciasFamiliares>(url, familiares);
+  }
+
+  crearReferenciasBancarias(bancarias: RefBancariasModel): Observable<ReferenciasBancarias> {
+    const url = `${environment.URL_API}predio/arriendo/banco`;
+    return this.http.post<ReferenciasBancarias>(url, bancarias);
+  }
+
+  crearBienes(bienes: BienesModel): Observable<Bienes> {
+    const url = `${environment.URL_API}predio/arriendo/bienes`;
+    return this.http.post<Bienes>(url, bienes);
+  }
+
+  crearVehiculos(vehiculos: VehiculosModel): Observable<Vehiculos> {
+    const url = `${environment.URL_API}predio/arriendo/vehiculos`;
+    return this.http.post<Vehiculos>(url, vehiculos);
   }
 }

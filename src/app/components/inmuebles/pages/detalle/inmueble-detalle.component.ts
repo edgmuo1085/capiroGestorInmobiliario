@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
 import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.interface';
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
+import { StorageLocalService } from 'src/app/components/shared/shared-services/storage-local.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-inmueble-detalle',
@@ -21,9 +23,11 @@ export class InmuebleDetalleComponent implements OnInit {
   isLogging: string = '';
 
   constructor(
+    private router: Router,
     private routerActive: ActivatedRoute,
     private propiedadesService: PropiedadesService,
-    private dataUserService: DataUserService
+    private dataUserService: DataUserService,
+    private storageService: StorageLocalService
   ) {
     this.routerActive.params.subscribe((params: Params) => {
       this.idInmueble = +params['inmueble'];
@@ -72,5 +76,10 @@ export class InmuebleDetalleComponent implements OnInit {
     } else {
       this.botonContacto = true;
     }
+  }
+
+  arriendo() {
+    this.storageService.localSet(environment.storageKey.idInmuebleArriendo, this.idInmueble);
+    this.router.navigate(['/arrendamiento' + this.isLogging + '/informacion-general']);
   }
 }

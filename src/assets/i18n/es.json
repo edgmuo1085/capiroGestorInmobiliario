@@ -197,7 +197,13 @@
         "celularFamiliaresUno": "Ingresa caracteres numéricos",
         "celularFamiliaresDos": "Ingresa caracteres numéricos",
         "numCuentaUno": "Ingresa caracteres numéricos",
-        "numCuentaDos": "Ingresa caracteres numéricos"
+        "numCuentaDos": "Ingresa caracteres numéricos",
+        "arrendamientoMen": "Ingresa caracteres numéricos",
+        "personasAcargo": "Ingresa caracteres numéricos",
+        "telefonoEmpresa": "Ingresa caracteres numéricos",
+        "salario": "Ingresa caracteres numéricos",
+        "otroIngreso": "Ingresa caracteres numéricos",
+        "egresosMensuales": "Ingresa caracteres numéricos"
       }
     }
   }

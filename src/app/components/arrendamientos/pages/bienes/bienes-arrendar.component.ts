@@ -2,8 +2,17 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { BienesA, InformacionGeneralA, InformacionOcupacionA, ReferenciasA } from 'src/app/components/interfaces/arrendamiento.interface';
+import {
+  BienesA,
+  CrearArriendo,
+  CrearArriendoModel,
+  InformacionGeneralA,
+  InformacionOcupacionA,
+  ReferenciasA,
+  ReferenciasComerciales,
+} from 'src/app/components/interfaces/arrendamiento.interface';
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
+import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
 import { StepArrendamientosService } from 'src/app/components/shared/shared-services/step-arrendamientos.service';
 import { StorageLocalService } from 'src/app/components/shared/shared-services/storage-local.service';
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
@@ -18,6 +27,8 @@ export class BienesArrendarComponent implements OnInit, OnDestroy {
   formBienes: FormGroup = new FormGroup({});
   isLogging: string = '';
   loading: boolean = false;
+  idUsuario: number = 0;
+  idInmueble: number = 0;
   observableSubscription: Subscription[] = [];
   informacionGeneralA: InformacionGeneralA = {} as InformacionGeneralA;
   informacionOcupacionA: InformacionOcupacionA = {} as InformacionOcupacionA;
@@ -30,9 +41,13 @@ export class BienesArrendarComponent implements OnInit, OnDestroy {
     private dataUserService: DataUserService,
     private storageService: StorageLocalService,
     private toastCustomService: ToastCustomService,
+    private propiedadesService: PropiedadesService,
     private stepArrendarService: StepArrendamientosService
   ) {
     this.isLogging = this.dataUserService.enableToken() ? '/sesion' : '';
+    this.dataUserService.getUserData().subscribe(response => {
+      this.idUsuario = response.idUsuario;
+    });
   }
 
   ngOnDestroy(): void {
@@ -58,6 +73,9 @@ export class BienesArrendarComponent implements OnInit, OnDestroy {
       vehiculoPlacaDos: ['', [Validators.required]],
       observaciones: ['', [Validators.required]],
     });
+
+    const idInmueble = this.storageService.localGet(environment.storageKey.idInmuebleArriendo);
+    this.idInmueble = +idInmueble;
 
     this.setValuesFormArrendamientoRefer();
   }
@@ -138,17 +156,97 @@ export class BienesArrendarComponent implements OnInit, OnDestroy {
     this.observableSubscription.push(sub3$);
     this.observableSubscription.push(sub4$);
 
-    console.log('informacionGeneralA: ', this.informacionGeneralA);
-    console.log('informacionOcupacionA: ', this.informacionOcupacionA);
-    console.log('informacionReferenciasA: ', this.informacionReferenciasA);
-    console.log('informacionBienesA: ', this.informacionBienesA);
-
-    this.loading = true;
-    setTimeout(() => {
-      this.toastCustomService.showToast('Información', 'Datos guardados con éxito');
-      this.loading = false;
-    }, 2000);
+    this.llenarModelosCrear();
   }
+
+  llenarModelosCrear() {
+    const rerenciasComerciales: ReferenciasComerciales = {
+      nombreRazon: this.informacionReferenciasA.nombreRazon,
+      celularReferencia: this.informacionReferenciasA.celularRefencia,
+      municipio: this.informacionReferenciasA.municipio,
+      idFormulario: 0,
+    };
+
+    const arriendo: CrearArriendo = new CrearArriendoModel(
+      this.informacionGeneralA.direccionPredio,
+      this.informacionGeneralA.destinacionPredio,
+      +this.informacionGeneralA.arrendamientoMen,
+      this.informacionGeneralA.tipoInmueble,
+      this.informacionGeneralA.nombres,
+      this.informacionGeneralA.apellidos,
+      this.informacionGeneralA.fechaNacimiento,
+      this.informacionGeneralA.tipoDoc,
+      this.informacionGeneralA.numeroDoc,
+      this.informacionGeneralA.fechaExpedicion,
+      this.informacionGeneralA.lugarExpedicion,
+      this.informacionGeneralA.lugarNacimiento,
+      this.informacionGeneralA.sexo,
+      this.informacionGeneralA.nacionalidad,
+      this.informacionGeneralA.direccionActual,
+      this.informacionGeneralA.ciudad,
+      this.informacionGeneralA.nivelEstudio,
+      this.informacionGeneralA.correo,
+      this.informacionGeneralA.celular,
+      this.informacionGeneralA.ocupacion,
+      +this.informacionGeneralA.personasAcargo,
+      this.informacionGeneralA.estadoCivil,
+      this.informacionGeneralA.nombresConyuge,
+      this.informacionGeneralA.apellidosConyuge,
+      this.informacionGeneralA.tipoDocConyuge,
+      this.informacionGeneralA.numeroDocConyuge,
+      this.informacionGeneralA.correoConyuge,
+      this.informacionGeneralA.celularConyuge,
+      this.informacionGeneralA.ocupacionConyuge,
+      this.informacionGeneralA.ingresosConyuge,
+      this.informacionOcupacionA.empresa,
+      this.informacionOcupacionA.nitEmpresa,
+      this.informacionOcupacionA.direccionOcupacion,
+      this.informacionOcupacionA.ciudadOcupacion,
+      this.informacionOcupacionA.fechaIngreso,
+      this.informacionOcupacionA.cargoOcupacion,
+      this.informacionOcupacionA.tipoContrato,
+      +this.informacionOcupacionA.telefonoEmpresa,
+      +this.informacionOcupacionA.salario,
+      +this.informacionOcupacionA.otroIngreso,
+      this.informacionOcupacionA.origenOtrosIngresos,
+      +this.informacionOcupacionA.egresosMensuales,
+      this.idUsuario,
+      this.idInmueble,
+      this.informacionOcupacionA.actividadProfesional,
+      this.informacionBienesA.observaciones,
+      rerenciasComerciales,
+      this.informacionOcupacionA.contacto,
+      this.informacionOcupacionA.otroIngresoOrigen,
+      this.informacionOcupacionA.empresaPensionado,
+      this.informacionOcupacionA.ingresoMensualPension,
+      this.informacionOcupacionA.deduccionMensual
+    );
+
+    console.log(arriendo);
+    this.loading = true;
+    this.propiedadesService.crearArriendo(arriendo).subscribe({
+      next: response => {
+        console.log(response);
+        if (!response.id) {
+          this.toastCustomService.showToast('Advertencia', 'No se pudo guardar correctamente la información, inténtelo más tarde ', 'warn');
+          return;
+        }
+        this.toastCustomService.showToast('Información', 'Datos guardados con éxito');
+        this.loading = false;
+      },
+      error: err => {
+        this.loading = false;
+        console.error(err);
+        this.toastCustomService.showToast(
+          'Advertencia',
+          'Ocurrió un error al momento de guardar la información, inténtelo más tarde ',
+          'error'
+        );
+      },
+    });
+  }
+
+  guardarReferenciaPersonal() {}
 
   enviarFormulario() {
     console.log('formBienes ', this.formBienes.value);
