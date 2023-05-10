@@ -89,10 +89,10 @@ export class FormOcupacionArrendarComponent implements OnChanges {
 
     let ctrlEmpresa = this.formInfoOcupacion.get('empresa');
     let ctrlNitEmpresa = this.formInfoOcupacion.get('nitEmpresa');
-    let ctrlDireccionOcupacion = this.formInfoOcupacion.get('direccionOcupacion');
-    let ctrlCiudadOcupacion = this.formInfoOcupacion.get('ciudadOcupacion');
+    let ctrlDireccionEmpresa = this.formInfoOcupacion.get('direccionEmpresa');
+    let ctrlCiudadEmpresa = this.formInfoOcupacion.get('ciudadEmpresa');
     let ctrlFechaIngreso = this.formInfoOcupacion.get('fechaIngreso');
-    let ctrlCargoOcupacion = this.formInfoOcupacion.get('cargoOcupacion');
+    let ctrlCargoOcupacion = this.formInfoOcupacion.get('cargo');
     let ctrlTipoContrato = this.formInfoOcupacion.get('tipoContrato');
     let ctrlTelefonoEmpresa = this.formInfoOcupacion.get('telefonoEmpresa');
     let ctrlSalario = this.formInfoOcupacion.get('salario');
@@ -109,8 +109,8 @@ export class FormOcupacionArrendarComponent implements OnChanges {
     if (clearForm) {
       ctrlEmpresa?.setValue('');
       ctrlNitEmpresa?.setValue('');
-      ctrlDireccionOcupacion?.setValue('');
-      ctrlCiudadOcupacion?.setValue('');
+      ctrlDireccionEmpresa?.setValue('');
+      ctrlCiudadEmpresa?.setValue('');
       ctrlFechaIngreso?.setValue('');
       ctrlCargoOcupacion?.setValue('');
       ctrlTipoContrato?.setValue('');
@@ -128,8 +128,8 @@ export class FormOcupacionArrendarComponent implements OnChanges {
 
       ctrlEmpresa?.setErrors(null);
       ctrlNitEmpresa?.setErrors(null);
-      ctrlDireccionOcupacion?.setErrors(null);
-      ctrlCiudadOcupacion?.setErrors(null);
+      ctrlDireccionEmpresa?.setErrors(null);
+      ctrlCiudadEmpresa?.setErrors(null);
       ctrlFechaIngreso?.setErrors(null);
       ctrlCargoOcupacion?.setErrors(null);
       ctrlTipoContrato?.setErrors(null);
@@ -149,8 +149,8 @@ export class FormOcupacionArrendarComponent implements OnChanges {
     if (tipoOcupacion === 'Empleado') {
       ctrlEmpresa?.setValidators(validatorsRequired);
       ctrlNitEmpresa?.setValidators(validatorsRequired);
-      ctrlDireccionOcupacion?.setValidators(validatorsRequired);
-      ctrlCiudadOcupacion?.setValidators(validatorsRequired);
+      ctrlDireccionEmpresa?.setValidators(validatorsRequired);
+      ctrlCiudadEmpresa?.setValidators(validatorsRequired);
       ctrlFechaIngreso?.setValidators(validatorsRequired);
       ctrlCargoOcupacion?.setValidators(validatorsRequired);
       ctrlTipoContrato?.setValidators(validatorsRequired);
@@ -170,8 +170,8 @@ export class FormOcupacionArrendarComponent implements OnChanges {
     }
 
     if (tipoOcupacion === 'Independiente') {
-      ctrlDireccionOcupacion?.setValidators(validatorsRequired);
-      ctrlCiudadOcupacion?.setValidators(validatorsRequired);
+      ctrlDireccionEmpresa?.setValidators(validatorsRequired);
+      ctrlCiudadEmpresa?.setValidators(validatorsRequired);
       ctrlCargoOcupacion?.setValidators(validatorsRequired);
       ctrlSalario?.setValidators(validatorsRequiredNumber);
       ctrlEgresosMensuales?.setValidators(validatorsRequiredNumber);
@@ -198,8 +198,8 @@ export class FormOcupacionArrendarComponent implements OnChanges {
     ctrlDeduccionMensual?.setValidators(validatorsRequired);
     ctrlEmpresa?.clearValidators();
     ctrlNitEmpresa?.clearValidators();
-    ctrlDireccionOcupacion?.clearValidators();
-    ctrlCiudadOcupacion?.clearValidators();
+    ctrlDireccionEmpresa?.clearValidators();
+    ctrlCiudadEmpresa?.clearValidators();
     ctrlFechaIngreso?.clearValidators();
     ctrlCargoOcupacion?.clearValidators();
     ctrlTipoContrato?.clearValidators();

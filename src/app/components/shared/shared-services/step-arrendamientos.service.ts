@@ -105,4 +105,20 @@ export class StepArrendamientosService {
     }
     this.setBienesArrendar(gestorCapiroBienes ? inforBienes : this.informacionBienes);
   }
+
+  clearObservablesArrendamiento() {
+    let inforGen: InformacionGeneralA = {} as InformacionGeneralA;
+    let inforOcup: InformacionOcupacionA = {} as InformacionOcupacionA;
+    let inforRefer: ReferenciasA = {} as ReferenciasA;
+    let inforBienes: BienesA = {} as BienesA;
+
+    this.setInfoGenArrendar(inforGen);
+    this.setInfoOcupArrendar(inforOcup);
+    this.setReferenciasArrendar(inforRefer);
+    this.setBienesArrendar(inforBienes);
+    this.storageService.localSet(environment.storageKey.infoGeneralArrendar, '');
+    this.storageService.localSet(environment.storageKey.infoOcupacionArrendar, '');
+    this.storageService.localSet(environment.storageKey.infoReferenciasArrendar, '');
+    this.storageService.localSet(environment.storageKey.infoBienesArrendar, '');
+  }
 }

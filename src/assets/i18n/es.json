@@ -122,10 +122,10 @@
         "empresa": "Campo requerido",
 
         "nitEmpresa": "Campo requerido",
-        "direccionOcupacion": "Campo requerido",
-        "ciudadOcupacion": "Campo requerido",
+        "direccionEmpresa": "Campo requerido",
+        "ciudadEmpresa": "Campo requerido",
         "fechaIngreso": "Campo requerido",
-        "cargoOcupacion": "Campo requerido",
+        "cargo": "Campo requerido",
         "tipoContrato": "Campo requerido",
         "telefonoEmpresa": "Campo requerido",
         "salario": "Campo requerido",

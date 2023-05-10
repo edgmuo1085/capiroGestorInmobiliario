@@ -4,12 +4,17 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import {
   BienesA,
+  BienesModel,
   CrearArriendo,
   CrearArriendoModel,
   InformacionGeneralA,
   InformacionOcupacionA,
+  RefBancariasModel,
+  RefFamiliaresModel,
+  RefPersonalesModel,
   ReferenciasA,
   ReferenciasComerciales,
+  VehiculosModel,
 } from 'src/app/components/interfaces/arrendamiento.interface';
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { PropiedadesService } from 'src/app/components/shared/shared-services/propiedades.service';
@@ -123,38 +128,38 @@ export class BienesArrendarComponent implements OnInit, OnDestroy {
   }
 
   setFormsArrendamiento() {
-    const sub1$ = this.stepArrendarService.getInfoGeneralArrendar().subscribe(response => {
+    const sub2$ = this.stepArrendarService.getInfoGeneralArrendar().subscribe(response => {
       if (!response.estadoCivil) {
         return;
       }
       this.informacionGeneralA = response;
     });
 
-    const sub2$ = this.stepArrendarService.getInfoOcupArrendar().subscribe(response => {
+    const sub3$ = this.stepArrendarService.getInfoOcupArrendar().subscribe(response => {
       if (!response.selectOcupacion) {
         return;
       }
       this.informacionOcupacionA = response;
     });
 
-    const sub3$ = this.stepArrendarService.getReferenciasArrendar().subscribe(response => {
+    const sub4$ = this.stepArrendarService.getReferenciasArrendar().subscribe(response => {
       if (!response.nombreRazon) {
         return;
       }
       this.informacionReferenciasA = response;
     });
 
-    const sub4$ = this.stepArrendarService.getBienesArrendar().subscribe(response => {
+    const sub5$ = this.stepArrendarService.getBienesArrendar().subscribe(response => {
       if (!response.tipoInmuebleDireccionUno) {
         return;
       }
       this.informacionBienesA = response;
     });
 
-    this.observableSubscription.push(sub1$);
     this.observableSubscription.push(sub2$);
     this.observableSubscription.push(sub3$);
     this.observableSubscription.push(sub4$);
+    this.observableSubscription.push(sub5$);
 
     this.llenarModelosCrear();
   }
@@ -200,10 +205,10 @@ export class BienesArrendarComponent implements OnInit, OnDestroy {
       this.informacionGeneralA.ingresosConyuge,
       this.informacionOcupacionA.empresa,
       this.informacionOcupacionA.nitEmpresa,
-      this.informacionOcupacionA.direccionOcupacion,
-      this.informacionOcupacionA.ciudadOcupacion,
+      this.informacionOcupacionA.direccionEmpresa,
+      this.informacionOcupacionA.ciudadEmpresa,
       this.informacionOcupacionA.fechaIngreso,
-      this.informacionOcupacionA.cargoOcupacion,
+      this.informacionOcupacionA.cargo,
       this.informacionOcupacionA.tipoContrato,
       +this.informacionOcupacionA.telefonoEmpresa,
       +this.informacionOcupacionA.salario,
@@ -222,17 +227,24 @@ export class BienesArrendarComponent implements OnInit, OnDestroy {
       this.informacionOcupacionA.deduccionMensual
     );
 
-    console.log(arriendo);
     this.loading = true;
-    this.propiedadesService.crearArriendo(arriendo).subscribe({
-      next: response => {
-        console.log(response);
+    const sub6$ = this.propiedadesService.crearArriendo(arriendo).subscribe({
+      next: async response => {
         if (!response.id) {
           this.toastCustomService.showToast('Advertencia', 'No se pudo guardar correctamente la información, inténtelo más tarde ', 'warn');
           return;
         }
+
+        await this.guardarReferenciaPersonal(response.id);
+        await this.guardarReferenciaFamiliar(response.id);
+        await this.guardarReferenciaBancarias(response.id);
+        await this.guardarReferenciaBienes(response.id);
+        await this.guardarReferenciaVehiculos(response.id);
+        this.formBienes.reset();
+        this.stepArrendarService.clearObservablesArrendamiento();
         this.toastCustomService.showToast('Información', 'Datos guardados con éxito');
         this.loading = false;
+        this.router.navigate(['/dashboard']);
       },
       error: err => {
         this.loading = false;
@@ -244,12 +256,152 @@ export class BienesArrendarComponent implements OnInit, OnDestroy {
         );
       },
     });
+
+    this.observableSubscription.push(sub6$);
   }
 
-  guardarReferenciaPersonal() {}
+  async guardarReferenciaPersonal(idFormulario: number): Promise<boolean> {
+    const referenciaPersonalModel: RefPersonalesModel[] = [
+      new RefPersonalesModel(
+        this.informacionReferenciasA.nombresPersonalesUno,
+        this.informacionReferenciasA.celularPersonalesUno,
+        this.informacionReferenciasA.municipioPersonalesUno,
+        idFormulario
+      ),
+      new RefPersonalesModel(
+        this.informacionReferenciasA.nombresPersonalesDos,
+        this.informacionReferenciasA.celularPersonalesDos,
+        this.informacionReferenciasA.municipioPersonalesDos,
+        idFormulario
+      ),
+    ];
 
-  enviarFormulario() {
-    console.log('formBienes ', this.formBienes.value);
-    console.log('guardar formulario');
+    return new Promise((resolve, reject) => {
+      this.propiedadesService.crearReferenciasPersonales(referenciaPersonalModel).subscribe({
+        next: () => {
+          resolve(true);
+        },
+        error: err => {
+          console.error(err);
+          reject(err);
+        },
+      });
+    });
+  }
+
+  async guardarReferenciaFamiliar(idFormulario: number): Promise<boolean> {
+    const referenciaFamiliarModel: RefFamiliaresModel[] = [
+      new RefFamiliaresModel(
+        this.informacionReferenciasA.nombresFamiliaresUno,
+        this.informacionReferenciasA.celularFamiliaresUno,
+        this.informacionReferenciasA.municipioFamiliaresUno,
+        idFormulario
+      ),
+      new RefFamiliaresModel(
+        this.informacionReferenciasA.nombresFamiliaresDos,
+        this.informacionReferenciasA.celularFamiliaresDos,
+        this.informacionReferenciasA.municipioFamiliaresDos,
+        idFormulario
+      ),
+    ];
+
+    return new Promise((resolve, reject) => {
+      this.propiedadesService.crearReferenciasFamiliares(referenciaFamiliarModel).subscribe({
+        next: () => {
+          resolve(true);
+        },
+        error: err => {
+          console.error(err);
+          reject(err);
+        },
+      });
+    });
+  }
+
+  async guardarReferenciaBancarias(idFormulario: number): Promise<boolean> {
+    const referenciaBancariasModel: RefBancariasModel[] = [
+      new RefBancariasModel(
+        this.informacionReferenciasA.tipoCuentaUno,
+        this.informacionReferenciasA.entidadFinancieraUno,
+        this.informacionReferenciasA.numCuentaUno,
+        idFormulario
+      ),
+      new RefBancariasModel(
+        this.informacionReferenciasA.tipoCuentaDos,
+        this.informacionReferenciasA.entidadFinancieraDos,
+        this.informacionReferenciasA.numCuentaDos,
+        idFormulario
+      ),
+    ];
+
+    return new Promise((resolve, reject) => {
+      this.propiedadesService.crearReferenciasBancarias(referenciaBancariasModel).subscribe({
+        next: () => {
+          resolve(true);
+        },
+        error: err => {
+          console.error(err);
+          reject(err);
+        },
+      });
+    });
+  }
+
+  async guardarReferenciaBienes(idFormulario: number): Promise<boolean> {
+    const referenciaBienesModel: BienesModel[] = [
+      new BienesModel(
+        this.informacionBienesA.tipoInmuebleDireccionUno,
+        this.informacionBienesA.matriculaNumeroUno,
+        this.informacionBienesA.municipioInmuebleUno,
+        idFormulario
+      ),
+      new BienesModel(
+        this.informacionBienesA.tipoInmuebleDireccionDos,
+        this.informacionBienesA.matriculaNumeroDos,
+        this.informacionBienesA.municipioInmuebleDos,
+        idFormulario
+      ),
+    ];
+
+    return new Promise((resolve, reject) => {
+      this.propiedadesService.crearBienes(referenciaBienesModel).subscribe({
+        next: () => {
+          resolve(true);
+        },
+        error: err => {
+          console.error(err);
+          reject(err);
+        },
+      });
+    });
+  }
+
+  async guardarReferenciaVehiculos(idFormulario: number): Promise<boolean> {
+    const referenciaVehiculosModel: VehiculosModel[] = [
+      new VehiculosModel(
+        this.informacionBienesA.vehiculoMarcaUno,
+        this.informacionBienesA.vehiculoModeloUno,
+        this.informacionBienesA.vehiculoPlacaUno,
+        idFormulario
+      ),
+      new VehiculosModel(
+        this.informacionBienesA.vehiculoMarcaDos,
+        this.informacionBienesA.vehiculoModeloDos,
+        this.informacionBienesA.vehiculoPlacaDos,
+        idFormulario
+      ),
+    ];
+
+    return new Promise((resolve, reject) => {
+      this.propiedadesService.crearVehiculos(referenciaVehiculosModel).subscribe({
+        next: () => {
+          resolve(true);
+        },
+        error: err => {
+          console.error(err);
+          reject(err);
+        },
+      });
+    });
   }
 }

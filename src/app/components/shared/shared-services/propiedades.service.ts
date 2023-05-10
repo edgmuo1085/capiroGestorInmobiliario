@@ -124,27 +124,27 @@ export class PropiedadesService {
     return this.http.post<Arriendo>(url, arriendo);
   }
 
-  crearReferenciasPersonales(personal: RefPersonalesModel): Observable<ReferenciasPersonales> {
+  crearReferenciasPersonales(personal: RefPersonalesModel[]): Observable<ReferenciasPersonales> {
     const url = `${environment.URL_API}predio/arriendo/personal`;
     return this.http.post<ReferenciasPersonales>(url, personal);
   }
 
-  crearReferenciasFamiliares(familiares: RefFamiliaresModel): Observable<ReferenciasFamiliares> {
+  crearReferenciasFamiliares(familiares: RefFamiliaresModel[]): Observable<ReferenciasFamiliares> {
     const url = `${environment.URL_API}predio/arriendo/familiar`;
     return this.http.post<ReferenciasFamiliares>(url, familiares);
   }
 
-  crearReferenciasBancarias(bancarias: RefBancariasModel): Observable<ReferenciasBancarias> {
+  crearReferenciasBancarias(bancarias: RefBancariasModel[]): Observable<ReferenciasBancarias> {
     const url = `${environment.URL_API}predio/arriendo/banco`;
     return this.http.post<ReferenciasBancarias>(url, bancarias);
   }
 
-  crearBienes(bienes: BienesModel): Observable<Bienes> {
+  crearBienes(bienes: BienesModel[]): Observable<Bienes> {
     const url = `${environment.URL_API}predio/arriendo/bienes`;
     return this.http.post<Bienes>(url, bienes);
   }
 
-  crearVehiculos(vehiculos: VehiculosModel): Observable<Vehiculos> {
+  crearVehiculos(vehiculos: VehiculosModel[]): Observable<Vehiculos> {
     const url = `${environment.URL_API}predio/arriendo/vehiculos`;
     return this.http.post<Vehiculos>(url, vehiculos);
   }

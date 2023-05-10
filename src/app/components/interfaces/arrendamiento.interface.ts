@@ -36,10 +36,10 @@ export interface InformacionOcupacionA {
   selectOcupacion: string;
   empresa: string;
   nitEmpresa: string;
-  direccionOcupacion: string;
-  ciudadOcupacion: string;
+  direccionEmpresa: string;
+  ciudadEmpresa: string;
   fechaIngreso: string;
-  cargoOcupacion: string;
+  cargo: string;
   tipoContrato: string;
   telefonoEmpresa: string;
   salario: string;
@@ -56,11 +56,9 @@ export interface InformacionOcupacionA {
 }
 
 export interface ReferenciasA {
-  /** ref comercial */
   nombreRazon: string;
   celularRefencia: string;
   municipio: string;
-  /** */
   nombresPersonalesUno: string;
   celularPersonalesUno: string;
   municipioPersonalesUno: string;
@@ -133,10 +131,10 @@ export interface CrearArriendo {
   /** info ocupacional */
   empresa: string;
   nitEmpresa: string;
-  direccionEmpresa: string /** direccionOcupacion */;
-  ciudadEmpresa: string /** ciudadOcupacion */;
+  direccionEmpresa: string;
+  ciudadEmpresa: string;
   fechaIngreso: string;
-  cargo: string /** cargoOcupacion */;
+  cargo: string;
   tipoContrato: string;
   telefonoEmpresa: number;
   salario: number;
