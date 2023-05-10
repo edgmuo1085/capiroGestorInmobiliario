@@ -116,9 +116,9 @@ export class StepArrendamientosService {
     this.setInfoOcupArrendar(inforOcup);
     this.setReferenciasArrendar(inforRefer);
     this.setBienesArrendar(inforBienes);
-    this.storageService.localSet(environment.storageKey.infoGeneralArrendar, '');
-    this.storageService.localSet(environment.storageKey.infoOcupacionArrendar, '');
-    this.storageService.localSet(environment.storageKey.infoReferenciasArrendar, '');
-    this.storageService.localSet(environment.storageKey.infoBienesArrendar, '');
+    this.storageService.localRemove(environment.storageKey.infoGeneralArrendar);
+    this.storageService.localRemove(environment.storageKey.infoOcupacionArrendar);
+    this.storageService.localRemove(environment.storageKey.infoReferenciasArrendar);
+    this.storageService.localRemove(environment.storageKey.infoBienesArrendar);
   }
 }
