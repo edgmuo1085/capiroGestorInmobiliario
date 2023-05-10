@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
 import { MenuItem, MenuNavbar } from 'src/app/components/interfaces/menu-navbar.interface';
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
+import { StepArrendamientosService } from 'src/app/components/shared/shared-services/step-arrendamientos.service';
 
 @Component({
   selector: 'app-nabvar-page',
@@ -43,7 +44,11 @@ export class NabvarPageComponent implements OnInit {
     },
   ];
 
-  constructor(private dataUserService: DataUserService, private confirmationService: ConfirmationService) {}
+  constructor(
+    private dataUserService: DataUserService,
+    private confirmationService: ConfirmationService,
+    private stepArrendarService: StepArrendamientosService
+  ) {}
 
   ngOnInit(): void {
     this.dataUserService.getUserData().subscribe(response => {
@@ -71,6 +76,7 @@ export class NabvarPageComponent implements OnInit {
         key: 'signout',
         message: '¿Desea cerrar sesión?',
         accept: () => {
+          this.stepArrendarService.clearObservablesArrendamiento();
           this.dataUserService.signOut();
         },
       });
