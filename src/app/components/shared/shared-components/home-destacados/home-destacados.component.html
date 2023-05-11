@@ -7,9 +7,9 @@
     </div>
   </div>
   <div class="row justify-content-center" id="section-destacados">
-    <div class="col-8 col-md-4 col-lg-3 my-3" *ngFor="let propiedad of listaDestacados">
+    <div class="col-10 col-md-4 col-lg-3 my-3" *ngFor="let propiedad of listaDestacados">
       <div class="destado-item">
-        <img [src]="propiedad.url" [alt]="propiedad.tipoInmueble" class="destacado-imagen" />
+        <img [src]="propiedad.url" [alt]="propiedad.tipoInmueble" class="destacado-imagen" width="306" height="408" />
         <div class="destacado-enlace">
           <a class="btn-mas" [routerLink]="'/inmuebles' + isLogging + '/detalle/' + propiedad.id">Ver más</a>
         </div>
