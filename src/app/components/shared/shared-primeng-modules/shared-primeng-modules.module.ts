@@ -44,6 +44,7 @@ import { BlockUIModule } from 'primeng/blockui';
 import { StepsModule } from 'primeng/steps';
 import { GalleriaModule } from 'primeng/galleria';
 import { TooltipModule } from 'primeng/tooltip';
+import { ImageModule } from 'primeng/image';
 
 const modulePrimeng = [
   InputTextModule,
@@ -84,6 +85,7 @@ const modulePrimeng = [
   StepsModule,
   GalleriaModule,
   TooltipModule,
+  ImageModule,
 ];
 
 /** Components Custom */

@@ -6,6 +6,32 @@
   [showItemNavigators]="true"
 >
   <ng-template pTemplate="item" let-item>
-    <img [src]="item.ruta" [alt]="item.nombreArchivo" class="galeria-img-inmueble" />
+    <img [src]="item.ruta" [alt]="item.nombreArchivo" class="galeria-img-inmueble" width="306" height="408" />
   </ng-template>
 </p-galleria>
+
+<p-galleria
+  [value]="fotosInmueble"
+  [(visible)]="showFullScreen"
+  [responsiveOptions]="responsiveOptions"
+  [containerStyle]="{ 'max-width': '850px' }"
+  [numVisible]="7"
+  [circular]="true"
+  [fullScreen]="true"
+  [showItemNavigators]="true"
+  [showThumbnails]="false"
+  [baseZIndex]="100000"
+>
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item.ruta" [alt]="item.nombreArchivo" class="galeria-img-inmueble-full" />
+  </ng-template>
+</p-galleria>
+
+<button
+  pButton
+  class="btn-custom"
+  type="button"
+  icon="pi pi-external-link"
+  label="Pantalla Completa"
+  (click)="showFullScreen = true"
+></button>

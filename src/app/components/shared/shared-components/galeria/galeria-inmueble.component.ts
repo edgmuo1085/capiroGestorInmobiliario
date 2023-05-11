@@ -10,6 +10,7 @@ import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.i
 export class GaleriaInmuebleComponent implements OnChanges {
   @Input() fotosInmueble: ResponseArchivo[] = [];
   responsiveOptions: any;
+  showFullScreen: boolean = false;
 
   constructor() {
     this.responsiveOptions = [
