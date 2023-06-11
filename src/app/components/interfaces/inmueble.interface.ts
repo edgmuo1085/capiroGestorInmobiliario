@@ -12,6 +12,12 @@ export interface Inmueble {
   tipoCons: string;
   idUsuario: number;
   direccion: string;
+  departamento: string;
+  municipio: string;
+  sector: string;
+  tipoCocina: string;
+  zona: string;
+  closeth: number;
   id: number;
 }
 
@@ -30,6 +36,12 @@ export class InmuebleModel implements Inmueble {
     public tipoCons: string,
     public idUsuario: number,
     public direccion: string,
+    public departamento: string,
+    public municipio: string,
+    public sector: string,
+    public tipoCocina: string,
+    public zona: string,
+    public closeth: number,
     public id: number
   ) {}
 }
@@ -50,6 +62,12 @@ export class InmuebleRegistroModel implements InmuebleRegistro {
     public tipoPublicacion: string,
     public tipoCons: string,
     public direccion: string,
+    public departamento: string,
+    public municipio: string,
+    public sector: string,
+    public tipoCocina: string,
+    public zona: string,
+    public closeth: number,
     public idUsuario: number
   ) {}
 }

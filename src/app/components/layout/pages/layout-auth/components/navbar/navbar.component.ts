@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MenuNavbar } from 'src/app/components/interfaces/menu-navbar.interface';
-import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
-import { LoginService } from 'src/app/components/shared/shared-services/login.service';
+import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +9,21 @@ import { LoginService } from 'src/app/components/shared/shared-services/login.se
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+  constructor(private toast: ToastCustomService) {}
+
   menuItem: MenuNavbar[] = [
     {
-      label: 'Inicio',
-      link: '/page/home',
+      label: 'Registre su inmueble',
+      link: '/inmuebles/sesion/listar',
+      
+    },
+    {
+      label: 'Avalúos',
+      link: '/avaluos/sesion/listar',
+    },
+    {
+      label: 'Hipotecas',
+      link: '/hipotecas/sesion/listar',
     },
     {
       label: 'Inmuebles',
@@ -41,4 +52,17 @@ export class NavbarComponent {
       link: '/page/registro',
     },
   ];
+
+  showMessage(label: string) {
+    if (label === 'Registre su inmueble') {
+      this.toast.showToast('Información', 'Debe iniciar sesión o registrarse para registrar un inmueble.','info');
+    } else if (label === 'Avalúos') {
+      this.toast.showToast('Información', 'Debe iniciar sesión o registrarse para acceder a los avalúos.','info');
+    } else if (label === 'Hipotecas') {
+      this.toast.showToast('Información', 'Debe iniciar sesión o registrarse para acceder a las hipotecas.','info');
+    }
+  }
 }
+
+
+

@@ -19,6 +19,7 @@
       <div class="col-12 col-md-10">
         <form [formGroup]="formRegistroInmueble" (ngSubmit)="onSubmitFormInmueble()" appValidator autocomplete="off">
           <div class="container-fluid">
+            <!-- Características generales del inmueble -->
             <div class="row justify-content-center">
               <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'tipoInmueble'">
@@ -33,11 +34,17 @@
               </div>
               <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'area'">
-                  <app-cap-form-input [formData]="formRegistroInmueble" [controlName]="'area'" [placeholder]="'Área del predio'">
+                  <app-cap-form-input
+                    [formData]="formRegistroInmueble"
+                    [controlName]="'area'"
+                    [placeholder]="'Área (m²)'"
+                  >
                   </app-cap-form-input>
                 </app-cap-form-fielset>
               </div>
             </div>
+
+            <!-- Características adicionales del inmueble -->
             <div class="row justify-content-center">
               <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'habitacion'">
@@ -51,19 +58,6 @@
                 </app-cap-form-fielset>
               </div>
               <div class="col-12 col-md-5 mb-3">
-                <app-cap-form-fielset [label]="'estrato'">
-                  <app-cap-form-dropdown
-                    [formData]="formRegistroInmueble"
-                    [controlName]="'estrato'"
-                    [listaItems]="listaEstratos"
-                    [placeholder]="'Estratos'"
-                  >
-                  </app-cap-form-dropdown>
-                </app-cap-form-fielset>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'banos'">
                   <app-cap-form-dropdown
                     [formData]="formRegistroInmueble"
@@ -74,6 +68,10 @@
                   </app-cap-form-dropdown>
                 </app-cap-form-fielset>
               </div>
+            </div>
+
+            <!-- Características adicionales del inmueble (cont.) -->
+            <div class="row justify-content-center">
               <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'garage'">
                   <app-cap-form-dropdown
@@ -85,7 +83,44 @@
                   </app-cap-form-dropdown>
                 </app-cap-form-fielset>
               </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'tipoCocina'">
+                  <app-cap-form-dropdown
+                    [formData]="formRegistroInmueble"
+                    [controlName]="'tipoCocina'"
+                    [listaItems]="listaCocinas"
+                    [placeholder]="'Tipo de cocina'"
+                  >
+                  </app-cap-form-dropdown>
+                </app-cap-form-fielset>
+              </div>
             </div>
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'zona'">
+                  <app-cap-form-dropdown
+                    [formData]="formRegistroInmueble"
+                    [controlName]="'zona'"
+                    [listaItems]="listaEleccionSiNo"
+                    [placeholder]="'Zona de Ropa'"
+                  >
+                  </app-cap-form-dropdown>
+                </app-cap-form-fielset>
+              </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'closeth'">
+                  <app-cap-form-dropdown
+                    [formData]="formRegistroInmueble"
+                    [controlName]="'closeth'"
+                    [listaItems]="listaCloseth"
+                    [placeholder]="'Closeth'"
+                  >
+                  </app-cap-form-dropdown>
+                </app-cap-form-fielset>
+              </div>
+              </div>
+
+            <!-- Estado y detalles del inmueble -->
             <div class="row justify-content-center">
               <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'estadoInmueble'">
@@ -100,53 +135,61 @@
               </div>
               <div class="col-12 col-md-5 mb-3">
                 <app-cap-form-fielset [label]="'tiempo'">
-                  <app-cap-form-input
-                    [formData]="formRegistroInmueble"
-                    [controlName]="'tiempo'"
-                    [placeholder]="'Tiempo de contruido (meses)'"
-                  >
+                  <app-cap-form-input [formData]="formRegistroInmueble" [controlName]="'tiempo'" [placeholder]="'Tiempo de construido'">
                   </app-cap-form-input>
                 </app-cap-form-fielset>
               </div>
             </div>
+
+            <!-- Ubicación del inmueble -->
             <div class="row justify-content-center">
               <div class="col-12 col-md-5 mb-3">
-                <app-cap-form-fielset [label]="'precio'">
-                  <app-cap-form-input [formData]="formRegistroInmueble" [controlName]="'precio'" [placeholder]="'Precio'">
-                  </app-cap-form-input>
-                </app-cap-form-fielset>
-              </div>
-              <div class="col-12 col-md-5 mb-3">
-                <app-cap-form-fielset [label]="'tipoPublicacion'">
+                <app-cap-form-fielset [label]="'departamento'">
                   <app-cap-form-dropdown
                     [formData]="formRegistroInmueble"
-                    [controlName]="'tipoPublicacion'"
-                    [listaItems]="tipoPublicacion"
-                    [placeholder]="'Tipo de publicación'"
-                  >
-                  </app-cap-form-dropdown>
-                </app-cap-form-fielset>
-              </div>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-12 col-md-5 mb-3">
-                <app-cap-form-fielset [label]="'tipoConstruccion'">
-                  <app-cap-form-dropdown
-                    [formData]="formRegistroInmueble"
-                    [controlName]="'tipoConstruccion'"
-                    [listaItems]="tipoConstruccion"
-                    [placeholder]="'Tipo de contrucción'"
+                    [controlName]="'departamento'"
+                    [listaItems]="listaDepartamentos"
+                    [placeholder]="'Departamento'"
+                    (change)="onChangeDepartamento($event)"
                   >
                   </app-cap-form-dropdown>
                 </app-cap-form-fielset>
               </div>
               <div class="col-12 col-md-5 mb-3">
-                <app-cap-form-fielset [label]="'direccion'">
-                  <app-cap-form-input [formData]="formRegistroInmueble" [controlName]="'direccion'" [placeholder]="'Dirección'">
-                  </app-cap-form-input>
+                <app-cap-form-fielset [label]="'municipio'">
+                  <app-cap-form-dropdown2
+                    [formData]="formRegistroInmueble"
+                    [controlName]="'municipio'"
+                    [listaItems]="ciudades"
+                    [placeholder]="'Municipio'"
+                  >
+                  </app-cap-form-dropdown2>
                 </app-cap-form-fielset>
               </div>
             </div>
+
+            <!-- Otras características del inmueble -->
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'sector'">
+                  <app-cap-form-input [formData]="formRegistroInmueble" [controlName]="'sector'" [placeholder]="'Sector'">
+                  </app-cap-form-input>
+                </app-cap-form-fielset>
+              </div>
+              <div class="col-12 col-md-5 mb-3">
+                <app-cap-form-fielset [label]="'estrato'">
+                  <app-cap-form-dropdown
+                    [formData]="formRegistroInmueble"
+                    [controlName]="'estrato'"
+                    [listaItems]="listaEstratos"
+                    [placeholder]="'Estratos'"
+                  >
+                  </app-cap-form-dropdown>
+                </app-cap-form-fielset>
+              </div>
+            </div>
+
+            <!-- Botones para cancelar y enviar el formulario -->
             <div class="d-flex justify-content-evenly mt-5">
               <div class="form-button">
                 <button class="form-btn bg-gray" type="button" (click)="btnCancel()">Cancelar</button>

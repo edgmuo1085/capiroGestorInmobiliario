@@ -94,6 +94,7 @@ import { CapFormFielsetComponent } from './cap-form-fielset/cap-form-fielset.com
 import { CapFormInputComponent } from './cap-form-input/cap-form-input.component';
 import { CapFormDropdownComponent } from './cap-form-dropdown/cap-form-dropdown.component';
 import { CapFormDropdownCustomComponent } from './cap-form-dropdown-custom/cap-form-dropdown-custom.component';
+import { CapFormDropdown2Component } from './cap-form-dropdown2/cap-form-dropdown2.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +103,7 @@ import { CapFormDropdownCustomComponent } from './cap-form-dropdown-custom/cap-f
     CapFormInputComponent,
     CapFormDropdownComponent,
     CapFormDropdownCustomComponent,
+    CapFormDropdown2Component
   ],
   imports: [TranslateModule.forChild({}), CommonModule, FormsModule, ReactiveFormsModule, ...modulePrimeng],
   exports: [
@@ -112,6 +114,7 @@ import { CapFormDropdownCustomComponent } from './cap-form-dropdown-custom/cap-f
     CapFormInputComponent,
     CapFormDropdownComponent,
     CapFormDropdownCustomComponent,
+    CapFormDropdown2Component
   ],
   providers: [MessageService, ConfirmationService],
 })

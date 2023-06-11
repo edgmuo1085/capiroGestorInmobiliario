@@ -3,6 +3,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ParametrosShared } from 'src/app/components/interfaces/parametros.interface';
 import { Router } from '@angular/router';
 
+import { DepartamentoService } from 'src/app/components/shared/shared-services/departametos.service';
+
 @Component({
   selector: 'app-inmueble-form',
   templateUrl: './inmueble-form.component.html',
@@ -24,10 +26,23 @@ export class InmuebleFormComponent {
   @Input() estadoInmueble: ParametrosShared[] = [];
   @Input() tipoPublicacion: ParametrosShared[] = [];
   @Input() tipoConstruccion: ParametrosShared[] = [];
+  @Input() listaDepartamentos: ParametrosShared[]= [];
+  @Input() listaCocinas: ParametrosShared[]= [];
+  @Input() listaCloseth: ParametrosShared[]= [];
+  departamentoSeleccionado:string='';
+  @Input() ciudades: String[] = [];
   @Output() actionFormInmueble: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private router: Router) {}
-
+  constructor(private router: Router,private depar: DepartamentoService) {}
+  onChangeDepartamento(event: any) {
+    this.departamentoSeleccionado = event.target.value;
+    this.depart(this.departamentoSeleccionado);
+  }
+  depart(nombre: string) {
+    this.depar.depar(nombre).subscribe((response: string[]) => {
+      this.ciudades=response;
+    });
+  }
   onSubmitFormInmueble() {
     this.actionFormInmueble.emit();
   }

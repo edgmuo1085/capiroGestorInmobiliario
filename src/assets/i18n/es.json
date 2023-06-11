@@ -93,6 +93,10 @@
         "valor": "Campo requerido",
         "usoPropiedad": "Campo requerido",
         "afectacion": "Campo requerido",
+        "departamento": "Campo requerido",
+        "sector": "Campo requerido",
+        "tipoCocina": "Campo requerido",
+        "closeth": "Campo requerido",
 
         "direccionPredio": "Campo requerido",
         "destinacionPredio": "Campo requerido",

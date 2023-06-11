@@ -273,6 +273,36 @@ export const parametrosSelect = {
       label: '6 Baños',
     },
   ],
+  listaCloseth: [
+    {
+      value: '1',
+      label: 'Vestier',
+    },
+    {
+      value: '2',
+      label: '1 Closeth',
+    },
+    {
+      value: '3',
+      label: '2 Closeth',
+    },
+    {
+      value: '4',
+      label: '3 Closeth',
+    },
+    {
+      value: '5',
+      label: '4 Closeth',
+    },
+    {
+      value: '6',
+      label: '5 Closeth',
+    },
+    {
+      value: '7',
+      label: '6 Closeth',
+    },
+  ],
   listaUsoPropiedad: [
     {
       value: 'Residencial',
@@ -289,6 +319,28 @@ export const parametrosSelect = {
     {
       value: 'Otro',
       label: 'Otro',
+    },
+  ],
+  listaDepartamentos: [
+    {
+      value: 'Antioquia',
+      label: 'Antioquia',
+    },
+  ],
+  tipoCocina: [
+    {
+      value: 'Integral',
+      label: 'Integral',
+    },
+
+    {
+      value: 'Sencilla',
+      label: 'Sencilla',
+    },
+
+    {
+      value: 'Semi integral',
+      label: 'Semi integral',
     },
   ],
 };

@@ -30,6 +30,11 @@ export class InmuebleRegistrarComponent implements OnInit {
   estadoInmueble: ParametrosShared[] = environment.estadoInmueble;
   tipoPublicacion: ParametrosShared[] = environment.tipoPublicacion;
   tipoConstruccion: ParametrosShared[] = environment.tipoConstruccion;
+  listaDepartamentos:ParametrosShared[]=environment.listaDepartamentos;
+  listaCocinas:ParametrosShared[]=environment.tipoCocina;
+  listaCloseth:ParametrosShared[]=environment.listaCloseth;
+
+  departamentoSeleccionado: string = '';
   loading: boolean = false;
 
   constructor(
@@ -68,6 +73,12 @@ export class InmuebleRegistrarComponent implements OnInit {
       tipoPublicacion: ['', [Validators.required]],
       tipoConstruccion: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
+      departamento:['', [Validators.required]],
+      municipio:['', [Validators.required]],
+      sector:['', [Validators.required]],
+      tipoCocina:['', [Validators.required]],
+      zona:['', [Validators.required]],
+      closeth:['', [Validators.required]],
     });
   }
 
@@ -99,6 +110,12 @@ export class InmuebleRegistrarComponent implements OnInit {
       this.formRegistroInmueble.get('tipoPublicacion')?.value,
       this.formRegistroInmueble.get('tipoConstruccion')?.value,
       this.formRegistroInmueble.get('direccion')?.value,
+      this.formRegistroInmueble.get('departamento')?.value,
+      this.formRegistroInmueble.get('municipio')?.value,
+      this.formRegistroInmueble.get('sector')?.value,
+      this.formRegistroInmueble.get('tipoCocina')?.value,
+      this.formRegistroInmueble.get('dirzonaeccion')?.value,
+      this.formRegistroInmueble.get('closeth')?.value,
       this.idUsuario
     );
     this.propiedadesService.crearInmueble(registroInmueble).subscribe({
@@ -146,6 +163,12 @@ export class InmuebleRegistrarComponent implements OnInit {
       this.formRegistroInmueble.get('tipoConstruccion')?.value,
       this.idUsuario,
       this.formRegistroInmueble.get('direccion')?.value,
+      this.formRegistroInmueble.get('departamento')?.value,
+      this.formRegistroInmueble.get('municipio')?.value,
+      this.formRegistroInmueble.get('sector')?.value,
+      this.formRegistroInmueble.get('tipoCocina')?.value,
+      this.formRegistroInmueble.get('dirzonaeccion')?.value,
+      this.formRegistroInmueble.get('closeth')?.value,
       +this.idInmuebleUpdate
     );
     this.propiedadesService.crearInmueble(actualizarInmuebleData).subscribe({

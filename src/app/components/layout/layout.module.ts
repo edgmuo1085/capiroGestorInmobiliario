@@ -21,7 +21,8 @@ import { NabvarPageComponent } from './pages/layout-page/components/nabvar-page/
     Page404Component,
     NavbarComponent,
     NabvarPageComponent,
+   
   ],
-  imports: [CommonModule, LayoutRoutingModule, SharedPrimengModulesModule, SharedComponentsModule],
+  imports: [ CommonModule, LayoutRoutingModule, SharedPrimengModulesModule, SharedComponentsModule],
 })
 export class LayoutModule {}
