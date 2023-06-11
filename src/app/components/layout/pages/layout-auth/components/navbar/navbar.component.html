@@ -31,7 +31,7 @@
                 [ngClass]="{ 'register-item': menu.label === 'Registrarse' }"
                 routerLinkActive="active"
                 aria-current="page"
-                (click)="showMessage(menu.label)"
+              (click)="showMessage(menu.label)"
                 [routerLink]="menu.link"
               >
                 <span>{{ menu.label }}</span>
