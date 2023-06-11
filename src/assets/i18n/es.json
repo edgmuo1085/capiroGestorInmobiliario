@@ -97,6 +97,7 @@
         "sector": "Campo requerido",
         "tipoCocina": "Campo requerido",
         "closeth": "Campo requerido",
+        "zona": "Campo requerido",
 
         "direccionPredio": "Campo requerido",
         "destinacionPredio": "Campo requerido",
