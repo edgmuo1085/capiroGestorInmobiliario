@@ -192,6 +192,19 @@
                 </app-cap-form-fielset>
               </div>
             </div>
+            <div class="row justify-content-center">
+            <div class="col-12 col-md-5 mb-3">
+              <app-cap-form-fielset [label]="'negociado'">
+                <app-cap-form-dropdown
+                  [formData]="formRegistroInmueble"
+                  [controlName]="'negociado'"
+                  [listaItems]="listaNegociado"
+                  [placeholder]="'Estado Negociado'"
+                >
+                </app-cap-form-dropdown>
+              </app-cap-form-fielset>
+            </div>
+          </div>
 
             <!-- Botones para cancelar y enviar el formulario -->
             <div class="d-flex justify-content-evenly mt-5">

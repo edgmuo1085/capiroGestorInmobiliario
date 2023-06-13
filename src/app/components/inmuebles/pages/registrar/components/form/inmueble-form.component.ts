@@ -29,6 +29,7 @@ export class InmuebleFormComponent {
   @Input() listaDepartamentos: ParametrosShared[]= [];
   @Input() listaCocinas: ParametrosShared[]= [];
   @Input() listaCloseth: ParametrosShared[]= [];
+  @Input() listaNegociado: ParametrosShared[]= [];
   departamentoSeleccionado:string='';
   @Input() ciudades: String[] = [];
   @Output() actionFormInmueble: EventEmitter<any> = new EventEmitter<any>();

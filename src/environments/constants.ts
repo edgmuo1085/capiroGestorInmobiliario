@@ -343,6 +343,20 @@ export const parametrosSelect = {
       label: 'Semi integral',
     },
   ],
+  listaNegociado: [
+    {
+      value: 'ARRENDADO',
+      label: 'ARRENDADO',
+    },
+    {
+      value: 'VENDIDO',
+      label: 'VENDIDO',
+    },
+    {
+      value: 'SIN NEGOCIAR',
+      label: 'SIN NEGOCIAR',
+    },
+  ],
 };
 
 export const requisitosPropiedades = {

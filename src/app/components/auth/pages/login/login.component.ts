@@ -5,6 +5,7 @@ import { UserDataShared } from 'src/app/components/interfaces/response-login.int
 import { DataUserService } from 'src/app/components/shared/shared-services/data-user.service';
 import { LoginService } from 'src/app/components/shared/shared-services/login.service';
 import { StorageLocalService } from 'src/app/components/shared/shared-services/storage-local.service';
+
 import { ToastCustomService } from 'src/app/components/shared/shared-services/toast-custom.service';
 import { environment } from 'src/environments/environment';
 
@@ -73,7 +74,7 @@ export class LoginComponent implements OnInit {
         this.dataUserService.setUserData(userData);
         this.dataUserService.setTokenLocal(response.token);
         this.loading = false;
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['dashboard']);
       },
       error: err => {
         this.loading = false;

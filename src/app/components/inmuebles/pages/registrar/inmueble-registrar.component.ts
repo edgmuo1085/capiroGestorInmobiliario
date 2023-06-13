@@ -30,9 +30,10 @@ export class InmuebleRegistrarComponent implements OnInit {
   estadoInmueble: ParametrosShared[] = environment.estadoInmueble;
   tipoPublicacion: ParametrosShared[] = environment.tipoPublicacion;
   tipoConstruccion: ParametrosShared[] = environment.tipoConstruccion;
-  listaDepartamentos:ParametrosShared[]=environment.listaDepartamentos;
-  listaCocinas:ParametrosShared[]=environment.tipoCocina;
-  listaCloseth:ParametrosShared[]=environment.listaCloseth;
+  listaDepartamentos: ParametrosShared[] = environment.listaDepartamentos;
+  listaCocinas: ParametrosShared[] = environment.tipoCocina;
+  listaCloseth: ParametrosShared[] = environment.listaCloseth;
+  listaNegociado: ParametrosShared[] = environment.listaNegociado;
 
   departamentoSeleccionado: string = '';
   loading: boolean = false;
@@ -79,6 +80,14 @@ export class InmuebleRegistrarComponent implements OnInit {
       tipoCocina:['', [Validators.required]],
       zona:['', [Validators.required]],
       closeth:['', [Validators.required]],
+      negociado: ['', [Validators.required]],
+      /* departamento: [],
+      municipio: [''],
+      sector: [''],
+      tipoCocina: [''],
+      zona: [''],
+      closeth: [''],
+      negociado: [''],*/
     });
   }
 
@@ -116,6 +125,7 @@ export class InmuebleRegistrarComponent implements OnInit {
       this.formRegistroInmueble.get('tipoCocina')?.value,
       this.formRegistroInmueble.get('dirzonaeccion')?.value,
       this.formRegistroInmueble.get('closeth')?.value,
+      this.formRegistroInmueble.get('negociado')?.value,
       this.idUsuario
     );
     this.propiedadesService.crearInmueble(registroInmueble).subscribe({
@@ -169,6 +179,7 @@ export class InmuebleRegistrarComponent implements OnInit {
       this.formRegistroInmueble.get('tipoCocina')?.value,
       this.formRegistroInmueble.get('dirzonaeccion')?.value,
       this.formRegistroInmueble.get('closeth')?.value,
+      this.formRegistroInmueble.get('negociado')?.value,
       +this.idInmuebleUpdate
     );
     this.propiedadesService.crearInmueble(actualizarInmuebleData).subscribe({
@@ -213,6 +224,13 @@ export class InmuebleRegistrarComponent implements OnInit {
           tipoPublicacion: response.tipoPublicacion,
           tipoConstruccion: response.tipoCons,
           direccion: response.direccion,
+          departamento: response.departamento,
+          municipio: response.municipio,
+          sector: response.sector,
+          tipoCocina: response.tipoCocina,
+          zona: response.zona,
+          closeth: response.closeth,
+          negociado: response.negociado,
         });
       },
       error: err => {

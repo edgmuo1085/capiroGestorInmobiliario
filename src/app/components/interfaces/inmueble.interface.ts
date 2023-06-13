@@ -18,6 +18,7 @@ export interface Inmueble {
   tipoCocina: string;
   zona: string;
   closeth: number;
+  negociado:string;
   id: number;
 }
 
@@ -42,6 +43,7 @@ export class InmuebleModel implements Inmueble {
     public tipoCocina: string,
     public zona: string,
     public closeth: number,
+    public negociado:string,
     public id: number
   ) {}
 }
@@ -68,6 +70,7 @@ export class InmuebleRegistroModel implements InmuebleRegistro {
     public tipoCocina: string,
     public zona: string,
     public closeth: number,
+    public negociado:string,
     public idUsuario: number
   ) {}
 }
