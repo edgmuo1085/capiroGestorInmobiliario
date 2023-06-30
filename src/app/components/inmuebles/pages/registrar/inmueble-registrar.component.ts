@@ -63,7 +63,7 @@ export class InmuebleRegistrarComponent implements OnInit {
     this.formRegistroInmueble = this.fb.group({
       isInvalidForm: false,
       tipoInmueble: ['', [Validators.required]],
-      area: ['', [Validators.required, Validators.maxLength(8), Validators.pattern(environment.soloNumeros)]],
+      area: ['', [Validators.required, Validators.maxLength(8)]],
       habitacion: ['', [Validators.required]],
       estrato: ['', [Validators.required]],
       banos: ['', [Validators.required]],
@@ -74,20 +74,16 @@ export class InmuebleRegistrarComponent implements OnInit {
       tipoPublicacion: ['', [Validators.required]],
       tipoConstruccion: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
-      departamento:['', [Validators.required]],
-      municipio:['', [Validators.required]],
-      sector:['', [Validators.required]],
-      tipoCocina:['', [Validators.required]],
-      zona:['', [Validators.required]],
-      closeth:['', [Validators.required]],
+      departamento: ['', [Validators.required]],
+      municipio: ['', [Validators.required]],
+      sector: ['', [Validators.required]],
+      tipoCocina: ['', [Validators.required]],
+      zona: ['', [Validators.required]],
+      closeth: ['', [Validators.required]],
       negociado: ['', [Validators.required]],
-      /* departamento: [],
-      municipio: [''],
-      sector: [''],
-      tipoCocina: [''],
-      zona: [''],
-      closeth: [''],
-      negociado: [''],*/
+      gas: ['', [Validators.required]],
+      cuarto: ['', [Validators.required]],
+      descripcion: ['', [Validators.required]],
     });
   }
 
@@ -101,11 +97,11 @@ export class InmuebleRegistrarComponent implements OnInit {
   }
 
   onSubmitRegistrarInmueble() {
+    console.log(this.formRegistroInmueble)
     if (this.formRegistroInmueble.invalid) {
       this.toastCustomService.showToast('Advertencia', 'Debe diligenciar todos los campos', 'error');
       return;
     }
-
     let registroInmueble: InmuebleRegistro = new InmuebleRegistroModel(
       this.formRegistroInmueble.get('tipoInmueble')?.value,
       this.formRegistroInmueble.get('area')?.value,
@@ -123,9 +119,12 @@ export class InmuebleRegistrarComponent implements OnInit {
       this.formRegistroInmueble.get('municipio')?.value,
       this.formRegistroInmueble.get('sector')?.value,
       this.formRegistroInmueble.get('tipoCocina')?.value,
-      this.formRegistroInmueble.get('dirzonaeccion')?.value,
+      this.formRegistroInmueble.get('zona')?.value,
       this.formRegistroInmueble.get('closeth')?.value,
       this.formRegistroInmueble.get('negociado')?.value,
+      this.formRegistroInmueble.get('gas')?.value,
+      this.formRegistroInmueble.get('cuarto')?.value,
+      this.formRegistroInmueble.get('descripcion')?.value,
       this.idUsuario
     );
     this.propiedadesService.crearInmueble(registroInmueble).subscribe({
@@ -177,9 +176,12 @@ export class InmuebleRegistrarComponent implements OnInit {
       this.formRegistroInmueble.get('municipio')?.value,
       this.formRegistroInmueble.get('sector')?.value,
       this.formRegistroInmueble.get('tipoCocina')?.value,
-      this.formRegistroInmueble.get('dirzonaeccion')?.value,
+      this.formRegistroInmueble.get('dirzonazonaeccion')?.value,
       this.formRegistroInmueble.get('closeth')?.value,
       this.formRegistroInmueble.get('negociado')?.value,
+      this.formRegistroInmueble.get('gas')?.value,
+      this.formRegistroInmueble.get('cuarto')?.value,
+      this.formRegistroInmueble.get('descripcion')?.value,
       +this.idInmuebleUpdate
     );
     this.propiedadesService.crearInmueble(actualizarInmuebleData).subscribe({
@@ -231,6 +233,9 @@ export class InmuebleRegistrarComponent implements OnInit {
           zona: response.zona,
           closeth: response.closeth,
           negociado: response.negociado,
+          gas: response.gas,
+          cuarto: response.cuarto,
+          descripcion: response.descripcion,
         });
       },
       error: err => {

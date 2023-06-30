@@ -55,11 +55,11 @@ export class NavbarComponent {
 
   showMessage(label: string) {
     if (label === 'Registre su inmueble') {
-      this.toast.showToast('Información', 'Debe iniciar sesión o registrarse para registrar un inmueble.','info');
+      this.toast.showToast('Información', 'Debe iniciar sesión o registrarse, para registrar un inmueble.','info');
     } else if (label === 'Avalúos') {
-      this.toast.showToast('Información', 'Debe iniciar sesión o registrarse para acceder a los avalúos.','info');
+      this.toast.showToast('Información', 'Debe iniciar sesión o registrarse, para acceder a los avalúos.','info');
     } else if (label === 'Hipotecas') {
-      this.toast.showToast('Información', 'Debe iniciar sesión o registrarse para acceder a las hipotecas.','info');
+      this.toast.showToast('Información', 'Debe iniciar sesión o registrarse, para acceder a las hipotecas.','info');
     }
   }
 }

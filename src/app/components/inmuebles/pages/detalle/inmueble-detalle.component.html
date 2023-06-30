@@ -20,22 +20,37 @@
           <p>{{ infoInmueble.banos }} Baños</p>
         </div>
         <div class="caracteristica-inmueble">
+          <img src="./assets/images/cocina.png" alt="icon" class="icon-caracteristica" />
+          <p>Cocina {{ infoInmueble.tipoCocina }}</p>
+        </div>
+        <div class="caracteristica-inmueble">
           <img src="./assets/images/icono-galeria3.png" alt="icon" class="icon-caracteristica" />
           <p>{{ infoInmueble.area }} m<sup>2</sup></p>
         </div>
         <div class="caracteristica-inmueble">
           <i class="icon-custom fa-solid fa-location-dot"></i>
-          <p>{{ infoInmueble.direccion }}</p>
+          <p>{{ infoInmueble.direccion }} {{ infoInmueble.municipio }}-{{ infoInmueble.departamento }} </p>
+        </div>
+        <div class="caracteristica-inmueble">
+          <i class="icon-custom fa-solid fa-file-lines"></i>
+          <p>Descripcion: {{ infoInmueble.descripcion }} </p>
         </div>
       </div>
       <div class="detalle-caracteristicas-two">
         <div class="detalle-badges">{{ infoInmueble.estado }}</div>
         <div class="detalle-badges">{{ infoInmueble.tipoInmueble }}</div>
         <div class="detalle-badges">{{ infoInmueble.tipoPublicacion }}</div>
+        <div class="detalle-badges">Estrato {{ infoInmueble.estrato }}</div>
       </div>
-      <div class="detalle-inmueble-precio">
+      <div>
+      <div class="detalle-inmueble-precio" *ngIf="botonVenta">
         <h4>Precio de venta</h4>
         <p class="precio-inmueble">{{ infoInmueble.precio | currency : 'USD' : 'symbol' : '1.0-0' }}</p>
+      </div>
+      <div class="detalle-inmueble-precio" *ngIf="botonArriendo">
+        <h4>Precio de arriendo</h4>
+        <p class="precio-inmueble">{{ infoInmueble.precio | currency : 'USD' : 'symbol' : '1.0-0' }}</p>
+      </div>
       </div>
       <div class="d-flex justify-content-evenly mt-3">
         <div class="form-button" *ngIf="botonArriendo">
@@ -51,3 +66,4 @@
     </div>
   </div>
 </div>
+

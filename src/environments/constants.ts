@@ -32,6 +32,10 @@ export const parametrosSelect = {
       value: 'Casa Finca',
       label: 'Casa Finca',
     },
+    {
+      value: 'Lote',
+      label: 'Lote',
+    },
   ],
   listaEstratos: [
     {
@@ -274,33 +278,30 @@ export const parametrosSelect = {
     },
   ],
   listaCloseth: [
+   
     {
       value: '1',
-      label: 'Vestier',
+      label: '1 Closet',
     },
     {
       value: '2',
-      label: '1 Closeth',
+      label: '2 Closet',
     },
     {
       value: '3',
-      label: '2 Closeth',
+      label: '3 Closet',
     },
     {
       value: '4',
-      label: '3 Closeth',
+      label: '4 Closet',
     },
     {
       value: '5',
-      label: '4 Closeth',
+      label: '5 Closet',
     },
     {
       value: '6',
-      label: '5 Closeth',
-    },
-    {
-      value: '7',
-      label: '6 Closeth',
+      label: '6 Closet',
     },
   ],
   listaUsoPropiedad: [

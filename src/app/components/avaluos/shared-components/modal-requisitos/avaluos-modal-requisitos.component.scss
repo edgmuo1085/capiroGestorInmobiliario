@@ -11,14 +11,14 @@
         background-color: var(--gray-color-2);
       }
     }
-  }
 
-  .requisitos-header {
-    color: var(--color-principal);
-    font-size: cap-font-size(18px);
-    font-weight: 700;
-  }
 
+    .requisitos-header {
+      color: var(--color-principal);
+      font-size: cap-font-size(50px);
+      font-weight: 700;
+    }
+  }
   .requisitos-item {
     border: 1px solid var(--color-tercer);
     border-radius: cap-font-size(16px);

@@ -99,6 +99,9 @@
         "closeth": "Campo requerido",
         "zona": "Campo requerido",
         "negociado":"Campo requerido",
+        "gas":"Campo requerido",
+        "cuarto":"Campo requerido",
+        "descripcion":"Campo requerido",
 
         "direccionPredio": "Campo requerido",
         "destinacionPredio": "Campo requerido",

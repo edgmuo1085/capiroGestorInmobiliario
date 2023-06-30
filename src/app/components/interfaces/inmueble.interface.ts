@@ -19,6 +19,9 @@ export interface Inmueble {
   zona: string;
   closeth: number;
   negociado:string;
+  gas:string;
+  cuarto:string;
+   descripcion:string;
   id: number;
 }
 
@@ -44,6 +47,9 @@ export class InmuebleModel implements Inmueble {
     public zona: string,
     public closeth: number,
     public negociado:string,
+    public gas:string,
+    public cuarto:string,
+    public descripcion:string,
     public id: number
   ) {}
 }
@@ -71,6 +77,9 @@ export class InmuebleRegistroModel implements InmuebleRegistro {
     public zona: string,
     public closeth: number,
     public negociado:string,
+    public gas:string,
+    public cuarto:string,
+    public descripcion:string,
     public idUsuario: number
   ) {}
 }
