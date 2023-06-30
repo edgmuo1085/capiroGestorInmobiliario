@@ -20,6 +20,7 @@ import { InmueblesFotosUpdateComponent } from './pages/lista/components/lista-fo
 import { InmueblesFiltrosComponent } from './shared-components/filtros/inmuebles-filtros.component';
 import { InmueblePropiedadItemComponent } from './shared-components/item-propiedad/inmueble-propiedad-item.component';
 import { ModalInmuebleComponent } from './shared-components/modal/modal-inmueble.component';
+import { ArriendoModalRequisitosComponent } from './pages/modal-requisitos/arriendo-modal-requisitos.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ModalInmuebleComponent } from './shared-components/modal/modal-inmueble
     InmueblesFiltrosComponent,
     InmueblePropiedadItemComponent,
     ModalInmuebleComponent,
+    ArriendoModalRequisitosComponent
   ],
   imports: [
     CommonModule,

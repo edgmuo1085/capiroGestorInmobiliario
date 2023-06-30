@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ResponseInmueble } from 'src/app/components/interfaces/response-inmueble.interface';
 import { ResponseArchivo } from 'src/app/components/interfaces/respose-archivo.interface';
@@ -9,10 +9,11 @@ import { environment } from 'src/environments/environment';
   selector: 'app-propiedades-arriendo',
   templateUrl: './propiedades-arriendo.component.html',
   styleUrls: ['./propiedades-arriendo.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class PropiedadesArriendoComponent implements OnInit {
   propiedadesArriendo: ResponseInmueble[] = [];
-  display: boolean = false;
+  mostrarModal: boolean = false;
 
   constructor(private router: Router, private propiedadesService: PropiedadesService) {}
 
@@ -61,20 +62,12 @@ export class PropiedadesArriendoComponent implements OnInit {
     return fotoInmueble;
   }
 
-  verRequisitos() {
-    this.display = true;
+  showDialog() {
+    console.log("entra")
+    this.mostrarModal = true;
   }
 
-  closeModalUpload(event: any) {
-    this.display = event;
-  }
-
-  downloadImg() {
-    const aLink = document.createElement('a');
-    aLink.href = environment.arriendoPropiedadImg;
-    aLink.setAttribute('download', 'requisitos-arriendo');
-    document.body.appendChild(aLink);
-    aLink.click();
-    document.body.removeChild(aLink);
+  hideDialog(event: boolean) {
+    this.mostrarModal = event;
   }
 }
